@@ -4,6 +4,11 @@ PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie), studying subs
 
 Previously an operational aeronautical meteorologist at [Met Eireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction). BSc Physics from UCD.
 
+<a href="https://www.ucd.ie"><img src="https://img.shields.io/badge/UCD-003D6B?style=for-the-badge&logoColor=white" alt="UCD" /></a>
+<a href="https://www.met.ie"><img src="https://img.shields.io/badge/Met_Éireann-00A651?style=for-the-badge&logoColor=white" alt="Met Éireann" /></a>
+<a href="https://www.reading.ac.uk"><img src="https://img.shields.io/badge/University_of_Reading-862633?style=for-the-badge&logoColor=white" alt="University of Reading" /></a>
+<a href="https://www.ecmwf.int"><img src="https://img.shields.io/badge/ECMWF-1D4F91?style=for-the-badge&logoColor=white" alt="ECMWF" /></a>
+
 ---
 
 ### Current research
@@ -30,13 +35,32 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 
 ### Tools I use regularly
 
-**Research:** Python, xarray, NumPy, PyTorch, Matplotlib, Cartopy, Satpy, CDS/MARS APIs, HPC
+**Research**
 
-**Web:** Astro, TypeScript, Tailwind CSS, Vercel
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat)
+![xarray](https://img.shields.io/badge/xarray-E97627?style=flat)
+![Cartopy](https://img.shields.io/badge/Cartopy-2E86C1?style=flat)
+![Satpy](https://img.shields.io/badge/Satpy-1B4F72?style=flat)
+![Rasterio](https://img.shields.io/badge/Rasterio-4B8BBE?style=flat)
 
-**Writing:** LaTeX, Zotero, BibTeX
+**Web**
 
-**Environment:** Linux, VS Code, Conda, Git, Claude Code
+![Astro](https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
+
+**Writing & environment**
+
+![LaTeX](https://img.shields.io/badge/LaTeX-008080?style=flat&logo=latex&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
+![Conda](https://img.shields.io/badge/Conda-44A833?style=flat&logo=anaconda&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
 ---
 
@@ -46,4 +70,6 @@ Ward, L. et al. (2023). *Water Harvesting by Thermoresponsive Ionic Liquids: A M
 
 ---
 
-[LinkedIn](https://www.linkedin.com/in/lainey-ward) · [ORCID](https://orcid.org/0009-0001-2856-8170) · [Portfolio](https://laineylouiseward.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lainey-ward)
+[![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0001-2856-8170)
+[![Portfolio](https://img.shields.io/badge/Portfolio-222?style=flat&logo=githubpages&logoColor=white)](https://laineylouiseward.github.io)
