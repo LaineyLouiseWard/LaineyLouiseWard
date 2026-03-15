@@ -2,7 +2,7 @@
 
 PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie), studying subseasonal-to-seasonal (S2S) predictability of compound weather extremes using machine learning. Funded by [Innovate for Ireland](https://innovateforireland.ie).
 
-Previously an operational aeronautical meteorologist at [Met Eireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction). BSc Physics from UCD.
+Previously an operational aeronautical meteorologist at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction). BSc Physics from UCD.
 
 <a href="https://www.ucd.ie"><img src="https://img.shields.io/badge/University_College_Dublin-003D6B?style=for-the-badge&logoColor=white" alt="University College Dublin" /></a>
 <a href="https://www.met.ie"><img src="https://img.shields.io/badge/Met_Éireann-00A651?style=for-the-badge&logoColor=white" alt="Met Éireann" /></a>
@@ -10,7 +10,7 @@ Previously an operational aeronautical meteorologist at [Met Eireann](https://ww
 
 ---
 
-### Current research
+### Research
 
 Investigating how well seasonal forecast systems (ECMWF SEAS5) capture drought-to-flood and flood-to-drought transitions over Ireland at 2-8 week lead times. Building reproducible verification pipelines against ERA5 reanalysis and station observations, with a focus on what's actually predictable and what isn't.
 
@@ -28,7 +28,7 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 |---------|-------------|
 | [S2S_AI](https://github.com/LaineyLouiseWard/S2S_AI) | Verification framework for ECMWF seasonal reforecasts at Irish point locations |
 | [ClassImbalance](https://github.com/LaineyLouiseWard/ClassImbalance) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) |
-| [The Ensemble Edit](https://the-ensemble-site.vercel.app) | Interdisciplinary PhD student blog on AI and climate (Astro, Tailwind, MDX) |
+| [The Ensemble Edit](https://the-ensemble-site.vercel.app) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) |
 
 ---
 
@@ -84,3 +84,4 @@ Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). *Water
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lainey-ward)
 [![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0001-2856-8170)
 [![Portfolio](https://img.shields.io/badge/Portfolio-222?style=flat&logo=githubpages&logoColor=white)](https://laineylouiseward.github.io)
+[![The Ensemble Edit](https://img.shields.io/badge/The_Ensemble_Edit-FF5D01?style=flat&logo=astro&logoColor=white)](https://the-ensemble-site.vercel.app)
