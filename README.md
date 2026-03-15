@@ -4,10 +4,9 @@ PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie), studying subs
 
 Previously an operational aeronautical meteorologist at [Met Eireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction). BSc Physics from UCD.
 
-<a href="https://www.ucd.ie"><img src="https://img.shields.io/badge/UCD-003D6B?style=for-the-badge&logoColor=white" alt="UCD" /></a>
+<a href="https://www.ucd.ie"><img src="https://img.shields.io/badge/University_College_Dublin-003D6B?style=for-the-badge&logoColor=white" alt="University College Dublin" /></a>
 <a href="https://www.met.ie"><img src="https://img.shields.io/badge/Met_Éireann-00A651?style=for-the-badge&logoColor=white" alt="Met Éireann" /></a>
 <a href="https://www.reading.ac.uk"><img src="https://img.shields.io/badge/University_of_Reading-862633?style=for-the-badge&logoColor=white" alt="University of Reading" /></a>
-<a href="https://www.ecmwf.int"><img src="https://img.shields.io/badge/ECMWF-1D4F91?style=for-the-badge&logoColor=white" alt="ECMWF" /></a>
 
 ---
 
@@ -76,9 +75,11 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 
 ### Publication
 
-Ward, L. et al. (2023). *Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study.* J. Phys. Chem. B, 127(24). [Open access](https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655)
+Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). *Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study of the Water Absorption Kinetics and of the Role of Nanostructuring.* J. Phys. Chem. B, 127(24). [Open access](https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655)
 
 ---
+
+**Find me elsewhere:**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lainey-ward)
 [![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0001-2856-8170)
