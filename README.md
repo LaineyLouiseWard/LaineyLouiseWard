@@ -24,10 +24,7 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 |---------|-------------|
 | [S2S_AI](https://github.com/LaineyLouiseWard/S2S_AI) | Verification framework for ECMWF seasonal reforecasts at Irish point locations |
 | [ClassImbalance](https://github.com/LaineyLouiseWard/ClassImbalance) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) |
-| [EUMETSAT_GIFS](https://github.com/LaineyLouiseWard/EUMETSAT_GIFS) | Animated storm visualisations from MSG SEVIRI satellite data |
-| [research-literature-monitor](https://github.com/LaineyLouiseWard/research-literature-monitor) | Automated daily RSS screening of academic feeds, scored by LLM |
 | [The Ensemble Edit](https://the-ensemble-site.vercel.app) | Interdisciplinary PhD student blog on AI and climate (Astro, Tailwind, MDX) |
-| [Portfolio](https://laineylouiseward.github.io) | Research portfolio site |
 
 ---
 
