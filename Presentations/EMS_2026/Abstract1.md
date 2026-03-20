@@ -1,0 +1,12 @@
+Analysis of sub-daily temperature variations of past and future climates in South-East Europe
+Péter Szabó and Rita Pongrácz
+Eötvös Loránd University, Institute of Geography and Earth Sciences, Department of Meteorology, Budapest, Hungary (szabo.p.elte@gmail.com)
+Understanding sub-daily temperature variations is crucial in changing climate, especially as the diurnal temperature range (DTR) serves as a sensitive indicator of local and regional climatic shifts. DTR tends to be higher in arid regions, and its amplification directly affects human health – particularly cardiovascular and respiratory conditions – as well as agricultural productivity and energy demand. Rapid temperature changes within a day can stress crops, increase respiratory activity in plants, and result in spikes in heating or cooling requirements. 
+
+This study investigates sub-daily temperature dynamics over South-East Europe using 3-hourly temperature data from the ERA5-Land reanalysis (1971–2024) and high-resolution (the atmosphere on 25 km) CMIP6 climate model simulations (1971–2050). The focus is on characterising temporal trends and potential climatic drivers behind observed and projected changes of at least 4-10 °C within 3 hours. 
+
+Preliminary results reveal a notable increase in large positive sub-daily temperature changes – especially during transient months (March, April, September, October) – over the Pannonian Basin, predominantly during warm periods. Furthermore, an increase in large negative temperature shifts is detected from February to September, often associated with warm spells and precipitation events following warm spells. These findings suggest an evolving pattern of intra-day thermal variability, influenced by seasonal warming and atmospheric instability. 
+
+The analysis highlights the role of cloud cover, soil moisture, relative humidity, and dew-point temperature as contributing factors. Changes in these parameters influence both the magnitude and direction of sub-daily temperature shifts. Understanding these mechanisms is essential for developing adaptation strategies in agriculture, urban planning and public health sectors.
+
+Acknowledgements. This work has been implemented by the National Multidisciplinary Laboratory for Climate Change (RRF-2.3.1-21-2022-00014) project within the framework of Hungary's National Recovery and Resilience Plan supported by the Recovery and Resilience Facility of the European Union. In addition, this study has been supported by the European Climate Fund (G-2409-68866).

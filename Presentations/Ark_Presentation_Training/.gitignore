@@ -1,0 +1,5 @@
+# Only track .tex and .pdf
+*
+!.gitignore
+!presentation_slides.tex
+!presentation_slides.pdf

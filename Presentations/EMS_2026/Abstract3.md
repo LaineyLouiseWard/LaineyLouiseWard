@@ -1,0 +1,10 @@
+Temporal analysis of ozone exposure and environmental factors for different agricultural crops based on data from a Carpathian Basin monitoring site
+Anna Kis, Benedek Kocsis, and Róbert Mészáros
+Eötvös Loránd University, Institute of Geography and Earth Sciences, Department of Meteorology, Budapest, Hungary
+Tropospheric ozone is an important greenhouse gas, furthermore, it has a harmful effect on the health of humans, animals and plants. Elevated levels of near surface ozone can lead to various negative impacts on plants, including premature aging, reduction in flower numbers and biomass, altered tolerance to biotic and abiotic stresses and yield loss. In this study different stress-functions are analysed for crops that play a key role in regulating stomatal conductance of ozone. Factors, such as temperature, soil moisture and humidity are particularly important, especially during hot and dry periods in the Carpathian Basin.
+
+Our analysis is based on hourly meteorological and ozone concentration data for the period 2004–2022. The selected station is K-Puszta EMEP monitoring station, located in the central region of Hungary, in the Great Hungarian Plain. The temporal variability of each meteorological and phenological factor was investigated for wheat and potato. Furthermore, AOT40 values (a common metric for ozone exposure) were also calculated for the period 1992–2021 for K-Puszta station. According to our results, in the case of wheat, the critical level of AOT40 is reached later within the year by 6 days on average if we compare the years before and after 2006. Moreover, the critical level of AOT40 related to maize was exceeded only in two years after 2006, while in the period 1992–2005 six occurrences were found.
+
+ 
+
+Acknowledgements. This work has been implemented by the National Multidisciplinary Laboratory for Climate Change (RRF-2.3.1-21-2022-00014) project within the framework of Hungary's National Recovery and Resilience Plan supported by the Recovery and Resilience Facility of the European Union.
