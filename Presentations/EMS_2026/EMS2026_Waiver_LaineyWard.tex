@@ -1,0 +1,117 @@
+%-------------------------------------------------------------------------------
+%   EMS2026 Fee Waiver – Combined CV + Statement
+%-------------------------------------------------------------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[scale=0.88]{geometry}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[unicode]{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+\titleformat{\section}{\large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\pagestyle{empty}
+
+\begin{document}
+{\fontfamily{lmss}\selectfont
+
+%-------------------------------------------------------------------------------
+%   SHORT CV
+%-------------------------------------------------------------------------------
+\begin{tabularx}{\linewidth}{@{} >{\centering\arraybackslash}X @{}}
+{\LARGE\bfseries Lainey Ward} \\[4pt]
+PhD Student, School of Civil Engineering, University College Dublin \\
+Funded by the Decarb-AI Centre \textbar{} Innovate for Ireland iScholar \\[4pt]
+\href{mailto:lainey.ward1@ucdconnect.ie}{\faEnvelope}
+\ $|$ \
+\href{https://github.com/LaineyLouiseWard}{\faGithub}
+\ $|$ \
+\href{https://linkedin.com/in/lainey-ward-482821388}{\faLinkedin}
+\end{tabularx}
+
+\vspace{2pt}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Nationality:} & Irish \quad\textbar\quad \textbf{Date of birth:} 16 March 2000 \\
+\end{tabularx}
+
+\section{Education}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2025 -- 2029 & \textbf{PhD}, School of Civil Engineering, University College Dublin \\
+             & Thesis: Predictability of multi-hazard weather and climate events on subseasonal-to-seasonal timescales using machine learning \\
+             & Supervisors: Dr Fiachra O'Loughlin, Dr Conor Sweeney \\
+             & Featured at the Women in Mathematics Poster Exhibition (2026) \\[6pt]
+2023 -- 2024 & \textbf{MSc Atmosphere, Ocean and Climate} (Distinction), University of Reading \\
+             & Dissertation: Quantifying long-duration storage capacity and meteorological drivers of net-zero electricity systems \\
+             & \textit{Award:} UK Met Office MSc Dissertation Prize \\[6pt]
+2018 -- 2022 & \textbf{BSc Physics} (2:1), University College Dublin \\
+             & Dissertation (A+): Computational analysis of water-harvesting materials \\
+             & \textit{Award:} UCD Entrance Scholar \\
+\end{tabularx}
+
+\section{Experience}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2026 -- present & \textbf{COST Action ANTICIPATE} (CA24144) — Member of WG1 (Predictability) and WG2 (Multi-hazard Early Warning Systems) \\
+                & European network on extended-range multi-hazard prediction and early warning \\
+                & Will attend 1st General Meeting, Glasgow, and 1st WG Meeting, Lausanne (both 2026) \\[8pt]
+2025 -- present & \textbf{Postgraduate Committee}, UCD School of Mathematics \& Statistics \\
+                & Organise biweekly PhD seminar series, social events, and set up a \href{https://the-ensemble-site.vercel.app}{postgraduate blog} for low-stakes writing and fostering community \\[20pt]
+2025 -- present & \textbf{Tutor and Demonstrator}, University College Dublin \\
+                & Modules: STAT10060 Statistical Modelling; MATH10290 Linear Algebra for Science \\[8pt]
+2024 -- 2025    & \textbf{Aeronautical Meteorological Officer}, Met Éireann \\
+                & Operational aviation weather services; liaison with forecasters and air traffic control \\
+                & Quality assurance for the Aviation Modernisation and Automation Project \\
+                & Volunteered for national data-rescue initiatives (\href{https://doi.org/10.1002/joc.70185}{acknowledged}) \\
+\end{tabularx}
+
+\section{Presentations}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2026 & COST Action ANTICIPATE \textbar{} 1st WG Meeting, University of Lausanne \textbar{} Presentation (upcoming) \\
+2024 & Next Generation Energy and Climate Modelling Workshop \textbar{} Poster \\
+\end{tabularx}
+
+\section{Selected Training}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2026 & DestinE \textbar{} Machine Learning for Earth Systems Modelling Course \\
+2026 & ARK Speaking \& Training \textbar{} Professional Presentation Skills \\
+2025 & Co-Centre for Climate + Biodiversity + Water \textbar{} AI Climate Sustainability Sandbox \textbar{} Lead to ongoing research collaboration with \href{https://odostech.com/}{ODOS Technology} \\
+2025 & ECMWF \textbar{} Anemoi ML-Based Weather Prediction \\
+2024 & UK Met Office \textbar{} Operational Forecasting Course \textbar{} Distinction \\
+\end{tabularx}
+
+\section{Publication}
+
+Forero-Martinez, N. C., Cort\'{e}s-Huerto, R., Ward, L., \& Ballone, P. (2023).
+Water harvesting by thermoresponsive ionic liquids: A molecular dynamics study.
+\emph{J.\ Phys.\ Chem.\ B}, 127(24), 5494--5508.
+\href{https://doi.org/10.1021/acs.jpcb.3c01655}{doi:10.1021/acs.jpcb.3c01655}
+
+%-------------------------------------------------------------------------------
+%   SHORT STATEMENT
+%-------------------------------------------------------------------------------
+\newpage
+\section*{Statement in Support of Registration Fee Waiver}
+
+My PhD is funded by the Decarb-AI Centre at University College Dublin through the Innovate for Ireland programme. The scholarship covers tuition fees and a stipend, and I can apply to my centre for partial support towards travel and accommodation, but registration fees are not covered. A fee waiver would remove the remaining barrier to attending EMS 2026.
+
+I am submitting a poster to session OSA1.2 (Data Assimilation and Ensemble Forecasting from Short to Seasonal Time Scales). The poster presents a verification of ECMWF subseasonal-to-seasonal reforecasts over Ireland, comparing seasonal and extended-range prediction systems for temperature, precipitation, pressure, and soil moisture against reanalysis and station observations. This establishes a baseline for applying S2S forecasts to multi-hazard flood and drought transitions, which is the central question of my thesis.
+
+I began the research phase of my PhD in January 2026 and am less than three months in. Session OSA1.2 is directly relevant to my work, and presenting there would give me early feedback from the S2S and verification communities while there is still time to shape the direction of the thesis. More broadly, my research sits at the intersection of S2S prediction, forecast verification, machine learning, and multi-hazard impacts. EMS is one of the few conferences that brings these communities together, making it particularly valuable at this stage of my PhD.
+
+}% end font
+\end{document}

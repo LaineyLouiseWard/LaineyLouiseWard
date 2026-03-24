@@ -1,0 +1,191 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%   Academic CV – COST Action ANTICIPATE
+%   Adapted for Lainey Ward
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{fontawesome5}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[unicode]{hyperref}
+
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+%----------------------------------------------------------------------------------------
+%   BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+\pagestyle{empty}
+{\fontfamily{lmss}\selectfont
+
+%----------------------------------------------------------------------------------------
+%   HEADER
+%----------------------------------------------------------------------------------------
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Lainey Ward} \\[6pt]
+
+PhD Student | Decarb-AI Centre | Innovate for Ireland iScholar \\[3pt]
+School of Civil Engineering, University College Dublin \\[6pt]
+
+\href{https://github.com/LaineyLouiseWard}{\raisebox{-0.05\height}\faGithub\ LaineyLouiseWard}
+\ $|$ \
+\href{https://linkedin.com/in/lainey-ward-482821388}{\raisebox{-0.05\height}\faLinkedin\ Lainey Ward}
+\ $|$ \
+\href{mailto:lainey.ward1@ucdconnect.ie}{\raisebox{-0.05\height}\faEnvelope\ lainey.ward1@ucdconnect.ie}
+\ $|$ \
+\href{tel:+353851953317}{\raisebox{-0.05\height}\faMobile\ +353\space 85 195 3317}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%   SUMMARY
+%----------------------------------------------------------------------------------------
+\section{Summary}
+
+PhD student at the University College Dublin Decarb-AI Centre (“Decarbonising Ireland: AI-powered pathways to climate resilience”) and an Innovate for Ireland iScholar, researching subseasonal-to-seasonal predictability of multi-hazard weather and climate events with a focus on machine-learning methods.
+\par\vspace{10pt}
+%----------------------------------------------------------------------------------------
+%   EDUCATION
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\section{Education}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+2024 -- 2028 &
+\textbf{Doctor of Philosophy (PhD)} \\
+& Decarb-AI, School of Civil Engineering, University College Dublin \\
+& Supervisors: Dr. Fiachra O'Loughlin (Primary), Dr. Conor Sweeney \\
+& Thesis: Predictability of multi-hazard weather and climate events on subseasonal-to-seasonal timescales using machine learning \\
+
+\multicolumn{2}{@{}l@{}}{\vspace{0.5cm}} \\
+
+2023 -- 2024 &
+\textbf{MSc Atmosphere, Ocean and Climate} -- \textbf{Distinction} \\
+& Department of Meteorology, University of Reading \\
+& Class: \textbf{Distinction} \\
+& Dissertation: Quantifying long-duration storage capacity and meteorological drivers of net-zero electricity systems \\
+& Relevance: atmospheric and ocean dynamics, physical meteorology, numerical modelling, and weather forecasting. \\
+& Award: UK Met Office MSc Dissertation Prize \\
+
+\multicolumn{2}{@{}l@{}}{\vspace{0.5cm}} \\
+
+2018 -- 2022 &
+\textbf{B.Sc. Physics} \\
+& University College Dublin \\
+& Class: \textbf{2:1} \\
+& Dissertation (A+): Computational analysis of water-harvesting materials; resulting in co-authorship of a Q1 peer-reviewed publication. \\
+& Award: UCD Entrance Scholar (2018) \\
+
+\multicolumn{2}{@{}l@{}}{\vspace{0.4cm}}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%   WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{Aeronautical Meteorological Officer, Met Éireann} & Sep 2024 -- Sep 2025 \\[3pt]
+\multicolumn{2}{@{}X@{}}{
+Provided operational aviation weather services in compliance with ICAO and EU regulations.
+Supported the Aviation Modernisation and Automation Project and contributed to data-rescue
+initiatives.} \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{}l r@{}}
+\textbf{Tutor and Demonstrator, University College Dublin} & Jan 2025 -- Present \\[3pt]
+\multicolumn{2}{@{}X@{}}{
+Delivered tutorials and practical sessions supporting undergraduate programming and
+mathematical skills, including problem-solving and assignment guidance.} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%   Publications
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Publications}
+
+\textbf{Ward, L.}, Forero-Martinez, N., Cortés-Huerto, R., \& Ballone, P. (2022).
+Water harvesting by thermoresponsive ionic liquids: A molecular dynamics study of the water
+absorption kinetics and the role of nanostructuring.
+\emph{The Journal of Physical Chemistry B}, 127(24), 5494--5508.
+\href{https://doi.org/10.1021/acs.jpcb.3c01655}{https://doi.org/10.1021/acs.jpcb.3c01655}
+\par\vspace{10pt}
+%----------------------------------------------------------------------------------------
+%   SKILLS & COMPETENCIES
+%----------------------------------------------------------------------------------------
+\section{Skills \& Competencies}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Programming &
+Proficient in Python for scientific computing, data analysis, numerical modelling, and
+machine learning; experience with MATLAB and R; experienced with Git and HPC computing
+clusters. \\
+\multicolumn{2}{@{}l@{}}{\vspace{0.3cm}} \\
+
+Machine Learning &
+Applied machine-learning methods in atmospheric and climate contexts, including clustering,
+feature-based analysis, and deep-learning models (e.g. CNNs, LSTMs, and Vision Transformers). \\
+\multicolumn{2}{@{}l@{}}{\vspace{0.3cm}} \\
+
+Data Analysis &
+Analysis of large meteorological and climate datasets, including reanalysis and forecast
+products; strong statistical analysis and visualisation skills. \\
+\multicolumn{2}{@{}l@{}}{\vspace{0.3cm}} \\
+
+Forecasting &
+Operational experience in weather forecasting and interpretation of observational and
+forecast products. \\
+\multicolumn{2}{@{}l@{}}{\vspace{0.3cm}} \\
+
+Communication &
+Clear scientific communication through research presentations, written reports, and
+undergraduate teaching. \\
+\multicolumn{2}{@{}l@{}}{\vspace{0.3cm}} \\
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%   ACHIEVEMENTS
+%----------------------------------------------------------------------------------------
+\section{Achievements}
+
+\textbf{Met Office MSc Dissertation Prize} \\
+Awarded for outstanding research for the MSc dissertation ``Quantifying Long-Duration Storage Capacity and the
+Meteorological Drivers of Net-Zero Electricity Systems''.\par\vspace{4pt}
+
+\textbf{UCD Entrance Scholar Award} \\
+Awarded for academic excellence on entry to University College Dublin (2018).\par\vspace{4pt}
+
+\textbf{UCD Academic Excellence Award} \\
+Awarded for highest academic results (2017).\par\vspace{4pt}
+
+
+
+\vspace{0.8cm}
+\centering
+\textbf{References available on request.}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+}
+\end{document}
