@@ -1,10 +1,10 @@
-Evaluation of ECMWF seasonal and subseasonal reforecasts over Ireland for multi-hazard applications
+Evaluation of ECMWF subseasonal-to-seasonal reforecasts over Ireland for multi-hazard applications
 
-Multi-hazard events like floods and droughts arise from the interaction of meteorological and hydrological variables: drought depletes soil moisture so that subsequent rainfall generates runoff rather than infiltration. Yet S2S forecast skill is primarily assessed for individual variables in isolation, leaving a gap between what is verified and what decision-makers need to act on. Applying S2S forecasts to such multi-hazard problems first requires establishing how skilful the available datasets are for each variable and how that skill decays with lead time.
+Multi-hazard events like floods and droughts arise from the interaction of meteorological and hydrological variables: drought can alter soil moisture and infiltration capacity, changing how a catchment responds to subsequent rainfall. Yet subseasonal-to-seasonal (S2S) forecast skill is primarily assessed for individual variables in isolation, leaving a gap between what is verified and what is needed to support early action. Applying S2S forecasts to multi-hazard problems first requires establishing where and when the available prediction systems have skill for individual variables.
 
-This research evaluates ECMWF seasonal and extended-range ensemble reforecasts over Ireland, verified against reanalysis and station observations using deterministic and probabilistic skill metrics for variables including temperature, precipitation, mean sea level pressure, and soil moisture. Skill is assessed at weekly aggregations across lead times of one to nine weeks. These datasets differ in archival resolution, ensemble size, model physics, and initialisation strategy, with practical consequences for point-based verification: at coarser resolutions, distinct station locations can fall within the same grid cell. The evaluation therefore compares dataset configurations to determine which are most suitable for skill assessment at Irish station locations.
+ECMWF produces both seasonal and extended-range reforecasts, but the two systems differ in resolution, ensemble design, model physics, and initial conditions. This research compares reforecasts from both systems over Ireland for variables including temperature, precipitation, mean sea level pressure, and soil moisture, verified against reanalysis and station observations. Deterministic and probabilistic skill metrics are evaluated as weekly means across lead times of one to nine weeks, to identify where and when each system provides usable skill.
 
-Together, these results establish the foundation for multi-hazard evaluation. The next step is to test whether S2S forecasts can anticipate flood-to-drought and drought-to-flood transitions at lead times relevant to early action.
+This evaluation is a first step towards multi-hazard event analysis. The next step is to test whether S2S forecasts can anticipate flood-to-drought and drought-to-flood transitions at lead times relevant to early action.
 
 # IGNORE BELOW 
 
@@ -14,7 +14,6 @@ Lainey Ward
 Decarb-AI Centre, University College Dublin, School of Civil Engineering, Ireland (lainey.ward1@ucdconnect.ie)
 
 # LEAVE THESE IN HERE BELOW
-
 
 
 
