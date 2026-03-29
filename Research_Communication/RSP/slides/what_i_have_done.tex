@@ -1,0 +1,246 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{pifont}
+
+\usefonttheme{professionalfonts}
+
+% Theme
+\usetheme{Madrid}
+\definecolor{ucdgreen}{RGB}{0, 102, 51}
+\definecolor{gapred}{RGB}{180, 50, 50}
+\definecolor{levelgrey}{RGB}{120, 120, 120}
+\definecolor{stepfill}{RGB}{230, 243, 235}
+\definecolor{topfill}{RGB}{0, 102, 51}
+\usecolortheme[named=ucdgreen]{structure}
+\setbeamertemplate{navigation symbols}{}
+
+\title[Research Studies Panel]{Research Studies Panel}
+\author[Lainey Ward]{Lainey Ward}
+\institute[]{Decarb-AI Centre, School of Civil Engineering\\
+Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
+\date{}
+
+\begin{document}
+
+% --------------------------------------------------
+% SLIDE 1: The S2S timescale + what this thesis targets
+% --------------------------------------------------
+% PURPOSE: Establish what S2S is and introduce drought-to-flood
+%          transitions as the target phenomenon. Script carries
+%          the multi-hazard explanation verbally.
+% --------------------------------------------------
+\begin{frame}{The Prediction Gap}
+
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        \begin{column}{0.58\textwidth}
+            \centering
+            \begin{tikzpicture}[xscale=0.95, yscale=0.85]
+                % Axes
+                \draw[-{Stealth[length=2mm]}, thick, gray!70]
+                    (0, 0) -- (0, 4.2);
+                \node[rotate=90, above=0.35cm, font=\footnotesize, text=gray!80]
+                    at (0, 2.0) {Forecast Skill};
+                \draw[-{Stealth[length=2mm]}, thick, gray!70]
+                    (0, 0) -- (8.5, 0);
+
+                % Y-axis labels
+                \node[font=\tiny, text=gray!70, left] at (0, 3.8) {High};
+                \node[font=\tiny, text=gray!70, left] at (0, 0.3) {Low};
+
+                % X-axis tick labels
+                \foreach \x/\lab in {
+                    0.4/1\,hr, 1.0/1\,day, 2.0/1\,wk,
+                    3.2/2\,wk, 4.8/1\,mo, 6.0/3\,mo, 7.5/1\,yr}
+                {
+                    \node[font=\tiny, text=gray!60, below=1pt] at (\x, 0) {\lab};
+                    \draw[gray!30] (\x, 0) -- (\x, -0.08);
+                }
+
+                % Weather skill curve (left, decaying)
+                \fill[orange!12]
+                    (0, 0) -- (0, 3.9)
+                    .. controls (0.8, 3.7) and (1.8, 2.2) ..
+                    (2.6, 0.5)
+                    .. controls (2.9, 0.15) and (3.1, 0.05) ..
+                    (3.3, 0.02) -- (3.3, 0) -- cycle;
+                \draw[orange!60!red, thick]
+                    (0, 3.9)
+                    .. controls (0.8, 3.7) and (1.8, 2.2) ..
+                    (2.6, 0.5)
+                    .. controls (2.9, 0.15) and (3.1, 0.05) ..
+                    (3.3, 0.02);
+
+                % Climate/seasonal skill curve (right, rising)
+                \fill[ucdgreen!10]
+                    (5.2, 0) -- (5.2, 0.02)
+                    .. controls (5.5, 0.08) and (5.8, 0.2) ..
+                    (6.2, 0.5)
+                    .. controls (6.8, 1.0) and (7.4, 1.5) ..
+                    (8.2, 1.8) -- (8.2, 0) -- cycle;
+                \draw[ucdgreen!80!black, thick]
+                    (5.2, 0.02)
+                    .. controls (5.5, 0.08) and (5.8, 0.2) ..
+                    (6.2, 0.5)
+                    .. controls (6.8, 1.0) and (7.4, 1.5) ..
+                    (8.2, 1.8);
+
+                % Domain labels
+                \node[font=\footnotesize\bfseries, text=orange!70!red]
+                    at (1.2, 1.0) {Weather};
+                \node[font=\footnotesize\bfseries, text=ucdgreen!70!black]
+                    at (7.2, 1.0) {Climate};
+
+                % Gap region label
+                \node[font=\footnotesize\bfseries, text=gray!70]
+                    at (4.2, 3.2) {Sub-Seasonal};
+                \draw[gray!40, thick, {Stealth[length=1.5mm]}-{Stealth[length=1.5mm]}]
+                    (3.2, 2.8) -- (5.2, 2.8);
+
+            \end{tikzpicture}
+        \end{column}
+
+        \begin{column}{0.40\textwidth}
+            \centering
+            \vspace{0.5em}
+            {\Large\textbf{2 weeks -- 2 months}}
+
+            \vspace{1.2em}
+            Least skilful\\[0.4em]
+            Most decision-relevant
+
+            \vspace{1.5em}
+            \onslide<2->{
+            \begin{tikzpicture}
+                \node[font=\small, text=gapred!80!black] (dry) at (0,0) {Drought};
+                \node[font=\small, text=ucdgreen!80!black] (wet) at (2.8,0) {Flood};
+                \draw[-{Stealth[length=2.5mm]}, thick, gray!70]
+                    (dry.east) -- (wet.west);
+                \node[font=\tiny, text=gray, above] at (1.4, 0.05) {transition};
+            \end{tikzpicture}
+            }
+        \end{column}
+
+    \end{columns}
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 2: Literature review findings + staircase
+% --------------------------------------------------
+% PURPOSE: Show what the literature does (three levels),
+%          where it stops (Level 3), and what must be built
+%          to get there (staircase of contributions).
+% --------------------------------------------------
+\begin{frame}{What Does the Literature Actually Do?}
+
+    \centering
+    \begin{tikzpicture}[
+        % Styles
+        level/.style={
+            draw=ucdgreen!60, thick, rounded corners=3pt,
+            minimum width=4.8cm, minimum height=0.85cm,
+            fill=ucdgreen!6, align=center, font=\footnotesize
+        },
+        levelgap/.style={
+            draw=gapred!60, thick, rounded corners=3pt, dashed,
+            minimum width=4.8cm, minimum height=0.85cm,
+            fill=gapred!4, align=center, font=\footnotesize
+        },
+        stair/.style={
+            draw=ucdgreen!50, thick, rounded corners=3pt,
+            minimum width=3.6cm, minimum height=0.75cm,
+            fill=stepfill, align=center, font=\scriptsize
+        },
+        topstair/.style={
+            draw=ucdgreen, very thick, rounded corners=3pt,
+            minimum width=3.6cm, minimum height=0.75cm,
+            fill=topfill!15, align=center, font=\scriptsize\bfseries
+        },
+        tick/.style={font=\small, text=ucdgreen!80!black},
+        cross/.style={font=\small, text=gapred},
+        arr/.style={-{Stealth[length=2mm]}, thick, gray!50}
+    ]
+
+    % === LEFT: Three levels ===
+    \node[font=\footnotesize\bfseries, text=ucdgreen!80!black]
+        at (-4.5, 2.8) {Literature operates at two levels};
+
+    % Level 1
+    \onslide<2->{
+    \node[level] (l1) at (-4.5, 1.8)
+        {Predict drought or flood separately};
+    \node[tick, left=0.15cm of l1] {\ding{51}};
+    }
+
+    % Level 2
+    \onslide<3->{
+    \node[level] (l2) at (-4.5, 0.6)
+        {Characterise joint alternation historically};
+    \node[tick, left=0.15cm of l2] {\ding{51}};
+    }
+
+    % Level 3 — the gap
+    \onslide<4->{
+    \node[levelgap, minimum height=1.1cm] (l3) at (-4.5, -0.7)
+        {Predict transitions given current state\\[0.15em]
+         {\tiny\color{gapred} No study --- any method}};
+    \node[cross, left=0.15cm of l3] {\ding{55}};
+    }
+
+    % === RIGHT: Staircase ===
+    % Connector from Level 3 to staircase
+    \onslide<5->{
+    \node[font=\footnotesize\bfseries, text=ucdgreen!80!black]
+        at (4.5, 2.8) {What must be built};
+    \draw[-{Stealth[length=2mm]}, thick, gray!50, dashed]
+        (l3.east) -- ++(0.6, 0) -- ++(0, -1.2) -- (s1.west);
+    }
+
+    % Step 1: System comparison
+    \onslide<5->{
+    \node[stair] (s1) at (4.5, -1.8)
+        {System comparison};
+    }
+
+    % Step 2: Transition detection
+    \onslide<6->{
+    \node[stair] (s2) at (4.5, -0.9)
+        {Transition detection};
+    \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
+        (s1.north) -- (s2.south);
+    }
+
+    % Step 3: Compound verification
+    \onslide<7->{
+    \node[stair] (s3) at (4.5, 0.0)
+        {Compound verification};
+    \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
+        (s2.north) -- (s3.south);
+    }
+
+    % Step 4: Regime conditioning
+    \onslide<8->{
+    \node[stair] (s4) at (4.5, 0.9)
+        {Regime-conditioned skill};
+    \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
+        (s3.north) -- (s4.south);
+    }
+
+    % Top: Conditional transition prediction
+    \onslide<9->{
+    \node[topstair, minimum height=0.95cm, minimum width=4.0cm,
+          font=\small\bfseries] (s5) at (4.5, 2.1)
+        {Conditional prediction};
+    \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
+        (s4.north) -- (s5.south);
+    }
+
+    \end{tikzpicture}
+
+\end{frame}
+
+\end{document}
