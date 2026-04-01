@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta}
+\usetikzlibrary{positioning, arrows.meta, shapes.symbols}
 \usepackage{pifont}
 
 \usefonttheme{professionalfonts}
@@ -27,93 +27,6 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 
 \begin{document}
 
-% --------------------------------------------------
-% SLIDE 5: What I will do — staircase with progress
-% --------------------------------------------------
-% PURPOSE: Reuse the staircase from slide 2 but now with
-%          status markers. Timeline anchored to EMS poster.
-% --------------------------------------------------
-\begin{frame}{What's Next}
-
-    \begin{columns}[c, totalwidth=\textwidth]
-
-        \begin{column}{0.55\textwidth}
-            \centering
-            \begin{tikzpicture}[
-                stair/.style={
-                    draw=ucdgreen!50, thick, rounded corners=3pt,
-                    minimum width=3.8cm, minimum height=0.75cm,
-                    align=center, font=\scriptsize
-                },
-                topstair/.style={
-                    draw=ucdgreen, very thick, rounded corners=3pt,
-                    minimum width=4.2cm, minimum height=0.95cm,
-                    fill=topfill!15, align=center, font=\small\bfseries
-                },
-                arr/.style={-{Stealth[length=3mm]}, very thick, ucdgreen},
-                status/.style={font=\tiny, rounded corners=2pt,
-                    inner sep=2pt, minimum height=0.4cm}
-            ]
-
-            % Step 1: System comparison — near complete
-            \node[stair, fill=donefill] (s1) at (1.5, -2.0)
-                {System comparison};
-            \node[status, fill=ucdgreen!25, text=ucdgreen!90!black,
-                  right=0.2cm of s1] {near complete};
-
-            % Step 2: Transition detection — next (amber outline)
-            \node[stair, fill=nextfill, draw=orange!60] (s2) at (1.5, -1.0)
-                {Transition detection};
-            \node[status, fill=orange!30, text=orange!80!black,
-                  right=0.2cm of s2] {next};
-            \draw[arr] (s1.north) -- (s2.south);
-
-            % Step 3: Compound verification — planned
-            \node[stair, fill=stepfill] (s3) at (1.5, 0.0)
-                {Compound verification};
-            \draw[arr] (s2.north) -- (s3.south);
-
-            % Step 4: Regime conditioning — planned
-            \node[stair, fill=stepfill] (s4) at (1.5, 1.0)
-                {Regime-conditioned skill};
-            \draw[arr] (s3.north) -- (s4.south);
-
-            % Top: Conditional prediction
-            \node[topstair] (s5) at (1.5, 2.2)
-                {Conditional prediction};
-            \draw[arr] (s4.north) -- (s5.south);
-
-            \end{tikzpicture}
-        \end{column}
-
-        \begin{column}{0.43\textwidth}
-
-            {\footnotesize\textbf{Now -- August 2026}}
-
-            \vspace{0.8em}
-
-            \begin{tikzpicture}[
-                item/.style={font=\scriptsize, text width=5.5cm, align=left}
-            ]
-            \node[item] (a) at (0, 0)
-                {\textbf{1.} Finish system comparison\\
-                 {\tiny Probabilistic metrics + write-up}};
-
-            \node[item] (b) at (0, -1.1)
-                {\textbf{2.} Begin transition detection\\
-                 {\tiny Multiple definitions on Irish data}};
-
-            \node[item] (c) at (0, -2.2)
-                {\textbf{3.} Presentations\\
-                 {\tiny Met \'Eireann Showcase poster (May)}\\
-                 {\tiny EMS 2026 poster (September)}};
-            \end{tikzpicture}
-
-        \end{column}
-
-    \end{columns}
-
-\end{frame}
 
 % --------------------------------------------------
 % SLIDE 6: Training & Development — timeline strip
@@ -138,9 +51,9 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
             (3.95, -0.25) rectangle (5.95, 0.25);
         \node[font=\tiny, text=ucdgreen!90!black] at (4.95, 0)
             {STAT41130 (5)};
-        \fill[yellow!30, rounded corners=3pt]
+        \fill[nextfill, rounded corners=3pt, draw=orange!40]
             (6.1, -0.25) rectangle (8.1, 0.25);
-        \node[font=\tiny, text=yellow!50!black] at (7.1, 0)
+        \node[font=\tiny, text=orange!80!black] at (7.1, 0)
             {STAT30010 (5)};
         \fill[gray!25, rounded corners=3pt]
             (8.25, -0.25) rectangle (9.75, 0.25);
@@ -223,8 +136,8 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
     \node[evt, text=orange!80!black, below] at (2.0, -1.0) {Met \'Eireann\\Showcase};
 
     % Remote Sensing submission end May (above)
-    \draw[gray!80, thick] (2.5, 0) -- (2.5, 1.0);
-    \node[evt, text=gray!90, above] at (2.5, 1.0) {\textit{Remote Sensing}\\submission};
+    \draw[gray!80, thick] (2.8, 0) -- (2.8, 1.0);
+    \node[evt, text=gray!90, above] at (2.8, 1.0) {\textit{Remote Sensing}\\submission};
 
     % EMS 6–11 Sep = ~6.24
     \draw[orange!70, thick] (6.24, 0) -- (6.24, 1.0);

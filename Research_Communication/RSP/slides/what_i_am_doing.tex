@@ -5,6 +5,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning, arrows.meta}
 \usepackage{pifont}
+\usepackage{booktabs}
 
 \usefonttheme{professionalfonts}
 
@@ -12,7 +13,6 @@
 \usetheme{Madrid}
 \definecolor{ucdgreen}{RGB}{0, 102, 51}
 \definecolor{gapred}{RGB}{180, 50, 50}
-\definecolor{stepfill}{RGB}{230, 243, 235}
 \usecolortheme[named=ucdgreen]{structure}
 \setbeamertemplate{navigation symbols}{}
 
@@ -25,83 +25,90 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 \begin{document}
 
 % --------------------------------------------------
-% SLIDE 3: The system comparison — what I'm doing
+% SLIDE 3: System comparison table + point skill plot
 % --------------------------------------------------
-% PURPOSE: Show experimental setup concisely, then let
-%          two plots carry the evidence. Script does the
-%          explaining; slide shows the data.
-% --------------------------------------------------
-\begin{frame}{System Comparison: EEFH vs SEAS5}
+\begin{frame}{Subseasonal vs Seasonal}
 
     \begin{columns}[c, totalwidth=\textwidth]
 
-        \begin{column}{0.38\textwidth}
+        \begin{column}{0.42\textwidth}
+
+            \vspace{-0.5em}
             \centering
             \begin{tikzpicture}[
-                sysbox/.style={draw=ucdgreen!60, thick, rounded corners=3pt,
-                    minimum width=4.0cm, minimum height=2.0cm,
-                    fill=ucdgreen!5, align=center, font=\footnotesize},
-                lbl/.style={font=\tiny, text=gray!70},
-                tradeoff/.style={font=\tiny, text=gray!60, align=center}
+                sysbox/.style={draw=ucdgreen!40, thick, rounded corners=4pt,
+                    minimum width=4.2cm, minimum height=2.4cm,
+                    fill=ucdgreen!4, align=center, font=\footnotesize}
             ]
-
             % EEFH
-            \node[sysbox] (eefh) at (0, 2.2)
-                {\textbf{EEFH} {\tiny(subseasonal)}\\[0.3em]
-                 {\tiny Newer physics (2023)}\\
-                 {\tiny Better initial conditions}\\
-                 {\tiny $\sim$183 inits/yr}\\
-                 {\tiny 11 members}};
-            \fill[orange!60!red] ([xshift=-0.5pt]eefh.north west)
-                rectangle ([xshift=-3.5pt]eefh.south west);
+            \node[sysbox] (eefh) at (0, 1.8)
+                {\textbf{\normalsize Subseasonal (EEFH)}\\[0.4em]
+                 Newer physics\\
+                 183 inits / year\\
+                 11 members\\[0.3em]
+                 {\small\bfseries\color{orange!80!black} $\uparrow$ Temporal sampling}};
 
             % SEAS5
-            \node[sysbox] (seas) at (0, -0.4)
-                {\textbf{SEAS5} {\tiny(seasonal)}\\[0.3em]
-                 {\tiny Older physics (2016)}\\
-                 {\tiny 25 members}\\
-                 {\tiny 36-year record}\\
-                 {\tiny 12 inits/yr}};
-            \fill[ucdgreen!80] ([xshift=-0.5pt]seas.north west)
-                rectangle ([xshift=-3.5pt]seas.south west);
+            \node[sysbox] (seas) at (0, -1.8)
+                {\textbf{\normalsize Seasonal (SEAS5)}\\[0.4em]
+                 Older physics\\
+                 12 inits / year\\
+                 25 members\\[0.3em]
+                 {\small\bfseries\color{ucdgreen!80!black} $\uparrow$ Ensemble sampling}};
 
-            % Comparison annotation
-            \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]},
-                  thick, ucdgreen!60]
-                (eefh.south) -- (seas.north)
-                node[midway, right=0.15cm, font=\tiny, text=gray]
-                {matched inits};
-
-            % Verification target
-            \node[lbl, below=0.5cm of seas]
-                {25 Irish stations $\cdot$ wk 1--6};
+            % vs
+            \node[font=\small\bfseries, text=gray!50] at (0, 0) {vs};
 
             \end{tikzpicture}
+
+
         \end{column}
 
-        \begin{column}{0.60\textwidth}
-            % === PLOT PLACEHOLDERS ===
-            % Replace these with \includegraphics when figures are ready
-
+        \begin{column}{0.56\textwidth}
+            % === PLOT PLACEHOLDER: Point skill ===
+            % Replace with \includegraphics when figure is ready
+            \centering
             \onslide<2->{
             \begin{tikzpicture}
                 \node[draw=gray!30, dashed, rounded corners,
-                      minimum width=7.5cm, minimum height=3.0cm,
+                      minimum width=7.0cm, minimum height=5.5cm,
                       fill=gray!3, font=\footnotesize\color{gray!50}]
-                    {Plot 1};
+                    {Point skill plot};
             \end{tikzpicture}
             }
+        \end{column}
 
-            \vspace{0.3em}
+    \end{columns}
 
-            \onslide<3->{
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 4: Spatial analysis (2 plots)
+% --------------------------------------------------
+\begin{frame}{Spatial Verification}
+
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        \begin{column}{0.49\textwidth}
+            \centering
+            % === PLOT PLACEHOLDER: Spatial plot 1 ===
             \begin{tikzpicture}
                 \node[draw=gray!30, dashed, rounded corners,
-                      minimum width=7.5cm, minimum height=3.0cm,
+                      minimum width=6.0cm, minimum height=5.5cm,
                       fill=gray!3, font=\footnotesize\color{gray!50}]
-                    {Plot 2};
+                    {Spatial plot 1};
             \end{tikzpicture}
-            }
+        \end{column}
+
+        \begin{column}{0.49\textwidth}
+            \centering
+            % === PLOT PLACEHOLDER: Spatial plot 2 ===
+            \begin{tikzpicture}
+                \node[draw=gray!30, dashed, rounded corners,
+                      minimum width=6.0cm, minimum height=5.5cm,
+                      fill=gray!3, font=\footnotesize\color{gray!50}]
+                    {Spatial plot 2};
+            \end{tikzpicture}
         \end{column}
 
     \end{columns}

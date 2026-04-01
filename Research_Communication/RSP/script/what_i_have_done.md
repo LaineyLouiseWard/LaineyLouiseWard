@@ -1,10 +1,10 @@
 # What I Have Done — Script
 
 ## Objective
-Show the panel what the literature review produced: a clear diagnosis of where the field stops, and a chain of contributions needed to push past it.
+Show the panel what the literature review produced: a clear diagnosis of where the field stops, and the thesis question that emerges from it.
 
 ## Core message
-The literature can predict drought and flood separately, and can characterise their joint behaviour historically. But nobody has asked the conditional question: given that we are in drought now, what is the probability of flood at a specific lead time?
+The literature can predict drought and flood separately, and can characterise their joint behaviour historically. But nobody asks whether forecast skill for individual variables actually carries through when the target becomes a multi-hazard event. That comparison, variable skill vs impact skill vs event skill, is what the thesis tests.
 
 ---
 
@@ -12,7 +12,7 @@ The literature can predict drought and flood separately, and can characterise th
 
 You're familiar with short-range weather forecasts, and you've probably come across seasonal outlooks. The period in between, two weeks to two months ahead, is the subseasonal-to-seasonal timescale, or S2S. It's where forecast skill is lowest, but it's also where decisions about flood and drought risk actually have to be made.
 
-My research focuses on a specific type of event at this timescale: drought-to-flood transitions. [click] A drought dries out the soil, reduces infiltration capacity. When heavy rain follows, the runoff response is amplified. So the flood is worse *because* the drought came first. The sequence matters, not just the individual extremes.
+My research focuses on a specific type of event at this timescale: drought-to-flood transitions. [click] A drought dries out the soil, reduces infiltration capacity. When heavy rain follows, the runoff response is amplified. The flood is worse because the drought came first. The sequence matters, not just the individual extremes.
 
 So what did the literature review find?
 
@@ -20,22 +20,34 @@ So what did the literature review find?
 
 ---
 
-### Slide 2 — What Does the Literature Actually Do?
+### Slide 2 — Where Does the Literature Stop?
 
-The literature operates at two levels. [click] At the first, drought and flood are predicted as separate events. Flash drought onset, flood thresholds, each extreme treated on its own. [click] At the second, studies look at the joint behaviour. How often do droughts and floods co-occur? How intense is the alternation? Some of these approaches are quite sophisticated. The Chinese DFAA tradition, for example, builds indices that capture the contrast and speed of the dry-to-wet swing as a single quantity. But all of this is retrospective. It's applied to long historical records. It answers "how strong was the alternation in this basin over the past 50 years?"
+The literature operates at two levels. [click] First, drought and flood are predicted as separate events. Flash drought onset, flood thresholds, each extreme on its own. [click] Second, studies characterise the joint behaviour retrospectively. How often do droughts and floods co-occur, how intense is the alternation. But it's all applied to long historical records. It answers "how strong was the alternation in this basin over the past 50 years?" not "can a forecast system see this coming?"
 
-[click] What nobody asks, by any method, is the conditional question. If we are in drought right now, what is the probability of transitioning to flood conditions at a specific lead time? Say weeks three to six. That is a forecast problem, not a characterisation problem. And it does not exist in the literature.
+[click] What nobody asks is whether the skill we have for individual variables actually carries through to multi-hazard events. We can verify temperature and precipitation forecasts. But does that skill survive when the target is a drought, a flood, or the transition from one to the other? That's a different question, and it doesn't exist in the literature.
 
-[click] So why can't you just ask that question directly? Because there's a chain of things that need to be in place first, and none of them exist either.
+[click] To answer it, there's a chain of things that need to be in place first, and none of them exist either.
 
-[click] Before anything else, you need to know which forecast system to build on. ECMWF runs two systems that overlap in this range, a subseasonal and a seasonal one, but nobody has tested whether they actually differ at weekly timescales. So you don't know which one to trust.
+[click] You need to know which forecast system to build on. ECMWF runs two systems that overlap in this range, and nobody has compared them at weekly timescales.
 
-[click] Then you need to know whether these transitions actually show up in Irish river data. Drought research exists for Ireland, but nobody has looked for the transitions specifically.
+[click] You need to translate those forecasts into impact variables like streamflow, because floods and droughts aren't directly forecast.
 
-[click] Once you have events defined, you need a way to check whether forecasts can predict them. Verification methods exist for single hazards like heatwaves, but not for a transition from one extreme to the opposite.
+[click] You need to define what counts as a drought or flood event in Irish catchments. Nobody has done that for transitions specifically.
 
-[click] And forecast skill at these timescales isn't constant. It depends on what the atmosphere is doing when the forecast starts. That's been shown for temperature, but never tested for these kinds of events.
+[click] And you need to know when skill emerges. At S2S timescales, skill depends on the atmospheric state when the forecast starts. That's been shown for temperature, but never for multi-hazard events.
 
-[click] Only once all of that is in place can you ask the conditional question at the top. Each step depends on the one below it. That chain, from system comparison through to conditional prediction, is what the thesis builds.
+[click] That chain, from variable skill through impact skill to event skill, is what the thesis builds.
 
-[~170s, ~350 words]
+[~140s, ~260 words]
+
+---
+
+### Slide 3 — Research Arc
+
+So the overarching question is: how does S2S forecast skill for multi-hazard events compare to skill for the individual variables and impacts they are derived from, and under what atmospheric conditions does this skill emerge?
+
+The roadmap on screen shows how I get there. I trace skill through three levels. First, individual meteorological variables like temperature and precipitation, which is where I am now. Then impact variables like streamflow. Then the events themselves: drought states, flood states, and the transitions between them. At S2S timescales, skill depends on the atmospheric state when the forecast starts, so conditioning on weather regimes runs through the whole thing.
+
+So where am I on this?
+
+[~40s, ~100 words]

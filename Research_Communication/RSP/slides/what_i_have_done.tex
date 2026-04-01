@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta}
+\usetikzlibrary{positioning, arrows.meta, shapes.symbols}
 \usepackage{pifont}
 
 \usefonttheme{professionalfonts}
@@ -15,6 +15,8 @@
 \definecolor{levelgrey}{RGB}{120, 120, 120}
 \definecolor{stepfill}{RGB}{230, 243, 235}
 \definecolor{topfill}{RGB}{0, 102, 51}
+\definecolor{donefill}{RGB}{200, 230, 210}
+\definecolor{nextfill}{RGB}{255, 240, 200}
 \usecolortheme[named=ucdgreen]{structure}
 \setbeamertemplate{navigation symbols}{}
 
@@ -135,7 +137,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 %          where it stops (Level 3), and what must be built
 %          to get there (staircase of contributions).
 % --------------------------------------------------
-\begin{frame}{What Does the Literature Actually Do?}
+\begin{frame}{Where Does the Literature Stop?}
 
     \centering
     \begin{tikzpicture}[
@@ -167,27 +169,27 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 
     % === LEFT: Three levels ===
     \node[font=\footnotesize\bfseries, text=ucdgreen!80!black]
-        at (-4.5, 2.8) {Literature operates at two levels};
+        at (-5.0, 2.8) {Literature operates at two levels};
 
     % Level 1
     \onslide<2->{
-    \node[level] (l1) at (-4.5, 1.8)
+    \node[level, minimum width=4.5cm] (l1) at (-5.0, 1.8)
         {Predict drought or flood separately};
     \node[tick, left=0.15cm of l1] {\ding{51}};
     }
 
     % Level 2
     \onslide<3->{
-    \node[level] (l2) at (-4.5, 0.6)
-        {Characterise joint alternation historically};
+    \node[level, minimum width=4.5cm] (l2) at (-5.0, 0.6)
+        {Characterise joint behaviour historically};
     \node[tick, left=0.15cm of l2] {\ding{51}};
     }
 
     % Level 3 — the gap
     \onslide<4->{
-    \node[levelgap, minimum height=1.1cm] (l3) at (-4.5, -0.7)
-        {Predict transitions given current state\\[0.15em]
-         {\tiny\color{gapred} No study --- any method}};
+    \node[levelgap, minimum width=4.5cm, minimum height=1.1cm] (l3) at (-5.0, -0.7)
+        {Does variable skill carry through\\to multi-hazard event skill?\\[0.15em]
+         {\tiny\color{gapred} Nobody has tested this}};
     \node[cross, left=0.15cm of l3] {\ding{55}};
     }
 
@@ -197,47 +199,117 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
     \node[font=\footnotesize\bfseries, text=ucdgreen!80!black]
         at (4.5, 2.8) {What must be built};
     \draw[-{Stealth[length=2mm]}, thick, gray!50, dashed]
-        (l3.east) -- ++(0.6, 0) -- ++(0, -1.2) -- (s1.west);
+        (l3.east) -- (s1.west);
     }
 
-    % Step 1: System comparison
+    % Step 1: System selection
     \onslide<5->{
-    \node[stair] (s1) at (4.5, -1.8)
-        {System comparison};
+    \node[stair] (s1) at (4.5, -0.7)
+        {System selection};
     }
 
-    % Step 2: Transition detection
+    % Step 2: Impact variables
     \onslide<6->{
-    \node[stair] (s2) at (4.5, -0.9)
-        {Transition detection};
+    \node[stair] (s2) at (4.5, 0.15)
+        {Impact variables};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s1.north) -- (s2.south);
     }
 
-    % Step 3: Compound verification
+    % Step 3: Event detection
     \onslide<7->{
-    \node[stair] (s3) at (4.5, 0.0)
-        {Compound verification};
+    \node[stair] (s3) at (4.5, 1.0)
+        {Event detection};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s2.north) -- (s3.south);
     }
 
     % Step 4: Regime conditioning
     \onslide<8->{
-    \node[stair] (s4) at (4.5, 0.9)
-        {Regime-conditioned skill};
+    \node[stair] (s4) at (4.5, 1.85)
+        {Regime conditioning};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s3.north) -- (s4.south);
     }
 
-    % Top: Conditional transition prediction
+    % Top: Event skill
     \onslide<9->{
     \node[topstair, minimum height=0.95cm, minimum width=4.0cm,
-          font=\small\bfseries] (s5) at (4.5, 2.1)
-        {Conditional prediction};
+          font=\small\bfseries] (s5) at (4.5, 2.9)
+        {Multi-hazard event skill};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s4.north) -- (s5.south);
     }
+
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 3: PhD Roadmap + Research Question
+% --------------------------------------------------
+% PURPOSE: Show the full PhD arc (Phases 1–6), state the
+%          research question, and bridge from gap diagnosis
+%          to "what I am doing."
+% --------------------------------------------------
+\begin{frame}{Research Arc}
+
+    \vspace{0.5em}
+    \begin{center}
+    {\large\itshape How does S2S forecast skill for multi-hazard events compare to\\[0.2em]
+    skill for the individual variables and impacts they are derived from,\\[0.2em]
+    and under what atmospheric conditions does this skill emerge?}
+    \end{center}
+
+    \vspace{1em}
+
+    % --- PhD Roadmap (chevron chain) ---
+    \centering
+    \begin{tikzpicture}[
+        xscale=1.0,
+        chev/.style={
+            minimum width=2.0cm, minimum height=1.1cm,
+            align=center, font=\scriptsize, inner sep=3pt,
+            signal, signal to=east, signal from=west,
+            signal pointer angle=150,
+            thick
+        },
+        plbl/.style={font=\tiny, below=0.15cm}
+    ]
+    % Variable skill — near complete (green)
+    \node[chev, fill=donefill, draw=ucdgreen!60,
+          signal from=none] (p1) at (0, 0)
+        {Variable\\skill};
+    \node[plbl, text=ucdgreen!80!black, font=\tiny\bfseries]
+        at (p1.south) {Met verification};
+
+    % Impact skill — next (amber)
+    \node[chev, fill=nextfill, draw=orange!60,
+          right=-0.02cm of p1] (p2)
+        {Impact\\skill};
+    \node[plbl, text=orange!80!black, font=\tiny\bfseries]
+        at (p2.south) {Streamflow};
+
+    % Event skill — planned (grey)
+    \node[chev, fill=gray!10, draw=gray!35,
+          right=-0.02cm of p2] (p3)
+        {Event\\skill};
+    \node[plbl, text=gray!50]
+        at (p3.south) {Detection};
+
+    % Regime conditioning — planned (grey)
+    \node[chev, fill=gray!10, draw=gray!35,
+          right=-0.02cm of p3] (p4)
+        {Regime\\conditioning};
+    \node[plbl, text=gray!50]
+        at (p4.south) {Atmospheric state};
+
+    % ML — planned (grey)
+    \node[chev, fill=gray!10, draw=gray!35,
+          signal to=none, right=-0.02cm of p4] (p6)
+        {ML};
+    \node[plbl, text=gray!50]
+        at (p6.south) {Added value?};
 
     \end{tikzpicture}
 
