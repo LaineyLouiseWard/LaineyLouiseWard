@@ -1,0 +1,226 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, decorations.pathreplacing, calligraphy}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{array}
+
+\usefonttheme{professionalfonts}
+
+% Theme
+\usetheme{Madrid}
+\definecolor{ucdgreen}{RGB}{0, 102, 51}
+\definecolor{availgreen}{RGB}{0, 153, 102}
+\definecolor{derivblue}{RGB}{100, 160, 210}
+\definecolor{partialgreen}{RGB}{0, 153, 102}
+\definecolor{unavailgray}{RGB}{180, 180, 180}
+\definecolor{nextfill}{RGB}{255, 240, 200}
+\usecolortheme[named=ucdgreen]{structure}
+\setbeamertemplate{navigation symbols}{}
+
+\title[Research Studies Panel]{Research Studies Panel}
+\author[Lainey Ward]{Lainey Ward}
+\institute[]{}
+\date{}
+
+\begin{document}
+
+% --------------------------------------------------
+% BACKUP: Dataset overview
+% --------------------------------------------------
+% USE: If panel asks "what data are you using?"
+%      or "where does the data come from?"
+% --------------------------------------------------
+\begin{frame}{Dataset Overview}
+
+    \centering
+    \vspace{-0.3em}
+
+    {\footnotesize\textbf{Forecast systems}}
+    \vspace{0.3em}
+
+    \footnotesize
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{l l l l l l l}
+    \toprule
+    \textbf{System} & \textbf{Source} & \textbf{IFS cycle} & \textbf{Grid} & \textbf{Members} & \textbf{Reforecast period} & \textbf{Lead range} \\
+    \midrule
+    Seasonal (SEAS5)       & MARS API & Cy43r1 & 0.28\textdegree{} & 25 & 1981--2016 & 215 days \\
+    Subseasonal (EEFH)     & MARS API & Cy49r1 & 0.28\textdegree{} & 11 & 2005--2024 & 46 days  \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{0.8em}
+
+    {\footnotesize\textbf{Reference datasets}}
+    \vspace{0.3em}
+
+    \footnotesize
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{l l l l}
+    \toprule
+    \textbf{Dataset} & \textbf{Source} & \textbf{Grid} & \textbf{Coverage} \\
+    \midrule
+    ERA5-Land     & MARS API              & 0.1\textdegree{} & 1950--present \\
+    Met \'Eireann & Met \'Eireann archive & Station          & 1945--present (varies by station) \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{0.8em}
+    \scriptsize
+    \begin{tikzpicture}
+        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
+              text width=13cm, align=left, font=\scriptsize, inner sep=6pt] {
+            \textbf{Common analysis window:} 2006--2016 \quad
+            \textbf{Climatology:} 1991--2020 (WMO) \quad
+            \textbf{Output grid:} 0.3\textdegree{} \\[0.2em]
+            \textbf{9 Tier~1 stations:} full climatology + full analysis coverage \quad
+            \textbf{Variables:} t2m, tp, ws10
+        };
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% BACKUP: Variable availability matrix
+% --------------------------------------------------
+% USE: If panel asks "what variables are available?"
+%      or "why only three variables?"
+% --------------------------------------------------
+\begin{frame}{Variable Availability}
+
+    \centering
+
+    % TikZ matrix for variable availability
+    \newcommand{\cw}{0.6}   % cell width in cm
+    \newcommand{\ch}{0.5}   % cell height in cm
+    \begin{tikzpicture}[
+        cell/.style={minimum width=\cw cm, minimum height=\ch cm, inner sep=0pt, outer sep=0pt},
+        avail/.style={cell, fill=availgreen!80},
+        deriv/.style={cell, fill=derivblue!60},
+        noavail/.style={cell, fill=unavailgray!40},
+        partial/.style={cell, fill=partialgreen!30},
+        hdr/.style={font=\tiny\bfseries, rotate=55, anchor=south west},
+        rowlbl/.style={font=\footnotesize, anchor=east},
+        brace/.style={decorate, decoration={calligraphic brace, amplitude=4pt, raise=2pt},
+                      thick, ucdgreen!60},
+    ]
+
+    % Category grouping braces — all categories get braces for consistency
+    \draw[brace] (0*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Temperature} (3*\cw, 3.1);
+    \draw[brace] (3*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Precip.} (4*\cw, 3.1);
+    \draw[brace] (4*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Wind} (7*\cw, 3.1);
+    \draw[brace] (7*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Humid.} (8*\cw, 3.1);
+    \draw[brace] (8*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Radiation} (12*\cw, 3.1);
+    \draw[brace] (12*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Heat flux} (14*\cw, 3.1);
+    \draw[brace] (14*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Pressure} (16*\cw, 3.1);
+    \draw[brace] (16*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Cloud} (18*\cw, 3.1);
+    \draw[brace] (18*\cw, 3.1) -- node[above=6pt, font=\tiny\color{gray}] {Other} (20*\cw, 3.1);
+
+    % Column headers — positioned tight above grid
+    \def\cols{t2m/0, tmax/1, tmin/2, tp/3, u10/4, v10/5, ws10/6, d2m/7, ssrd/8, strd/9, ssr/10, str/11, slhf/12, sshf/13, msl/14, sp/15, tcc/16, sun/17, snow/18, evap/19}
+
+    \foreach \name/\col in \cols {
+        \node[hdr] at (\col*\cw+0.08, 2.3) {\name};
+    }
+
+    % Row labels
+    \node[rowlbl] at (-0.2, 2.0) {Seasonal};
+    \node[rowlbl] at (-0.2, 1.45) {Subseasonal};
+    \node[rowlbl] at (-0.2, 0.9) {ERA5-Land};
+    \node[rowlbl] at (-0.2, 0.35) {Met \'Eireann};
+
+    % --- Seasonal row ---
+    \foreach \col/\s in {0/avail, 1/avail, 2/avail, 3/avail, 4/avail, 5/avail, 6/deriv, 7/avail, 8/avail, 9/avail, 10/avail, 11/avail, 12/avail, 13/avail, 14/avail, 15/avail, 16/avail, 17/avail, 18/avail, 19/avail} {
+        \node[\s] at (\col*\cw+\cw/2, 2.0) {};
+    }
+
+    % --- Subseasonal row ---
+    \foreach \col/\s in {0/avail, 1/avail, 2/avail, 3/avail, 4/avail, 5/avail, 6/deriv, 7/avail, 8/avail, 9/avail, 10/avail, 11/avail, 12/avail, 13/avail, 14/avail, 15/avail, 16/avail, 17/noavail, 18/avail, 19/noavail} {
+        \node[\s] at (\col*\cw+\cw/2, 1.45) {};
+    }
+
+    % --- ERA5-Land row ---
+    \foreach \col/\s in {0/avail, 1/deriv, 2/deriv, 3/avail, 4/avail, 5/avail, 6/deriv, 7/avail, 8/avail, 9/avail, 10/avail, 11/avail, 12/avail, 13/avail, 14/deriv, 15/avail, 16/noavail, 17/noavail, 18/avail, 19/avail} {
+        \node[\s] at (\col*\cw+\cw/2, 0.9) {};
+    }
+
+    % --- Met Éireann row ---
+    \foreach \col/\s in {0/avail, 1/deriv, 2/deriv, 3/avail, 4/noavail, 5/noavail, 6/avail, 7/avail, 8/noavail, 9/noavail, 10/noavail, 11/noavail, 12/noavail, 13/noavail, 14/avail, 15/noavail, 16/partial, 17/partial, 18/noavail, 19/noavail} {
+        \node[\s] at (\col*\cw+\cw/2, 0.35) {};
+    }
+
+    % Grid lines
+    \foreach \row in {0.35, 0.9, 1.45, 2.0} {
+        \foreach \col in {0,...,19} {
+            \draw[gray!20] (\col*\cw, \row-\ch/2) rectangle +(\cw, \ch);
+        }
+    }
+
+    % Legend — below plot
+    \node[font=\scriptsize, anchor=north] at (6, -0.3) {%
+        \begin{tikzpicture}[baseline=-0.5ex]
+            \fill[availgreen!80] (0,0) rectangle (0.25,0.25);
+            \node[right, font=\scriptsize] at (0.35,0.125) {Available};
+            \fill[derivblue!60] (2.3,0) rectangle (2.55,0.25);
+            \node[right, font=\scriptsize] at (2.65,0.125) {Derivable};
+            \fill[unavailgray!40] (4.6,0) rectangle (4.85,0.25);
+            \node[right, font=\scriptsize] at (4.95,0.125) {Not available};
+            \fill[partialgreen!30] (7.4,0) rectangle (7.65,0.25);
+            \node[right, font=\scriptsize] at (7.75,0.125) {Partial (12 synoptic)};
+        \end{tikzpicture}%
+    };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% BACKUP: Variables in the pipeline
+% --------------------------------------------------
+% USE: If panel asks "what exactly is being verified?"
+%      or "why those specific variables?"
+%
+% Processing verified against DECISIONS.md temporal resolution table:
+%   t2m:  forecasts 6h inst → daily mean (4 values).
+%         ERA5-Land hourly → 6h subset → daily mean (4 values).
+%         Met Éireann hourly → daily mean (24 values).
+%   tp:   forecasts 6h accum → de-accum → daily total (4 intervals).
+%         ERA5-Land hourly accum → de-accum → daily total (24 hours).
+%         Met Éireann daily total (native).
+%   u10/v10: forecasts 6h inst. ERA5-Land hourly → 6h subset. (intermediate only)
+%   ws10: derived sqrt(u10²+v10²) at 6h, then daily mean. Met Éireann hourly → daily mean.
+% --------------------------------------------------
+\begin{frame}{Pipeline Variables}
+
+    \centering
+
+    \footnotesize
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{l l l l l l}
+    \toprule
+    \textbf{Var.} & \textbf{Seasonal} & \textbf{Subseasonal} & \textbf{ERA5-Land} & \textbf{Met \'Eireann} & \textbf{Verif.\ res.} \\
+    \midrule
+    t2m  & Daily mean      & Daily mean      & Daily mean        & Daily mean    & Daily \\
+         & (from 6h inst.) & (from 6h inst.) & (from 6h subset)  & (from hourly) & \\[0.4em]
+    tp   & Daily total     & Daily total     & Daily total       & Daily total   & Daily \\
+         & (de-accum.\ 6h) & (de-accum.\ 6h) & (from hourly)    & (native)      & \\[0.4em]
+    ws10 & Daily mean      & Daily mean      & Daily mean        & Daily mean    & Daily \\
+         & (from 6h u10, v10) & (from 6h u10, v10) & (from 6h u10, v10) & (from hourly) & \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{1em}
+    \begin{tikzpicture}
+        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
+              text width=8cm, align=left, font=\footnotesize, inner sep=6pt] {
+            All variables aggregated to \textbf{weekly means} for scoring (RMSE, Bias).
+        };
+    \end{tikzpicture}
+
+\end{frame}
+
+\end{document}
