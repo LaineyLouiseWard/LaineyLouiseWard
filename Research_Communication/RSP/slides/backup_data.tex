@@ -85,6 +85,95 @@
 \end{frame}
 
 % --------------------------------------------------
+% BACKUP: EEFH vs SEAS5 system comparison
+% --------------------------------------------------
+% USE: If panel asks "what's the difference between
+%      the two systems?" or "why compare them?"
+% --------------------------------------------------
+\begin{frame}{Subseasonal vs Seasonal: System Comparison}
+
+    \centering
+    \vspace{-0.3em}
+
+    \footnotesize
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{l c c}
+    \toprule
+     & \textbf{Subseasonal (EEFH)} & \textbf{Seasonal (SEAS5)} \\
+    \midrule
+    IFS cycle            & Cy49r1 (2024)       & Cy43r1 (2016) \\
+    Grid type            & Cubic octahedral     & Reduced Gaussian \\
+    Resolution           & $\sim$32 km (TCo319) & $\sim$36 km (T319) \\
+    Vertical levels      & 137                  & 91 \\
+    Stochastic physics   & SPP (27 parameters)  & SPPT3 + SKEB \\
+    Ozone--radiation     & Fully interactive    & Climatological \\
+    Reforecast members   & 11                   & 25 \\
+    Real-time members    & 101                  & 51 \\
+    Init frequency       & Every odd day        & 1st of month \\
+    Reforecast period    & Prior 20 yr (rolling) & 1981--2016 (fixed) \\
+    Lead range           & 46 days              & 215 days \\
+    Atm.\ initial conds  & ERA5                 & ERA-Interim \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{0.8em}
+    \scriptsize
+    \begin{tikzpicture}
+        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
+              text width=12cm, align=left, font=\scriptsize, inner sep=6pt] {
+            \textbf{Matched comparison:} 2006--2016, 1st-of-month inits, 0.3\textdegree{} grid over Ireland. \\
+            Differences then reflect \textbf{model physics and ensemble size}, not data coverage.
+        };
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% BACKUP: Event definition choices across studies
+% --------------------------------------------------
+% USE: If panel asks "what thresholds will you use?",
+%      "how are these events actually defined?", or
+%      "what did other studies find?"
+% --------------------------------------------------
+\begin{frame}{How are drought-to-flood events defined?}
+
+    \centering
+    \vspace{-0.3em}
+
+    \scriptsize
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{l l l l l l}
+    \toprule
+    \textbf{Study} & \textbf{Region} & \textbf{Strategy} & \textbf{Drought def.} & \textbf{Flood def.} & \textbf{Linking rule} \\
+    \midrule
+    Anderson        & Global       & Raw threshold  & Variable, seasonal,  & Variable, seasonal,  & 14--90 day \\
+    et al.\ 2025    & (8 cases)    & (compared)     & fixed (compared)     & fixed (compared)     & window (compared) \\[0.3em]
+    G\"otte \&      & CONUS        & Raw threshold  & Streamflow $<$ Q20   & Streamflow $>$ Q50   & Computed; \\
+    Brunner 2024    &              & (variable)     & (day-of-year)        & of annual maxima     & $\geq$10 day gap \\[0.3em]
+    Yang et         & CONUS        & Raw threshold  & Streamflow $<$ Q50   & Streamflow $>$ Q50   & $<$90 days \\
+    al.\ 2025       & (2212 stn)   & (fixed)        & of annual 7-day min  & of annual maxima     & \\[0.3em]
+    Matan\'o et     & Global       & Raw threshold  & $<$15th \%ile in     & Streamflow           & During or \\
+    al.\ 2024       & (8255 catch.)&                & $\geq$1 hydro.\ var  & $>$85th \%ile        & within 1 month \\[0.3em]
+    Guimar\~aes     & France       & Raw threshold  & Streamflow $<$ Q20   & Streamflow $>$ Q99   & Consecutive; \\
+    et al.\ 2026    & (643 catch.) & + baseflow     &                      &                      & baseflow recovery \\[0.3em]
+    Wang et         & Yangtze,     & Index-based    & SPI-conditioned      & SPI-conditioned      & MSDFAI $\geq$ 1 \\
+    al.\ 2024       & China        & (MSDFAI)       & MSDFAI index         & MSDFAI index         & (continuous) \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{0.6em}
+    \begin{tikzpicture}
+        \node[draw=gapred!40, rounded corners=3pt, fill=gapred!4,
+              text width=12cm, align=left, font=\scriptsize, inner sep=6pt] {
+            \textbf{Anderson et al.\ (2025):} different threshold methods applied to the same catchments
+            detected only \textbf{3 of 8} known impactful transitions.
+            No definition is neutral. \textbf{No study has tested any approach on Irish catchments.}
+        };
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
 % BACKUP: Variable availability matrix
 % --------------------------------------------------
 % USE: If panel asks "what variables are available?"

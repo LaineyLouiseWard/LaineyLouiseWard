@@ -25,7 +25,7 @@ plt.rcParams.update({
 # ── Colour by terminology ────────────────────────────────────────────
 TERM_COLOURS = {
     "DFAA":                "#E15759",  # warm red
-    "Whiplash":            "#4E79A7",  # steel blue
+    "Hydro/precip. whiplash":            "#4E79A7",  # steel blue
     "D-to-F transition":   "#59A14F",  # sage green
     "Weather whiplash":    "#B07AA1",  # muted purple
     "Other":               "#EDC948",  # gold
@@ -89,28 +89,26 @@ for lat, lon in jitter(41, 117, 2, 1.5):
 # High-plateau basin (Liu 2023)
 papers.append((32, 99, "DFAA", "Precipitation-based"))
 
-# Reviews (Zhang 2025, Bai 2023) — place at western China
-for lat, lon in jitter(33, 102, 2, 2.0):
-    papers.append((lat, lon, "DFAA", "Precipitation-based"))
+# Reviews (Zhang 2025, Bai 2023) removed — not individual studies
 
 # ── BRAHMAPUTRA (Nie 2025) ───────────────────────────────────────────
 papers.append((28.5, 90, "DFAA", "Streamflow-based"))
 
 # ── US CALIFORNIA (3 papers) ────────────────────────────────────────
-papers.append((37.5, -121, "Whiplash", "Precipitation-based"))   # Swain 2018
-papers.append((36, -119.5, "Whiplash", "Circulation-based"))      # DeFlorio 2024
-papers.append((38.5, -122, "Whiplash", "Precipitation-based"))    # Swain 2025
+papers.append((37.5, -121, "Hydro/precip. whiplash", "Precipitation-based"))   # Swain 2018
+papers.append((36, -119.5, "Hydro/precip. whiplash", "Circulation-based"))      # DeFlorio 2024
+papers.append((38.5, -122, "Hydro/precip. whiplash", "Precipitation-based"))    # Swain 2025
 
 # ── US CONUS / MIDWEST (6 papers) ───────────────────────────────────
-papers.append((41, -95, "Whiplash", "Streamflow-based"))      # Yang 2025
+papers.append((41, -95, "Hydro/precip. whiplash", "Streamflow-based"))      # Yang 2025
 papers.append((39, -99, "D-to-F transition", "Streamflow-based"))          # Götte & Brunner 2024
-papers.append((37, -92, "Whiplash", "Precipitation-based"))  # Mullens & Engström 2025
-papers.append((42, -88, "Whiplash", "Precipitation-based"))  # Ford 2021
-papers.append((43, -96, "Whiplash", "Precipitation-based"))  # Loecke 2017
-papers.append((36, -100, "Whiplash", "Streamflow-based"))     # Hammond 2025
+papers.append((37, -92, "Hydro/precip. whiplash", "Precipitation-based"))  # Mullens & Engström 2025
+papers.append((42, -88, "Hydro/precip. whiplash", "Precipitation-based"))  # Ford 2021
+papers.append((43, -96, "Hydro/precip. whiplash", "Precipitation-based"))  # Loecke 2017
+papers.append((36, -100, "Hydro/precip. whiplash", "Streamflow-based"))     # Hammond 2025
 
 # ── US/CANADA GREAT LAKES + N. AMERICA (2 papers) ───────────────────
-papers.append((44, -82, "Whiplash", "Precipitation-based"))   # Na & Najafi 2024
+papers.append((44, -82, "Hydro/precip. whiplash", "Precipitation-based"))   # Na & Najafi 2024
 papers.append((46, -79, "Other", "Combination"))         # Rahimimovaghar 2024
 
 # ── EUROPE (2 papers) ───────────────────────────────────────────────
@@ -130,6 +128,10 @@ papers.append((-28, 135, "Other", "Precipitation-based"))
 # ── ENGLAND AND WALES (Parry 2013) ──────────────────────────────────
 papers.append((52, -2, "D-to-F transition", "Precipitation-based"))
 
+# ── UK (Visser-Quinn et al. 2019 — compound hydro-hazard hotspots) ───
+papers.append((55, -3, "Other", "Streamflow-based"))                    # UK, 239 catchments
+# Parry et al. 2023 removed — studies drought termination only, not flood side
+
 # ── IRAN (Farzin 2025) ──────────────────────────────────────────────
 papers.append((33, 53, "Other", "Combination"))
 
@@ -145,7 +147,7 @@ ax.set_facecolor("white")  # sea = white
 STUDIED_COUNTRIES = {
     "China", "United States of America", "Canada", "France", "Switzerland",
     "Chile", "United Kingdom", "Iran", "Australia", "India", "Nepal",
-    "Germany", "Austria", "Norway", "Italy", "Spain", "Portugal",
+    "Germany",
 }
 
 # Base: all land in light grey
@@ -154,11 +156,18 @@ ax.add_feature(cfeature.LAND, facecolor="#E8E8E8", edgecolor="none", zorder=1)
 # Overlay studied countries in darker grey
 shpfilename = shpreader.natural_earth(resolution="110m", category="cultural", name="admin_0_countries")
 reader = shpreader.Reader(shpfilename)
+from shapely.geometry import MultiPolygon
 for country in reader.records():
     name = country.attributes["NAME"]
     if name in STUDIED_COUNTRIES:
+        geom = country.geometry
+        # Filter out overseas territories (keep only parts with centroid > 20°N for France/UK)
+        if name in ("France", "United Kingdom") and geom.geom_type == "MultiPolygon":
+            parts = [p for p in geom.geoms if p.centroid.y > 40]
+            if parts:
+                geom = MultiPolygon(parts)
         ax.add_geometries(
-            [country.geometry], ccrs.PlateCarree(),
+            [geom], ccrs.PlateCarree(),
             facecolor="#D0D0D0", edgecolor="none", zorder=1.5,
         )
 
@@ -191,7 +200,7 @@ for lat, lon, term, method in papers:
 # Full terminology labels
 TERM_LABELS = {
     "DFAA":              "Drought-flood abrupt alternation",
-    "Whiplash":          "Whiplash",
+    "Hydro/precip. whiplash":          "Hydro/precip. whiplash",
     "D-to-F transition": "Drought-to-flood transition",
     "Weather whiplash":  "Weather whiplash",
     "Other":             "Other",

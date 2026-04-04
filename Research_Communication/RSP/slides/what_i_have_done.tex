@@ -12,7 +12,6 @@
 \usetheme{Madrid}
 \definecolor{ucdgreen}{RGB}{0, 102, 51}
 \definecolor{gapred}{RGB}{180, 50, 50}
-\definecolor{levelgrey}{RGB}{120, 120, 120}
 \definecolor{stepfill}{RGB}{230, 243, 235}
 \definecolor{topfill}{RGB}{0, 102, 51}
 \definecolor{donefill}{RGB}{200, 230, 210}
@@ -29,6 +28,16 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 \begin{document}
 
 % --------------------------------------------------
+% SLIDE 0: Title page
+% --------------------------------------------------
+% PURPOSE: Greeting, intro for Abdollah, three-part overview.
+%          All spoken — slide just shows name, centre, supervisors.
+% --------------------------------------------------
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% --------------------------------------------------
 % SLIDE 1: The S2S timescale + what this thesis targets
 % --------------------------------------------------
 % PURPOSE: Establish what S2S is and introduce drought-to-flood
@@ -37,97 +46,31 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 % --------------------------------------------------
 \begin{frame}{The Prediction Gap}
 
-    \begin{columns}[c, totalwidth=\textwidth]
+    \centering
+    \vspace{-0.5em}
+    % Mariotti et al. (2018), npj Clim Atmos Sci, Fig. 1
+    \includegraphics[width=0.80\textwidth, height=0.58\textheight, keepaspectratio]{s2s_prediction_gap_mariotti2018.jpg}\\[-0.3em]
+    {\tiny\color{gray!60} Adapted from Mariotti et al.\ (2018)}
 
-        \begin{column}{0.58\textwidth}
-            \centering
-            \begin{tikzpicture}[xscale=0.95, yscale=0.85]
-                % Axes
-                \draw[-{Stealth[length=2mm]}, thick, gray!70]
-                    (0, 0) -- (0, 4.2);
-                \node[rotate=90, above=0.35cm, font=\footnotesize, text=gray!80]
-                    at (0, 2.0) {Forecast Skill};
-                \draw[-{Stealth[length=2mm]}, thick, gray!70]
-                    (0, 0) -- (8.5, 0);
+    \vspace{0.3em}
+    \onslide<2->{
+    \begin{tikzpicture}
+        \node[font=\normalsize, text=gapred!80!black] (dry) at (0,0) {Drought};
+        \node[font=\normalsize, text=ucdgreen!80!black] (wet) at (3.5,0) {Flood};
+        \draw[-{Stealth[length=3mm]}, thick, gray!70]
+            (dry.east) -- (wet.west);
+        \node[font=\scriptsize, text=gray, above] at (1.75, 0.05) {transition};
+    \end{tikzpicture}
+    }
 
-                % Y-axis labels
-                \node[font=\tiny, text=gray!70, left] at (0, 3.8) {High};
-                \node[font=\tiny, text=gray!70, left] at (0, 0.3) {Low};
-
-                % X-axis tick labels
-                \foreach \x/\lab in {
-                    0.4/1\,hr, 1.0/1\,day, 2.0/1\,wk,
-                    3.2/2\,wk, 4.8/1\,mo, 6.0/3\,mo, 7.5/1\,yr}
-                {
-                    \node[font=\tiny, text=gray!60, below=1pt] at (\x, 0) {\lab};
-                    \draw[gray!30] (\x, 0) -- (\x, -0.08);
-                }
-
-                % Weather skill curve (left, decaying)
-                \fill[orange!12]
-                    (0, 0) -- (0, 3.9)
-                    .. controls (0.8, 3.7) and (1.8, 2.2) ..
-                    (2.6, 0.5)
-                    .. controls (2.9, 0.15) and (3.1, 0.05) ..
-                    (3.3, 0.02) -- (3.3, 0) -- cycle;
-                \draw[orange!60!red, thick]
-                    (0, 3.9)
-                    .. controls (0.8, 3.7) and (1.8, 2.2) ..
-                    (2.6, 0.5)
-                    .. controls (2.9, 0.15) and (3.1, 0.05) ..
-                    (3.3, 0.02);
-
-                % Climate/seasonal skill curve (right, rising)
-                \fill[ucdgreen!10]
-                    (5.2, 0) -- (5.2, 0.02)
-                    .. controls (5.5, 0.08) and (5.8, 0.2) ..
-                    (6.2, 0.5)
-                    .. controls (6.8, 1.0) and (7.4, 1.5) ..
-                    (8.2, 1.8) -- (8.2, 0) -- cycle;
-                \draw[ucdgreen!80!black, thick]
-                    (5.2, 0.02)
-                    .. controls (5.5, 0.08) and (5.8, 0.2) ..
-                    (6.2, 0.5)
-                    .. controls (6.8, 1.0) and (7.4, 1.5) ..
-                    (8.2, 1.8);
-
-                % Domain labels
-                \node[font=\footnotesize\bfseries, text=orange!70!red]
-                    at (1.2, 1.0) {Weather};
-                \node[font=\footnotesize\bfseries, text=ucdgreen!70!black]
-                    at (7.2, 1.0) {Climate};
-
-                % Gap region label
-                \node[font=\footnotesize\bfseries, text=gray!70]
-                    at (4.2, 3.2) {Sub-Seasonal};
-                \draw[gray!40, thick, {Stealth[length=1.5mm]}-{Stealth[length=1.5mm]}]
-                    (3.2, 2.8) -- (5.2, 2.8);
-
-            \end{tikzpicture}
-        \end{column}
-
-        \begin{column}{0.40\textwidth}
-            \centering
-            \vspace{0.5em}
-            {\Large\textbf{2 weeks -- 2 months}}
-
-            \vspace{1.2em}
-            Least skilful\\[0.4em]
-            Most decision-relevant
-
-            \vspace{1.5em}
-            \onslide<2->{
-            \begin{tikzpicture}
-                \node[font=\small, text=gapred!80!black] (dry) at (0,0) {Drought};
-                \node[font=\small, text=ucdgreen!80!black] (wet) at (2.8,0) {Flood};
-                \draw[-{Stealth[length=2.5mm]}, thick, gray!70]
-                    (dry.east) -- (wet.west);
-                \node[font=\tiny, text=gray, above] at (1.4, 0.05) {transition};
-            \end{tikzpicture}
-            }
-        \end{column}
-
-    \end{columns}
+    \onslide<3->{
+    \vspace{0.3em}
+    \begin{tikzpicture}
+        \node[font=\Large\bfseries, text=gapred!80!black] at (0,0) {24\%};
+        \node[font=\scriptsize, text=gray, anchor=west] at (0.55,0) {of all floods globally follow or overlap with drought};
+        \node[font=\tiny, text=gray!50, anchor=west] at (0.55,-0.35) {Matan\'o et al.\ (2024), 8255 catchments};
+    \end{tikzpicture}
+    }
 \end{frame}
 
 % --------------------------------------------------
@@ -188,7 +131,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
     % Level 3 — the gap
     \onslide<4->{
     \node[levelgap, minimum width=4.5cm, minimum height=1.1cm] (l3) at (-5.0, -0.7)
-        {Does variable skill carry through\\to multi-hazard event skill?\\[0.15em]
+        {Does met skill carry through\\to multi-hazard event skill?\\[0.15em]
          {\tiny\color{gapred} Nobody has tested this}};
     \node[cross, left=0.15cm of l3] {\ding{55}};
     }
@@ -246,24 +189,50 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 3: PhD Roadmap + Research Question
+% SLIDE 3: Research Questions + Three Papers + Paper 1 Roadmap
 % --------------------------------------------------
-% PURPOSE: Show the full PhD arc (Phases 1–6), state the
-%          research question, and bridge from gap diagnosis
-%          to "what I am doing."
+% PURPOSE: State the two research questions, introduce the three
+%          papers, and show the Paper 1 roadmap. Script says
+%          "The roadmap on screen shows how Paper 1 maps out."
 % --------------------------------------------------
 \begin{frame}{Research Arc}
 
-    \vspace{0.5em}
-    \begin{center}
-    {\large\itshape How does S2S forecast skill for multi-hazard events compare to\\[0.2em]
-    skill for the individual variables and impacts they are derived from,\\[0.2em]
-    and under what atmospheric conditions does this skill emerge?}
-    \end{center}
+    % --- Two research questions ---
+    \vspace{0.3em}
+    \begin{enumerate}
+        \item[\textcolor{ucdgreen}{\textbf{1.}}] {\itshape How does prediction skill at S2S lead times compare across forecast variables, impact variables, and multi-hazard events?}
+        \item[\textcolor{ucdgreen}{\textbf{2.}}] {\itshape Under what atmospheric conditions does this skill emerge?}
+    \end{enumerate}
 
-    \vspace{1em}
+    \vspace{0.6em}
 
-    % --- PhD Roadmap (chevron chain) ---
+    % --- Three papers ---
+    \onslide<2->{
+    \centering
+    \begin{tikzpicture}[
+        pbox/.style={draw=ucdgreen!40, thick, rounded corners=4pt,
+            minimum width=4.0cm, minimum height=1.2cm,
+            fill=ucdgreen!5, align=center, font=\footnotesize}
+    ]
+    \node[pbox, fill=donefill, draw=ucdgreen!60] (pa) at (0, 0)
+        {\textbf{Paper 1}\\[0.15em]
+         {\scriptsize Drought-to-flood}\\[-0.1em]
+         {\tiny\color{ucdgreen!70!black} temporally compounding}};
+    \node[pbox, fill=nextfill, draw=orange!50] (pb) at (4.8, 0)
+        {\textbf{Paper 2}\\[0.15em]
+         {\scriptsize Energy source droughts}\\[-0.1em]
+         {\tiny\color{orange!70!black} multivariate}};
+    \node[pbox, fill=gray!8, draw=gray!40] (pc) at (9.6, 0)
+        {\textbf{Paper 3}\\[0.15em]
+         {\scriptsize ANTICIPATE COST Action}\\[-0.1em]
+         {\tiny\color{gray} to be determined}};
+    \end{tikzpicture}
+    }
+
+    \vspace{1.2em}
+
+    % --- Paper 1 roadmap (chevron chain) ---
+    \onslide<3->{
     \centering
     \begin{tikzpicture}[
         xscale=1.0,
@@ -276,18 +245,23 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
         },
         plbl/.style={font=\tiny, below=0.15cm}
     ]
-    % Variable skill — near complete (green)
+
+    % Label
+    \node[font=\footnotesize\bfseries, text=ucdgreen!80!black,
+          anchor=east] at (-1.2, 0) {Paper 1};
+
+    % Met skill — near complete (green)
     \node[chev, fill=donefill, draw=ucdgreen!60,
           signal from=none] (p1) at (0, 0)
-        {Variable\\skill};
+        {Met\\skill};
     \node[plbl, text=ucdgreen!80!black, font=\tiny\bfseries]
-        at (p1.south) {Met verification};
+        at (p1.south) {Verification};
 
-    % Impact skill — next (amber)
-    \node[chev, fill=nextfill, draw=orange!60,
+    % Impact skill — next (light green, not amber)
+    \node[chev, fill=ucdgreen!8, draw=ucdgreen!40, dashed,
           right=-0.02cm of p1] (p2)
         {Impact\\skill};
-    \node[plbl, text=orange!80!black, font=\tiny\bfseries]
+    \node[plbl, text=ucdgreen!60!black, font=\tiny\bfseries]
         at (p2.south) {Streamflow};
 
     % Event skill — planned (grey)
@@ -312,6 +286,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
         at (p6.south) {Added value?};
 
     \end{tikzpicture}
+    }
 
 \end{frame}
 

@@ -99,6 +99,64 @@ From thesis `Flood_to_Drought.tex` and `Literature_Terminology.md`:
 1. **Ireland is blank** — no study from any tradition has applied transition detection here
 2. **None of these studies use forecasts** — all are diagnostic / observational / reanalysis
 3. **5 global/gridded studies not plotted on map** — Rashid & Wahl 2022; Anderson et al. 2025; Matanó et al. 2024; He & Sheffield 2020; Qing et al. 2023
+4. **2 review papers removed from map** — Zhang et al. 2025 [D3TRYK53]; Bai et al. 2023 [7ZKIDHSU] (DFAA reviews, not individual studies)
+
+### Matanó et al. 2024 — key paper for RSP script motivation
+
+- **24% of all floods globally are preceded by or compounded with drought** (233,000 flood events, 8255 catchments)
+- In 13% of catchments, over half of floods have a drought precursor
+- **Method:** percentile thresholding (85th for flood, 15th for drought) — not an index
+- **Variables:** precipitation, soil moisture (surface + root), streamflow, TWS (GRACE), surface water extent, NDVI — broader than most studies
+- **Drought definition requires at least one hydrological variable** (soil moisture, streamflow, or TWS), not just precipitation
+- **Two event types:** compound D&F (flood during drought) and consecutive DtoF (flood within 1 month of drought end)
+- **Hotspots:** NE US, western Canada, SW Europe, Alps, Norway, UK, India's west coast
+- **Ireland not mentioned specifically** but UK catchments are included; depends on what's in the Global Streamflow Indices and Metadata Archive
+- ~25% of drought-flood events have flood timing shifted 2–3 months later than expected
+- **Script use:** justifies the research — nearly a quarter of all floods interact with preceding drought, yet no study forecasts this
+- **Verification implication:** Matanó's observed streamflow data (GSIM archive) is the type of dataset needed as a verification target for Ireland. Apply same thresholding to Irish observed streamflow (OPW/EPA gauges) to define "truth" transitions, then verify whether S2S forecasts (SEAS5/EEFH) predict them. Check whether GSIM includes Irish stations; OPW hydrometric network is the more natural source.
+
+### Parry et al. 2023 — key paper: drought termination in the British-Irish Isles
+
+**What it actually studies:** Drought termination (DT) — the end of drought — not the subsequent flood explicitly. They identify when droughts end in streamflow records and ask what atmospheric mechanism drove the ending. They do NOT formally detect flood events or link specific DTs to subsequent floods. However, they note that "the wet conditions associated with drought terminations often culminate in high flow and flooding events" and discuss compound drought-flood implications. Closer to a transition study than drought-only work, but not formal two-sided detection like Anderson or Götte.
+
+**On the map:** Yes — it studies the process that produces drought-to-flood transitions (IVT-driven abrupt drought termination) and is the only study to include Irish catchments.
+
+- **354 catchments across UK and Ireland** (51 Irish catchments from O'Connor et al. 2021 reconstructed monthly river flows, 1900–2010)
+- **7589 drought termination events** identified from reconstructed streamflow series
+- **Variable:** reconstructed monthly mean river flows (UK: daily aggregated to monthly; Ireland: monthly native)
+- **Drought detection:** threshold-based — monthly flow below a drought threshold triggers drought; DT identified when flows recover above threshold for 2+ consecutive months (Parry et al. 2016a, 2016b methodology)
+- **Atmospheric driver variable:** integrated vapour transport (IVT) from ERA-20C reanalysis (125 km grid), upper quartile of seasonal mean IVT defines "high IVT"
+- **Analysis method:** event coincidence analysis (ECA) — statistical test for whether high IVT precedes DT more often than expected by chance. Two metrics: precursor coincidence rate (PCR, how often DT is preceded by high IVT) and trigger coincidence rate (TCR, how often high IVT leads to DT)
+- **NAO:** monthly NAO index (Jones et al. 1997) used to assess IVT intensity and DT abruptness under different NAO phases
+- **53% of all drought terminations are preceded by high IVT**
+- In Western Scotland, **80% of autumn DTs** preceded by high IVT
+- In Southern England, **>67% of winter DTs** preceded by high IVT
+- **Irish catchments have year-round IVT-DT association** regardless of season — consistent high PCR and TCR values
+- Western, wetter, higher-altitude catchments show strongest associations (orographic enhancement of IVT)
+- **Most abrupt drought terminations occur only with top-decile IVT under strongly positive NAO**
+- **Critical for your project:**
+  1. Provides the **physical mechanism** linking weather regimes (NAO) to drought-to-flood transitions — this is your Phase 5 connection
+  2. IVT and NAO forecasts are **more skilful than rainfall forecasts** at S2S lead times (Lavers et al. 2016) — justifies using regime-based variables for transition prediction
+  3. **Ireland is explicitly included** with 51 catchments — this is the closest existing study to what you need
+  4. They explicitly call for "subsequent research to formally evaluate hindcasts of sub-seasonal IVT and NAO outlooks" — that is essentially what your thesis does
+  5. Conor Murphy and Paul O'Connor (Maynooth) are co-authors — potential collaboration/data access for Irish reconstructed flows
+  6. The gap between what they did (retrospective: did high IVT precede this DT?) and what you would do (forecast: will high IVT produce a DT at lead weeks 3–6?) is the novel contribution
+
+### Visser-Quinn et al. 2019 — compound hydro-hazard hotspots in the UK
+
+- **239 UK catchments**, climate projections (5 GCMs × 3 hydro models, RCP8.5)
+- Identifies **compound hydro-hazard hotspots** — where BOTH flood AND drought frequency increase under climate change
+- **Half of all projected hotspots are temporally concurrent or successive within the year** — drought and flood in the same catchment, same year
+- NE Scotland and SW UK identified as spatio-temporally compound hotspot regions
+- **Method:** QE-ANOVA framework on projected flood/drought event counts; streamflow-based
+- Does NOT include Ireland, but the framework is transferable
+- **Implication:** climate change is making drought-to-flood transitions more likely, not less — strengthens the case for forecasting them
+
+### Simmonds et al. (Scotland) — NOT on the map
+
+- Multi-hazard review for Scotland, not an original transition study
+- Mentions drought-flood as one of many hazard interactions; cites Parry 2013 for the 2012 case
+- Background context only
 3. **The field is geographically fragmented** — Chinese DFAA tradition (20+ papers, purpose-built indices) operates largely independently from Western whiplash/transition literature. Zhang et al. (2025) is the first major DFAA review to cite Western compound event frameworks.
 4. **DFAA indices are not portable** — weighting coefficients calibrated for Chinese monsoon seasonality; recalibration needed for maritime European climates (never attempted)
 5. **No consensus definition** — Anderson et al. (2025) is the closest methodological treatment; shows different methods give fundamentally different results
