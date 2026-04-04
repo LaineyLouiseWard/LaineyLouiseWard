@@ -129,6 +129,89 @@
 \end{frame}
 
 % --------------------------------------------------
+% BACKUP: Three detection strategies
+% --------------------------------------------------
+% USE: If panel asks "how will you detect events?",
+%      "what's the difference between thresholding and indices?"
+% --------------------------------------------------
+\definecolor{strat1}{RGB}{78, 121, 167}   % steel blue
+\definecolor{strat2}{RGB}{225, 87, 89}    % warm red
+\definecolor{strat3}{RGB}{176, 122, 161}  % muted purple
+
+\begin{frame}{Three strategies for detecting transitions}
+
+    \centering
+    \vspace{-0.3em}
+
+    \begin{tikzpicture}[xshift=0.5cm,
+        box/.style={draw=#1!70, thick, rounded corners=3pt,
+                    fill=#1!8, minimum width=3.0cm, minimum height=0.7cm,
+                    align=center, font=\scriptsize},
+        data/.style={draw=gray!50, thick, rounded corners=3pt,
+                    fill=gray!6, minimum width=3.2cm, minimum height=0.7cm,
+                    align=center, font=\scriptsize},
+        result/.style={draw=#1!70, thick, rounded corners=3pt,
+                    fill=#1!15, minimum width=3.2cm, minimum height=0.7cm,
+                    align=center, font=\scriptsize\bfseries},
+        arr/.style={-{Stealth[length=2mm]}, thick, #1!60},
+        lbl/.style={font=\footnotesize\bfseries, text=#1},
+    ]
+
+    % === Column 1: Raw thresholding ===
+    \node[lbl=strat1] (t1) at (1.0, 3.8) {1. Raw thresholding};
+    \node[data] (d1) at (1.0, 3.0) {Streamflow};
+    \node[box=strat1] (th1) at (1.0, 1.8) {Threshold directly\\(e.g.\ $<$Q20, $>$Q90)};
+    \node[box=strat1] (link1) at (1.0, 0.6) {Link drought + flood\\episodes by proximity};
+    \node[result=strat1] (ev1) at (1.0, -0.6) {DTF events};
+
+    \draw[arr=strat1] (d1) -- (th1);
+    \draw[arr=strat1] (th1) -- (link1);
+    \draw[arr=strat1] (link1) -- (ev1);
+
+    \node[font=\tiny, text=gray, anchor=north, text width=3cm, align=center]
+        at (1.0, -1.15) {Anderson, G\"otte \& Brunner,\\Yang, Matan\'o};
+
+    % === Column 2: Index-based thresholding ===
+    \node[lbl=strat2] (t2) at (5.5, 3.8) {2. Index-based};
+    \node[data] (d2) at (5.5, 3.0) {Precipitation};
+    \node[box=strat2] (idx) at (5.5, 1.8) {Compute index\\(SPI, SPEI, LDFAI, etc.)};
+    \node[box=strat2] (th2) at (5.5, 0.6) {Threshold the index\\to identify events};
+    \node[result=strat2] (ev2) at (5.5, -0.6) {DTF events};
+
+    \draw[arr=strat2] (d2) -- (idx);
+    \draw[arr=strat2] (idx) -- (th2);
+    \draw[arr=strat2] (th2) -- (ev2);
+
+    \node[font=\tiny, text=gray, anchor=north, text width=3cm, align=center]
+        at (5.5, -1.15) {Wang, Bai, Zhao};
+
+    % === Column 3: Regime classification ===
+    \node[lbl=strat3] (t3) at (10.5, 3.8) {3. Regime classification};
+    \node[data] (d3) at (10.5, 3.0) {500\,hPa height\\anomalies};
+    \node[box=strat3] (som) at (10.5, 1.8) {Cluster circulation\\patterns};
+    \node[box=strat3] (shift) at (10.5, 0.6) {Identify regime\\shifts};
+    \node[result=strat3] (ev3) at (10.5, -0.6) {DTF events};
+
+    \draw[arr=strat3] (d3) -- (som);
+    \draw[arr=strat3] (som) -- (shift);
+    \draw[arr=strat3] (shift) -- (ev3);
+
+    \node[font=\tiny, text=gray, anchor=north, text width=3cm, align=center]
+        at (10.5, -1.15) {Francis et al.\ 2023};
+
+    % === Caution annotation ===
+    \node[draw=gapred!40, rounded corners=3pt, fill=gapred!4,
+          text width=12cm, align=left, font=\scriptsize, inner sep=6pt]
+        at (5.25, -2.6) {
+            Yang et al.\ (2025): raw streamflow vs SPI yield \textbf{opposite frequency trends}
+            over 7 decades on the same US catchments.
+        };
+
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
 % BACKUP: Event definition choices across studies
 % --------------------------------------------------
 % USE: If panel asks "what thresholds will you use?",
@@ -138,36 +221,100 @@
 \begin{frame}{How are drought-to-flood events defined?}
 
     \centering
-    \vspace{-0.3em}
+    \vspace{-0.5em}
 
     \scriptsize
-    \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{l l l l l l}
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{l l c l l l}
     \toprule
-    \textbf{Study} & \textbf{Region} & \textbf{Strategy} & \textbf{Drought def.} & \textbf{Flood def.} & \textbf{Linking rule} \\
+    \textbf{Study} & \textbf{Region} & \textbf{Strategy} & \textbf{Drought def.} & \textbf{Flood def.} & \textbf{Transition rule} \\
     \midrule
-    Anderson        & Global       & Raw threshold  & Variable, seasonal,  & Variable, seasonal,  & 14--90 day \\
-    et al.\ 2025    & (8 cases)    & (compared)     & fixed (compared)     & fixed (compared)     & window (compared) \\[0.3em]
-    G\"otte \&      & CONUS        & Raw threshold  & Streamflow $<$ Q20   & Streamflow $>$ Q50   & Computed; \\
-    Brunner 2024    &              & (variable)     & (day-of-year)        & of annual maxima     & $\geq$10 day gap \\[0.3em]
-    Yang et         & CONUS        & Raw threshold  & Streamflow $<$ Q50   & Streamflow $>$ Q50   & $<$90 days \\
-    al.\ 2025       & (2212 stn)   & (fixed)        & of annual 7-day min  & of annual maxima     & \\[0.3em]
-    Matan\'o et     & Global       & Raw threshold  & $<$15th \%ile in     & Streamflow           & During or \\
-    al.\ 2024       & (8255 catch.)&                & $\geq$1 hydro.\ var  & $>$85th \%ile        & within 1 month \\[0.3em]
-    Guimar\~aes     & France       & Raw threshold  & Streamflow $<$ Q20   & Streamflow $>$ Q99   & Consecutive; \\
-    et al.\ 2026    & (643 catch.) & + baseflow     &                      &                      & baseflow recovery \\[0.3em]
-    Wang et         & Yangtze,     & Index-based    & SPI-conditioned      & SPI-conditioned      & MSDFAI $\geq$ 1 \\
-    al.\ 2024       & China        & (MSDFAI)       & MSDFAI index         & MSDFAI index         & (continuous) \\
+    G\"otte \&      & US      & 1 & Streamflow $<$ Q20       & Streamflow $>$ Q50       & $\geq$10 days \\
+    Brunner (2024)  &         &   & (varies by day-of-year)  & of annual maxima         & \\
+    \arrayrulecolor{gray!30}\midrule\arrayrulecolor{black}
+    Yang et         & US      & 1 & Streamflow $<$ Q50       & Streamflow $>$ Q50       & $<$90 days \\
+    al.\ (2025)     &         &   & of annual 7-day min      & of annual maxima         & \\
+    \arrayrulecolor{gray!30}\midrule\arrayrulecolor{black}
+    Matan\'o et     & Global  & 1 & $<$Q15 in $\geq$1        & Streamflow               & $<$30 days \\
+    al.\ (2024)     &         &   & hydrological variable    & $>$ Q85                  & \\
+    \arrayrulecolor{gray!30}\midrule\arrayrulecolor{black}
+    Guimar\~aes     & France  & 1 & Streamflow $<$ Q20       & Streamflow $>$ Q99       & No gap \\
+    et al.\ (2026)  &         &   &                          &                          & \\
+    \arrayrulecolor{gray!30}\midrule\arrayrulecolor{black}
+    Wang et         & China   & 2 & SPI $\to$ MSDFAI         & SPI $\to$ MSDFAI         & Index $\geq$ 1 \\
+    al.\ (2024)     &         &   & (alternation index)      & (alternation index)      & \\
     \bottomrule
     \end{tabular}
 
-    \vspace{0.6em}
+    \vspace{0.8em}
     \begin{tikzpicture}
         \node[draw=gapred!40, rounded corners=3pt, fill=gapred!4,
-              text width=12cm, align=left, font=\scriptsize, inner sep=6pt] {
-            \textbf{Anderson et al.\ (2025):} different threshold methods applied to the same catchments
-            detected only \textbf{3 of 8} known impactful transitions.
-            No definition is neutral. \textbf{No study has tested any approach on Irish catchments.}
+              text width=12.5cm, align=left, font=\scriptsize, inner sep=6pt] {
+            \textbf{Anderson et al.\ (2025)} compared multiple threshold types on 8~catchments
+            with known transitions and detected only \textbf{3 of 8}.
+            \textbf{No study has tested any approach on Irish catchments.}
+        };
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% BACKUP: Verification metrics
+% --------------------------------------------------
+% USE: If panel asks about the specific metrics used,
+%      or wants to see the ACC equation.
+% --------------------------------------------------
+\begin{frame}{Verification Metrics}
+
+    \vspace{-0.3em}
+
+    {\footnotesize
+    $f_i$ = forecast weekly mean, \quad
+    $o_i$ = observed weekly mean, \quad
+    $\bar{c}_i$ = climatological mean (1991--2020) \\[0.3em]
+    $f'_i = f_i - \bar{c}_i$ = forecast anomaly, \quad
+    $o'_i = o_i - \bar{c}_i$ = observed anomaly, \quad
+    $N$ = number of cases
+    }
+
+    \vspace{0.5em}
+
+    \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+        \textbf{Bias}
+        \[
+        \mathrm{Bias} = \frac{1}{N}\sum_{i=1}^{N} (f_i - o_i)
+        \]
+
+        \vspace{0.5em}
+        \textbf{RMSE}
+        \[
+        \mathrm{RMSE} = \sqrt{\frac{1}{N}\sum_{i=1}^{N} (f_i - o_i)^2}
+        \]
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+        \textbf{ACC}
+        \[
+        \mathrm{ACC} = \frac{\displaystyle\sum_{i} f'_i \, o'_i}
+        {\sqrt{\displaystyle\sum_{i} (f'_i)^2} \;\sqrt{\displaystyle\sum_{i} (o'_i)^2}}
+        \]
+
+        \vspace{0.3em}
+        {\scriptsize
+        Uncentred, unweighted, matching the ECMWF operational definition.
+        Computed as spatial pattern correlation per init (across gridpoints),
+        then averaged across inits.}
+    \end{column}
+    \end{columns}
+
+    \vspace{0.5em}
+    \begin{tikzpicture}
+        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
+              text width=12.5cm, align=left, font=\scriptsize, inner sep=6pt] {
+            Bias and RMSE computed on \textbf{raw values}; ACC on \textbf{anomalies}.
+            All aggregated to \textbf{weekly means} before scoring.
+            Climatology: 1991--2020 (WMO standard).
         };
     \end{tikzpicture}
 
@@ -304,9 +451,9 @@
 
     \vspace{1em}
     \begin{tikzpicture}
-        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
+        \node[draw=gray!30, rounded corners=3pt, fill=gray!4,
               text width=8cm, align=left, font=\footnotesize, inner sep=6pt] {
-            All variables aggregated to \textbf{weekly means} for scoring (RMSE, Bias).
+            All variables aggregated to \textbf{weekly means} for scoring.
         };
     \end{tikzpicture}
 
