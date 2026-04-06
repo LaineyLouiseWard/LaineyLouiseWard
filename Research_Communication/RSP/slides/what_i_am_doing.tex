@@ -74,9 +74,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 
         \begin{column}{0.56\textwidth}
             \centering
-            \onslide<2->{
             \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{station_pipeline_nn_map.png}
-            }
         \end{column}
 
     \end{columns}
@@ -95,36 +93,23 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 
         \begin{column}{\textwidth}
             \centering
-            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{consolidation_raw_t2m_chain.png}
+            \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{consolidation_raw_t2m_chain.png}
         \end{column}
 
     \end{columns}
 
-\end{frame}
-
-% --------------------------------------------------
-% SLIDE 5: Deterministic verification results
-% --------------------------------------------------
-% PURPOSE: Station-level and spatial verification plots.
-%          Script: "At the station level, both systems are verified
-%          against Met Éireann observations. Spatially, they're
-%          verified against ERA5-Land."
-% --------------------------------------------------
-\begin{frame}{Deterministic Verification}
-
-    \begin{columns}[c, totalwidth=\textwidth]
-
-        \begin{column}{\textwidth}
-            \centering
-            \includegraphics[width=\textwidth, height=0.80\textheight, keepaspectratio]{slide_rmse_bias_t2m_hly4935.png}
-        \end{column}
-
-    \end{columns}
+    \vspace{0.3em}
+    \begin{tikzpicture}
+        \node[font=\scriptsize, text=gray!70, anchor=west] at (0, 0)
+            {1.~ERA5-Land warm-biased relative to stations};
+        \node[font=\scriptsize, text=gray!70, anchor=west] at (7, 0)
+            {2.~Seasonal warmer than subseasonal};
+    \end{tikzpicture}
 
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 6: Spatial Bias — dual reference
+% SLIDE 5: Spatial Bias — dual reference
 % --------------------------------------------------
 \begin{frame}{Spatial Verification}
 
@@ -132,57 +117,18 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 
         \begin{column}{\textwidth}
             \centering
-            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{consolidation_spatial_bias_4panel.png}
+            \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{consolidation_spatial_bias_4panel.png}
         \end{column}
 
     \end{columns}
 
-\end{frame}
-
-% --------------------------------------------------
-% HIDDEN SLIDES: Spatial RMSE + RMSS
-% --------------------------------------------------
-\appendix
-
-\begin{frame}{Spatial RMSE}
-
-    \begin{columns}[c, totalwidth=\textwidth]
-
-        \begin{column}{\textwidth}
-            \centering
-            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{consolidation_spatial_rmse_4panel.png}
-        \end{column}
-
-    \end{columns}
-
-\end{frame}
-
-\begin{frame}{Spatial Skill Score}
-
-    \vspace{-0.5em}
-    \begin{columns}[c, totalwidth=\textwidth]
-
-        \begin{column}{0.72\textwidth}
-            \centering
-            \includegraphics[width=\textwidth, height=0.80\textheight, keepaspectratio]{consolidation_spatial_rmss_3panel.png}
-        \end{column}
-
-        \begin{column}{0.26\textwidth}
-            \vspace{1em}
-            \begin{block}{\small RMSS}
-            \small
-            \[
-                \text{RMSS} = 1 - \frac{\text{RMSE}_{\text{fc}}}{\text{RMSE}_{\text{clim}}}
-            \]
-            \vspace{0.3em}
-
-            \textbf{RMSS $> 0$}: forecast beats climatology\\[0.3em]
-            \textbf{RMSS $= 0$}: no skill\\[0.3em]
-            \textbf{RMSS $< 0$}: worse than climatology
-            \end{block}
-        \end{column}
-
-    \end{columns}
+    \vspace{0.3em}
+    \begin{tikzpicture}
+        \node[font=\scriptsize, text=gray!70, anchor=west] at (0, 0)
+            {1.~Subseasonal cold bias exaggerated by warm reference};
+        \node[font=\scriptsize, text=gray!70, anchor=west] at (7.5, 0)
+            {2.~Seasonal warm bias is genuine};
+    \end{tikzpicture}
 
 \end{frame}
 

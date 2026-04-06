@@ -22,9 +22,9 @@
 
 \begin{document}
 
-\begin{frame}{Navigating the Predictability Desert}
+\begin{frame}{Oasis in the Predictability Desert?}
 
-    \begin{columns}[c, totalwidth=\textwidth]
+    \begin{columns}[T, totalwidth=\textwidth]
 
         % ── Left: Farmer ─────────────────────────────────────
         \begin{column}{0.13\textwidth}
@@ -34,19 +34,19 @@
 
         % ── Centre: Drought → Flood ──────────────────────────
         \begin{column}{0.52\textwidth}
-            \centering
+            \hspace*{-5mm}%
             \begin{tikzpicture}
 
                 % Drought
-                \node[anchor=south] (drought) at (0, 0)
+                \node[anchor=south] (drought) at (-0.7, 0)
                     {\includegraphics[height=3.4cm]{drought_cropped.png}};
 
                 % Arrow
-                \node[anchor=center] (arrow) at (2.08, 1.5)
+                \node[anchor=center] (arrow) at (1.38, 1.5)
                     {\includegraphics[height=0.7cm]{arrow_cropped.png}};
 
                 % Flood
-                \node[anchor=south] (flood) at (4.4, 0)
+                \node[anchor=south] (flood) at (3.7, -0.15)
                     {\includegraphics[height=3.4cm]{flood.png}};
 
             \end{tikzpicture}
@@ -54,7 +54,7 @@
 
         % ── Right: Vertical pipeline ──────────────────────────
         \begin{column}{0.33\textwidth}
-            \centering
+            \centering\par\vspace{1mm}%
             \begin{tikzpicture}[
                 pipebox/.style={draw=lightblue!70, fill=lightblue!10,
                     rounded corners=3pt, minimum width=3.4cm,

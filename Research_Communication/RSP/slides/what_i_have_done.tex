@@ -44,33 +44,35 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 %          transitions as the target phenomenon. Script carries
 %          the multi-hazard explanation verbally.
 % --------------------------------------------------
-\begin{frame}{The Prediction Gap}
+\begin{frame}{What Is the Prediction Gap?}
 
-    \centering
-    \vspace{-0.5em}
-    % Mariotti et al. (2018), npj Clim Atmos Sci, Fig. 1
-    \includegraphics[width=0.80\textwidth, height=0.58\textheight, keepaspectratio]{s2s_prediction_gap_mariotti2018.jpg}\\[-0.3em]
-    {\tiny\color{gray!60} Adapted from Mariotti et al.\ (2018)}
+    \begin{columns}[c, totalwidth=\textwidth]
 
-    \vspace{0.3em}
-    \onslide<2->{
-    \begin{tikzpicture}
-        \node[font=\normalsize, text=gapred!80!black] (dry) at (0,0) {Drought};
-        \node[font=\normalsize, text=ucdgreen!80!black] (wet) at (3.5,0) {Flood};
-        \draw[-{Stealth[length=3mm]}, thick, gray!70]
-            (dry.east) -- (wet.west);
-        \node[font=\scriptsize, text=gray, above] at (1.75, 0.05) {transition};
-    \end{tikzpicture}
-    }
+        % ── Left: Mariotti figure ─────────────────────────
+        \begin{column}{0.72\textwidth}
+            \centering
+            \includegraphics[width=\textwidth, keepaspectratio,
+                trim=0 30 0 0, clip]
+                {s2s_prediction_gap_mariotti2018.jpg}\\[-0.2em]
+            {\tiny\color{gray!50} Source: Mariotti et al.\ (2018)}
+        \end{column}
 
-    \onslide<3->{
-    \vspace{0.3em}
-    \begin{tikzpicture}
-        \node[font=\Large\bfseries, text=gapred!80!black] at (0,0) {24\%};
-        \node[font=\scriptsize, text=gray, anchor=west] at (0.55,0) {of all floods globally follow or overlap with drought};
-        \node[font=\tiny, text=gray!50, anchor=west] at (0.55,-0.35) {Matan\'o et al.\ (2024), 8255 catchments};
-    \end{tikzpicture}
-    }
+        % ── Right: 24% stat ──────────────────────────────
+        \begin{column}{0.26\textwidth}
+            \centering
+            \vspace{1cm}
+            \begin{tikzpicture}
+                \node[font=\Large\bfseries, text=gapred!80!black]
+                    at (0, 0) {24\%};
+                \node[font=\tiny, text=gray!60, align=center]
+                    at (0, -0.7) {of all floods globally\\follow drought};
+                \node[font=\tiny, text=gray!40]
+                    at (0, -1.2) {Matan\'o et al.\ (2024)};
+            \end{tikzpicture}
+        \end{column}
+
+    \end{columns}
+
 \end{frame}
 
 % --------------------------------------------------
@@ -80,7 +82,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 %          where it stops (Level 3), and what must be built
 %          to get there (staircase of contributions).
 % --------------------------------------------------
-\begin{frame}{Where Does the Literature Stop?}
+\begin{frame}{What Does the Literature Say?}
 
     \centering
     \begin{tikzpicture}[
@@ -115,74 +117,57 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
         at (-5.0, 2.8) {Literature operates at two levels};
 
     % Level 1
-    \onslide<2->{
     \node[level, minimum width=4.5cm] (l1) at (-5.0, 1.8)
         {Predict drought or flood separately};
     \node[tick, left=0.15cm of l1] {\ding{51}};
-    }
 
     % Level 2
-    \onslide<3->{
     \node[level, minimum width=4.5cm] (l2) at (-5.0, 0.6)
         {Characterise joint behaviour historically};
     \node[tick, left=0.15cm of l2] {\ding{51}};
-    }
 
     % Level 3 — the gap
-    \onslide<4->{
     \node[levelgap, minimum width=4.5cm, minimum height=1.1cm] (l3) at (-5.0, -0.7)
         {Does met skill carry through\\to multi-hazard event skill?\\[0.15em]
          {\tiny\color{gapred} Nobody has tested this}};
     \node[cross, left=0.15cm of l3] {\ding{55}};
-    }
 
     % === RIGHT: Staircase ===
-    % Connector from Level 3 to staircase
-    \onslide<5->{
     \node[font=\footnotesize\bfseries, text=ucdgreen!80!black]
         at (4.5, 2.8) {What must be built};
-    \draw[-{Stealth[length=2mm]}, thick, gray!50, dashed]
-        (l3.east) -- (s1.west);
-    }
 
     % Step 1: System selection
-    \onslide<5->{
     \node[stair] (s1) at (4.5, -0.7)
         {System selection};
-    }
+
+    % Connector from Level 3 to staircase
+    \draw[-{Stealth[length=2mm]}, thick, gray!50, dashed]
+        (l3.east) -- (s1.west);
 
     % Step 2: Impact variables
-    \onslide<6->{
     \node[stair] (s2) at (4.5, 0.15)
         {Impact variables};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s1.north) -- (s2.south);
-    }
 
     % Step 3: Event detection
-    \onslide<7->{
     \node[stair] (s3) at (4.5, 1.0)
         {Event detection};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s2.north) -- (s3.south);
-    }
 
     % Step 4: Regime conditioning
-    \onslide<8->{
     \node[stair] (s4) at (4.5, 1.85)
         {Regime conditioning};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s3.north) -- (s4.south);
-    }
 
     % Top: Event skill
-    \onslide<9->{
     \node[topstair, minimum height=0.95cm, minimum width=4.0cm,
           font=\small\bfseries] (s5) at (4.5, 2.9)
         {Multi-hazard event skill};
     \draw[-{Stealth[length=3mm]}, very thick, ucdgreen]
         (s4.north) -- (s5.south);
-    }
 
     \end{tikzpicture}
 
@@ -207,7 +192,6 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
     \vspace{0.6em}
 
     % --- Three papers ---
-    \onslide<2->{
     \centering
     \begin{tikzpicture}[
         pbox/.style={draw=ucdgreen!40, thick, rounded corners=4pt,
@@ -220,19 +204,17 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
          {\tiny\color{ucdgreen!70!black} temporally compounding}};
     \node[pbox, fill=nextfill, draw=orange!50] (pb) at (4.8, 0)
         {\textbf{Paper 2}\\[0.15em]
-         {\scriptsize Energy source droughts}\\[-0.1em]
+         {\scriptsize RES droughts}\\[-0.1em]
          {\tiny\color{orange!70!black} multivariate}};
     \node[pbox, fill=gray!8, draw=gray!40] (pc) at (9.6, 0)
         {\textbf{Paper 3}\\[0.15em]
          {\scriptsize ANTICIPATE COST Action}\\[-0.1em]
          {\tiny\color{gray} to be determined}};
     \end{tikzpicture}
-    }
 
     \vspace{1.2em}
 
     % --- Paper 1 roadmap (chevron chain) ---
-    \onslide<3->{
     \centering
     \begin{tikzpicture}[
         xscale=1.0,
@@ -286,7 +268,6 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
         at (p6.south) {Added value?};
 
     \end{tikzpicture}
-    }
 
 \end{frame}
 
