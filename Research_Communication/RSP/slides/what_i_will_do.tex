@@ -33,11 +33,6 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 % --------------------------------------------------
 \begin{frame}{Training \& Development}
 
-    % --- Colour definitions for categories ---
-    \definecolor{modcol}{RGB}{70, 130, 180}     % blue — modules
-    \definecolor{confcol}{RGB}{210, 140, 50}    % orange — conferences/seminars
-    \definecolor{traincol}{RGB}{0, 102, 51}     % green — training
-
     % --- Credits pill bar ---
     \vspace{0.2em}
     \begin{tikzpicture}
@@ -54,7 +49,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
         \fill[nextfill, rounded corners=3pt, draw=orange!40]
             (6.1, -0.25) rectangle (8.1, 0.25);
         \node[font=\tiny, text=orange!80!black] at (7.1, 0)
-            {STAT30010 (5)};
+            {COMP41850 (5)};
         \fill[gray!25, rounded corners=3pt]
             (8.25, -0.25) rectangle (9.75, 0.25);
         \node[font=\tiny, text=gray!70] at (9.0, 0)
@@ -67,21 +62,21 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
     \begin{tikzpicture}
         \node[font=\footnotesize\bfseries, text=ucdgreen!80!black,
               anchor=west] at (0, 0) {Training};
-        \fill[traincol!25, rounded corners=3pt]
+        \fill[ucdgreen!25, rounded corners=3pt]
             (1.8, -0.25) rectangle (4.2, 0.25);
-        \node[font=\tiny, text=traincol!90!black] at (3.0, 0)
+        \node[font=\tiny, text=ucdgreen!90!black] at (3.0, 0)
             {Research integrity};
-        \fill[traincol!25, rounded corners=3pt]
+        \fill[ucdgreen!25, rounded corners=3pt]
             (4.35, -0.25) rectangle (5.95, 0.25);
-        \node[font=\tiny, text=traincol!90!black] at (5.15, 0)
+        \node[font=\tiny, text=ucdgreen!90!black] at (5.15, 0)
             {HPC};
-        \fill[traincol!25, rounded corners=3pt]
+        \fill[ucdgreen!25, rounded corners=3pt]
             (6.1, -0.25) rectangle (8.3, 0.25);
-        \node[font=\tiny, text=traincol!90!black] at (7.2, 0)
+        \node[font=\tiny, text=ucdgreen!90!black] at (7.2, 0)
             {Ark presentation};
-        \fill[traincol!25, rounded corners=3pt]
+        \fill[ucdgreen!25, rounded corners=3pt]
             (8.45, -0.25) rectangle (10.55, 0.25);
-        \node[font=\tiny, text=traincol!90!black] at (9.5, 0)
+        \node[font=\tiny, text=ucdgreen!90!black] at (9.5, 0)
             {DestinE ML};
     \end{tikzpicture}
 
@@ -95,71 +90,105 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
         lbl/.style={font=\tiny, text=gray!60}
     ]
 
-    % Timeline axis (Apr = 0, Sep = 6, wider spacing)
-    \draw[thick, gray!40] (0, 0) -- (7.2, 0);
+    % Timeline axis — non-uniform spacing to give April more room
+    % Apr=0, May=2.4, Jun=3.4, Jul=4.4, Aug=5.4, Sep=6.4
+    \draw[thick, gray!40] (0, 0) -- (7.4, 0);
 
     % Dotted extension for next year
-    \draw[thick, gray!30, densely dotted] (7.2, 0) -- (10.2, 0);
+    \draw[thick, gray!30, densely dotted] (7.4, 0) -- (10.0, 0);
 
-
-    % Month ticks + labels (1.2 units per month for more space)
+    % Month ticks + labels
     \foreach \x/\m in {
-        0.0/Apr, 1.2/May, 2.4/Jun, 3.6/Jul, 4.8/Aug, 6.0/Sep}
+        0.0/Apr, 2.4/May, 3.4/Jun, 4.4/Jul, 5.4/Aug, 6.4/Sep}
     {
         \draw[gray!30] (\x, -0.08) -- (\x, 0.08);
         \node[lbl, below=2pt] at (\x, -0.08) {\m};
     }
 
-    % RSP1 marker (7 Apr ~ 0.1)
-    \draw[gapred!60, thick] (0.1, -1.6) -- (0.1, 1.8);
-    \node[font=\tiny\bfseries, text=gapred!70] at (0.1, 2.0) {RSP1};
+    % RSP1 marker (7 Apr ~ 0.15)
+    \draw[gapred!60, thick] (0.15, -2.0) -- (0.15, 2.2);
+    \node[font=\tiny\bfseries, text=gapred!70] at (0.15, 2.4) {RSP1};
 
-    % RSP2 marker (end Sep ~ 7.0)
-    \draw[gapred!60, thick] (7.0, -1.6) -- (7.0, 1.8);
-    \node[font=\tiny\bfseries, text=gapred!70] at (7.0, 2.0) {RSP2};
+    % RSP2 marker (end Sep ~ 7.2)
+    \draw[gapred!60, thick] (7.2, -2.0) -- (7.2, 2.2);
+    \node[font=\tiny\bfseries, text=gapred!70] at (7.2, 2.4) {RSP2};
 
-    % === CONFERENCES (orange) ===
-    % PhD Seminar 9 Apr (above)
-    \draw[orange!70, thick] (0.3, 0) -- (0.3, 1.0);
-    \node[evt, text=orange!80!black, above, text width=1.4cm] at (0.3, 1.0) {PhD\\Seminar};
+    % === APRIL EVENTS (spread across 0–2.4) ===
+    % PhD Seminar 9 Apr (above, short)
+    \draw[orange!70, thick] (0.4, 0) -- (0.4, 0.8);
+    \node[evt, text=orange!80!black, above, text width=1.4cm] at (0.4, 0.8) {PhD\\Seminar};
 
-    % Glasgow 14–15 Apr (below)
-    \draw[orange!70, thick] (0.8, 0) -- (0.8, -1.0);
-    \node[evt, text=orange!80!black, below] at (0.8, -1.0) {ANTICIPATE\\Glasgow};
+    % Glasgow 14–15 Apr (below, short)
+    \draw[orange!70, thick] (0.9, 0) -- (0.9, -0.8);
+    \node[evt, text=orange!80!black, below, text width=1.4cm] at (0.9, -0.8) {ANTICIPATE\\Glasgow};
 
-    % Lausanne 27–28 Apr (above)
-    \draw[orange!70, thick] (1.3, 0) -- (1.3, 1.0);
-    \node[evt, text=orange!80!black, above] at (1.3, 1.0) {ANTICIPATE\\Lausanne};
+    % Earth Institute Flash Talk 22 Apr (above, tall — clears PhD Seminar)
+    \draw[orange!70, thick] (1.4, 0) -- (1.4, 1.5);
+    \node[evt, text=orange!80!black, above, text width=1.4cm] at (1.4, 1.5) {Earth Inst.\\Flash Talk};
 
-    % Met Éireann 20 May (below)
-    \draw[orange!70, thick] (2.0, 0) -- (2.0, -1.0);
-    \node[evt, text=orange!80!black, below] at (2.0, -1.0) {Met \'Eireann\\Showcase};
+    % Lausanne 27–28 Apr (below, tall — clears Glasgow)
+    \draw[orange!70, thick] (1.9, 0) -- (1.9, -1.5);
+    \node[evt, text=orange!80!black, below, text width=1.4cm] at (1.9, -1.5) {ANTICIPATE\\Lausanne};
 
-    % Remote Sensing submission end May (above)
-    \draw[gray!80, thick] (2.8, 0) -- (2.8, 1.0);
-    \node[evt, text=gray!90, above] at (2.8, 1.0) {\textit{Remote Sensing}\\submission};
+    % === MAY–SEP EVENTS ===
+    % Met Éireann 20 May (above, short — clear of April cluster)
+    \draw[orange!70, thick] (2.9, 0) -- (2.9, 0.8);
+    \node[evt, text=orange!80!black, above, text width=1.8cm] at (2.9, 0.8) {Met \'Eireann\\Showcase};
 
-    % EMS 6–11 Sep = ~6.24
-    \draw[orange!70, thick] (6.24, 0) -- (6.24, 1.0);
-    \node[evt, text=orange!80!black, above] at (6.24, 1.0) {EMS Annual\\Meeting};
+    % Remote Sensing submission end May (below)
+    \draw[gray!80, thick] (3.3, 0) -- (3.3, -0.8);
+    \node[evt, text=gray!90, below, text width=1.8cm] at (3.3, -0.8) {\textit{Remote Sensing}\\submission};
+
+    % EMS 6–11 Sep (above)
+    \draw[orange!70, thick] (6.6, 0) -- (6.6, 0.8);
+    \node[evt, text=orange!80!black, above] at (6.6, 0.8) {EMS Annual\\Meeting};
 
     % === NEXT YEAR 2027 (dotted extension) ===
-    \node[font=\tiny\bfseries, text=gray!45] at (7.6, 0.3) {2027};
+    \node[font=\tiny\bfseries, text=gray!45] at (7.8, 0.3) {2027};
 
-    \draw[orange!70, thick, dashed] (7.9, 0) -- (7.9, -1.0);
-    \node[evt, text=orange!80!black, below] at (7.9, -1.0) {ANTICIPATE\\Short-Term\\Scientific Mission\,?};
+    \draw[orange!70, thick, dashed] (8.1, 0) -- (8.1, -1.0);
+    \node[evt, text=orange!80!black, below, text width=1.8cm] at (8.1, -1.0) {COST\\STSM\,?};
 
-    \draw[orange!70, thick, dashed] (8.5, 0) -- (8.5, 1.0);
-    \node[evt, text=orange!80!black, above] at (8.5, 1.0) {ANTICIPATE\\Summer School\,?};
+    \draw[orange!70, thick, dashed] (8.7, 0) -- (8.7, 1.0);
+    \node[evt, text=orange!80!black, above, text width=1.8cm] at (8.7, 1.0) {COST\\Summer School\,?};
 
-    \draw[orange!70, thick, dashed] (9.1, 0) -- (9.1, -1.0);
-    \node[evt, text=orange!80!black, below] at (9.1, -1.0) {S2S2D\\Conference\,?};
+    \draw[orange!70, thick, dashed] (9.3, 0) -- (9.3, -1.0);
+    \node[evt, text=orange!80!black, below, text width=1.6cm] at (9.3, -1.0) {S2S2D\,?};
 
     \draw[orange!70, thick, dashed] (9.7, 0) -- (9.7, 1.0);
-    \node[evt, text=orange!80!black, above] at (9.7, 1.0) {EMS Annual\\Meeting\,?};
+    \node[evt, text=orange!80!black, above, text width=1.4cm] at (9.7, 1.0) {EMS\,?};
 
 
     \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% BACKUP SLIDE: References
+% --------------------------------------------------
+\appendix
+\begin{frame}{References}
+
+    \scriptsize
+    \begin{itemize}\setlength{\itemsep}{0.45em}
+
+    \item Anderson, B.~J., and Coauthors, 2025: What is a drought-to-flood transition? Pitfalls and recommendations for defining consecutive hydrological extreme events. \textit{Hydrol.\ Earth Syst.\ Sci.}, \textbf{29}, 6069--6092.
+
+    \item DeFlorio, M.~J., and Coauthors, 2024: From California's extreme drought to major flooding: Evaluating and synthesizing experimental seasonal and subseasonal forecasts during winter 2022/23. \textit{Bull.\ Amer.\ Meteor.\ Soc.}, \textbf{105}, E84--E104.
+
+    \item Dong, N., H.~Hao, M.~Yang, J.~Wei, S.~Xu, and H.~Kunstmann, 2025: Deep-learning-based sub-seasonal precipitation and streamflow ensemble forecasting over the source region of the Yangtze River. \textit{Hydrol.\ Earth Syst.\ Sci.}, \textbf{29}, 2023--2042.
+
+    \item Kratzert, F., D.~Klotz, C.~Brenner, K.~Schulz, and M.~Herrnegger, 2018: Rainfall--runoff modelling using Long Short-Term Memory (LSTM) networks. \textit{Hydrol.\ Earth Syst.\ Sci.}, \textbf{22}, 6005--6022.
+
+    \item Malik, I., and V.~Mishra, 2025: Sub-seasonal prediction of compound hot and dry extremes in India. \textit{Climate Dyn.}, \textbf{63}, 191.
+
+    \item Mariotti, A., and Coauthors, 2020: Windows of opportunity for skillful forecasts subseasonal to seasonal and beyond. \textit{Bull.\ Amer.\ Meteor.\ Soc.}, \textbf{101}, E608--E625.
+
+    \item Rashid, M.~M., and T.~Wahl, 2022: Hydrologic risk from consecutive dry and wet extremes at the global scale. \textit{Environ.\ Res.\ Commun.}, \textbf{4}, 071001.
+
+    \item Zscheischler, J., and Coauthors, 2020: A typology of compound weather and climate events. \textit{Nat.\ Rev.\ Earth Environ.}, \textbf{1}, 333--347.
+
+    \end{itemize}
 
 \end{frame}
 

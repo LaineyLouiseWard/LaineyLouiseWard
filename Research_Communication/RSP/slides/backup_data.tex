@@ -129,6 +129,46 @@
 \end{frame}
 
 % --------------------------------------------------
+% BACKUP: Research traditions comparison
+% --------------------------------------------------
+% USE: If panel asks "what does the literature look
+%      like?", "how fragmented is the field?", or
+%      follows the terminology map slide.
+% --------------------------------------------------
+\begin{frame}{Three research traditions}
+
+    \centering
+    \vspace{-0.3em}
+
+    \footnotesize
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{l l l l}
+    \toprule
+     & \textbf{DFAA} & \textbf{Western whiplash / transition} & \textbf{Weather whiplash} \\
+    \midrule
+    Origin          & Chinese hydrology          & US and Europe                          & Atmospheric science \\
+    Primary variable & Precipitation (SPI-based)  & Precipitation, streamflow, or both     & 500\,hPa geopotential height \\
+    Detection logic  & Purpose-built alternation   & Independent episode detection,         & Regime classification \\
+                     & indices (single scalar)     & linked by temporal proximity           & via self-organising maps \\
+    Seasonality      & Monsoon-specific            & Various                                & Synoptic timescales \\
+    Research focus   & Characterisation            & Trends and prediction                  & Regime dynamics \\
+    Role of ML       & None                        & Emerging                               & None \\
+    \bottomrule
+    \end{tabular}
+
+    \vspace{0.8em}
+    \scriptsize
+    \begin{tikzpicture}
+        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
+              text width=12cm, align=left, font=\scriptsize, inner sep=6pt] {
+            DFAA indices embed weighting coefficients calibrated for monsoon basins ---
+            \textbf{no study has recalibrated them for Atlantic Europe.}
+        };
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
 % BACKUP: Three detection strategies
 % --------------------------------------------------
 % USE: If panel asks "how will you detect events?",
@@ -281,20 +321,16 @@
 
     \begin{columns}[T]
     \begin{column}{0.48\textwidth}
-        \textbf{Bias}
         \[
         \mathrm{Bias} = \frac{1}{N}\sum_{i=1}^{N} (f_i - o_i)
         \]
 
-        \vspace{0.5em}
-        \textbf{RMSE}
         \[
         \mathrm{RMSE} = \sqrt{\frac{1}{N}\sum_{i=1}^{N} (f_i - o_i)^2}
         \]
     \end{column}
 
     \begin{column}{0.48\textwidth}
-        \textbf{ACC}
         \[
         \mathrm{ACC} = \frac{\displaystyle\sum_{i} f'_i \, o'_i}
         {\sqrt{\displaystyle\sum_{i} (f'_i)^2} \;\sqrt{\displaystyle\sum_{i} (o'_i)^2}}
@@ -307,16 +343,6 @@
         then averaged across inits.}
     \end{column}
     \end{columns}
-
-    \vspace{0.5em}
-    \begin{tikzpicture}
-        \node[draw=ucdgreen!30, rounded corners=3pt, fill=ucdgreen!4,
-              text width=12.5cm, align=left, font=\scriptsize, inner sep=6pt] {
-            Bias and RMSE computed on \textbf{raw values}; ACC on \textbf{anomalies}.
-            All aggregated to \textbf{weekly means} before scoring.
-            Climatology: 1991--2020 (WMO standard).
-        };
-    \end{tikzpicture}
 
 \end{frame}
 

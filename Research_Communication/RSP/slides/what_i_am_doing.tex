@@ -13,6 +13,7 @@
 \usetheme{Madrid}
 \definecolor{ucdgreen}{RGB}{0, 102, 51}
 \definecolor{gapred}{RGB}{180, 50, 50}
+\definecolor{nextfill}{RGB}{255, 240, 200}
 \usecolortheme[named=ucdgreen]{structure}
 \setbeamertemplate{navigation symbols}{}
 
@@ -25,7 +26,11 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 \begin{document}
 
 % --------------------------------------------------
-% SLIDE 3: System comparison table + point skill plot
+% SLIDE 4: System comparison + setup + reference bias
+% --------------------------------------------------
+% PURPOSE: Show the two systems side by side, setup details
+%          (spoken: 10-yr, 0.3°, 3 vars, 2 references),
+%          and ERA5-Land vs station bias plot(s).
 % --------------------------------------------------
 \begin{frame}{Subseasonal vs Seasonal}
 
@@ -41,7 +46,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
                     fill=ucdgreen!4, align=center, font=\footnotesize}
             ]
             % EEFH
-            \node[sysbox] (eefh) at (0, 1.8)
+            \node[sysbox, fill=nextfill!60, draw=orange!40] (eefh) at (0, 1.8)
                 {\textbf{\normalsize Subseasonal (EEFH)}\\[0.4em]
                  Newer physics\\
                  183 inits / year\\
@@ -49,7 +54,7 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
                  {\small\bfseries\color{orange!80!black} $\uparrow$ Temporal sampling}};
 
             % SEAS5
-            \node[sysbox] (seas) at (0, -1.8)
+            \node[sysbox, fill=ucdgreen!6, draw=ucdgreen!40] (seas) at (0, -1.8)
                 {\textbf{\normalsize Seasonal (SEAS5)}\\[0.4em]
                  Older physics\\
                  12 inits / year\\
@@ -59,22 +64,18 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
             % vs
             \node[font=\small\bfseries, text=gray!50] at (0, 0) {vs};
 
-            \end{tikzpicture}
+            % Setup summary beneath
+            \node[font=\tiny, text=gray!60, align=center] at (0, -3.6)
+                {2006--2016 ~\textbar~ 0.3\textdegree{} grid ~\textbar~ t2m, tp, ws10};
 
+            \end{tikzpicture}
 
         \end{column}
 
         \begin{column}{0.56\textwidth}
-            % === PLOT PLACEHOLDER: Point skill ===
-            % Replace with \includegraphics when figure is ready
             \centering
             \onslide<2->{
-            \begin{tikzpicture}
-                \node[draw=gray!30, dashed, rounded corners,
-                      minimum width=7.0cm, minimum height=5.5cm,
-                      fill=gray!3, font=\footnotesize\color{gray!50}]
-                    {Point skill plot};
-            \end{tikzpicture}
+            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{station_pipeline_nn_map.png}
             }
         \end{column}
 
@@ -83,32 +84,102 @@ Primary supervisor: Dr Fiachra O'Loughlin \\ Co-supervisor: Dr Conor Sweeney}
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 4: Spatial analysis (2 plots)
+% SLIDE 4b: Raw t2m chain across products
+% --------------------------------------------------
+% PURPOSE: Show progressive compression of temperature gradient
+%          from observations through to forecasts.
+% --------------------------------------------------
+\begin{frame}{Observation--Forecast Temperature Chain}
+
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        \begin{column}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{consolidation_raw_t2m_chain.png}
+        \end{column}
+
+    \end{columns}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 5: Deterministic verification results
+% --------------------------------------------------
+% PURPOSE: Station-level and spatial verification plots.
+%          Script: "At the station level, both systems are verified
+%          against Met Éireann observations. Spatially, they're
+%          verified against ERA5-Land."
+% --------------------------------------------------
+\begin{frame}{Deterministic Verification}
+
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        \begin{column}{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth, height=0.80\textheight, keepaspectratio]{slide_rmse_bias_t2m_hly4935.png}
+        \end{column}
+
+    \end{columns}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 6: Spatial Bias — dual reference
 % --------------------------------------------------
 \begin{frame}{Spatial Verification}
 
     \begin{columns}[c, totalwidth=\textwidth]
 
-        \begin{column}{0.49\textwidth}
+        \begin{column}{\textwidth}
             \centering
-            % === PLOT PLACEHOLDER: Spatial plot 1 ===
-            \begin{tikzpicture}
-                \node[draw=gray!30, dashed, rounded corners,
-                      minimum width=6.0cm, minimum height=5.5cm,
-                      fill=gray!3, font=\footnotesize\color{gray!50}]
-                    {Spatial plot 1};
-            \end{tikzpicture}
+            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{consolidation_spatial_bias_4panel.png}
         \end{column}
 
-        \begin{column}{0.49\textwidth}
+    \end{columns}
+
+\end{frame}
+
+% --------------------------------------------------
+% HIDDEN SLIDES: Spatial RMSE + RMSS
+% --------------------------------------------------
+\appendix
+
+\begin{frame}{Spatial RMSE}
+
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        \begin{column}{\textwidth}
             \centering
-            % === PLOT PLACEHOLDER: Spatial plot 2 ===
-            \begin{tikzpicture}
-                \node[draw=gray!30, dashed, rounded corners,
-                      minimum width=6.0cm, minimum height=5.5cm,
-                      fill=gray!3, font=\footnotesize\color{gray!50}]
-                    {Spatial plot 2};
-            \end{tikzpicture}
+            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{consolidation_spatial_rmse_4panel.png}
+        \end{column}
+
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{Spatial Skill Score}
+
+    \vspace{-0.5em}
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        \begin{column}{0.72\textwidth}
+            \centering
+            \includegraphics[width=\textwidth, height=0.80\textheight, keepaspectratio]{consolidation_spatial_rmss_3panel.png}
+        \end{column}
+
+        \begin{column}{0.26\textwidth}
+            \vspace{1em}
+            \begin{block}{\small RMSS}
+            \small
+            \[
+                \text{RMSS} = 1 - \frac{\text{RMSE}_{\text{fc}}}{\text{RMSE}_{\text{clim}}}
+            \]
+            \vspace{0.3em}
+
+            \textbf{RMSS $> 0$}: forecast beats climatology\\[0.3em]
+            \textbf{RMSS $= 0$}: no skill\\[0.3em]
+            \textbf{RMSS $< 0$}: worse than climatology
+            \end{block}
         \end{column}
 
     \end{columns}

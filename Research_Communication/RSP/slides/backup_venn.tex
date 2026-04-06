@@ -27,6 +27,8 @@
 % --------------------------------------------------
 % USE: If panel asks "how did you scope the review?"
 %      or "what fields does this draw from?"
+%
+% SCRIPT — see script/backup_venn.md
 % --------------------------------------------------
 \begin{frame}{Where the Literature Review Sits}
 
@@ -73,24 +75,24 @@
     \node[align=center, text=vennblue!80!black, font=\footnotesize\bfseries]
         at (-2.0,-0.4) {S2S\\Forecasting};
     \node[align=center, text=vennorange!80!black, font=\footnotesize\bfseries]
-        at ( 2.0,-0.4) {Compound\\Events};
+        at ( 2.0,-0.4) {Multi-hazard\\Events};
     \node[align=center, text=ucdgreen!80!black, font=\footnotesize\bfseries]
-        at (0,2.5) {Atmospheric\\Drivers};
+        at (0,2.5) {Weather\\Regimes};
 
     % Pairwise gap labels — updated to match validated gaps
-    % Forecast × Compound Events (bottom)
+    % Forecast × Multi-hazard Events (bottom)
     \node[align=center, font=\footnotesize, text=gapred] (g1) at (0,-2.8)
-         {No compound event\\verification};
+         {No multi-hazard event\\verification at S2S};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0,-0.6) -- (g1.north);
 
     % Forecast × Drivers (upper-left)
     \node[align=center, font=\footnotesize, text=gapred] (g2) at (-4.2,1.5)
-         {Skill never conditioned\\on regime for transitions};
+         {Weather regime--dependent skill\\tested for met variables only};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (-0.9,1.0) -- (g2.east);
 
-    % Drivers × Compound Events (upper-right)
+    % Weather Regimes × Multi-hazard Events (upper-right)
     \node[align=center, font=\footnotesize, text=gapred] (g3) at (4.2,1.5)
-         {No transition detection\\for Irish catchments};
+         {Weather regimes linked to events\\but never used to predict them};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0.9,1.0) -- (g3.west);
 
     \end{tikzpicture}
