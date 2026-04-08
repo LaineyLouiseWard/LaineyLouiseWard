@@ -28,13 +28,15 @@ A study by Matanó et al. found that a quarter of all floods globally follow or 
 
 So these events are common, they're damaging, and they unfold over a timescale of weeks.
 
+You might expect that someone forecasts this. They don't. There are operational flood forecasts at this range — the European flood system issues weekly outlooks six weeks ahead. But there's nothing equivalent for drought at these timescales. The European Drought Observatory monitors drought, but it doesn't forecast it. And the flood and drought systems are completely separate. If you wanted to assess whether a drought might turn into a flood in the coming weeks, there's no product for that anywhere. You'd have to check both systems yourself and mentally connect the dots.
+
 On that note, quick show of hands. Who here has any idea what the weather's going to be like in 3-6 weeks?
 
 [pause] Are you guessing? Are you hoping?
 
 That range is genuinely hard to predict, and because of that you don't hear about it. But it's exactly the range where these transitions play out.
 
-[~165 words, ~70s]
+[~250 words, ~105s]
 
 ---
 
@@ -76,17 +78,23 @@ Both of these studies are looking backwards at what happened. Neither tested whe
 
 ---
 
-### 5. Where's the gap? (~1 min)
+### 5. Where's the gap? (~1.5 min)
 
 [click — research gap slide]
 
-So where does this leave us?
+So where does this leave us? There are three pieces to this.
 
-We know that weather regimes drive these transitions. And we know that regimes are predictable at S2S timescales. But nobody has tested whether you can actually predict the transitions themselves using a forecast system — and whether knowing the regime helps.
+We know that weather regimes are predictable at S2S timescales. Forecast centres already predict these patterns weeks ahead. That's established.
+
+We know that regimes drive these transitions. Parry showed it for Britain and Ireland, DeFlorio showed it for California. Blocking holds the drought, the blocking breaks down, moisture floods in. That's established too.
+
+And we know that S2S systems can forecast individual hazards — floods, heatwaves. There's a whole body of work on that.
+
+But down here — nobody has tested whether S2S forecasts can predict the transitions themselves. The entire literature on drought-to-flood transitions is retrospective. Every study looks backwards. And in the centre — nobody has connected all three. Nobody has asked: if the forecast system can predict the regime, and the regime drives the transition, does that give you useful skill?
 
 My research question is: can S2S forecasts, informed by the atmospheric regime, predict drought-to-flood transitions?
 
-[~100 words, ~45s]
+[~170 words, ~75s]
 
 ---
 
@@ -96,11 +104,11 @@ My research question is: can S2S forecasts, informed by the atmospheric regime, 
 
 Here's what that pipeline looks like, and I'll be testing this on Irish catchments.
 
-You start with the raw S2S forecast — temperature, precipitation, wind. The first thing I need to do is choose which forecast system to build on. ECMWF runs two systems whose lead times overlap at this range: a subseasonal system and a seasonal system. They differ in how many simulations they run and how often they're updated. So I'm comparing both over Ireland, verified against Met Eireann station observations and a global reanalysis dataset, to decide which one to take forward.
+You start with a raw S2S forecast. I'm currently comparing two ECMWF systems to decide which one to build on.
 
 [click — system comparison slide]
 
-From the chosen system, you need to translate the forecast into what actually matters on the ground. For drought and flood, that's streamflow — how much water is flowing through a catchment. So the next step is a hydrological model that converts the forecast into streamflow.
+From the chosen system, you translate the forecast into what actually matters on the ground. For drought and flood, that's streamflow — how much water is flowing through a catchment. So the next step is a hydrological model that converts the forecast into streamflow.
 
 From streamflow, you detect drought and flood events separately. Then you look for transitions — cases where a drought episode is followed by a flood episode within a certain window.
 
@@ -110,7 +118,13 @@ Separately, I want to test whether machine learning can improve each stage of th
 
 In the Decarb-AI programme we're encouraged to think about innovation and end use of our research. So if the skill is there, I'd hope to work towards a forecast product for farmers. Something like: this catchment is in drought. The regime forecast shows blocking breaking down in weeks 3 to 4. Based on similar historical setups, there's an above-normal chance of a drought-to-flood transition in weeks 4 to 6.
 
-[~290 words, ~125s]
+One decision I need to make in this pipeline is how I actually detect these events.
+
+[click — global map slide]
+
+This map shows every published study on drought-to-flood transitions. Different colours are different terminology, different shapes are different detection methods. The field can't even agree on how to define these events — a recent study tried multiple methods on the same data and missed five out of eight known events. And you'll notice Ireland is blank. Nobody has applied any of these methods here yet.
+
+[~320 words, ~140s]
 
 ---
 
@@ -133,4 +147,4 @@ Thanks.
 
 ---
 
-[Total: ~1160 words of spoken content, ~500s at 140 wpm. With pauses, clicks, show of hands, and Q&A: ~15 min.]
+[Total: ~1310 words of spoken content, ~560s at 140 wpm. With pauses, clicks, show of hands, and Q&A: ~15–17 min.]

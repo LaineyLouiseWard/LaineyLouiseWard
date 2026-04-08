@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta, shapes.symbols, decorations.pathreplacing}
+\usetikzlibrary{positioning, arrows.meta, shapes.symbols, shapes.callouts, decorations.pathreplacing}
 \usepackage{pifont}
 
 \usefonttheme{professionalfonts}
@@ -239,70 +239,78 @@
 
     \centering
     \begin{tikzpicture}
-    \def\r{1.8}
+    \def\r{2.1}
 
     % Base circle fills
-    \fill[vennblue!10] (-1.3,0) circle (\r);
-    \fill[vennorange!10] ( 1.3,0) circle (\r);
-    \fill[ucdgreen!10] (0,1.5) circle (\r);
+    \fill[vennblue!10] (-1.5,-0.5) circle (\r);
+    \fill[vennorange!10] ( 1.5,-0.5) circle (\r);
+    \fill[ucdgreen!10] (0,1.2) circle (\r);
 
     % Pairwise overlap fills
     \begin{scope}
-      \clip (-1.3,0) circle (\r);
-      \clip ( 1.3,0) circle (\r);
-      \fill[vennblue!25!vennorange, opacity=0.3] (-3,-3) rectangle (3,3);
+      \clip (-1.5,-0.5) circle (\r);
+      \clip ( 1.5,-0.5) circle (\r);
+      \fill[vennblue!25!vennorange, opacity=0.3] (-4,-4) rectangle (4,4);
     \end{scope}
     \begin{scope}
-      \clip (-1.3,0) circle (\r);
-      \clip (0,1.5) circle (\r);
-      \fill[vennblue!40!ucdgreen, opacity=0.3] (-3,-3) rectangle (3,3);
+      \clip (-1.5,-0.5) circle (\r);
+      \clip (0,1.2) circle (\r);
+      \fill[vennblue!40!ucdgreen, opacity=0.3] (-4,-4) rectangle (4,4);
     \end{scope}
     \begin{scope}
-      \clip ( 1.3,0) circle (\r);
-      \clip (0,1.5) circle (\r);
-      \fill[ucdgreen!40!vennorange, opacity=0.3] (-3,-3) rectangle (3,3);
+      \clip ( 1.5,-0.5) circle (\r);
+      \clip (0,1.2) circle (\r);
+      \fill[ucdgreen!40!vennorange, opacity=0.3] (-4,-4) rectangle (4,4);
     \end{scope}
 
     % Triple intersection fill
     \begin{scope}
-      \clip (-1.3,0) circle (\r);
-      \clip ( 1.3,0) circle (\r);
-      \clip (0,1.5) circle (\r);
-      \fill[gapred!15] (-3,-3) rectangle (3,3);
+      \clip (-1.5,-0.5) circle (\r);
+      \clip ( 1.5,-0.5) circle (\r);
+      \clip (0,1.2) circle (\r);
+      \fill[gapred!15] (-4,-4) rectangle (4,4);
     \end{scope}
 
     % Circle outlines
-    \draw[vennblue, thick] (-1.3,0) circle (\r);
-    \draw[vennorange, thick] ( 1.3,0) circle (\r);
-    \draw[ucdgreen, thick] (0,1.5) circle (\r);
+    \draw[vennblue, thick] (-1.5,-0.5) circle (\r);
+    \draw[vennorange, thick] ( 1.5,-0.5) circle (\r);
+    \draw[ucdgreen, thick] (0,1.2) circle (\r);
 
     % Circle labels
     \node[align=center, text=vennblue!80!black, font=\footnotesize\bfseries]
-        at (-2.0,-0.4) {S2S\\Forecasting};
+        at (-2.4,-1.0) {S2S\\Forecasting};
     \node[align=center, text=vennorange!80!black, font=\footnotesize\bfseries]
-        at ( 2.0,-0.4) {Multi-hazard\\Events};
+        at ( 1.9,-1.3) {Drought-to-Flood\\Transitions};
     \node[align=center, text=ucdgreen!80!black, font=\footnotesize\bfseries]
-        at (0,2.5) {Weather\\Regimes};
+        at (0,2.4) {Weather\\Regimes};
 
     % Centre — the thesis
     \node[align=center, font=\small\bfseries, text=gapred!80!black]
-        at (0,0.5) {?};
+        at (0,0.05) {?};
 
-    % Pairwise gap labels
-    % S2S x Multi-hazard (bottom)
-    \node[align=center, font=\scriptsize, text=gapred] (g1) at (0,-2.8)
-         {No drought forecasts at S2S\\No transition forecasts at any timescale};
-    \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0,-0.6) -- (g1.north);
+    % Pairwise labels
+    % S2S x Regimes (upper-left) — KNOWN
+    \node[align=center, font=\scriptsize, text=ucdgreen!70!black] (g2) at (-5.5,1.2)
+         {{\color{ucdgreen!70!black}\ding{51}} Regimes are predictable\\at S2S timescales};
+    \draw[-{Stealth[length=2.5mm]}, thick, ucdgreen!50] (-1.1,0.7) -- (g2.east);
 
-    % S2S x Weather Regimes (upper-left)
-    \node[align=center, font=\scriptsize, text=gapred] (g2) at (-5.2,1.5)
-         {Regime skill tested for\\single hazards only};
-    \draw[-{Stealth[length=2.5mm]}, thick, gapred] (-0.9,1.0) -- (g2.east);
+    % Regimes x DTF (upper-right) — KNOWN
+    \node[align=center, font=\scriptsize, text=ucdgreen!70!black] (g3) at (5.5,1.2)
+         {{\color{ucdgreen!70!black}\ding{51}} Regimes drive these\\transitions};
+    \draw[-{Stealth[length=2.5mm]}, thick, ucdgreen!50] (1.1,0.7) -- (g3.west);
 
-    % Weather Regimes x Multi-hazard (upper-right)
-    \node[align=center, font=\scriptsize, text=gapred] (g3) at (5.2,1.5)
-         {Regimes linked to events\\but never used to predict them};
-    \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0.9,1.0) -- (g3.west);
+    % S2S x DTF (bottom) — GAP
+    \node[align=center, font=\scriptsize, text=gapred] (g1) at (0,-3.4)
+         {{\color{gapred}\ding{55}} Never tested with\\a forecast system};
+    \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0,-1.5) -- (g1.north);
+
+    % Research question — arrow from centre to the right
+    \node[align=left, font=\scriptsize\itshape, text=black,
+          draw=ucdgreen!50, rounded corners=3pt, fill=ucdgreen!6,
+          inner sep=5pt] (rq) at (6.0,-1.7)
+         {Can we forecast these\\transitions --- and do\\regimes help?};
+    \draw[-{Stealth[length=2.5mm]}, thick, ucdgreen!60]
+        (0.4,-0.2) -- (rq.west);
 
     \end{tikzpicture}
 
@@ -319,7 +327,7 @@
     \centering
     \vspace{1.5em}
 
-    % --- Pipeline chevron chain ---
+    % --- Pipeline with ML arrows + farmer speech bubble ---
     \begin{tikzpicture}[
         xscale=1.0,
         chev/.style={
@@ -332,9 +340,11 @@
         plbl/.style={font=\tiny, below=0.2cm, text=gray!80}
     ]
 
+    % --- Top row: pipeline chevrons ---
+
     % S2S forecast
     \node[chev, fill=ucdgreen!10, draw=ucdgreen!50,
-          signal from=none] (p1) at (0, 0)
+          signal from=none] (p1) at (-4.5, 0)
         {S2S\\forecast};
     \node[plbl] at (p1.south) {Precipitation};
 
@@ -362,28 +372,34 @@
         {Regime\\conditioning};
     \node[plbl, text=vennorange!70] at (p5.south) {When to trust it?};
 
-    \end{tikzpicture}
+    % --- ML label centred between Hydro model and Regime conditioning ---
+    \path (p2.south west) -- (p5.south west) coordinate[midway] (midpt);
+    \node[font=\scriptsize\bfseries, text=black,
+          draw=gray!30, rounded corners=3pt, fill=gray!5,
+          minimum width=2.5cm, minimum height=0.7cm] (ml) at (midpt |- 0,-2.5)
+        {Machine learning};
 
-    \vspace{2.5em}
+    % Arrow to Hydro model — from ML left into p1/p2 junction
+    \draw[-{Stealth[length=3mm, fill=gray!60]}, very thick, gray!60]
+        (ml.west) to[out=180, in=-90, looseness=0.8] ([yshift=-0.1cm]p2.south west);
+    % Arrow to Regime conditioning — from ML right into p4/p5 junction
+    \draw[-{Stealth[length=3mm, fill=gray!60]}, very thick, gray!60]
+        (ml.east) to[out=0, in=-90, looseness=0.8] ([yshift=-0.1cm]p5.south west);
 
-    % --- ML bar underneath ---
-    \begin{tikzpicture}
-        \node[draw=gray!40, thick, rounded corners=3pt,
-              minimum width=11cm, minimum height=1.0cm,
-              fill=gray!5, align=center, font=\scriptsize]
-            {\textbf{Machine learning} at each stage ---
-             can it improve skill, especially with regime information as input?};
-    \end{tikzpicture}
+    % --- Farmer (left) + speech bubble (right), centred together ---
+    \node[inner sep=0pt] (farmer) at (-1.0, -4.5)
+        {\reflectbox{\includegraphics[height=2.5cm, trim=40 0 0 0, clip]{farmer.png}}};
 
-    \vspace{1.5em}
+    % Speech bubble with tail pointing at farmer
+    \node[rectangle callout, callout absolute pointer=(farmer.east),
+          draw=gray!50, thick, rounded corners=4pt,
+          fill=white, minimum height=1.0cm,
+          align=left, font=\scriptsize, text=gray!25!black,
+          inner sep=5pt, anchor=west]
+        at ([shift={(0.5cm, 0.4cm)}]farmer.east)
+        {\textit{Blocking breaking down weeks 3--4,}\\
+         \textit{above-normal transition risk weeks 4--6}};
 
-    % --- End-use callout ---
-    \begin{tikzpicture}
-        \node[draw=ucdgreen!30, rounded corners=4pt,
-              fill=ucdgreen!4, minimum width=12cm,
-              minimum height=0.8cm, align=center,
-              font=\tiny\itshape, text=gray!80]
-            {Forecast product for farmers: catchment in drought, blocking breaking down weeks 3--4, above-normal transition risk weeks 4--6};
     \end{tikzpicture}
 
 \end{frame}
@@ -464,7 +480,23 @@
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 8: Conclusions
+% SLIDE 8: Global map of DTF studies
+% --------------------------------------------------
+% PURPOSE: Show where DTF transition research has been
+%          done. Ireland is blank. Detection methods
+%          disagree. Script: "One decision I need to make..."
+% --------------------------------------------------
+\begin{frame}{How Do We Detect These Events?}
+
+    \centering
+    \vspace{0.3em}
+    \includegraphics[width=0.92\textwidth, height=0.75\textheight, keepaspectratio]
+        {terminology_map.png}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 9: Conclusions
 % --------------------------------------------------
 % PURPOSE: Shown after Q&A. Three takeaways matching
 %          the script exactly.
