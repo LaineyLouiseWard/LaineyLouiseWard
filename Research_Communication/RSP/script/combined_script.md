@@ -5,20 +5,27 @@ Thanks everyone for coming. I'm Lainey, and just to remind you Abdollah, I'm bas
 Over the next ten minutes I'll bring you through three things. First, what my literature review found and how that shaped my research question. Then, what I've actually done so far in terms of my first paper. And finally the admin bits like: credits and conferences. 
 
 # What Is the Prediction Gap?
+My research starts from this idea that there's a prediction gap in weather forecasting. You're all familiar with short-range weather forecasting, and with seasonal forecasting. The period in between is the subseasonal-to-seasonal window, or S2S, which is about two to ten weeks ahead.
 
-My research starts from this idea of a prediction gap in weather forecasting. You're all familiar with short-range weather forecasts, and with seasonal forecasting. The period in between is the subseasonal-to-seasonal window, or S2S, which is about two to ten weeks ahead.
+Skill is intermittent in this range because the skill from initial conditions has decayed by this point,
+and slower influences like ocean temperatures aren't yet strong enough at S2S
 
-Skill from initial conditions has decayed by this point, and slower influences like ocean temperatures aren't yet strong enough to guide the forecast.
+But this is exactly when important decisions need to be made — agriculture, water management, energy management, especially in response to multi-hazards. 
 
-But this is exactly when important decisions need to be made — agriculture, water management, energy. So my research asks where and when there is useful skill at this timescale, and I'm asking specifically for predicting multi-hazard events.
+A good example is drought-to-flood event. A drought hardens the soil, so when heavy rain follows, the water runs off and causes worse flooding than it would have otherwise. Matanó et al. found that a quarter of all floods globally follow or overlap with drought. 
 
-A good example is drought-to-flood transitions. A drought hardens the soil, so when heavy rain follows, the water runs off and causes worse flooding than it would have otherwise. Matanó et al. found that a quarter of all floods globally follow or overlap with drought. These events aren't rare, and they sit right in the timescale where forecasts are weakest.
+For this reason, first paper is focusing on drought-to-flood transitions.
 
-My first paper is going to focus on drought-to-flood transitions, so I'll tell you what the literature says on that.
+I'll tell you what the literature says on that.
 
 # What Does the Literature Say?
 
-The literature operates at two levels. First, drought and flood are predicted as entirely separate events. Second, studies that do look at them together, only do so retrospectively — how often do they co-occur, how intense is the alternation, what timescales do they happen at. But that's all done with observations and reanalysis, not forecasts.
+The literature operates at two levels.
+
+In the vast majority of the literature, only really looked at S2S so far, flood and drought are considered as entirely separate events, with different drivers and mechanisms. 
+
+The studies that do look at them together, only do so retrospectively, understand the propoerties,
+— how often do they co-occur, how intense is the alternation, what timescales do they happen at. But that's all done with observations and reanalysis, not forecasts.
 
 The natural next step would be to try to predict these events using a forecast. However, it's not that simple — there's a pipeline that needs to be built, and you can see the steps on the right.
 
