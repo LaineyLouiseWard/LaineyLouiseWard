@@ -17,9 +17,26 @@
 \definecolor{nextfill}{RGB}{255, 240, 200}
 \definecolor{vennblue}{RGB}{70, 130, 180}
 \definecolor{vennorange}{RGB}{210, 140, 50}
+\definecolor{blockfill}{RGB}{240, 220, 200}
+\definecolor{moistfill}{RGB}{200, 225, 245}
 \usecolortheme[named=ucdgreen]{structure}
 \setbeamertemplate{navigation symbols}{}
 \setbeamersize{text margin left=7mm, text margin right=7mm}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1.5ex,center]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1.5ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1.5ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}%
+      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}}%
+  \vskip2pt%
+}
 
 \title[UCD Mathematics PhD Seminar]{}
 \author[Lainey Ward]{}
@@ -29,56 +46,73 @@
 \begin{document}
 
 % --------------------------------------------------
-% SLIDE 1: Hook — Oasis in the Predictability Desert?
+% SLIDE 1: Title
 % --------------------------------------------------
-% PURPOSE: Farmer story, drought-to-flood visual.
-%          Script carries the hook, show of hands,
-%          and introduces the predictability desert.
+% PURPOSE: Name, centre, one-line framing.
+%          Script: "Hi, I'm Lainey..."
 % --------------------------------------------------
-\begin{frame}{Oasis in the Predictability Desert?}
+\begin{frame}
 
-    \begin{columns}[T, totalwidth=\textwidth]
+    \vspace{2.5cm}
+    \begin{center}
+        {\LARGE\bfseries\color{ucdgreen!90!black}
+         Forecasting Drought-to-Flood Transitions\\[0.3em]
+         at Subseasonal Timescales}
 
-        % ── Left: Farmer ──────────────────────────────────
-        \begin{column}{0.15\textwidth}
-            \raggedright
-            \includegraphics[height=4.0cm]{farmer_cropped.png}
+        \vspace{1.5em}
+        {\large Lainey Ward}
+
+        \vspace{0.6em}
+        {\footnotesize Decarb-AI Centre, University College Dublin}
+
+        \vspace{0.3em}
+        {\footnotesize\color{gray!75}
+         Supervisors: Dr Fiachra O'Loughlin \& Dr Conor Sweeney}
+    \end{center}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 2: What happens when drought turns into flood?
+% --------------------------------------------------
+% PURPOSE: Soil mechanism visual. Script carries the
+%          explanation and statistics verbally.
+%          Soil.png cropped to remove BBC title/footer.
+% --------------------------------------------------
+\begin{frame}{What Happens When Drought Turns Into Flood?}
+
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        % ── Left: Soil mechanism ─────────────────────
+        \begin{column}{0.62\textwidth}
+            \centering
+            % trim={left bottom right top} — crop BBC title and footer
+            \includegraphics[width=\textwidth, keepaspectratio,
+                trim=0 55 0 110, clip]
+                {Soil.png}\\[-0.2em]
+            {\tiny\color{gray!65} Adapted from BBC Research (2022)}
         \end{column}
 
-        % ── Centre: Drought → Flood ───────────────────────
-        \begin{column}{0.55\textwidth}
-            \hspace*{-5mm}%
+        % ── Right: Key stats ─────────────────────────
+        \begin{column}{0.36\textwidth}
+            \centering
             \begin{tikzpicture}
 
-                % Drought
-                \node[anchor=south] (drought) at (-0.7, 0)
-                    {\includegraphics[height=3.4cm]{drought_cropped.png}};
+                % 24% stat
+                \node[font=\Large\bfseries, text=gapred!80!black]
+                    at (0, 1.5) {24\%};
+                \node[font=\tiny, text=gray!80, align=center]
+                    at (0, 0.8) {of all floods globally\\follow drought};
+                \node[font=\tiny, text=gray!55]
+                    at (0, 0.3) {Matan\'o et al.\ (2024)};
 
-                % Arrow
-                \node[anchor=center] (arrow) at (1.38, 1.5)
-                    {\includegraphics[height=0.7cm]{arrow_cropped.png}};
-
-                % Flood
-                \node[anchor=south] (flood) at (3.7, -0.15)
-                    {\includegraphics[height=3.4cm]{flood.png}};
-
-            \end{tikzpicture}
-        \end{column}
-
-        % ── Right: S2S timescale label ────────────────────
-        \begin{column}{0.28\textwidth}
-            \centering\par\vspace{14mm}%
-            \begin{tikzpicture}[
-                tbox/.style={draw=ucdgreen!50, fill=ucdgreen!6,
-                    rounded corners=4pt, minimum width=3.2cm,
-                    minimum height=1.0cm, align=center,
-                    font=\small\bfseries, text=ucdgreen!80!black}
-            ]
-                \node[tbox] (s2s) at (0, 0)
-                    {2--6 weeks ahead};
-                \node[font=\tiny, text=gray!55, below=0.15cm of s2s,
-                      align=center]
-                    {The predictability desert};
+                % ~6 weeks stat
+                \node[font=\Large\bfseries, text=vennblue!80!black]
+                    at (0, -1.2) {\raise.17ex\hbox{$\scriptstyle\sim$}6 weeks};
+                \node[font=\tiny, text=gray!80, align=center]
+                    at (0, -1.9) {average transition time\\fastest under a month};
+                \node[font=\tiny, text=gray!55]
+                    at (0, -2.4) {Yang et al.\ (2025)};
 
             \end{tikzpicture}
         \end{column}
@@ -88,38 +122,32 @@
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 2: The prediction gap
+% SLIDE 3: The predictability desert
 % --------------------------------------------------
 % PURPOSE: Mariotti figure shows where S2S sits.
-%          Right side explains WHY skill is low here
-%          (initial conditions fading, boundary forcings
-%          not yet dominant) and the 24% stat.
+%          Script explains initial conditions vs
+%          boundary conditions and weather regimes.
 % --------------------------------------------------
-\begin{frame}{Why Is This So Hard to Predict?}
+\begin{frame}{Why Is This So Hard to Forecast?}
 
     \begin{columns}[c, totalwidth=\textwidth]
 
-        % ── Left: Mariotti figure ─────────────────────────
-        \begin{column}{0.72\textwidth}
+        % ── Left: Mariotti figure ─────────────────────
+        \begin{column}{0.62\textwidth}
             \centering
             \includegraphics[width=\textwidth, keepaspectratio,
                 trim=0 30 0 0, clip]
                 {s2s_prediction_gap_mariotti2018.jpg}\\[-0.2em]
-            {\tiny\color{gray!50} Source: Mariotti et al.\ (2018)}
+            {\tiny\color{gray!65} Adapted from Mariotti et al.\ (2018)}
         \end{column}
 
-        % ── Right: 24% stat ──────────────────────────────
-        \begin{column}{0.26\textwidth}
+        % ── Right: Regime composites ──────────────────
+        \begin{column}{0.40\textwidth}
             \centering
-            \vspace{1cm}
-            \begin{tikzpicture}
-                \node[font=\Large\bfseries, text=gapred!80!black]
-                    at (0, 0) {24\%};
-                \node[font=\tiny, text=gray!60, align=center]
-                    at (0, -0.7) {of all floods globally\\follow drought};
-                \node[font=\tiny, text=gray!40]
-                    at (0, -1.2) {Matan\'o et al.\ (2024)};
-            \end{tikzpicture}
+            {\footnotesize\bfseries\color{ucdgreen!80!black} Weather regimes}\\[0.4em]
+            \includegraphics[width=0.72\textwidth, keepaspectratio]
+                {weather_regimes_deflorio.jpg}\\[-0.2em]
+            {\tiny\color{gray!65} Adapted from DeFlorio et al.\ (2024)}
         \end{column}
 
     \end{columns}
@@ -127,14 +155,87 @@
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 3: Three literatures, one gap (Venn)
+% SLIDE 4: What causes these transitions in the atmosphere?
 % --------------------------------------------------
-% PURPOSE: Show the three research communities and
-%          that the centre (the thesis question) is
-%          unexplored. Script names the three fields
-%          and the pairwise overlaps verbally.
+% PURPOSE: Regime-transition schematic. Blocking holds
+%          drought, breakdown allows moisture influx,
+%          rain hits dry soil. Script names Maynooth
+%          and DeFlorio studies.
 % --------------------------------------------------
-\begin{frame}{What Does the Literature Say?}
+\begin{frame}{What Causes These Transitions?}
+
+    \vspace{0.3em}
+    \centering
+
+    % --- Top row: three interpretation boxes ---
+    \begin{tikzpicture}[
+        stg/.style={thick, rounded corners=4pt,
+            minimum width=3.2cm, minimum height=1.5cm,
+            align=center, font=\scriptsize}
+    ]
+
+    % Stage 1: Blocking
+    \node[stg, draw=gapred!60, fill=gapred!8]
+        (blk) at (0, 0) {Rainfall suppressed\\Soil dries out};
+    \node[font=\scriptsize\bfseries, text=gapred!80!black,
+          above=0.05cm of blk.north, anchor=south]
+        {Persistent blocking};
+
+    % Stage 2: Breakdown
+    \node[stg, draw=gray!60, fill=gray!8,
+          right=0.8cm of blk]
+        (brk) {Flow shifts\\Moist air moves in};
+    \node[font=\scriptsize\bfseries, text=gray!80!black,
+          above=0.05cm of brk.north, anchor=south]
+        {Blocking breaks down};
+
+    % Stage 3: Transition
+    \node[stg, draw=vennblue!60, fill=vennblue!8,
+          right=0.8cm of brk]
+        (trn) {Rain hits dry soil\\Runoff amplified};
+    \node[font=\scriptsize\bfseries, text=vennblue!80!black,
+          above=0.05cm of trn.north, anchor=south]
+        {Transition};
+
+    % Horizontal arrows between boxes
+    \draw[-{Stealth[length=2.5mm]}, very thick, gray!50]
+        (blk.east) -- (brk.west);
+    \draw[-{Stealth[length=2.5mm]}, very thick, gray!50]
+        (brk.east) -- (trn.west);
+
+    % --- Bottom row: DeFlorio synoptic panels ---
+    % Place images directly below their respective boxes (vertical alignment)
+    \node[inner sep=0pt] (img1) at (blk.south |- 0,-3.1)
+        {\includegraphics[width=3.5cm, height=2.3cm]{deflorio_blocking.jpg}};
+    \node[inner sep=0pt] (img2) at (brk.south |- 0,-3.1)
+        {\includegraphics[width=3.5cm, height=2.3cm]{deflorio_breakdown.jpg}};
+    \node[inner sep=0pt] (img3) at (trn.south |- 0,-3.1)
+        {\includegraphics[width=3.5cm, height=2.3cm]{deflorio_transition.jpg}};
+
+    % Vertical arrows from boxes to images
+    \draw[-{Stealth[length=2mm]}, thick, gray!35]
+        (blk.south) -- (blk.south |- img1.north);
+    \draw[-{Stealth[length=2mm]}, thick, gray!35]
+        (brk.south) -- (brk.south |- img2.north);
+    \draw[-{Stealth[length=2mm]}, thick, gray!35]
+        (trn.south) -- (trn.south |- img3.north);
+
+    % Attribution — moved down
+    \node[font=\tiny, text=gray!65] at (brk.south |- 0,-4.6)
+        {Adapted from DeFlorio et al.\ (2024)};
+
+    \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 5: Where's the gap? (Venn diagram)
+% --------------------------------------------------
+% PURPOSE: Three research communities, unexplored
+%          centre. Script names what exists and
+%          what's missing.
+% --------------------------------------------------
+\begin{frame}{Where Is the Gap?}
 
     \centering
     \begin{tikzpicture}
@@ -188,17 +289,17 @@
         at (0,0.5) {?};
 
     % Pairwise gap labels
-    % S2S × Multi-hazard (bottom)
+    % S2S x Multi-hazard (bottom)
     \node[align=center, font=\scriptsize, text=gapred] (g1) at (0,-2.8)
-         {Verified for single variables,\\not multi-hazard events};
+         {No drought forecasts at S2S\\No transition forecasts at any timescale};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0,-0.6) -- (g1.north);
 
-    % S2S × Weather Regimes (upper-left)
+    % S2S x Weather Regimes (upper-left)
     \node[align=center, font=\scriptsize, text=gapred] (g2) at (-5.2,1.5)
-         {Regime-dependent skill\\tested for met variables only};
+         {Regime skill tested for\\single hazards only};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (-0.9,1.0) -- (g2.east);
 
-    % Weather Regimes × Multi-hazard (upper-right)
+    % Weather Regimes x Multi-hazard (upper-right)
     \node[align=center, font=\scriptsize, text=gapred] (g3) at (5.2,1.5)
          {Regimes linked to events\\but never used to predict them};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0.9,1.0) -- (g3.west);
@@ -208,221 +309,92 @@
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 4: Detection approaches
+% SLIDE 6: Pipeline
 % --------------------------------------------------
-% PURPOSE: Terminology map shows geographic fragmentation
-%          of the field. Script explains the two schools
-%          (joint indices vs episode-linking) verbally.
+% PURPOSE: Chevron chain showing the verification
+%          pipeline. Script explains each stage.
 % --------------------------------------------------
-\begin{frame}{How Do You Detect These Events?}
+\begin{frame}{How Do I Test This?}
 
-    \begin{columns}[c, totalwidth=\textwidth]
-
-        \begin{column}{0.75\textwidth}
-            \includegraphics[width=\textwidth]
-                {terminology_map.png}
-        \end{column}
-
-        \begin{column}{0.23\textwidth}
-            \centering
-            \begin{tikzpicture}[
-                vs/.style={font=\small\bfseries, text=gray!50}
-            ]
-
-            % Joint indices (red — matches China cluster)
-            \node[draw=gapred!50, rounded corners=3pt,
-                  minimum width=2.6cm, minimum height=0.9cm,
-                  fill=gapred!6, align=center, font=\scriptsize] (ji) at (0, 1.2)
-                {Joint indices\\[0.1em]
-                 {\tiny\color{gray!60} Compress the swing}\\[-0.1em]
-                 {\tiny\color{gray!60} into one number}};
-
-            \node[vs] at (0, 0.15) {vs};
-
-            % Episode-linking (blue — matches US/Europe)
-            \node[draw=vennblue!60, rounded corners=3pt,
-                  minimum width=2.6cm, minimum height=0.9cm,
-                  fill=vennblue!8, align=center, font=\scriptsize] (el) at (0, -0.9)
-                {Episode-linking\\[0.1em]
-                 {\tiny\color{gray!60} Detect separately,}\\[-0.1em]
-                 {\tiny\color{gray!60} link if close in time}};
-
-            \end{tikzpicture}
-        \end{column}
-
-    \end{columns}
-
-\end{frame}
-
-% --------------------------------------------------
-% SLIDE 5: Pipeline and research questions
-% --------------------------------------------------
-% PURPOSE: State the two RQs and show the Paper 1
-%          pipeline as a chevron chain. Mention Papers
-%          2 and 3 briefly. Script carries the detail.
-% --------------------------------------------------
-\begin{frame}{What Am I Testing?}
-
-    % --- Two research questions ---
-    \vspace{-0.3em}
-    \begin{enumerate}
-        \item[\textcolor{ucdgreen}{\textbf{1.}}] {\itshape How does prediction skill at S2S lead times compare across forecast variables, impact variables, and multi-hazard events?}
-        \item[\textcolor{ucdgreen}{\textbf{2.}}] {\itshape Under what atmospheric conditions does this skill emerge?}
-    \end{enumerate}
-
-    \vspace{2.0em}
+    \centering
+    \vspace{1.5em}
 
     % --- Pipeline chevron chain ---
-    \centering
     \begin{tikzpicture}[
         xscale=1.0,
         chev/.style={
-            minimum width=2.0cm, minimum height=1.1cm,
+            minimum width=2.2cm, minimum height=1.3cm,
             align=center, font=\scriptsize, inner sep=3pt,
             signal, signal to=east, signal from=west,
             signal pointer angle=150,
             thick
         },
-        plbl/.style={font=\tiny, below=0.15cm}
+        plbl/.style={font=\tiny, below=0.2cm, text=gray!80}
     ]
 
-    % Met skill
-    \node[chev, fill=gray!8, draw=gray!40, text=black,
+    % S2S forecast
+    \node[chev, fill=ucdgreen!10, draw=ucdgreen!50,
           signal from=none] (p1) at (0, 0)
-        {Met\\skill};
+        {S2S\\forecast};
+    \node[plbl] at (p1.south) {Precipitation};
 
-    % Impact skill
-    \node[chev, fill=gray!8, draw=gray!40, text=black,
+    % Hydrological model
+    \node[chev, fill=ucdgreen!10, draw=ucdgreen!50,
           right=-0.02cm of p1] (p2)
-        {Impact\\skill};
+        {Hydro\\model};
+    \node[plbl] at (p2.south) {Streamflow};
 
-    % Event skill
-    \node[chev, fill=gray!8, draw=gray!40, text=black,
+    % Event detection
+    \node[chev, fill=ucdgreen!10, draw=ucdgreen!50,
           right=-0.02cm of p2] (p3)
-        {Event\\skill};
+        {Event\\detection};
+    \node[plbl] at (p3.south) {Drought \& flood};
+
+    % Transition linking
+    \node[chev, fill=ucdgreen!10, draw=ucdgreen!50,
+          right=-0.02cm of p3] (p4)
+        {Transition\\linking};
+    \node[plbl] at (p4.south) {Drought $\rightarrow$ flood};
 
     % Regime conditioning
-    \node[chev, fill=gray!8, draw=gray!40, text=black,
-          right=-0.02cm of p3] (p4)
-        {Regime\\conditioning};
-
-    % ML
-    \node[chev, fill=gray!8, draw=gray!40, text=black,
+    \node[chev, fill=vennorange!10, draw=vennorange!50,
           signal to=none, right=-0.02cm of p4] (p5)
-        {ML};
+        {Regime\\conditioning};
+    \node[plbl, text=vennorange!70] at (p5.south) {When to trust it?};
 
     \end{tikzpicture}
 
-    \vspace{3.0em}
+    \vspace{2.5em}
 
-    % --- Three papers ---
-    \centering
-    \begin{tikzpicture}[
-        pbox/.style={draw=ucdgreen!40, thick, rounded corners=4pt,
-            minimum width=3.6cm, minimum height=0.9cm,
-            fill=ucdgreen!5, align=center, font=\footnotesize}
-    ]
-    \node[pbox, fill=ucdgreen!6, draw=ucdgreen!60] (pa) at (0, 0)
-        {\textbf{Paper 1}\\[-0.1em]
-         {\scriptsize Drought-to-flood}};
-    \node[pbox, fill=vennorange!8, draw=vennorange!60] (pb) at (4.4, 0)
-        {\textbf{Paper 2}\\[-0.1em]
-         {\scriptsize Energy source droughts}};
-    \node[pbox, fill=vennblue!6, draw=vennblue!60] (pc) at (8.8, 0)
-        {\textbf{Paper 3}\\[-0.1em]
-         {\scriptsize ANTICIPATE}};
+    % --- ML bar underneath ---
+    \begin{tikzpicture}
+        \node[draw=gray!40, thick, rounded corners=3pt,
+              minimum width=11cm, minimum height=1.0cm,
+              fill=gray!5, align=center, font=\scriptsize]
+            {\textbf{Machine learning} at each stage ---
+             can it improve skill, especially with regime information as input?};
     \end{tikzpicture}
 
-\end{frame}
+    \vspace{1.5em}
 
-% --------------------------------------------------
-% SLIDE 6: Where ML enters
-% --------------------------------------------------
-% PURPOSE: Full pipeline from forecast to transition,
-%          with ML entry points hanging off the right
-%          stages. Script carries the detail.
-% --------------------------------------------------
-\begin{frame}{Where Does ML Fit?}
-
-    \centering
-    \vspace{0.5em}
-    \begin{tikzpicture}[
-        plbl/.style={font=\footnotesize\bfseries, text=ucdgreen!80!black},
-        parr/.style={font=\footnotesize, text=gray!50},
-        mlbox/.style={draw=vennorange!60, thick, rounded corners=3pt,
-            minimum width=3.0cm, minimum height=1.3cm,
-            fill=vennorange!8, align=center, font=\scriptsize},
-        mlarr/.style={-{Stealth[length=2mm]}, thick, vennorange!50}
-    ]
-
-    % === Pipeline as text chain (black) ===
-    \node[font=\footnotesize\bfseries] (s1) at (0, 3.0) {ECMWF forecast};
-    \node[font=\footnotesize, text=gray!50] at (1.65, 3.0) {$\rightarrow$};
-    \node[font=\footnotesize\bfseries] (s2) at (3.2, 3.0) {Bias correction};
-    \node[font=\footnotesize, text=gray!50] at (4.85, 3.0) {$\rightarrow$};
-    \node[font=\footnotesize\bfseries] (s3) at (6.2, 3.0) {Hydro model};
-    \node[font=\footnotesize, text=gray!50] at (7.55, 3.0) {$\rightarrow$};
-    \node[font=\footnotesize\bfseries] (s4) at (8.9, 3.0) {Streamflow};
-    \node[font=\footnotesize, text=gray!50] at (10.15, 3.0) {$\rightarrow$};
-    \node[font=\footnotesize\bfseries] (s5) at (11.6, 3.0) {Event detection};
-
-    % === Brace 1: Post-process (green, under Bias correction) ===
-    \draw[decorate, decoration={brace, amplitude=4pt, mirror},
-          thick, ucdgreen!60]
-        (2.2, 2.55) -- (4.2, 2.55);
-    \node[draw=ucdgreen!60, thick, rounded corners=3pt,
-          minimum width=2.6cm, minimum height=1.2cm,
-          fill=ucdgreen!6, align=center, font=\scriptsize] (ml1) at (1.2, 0.4)
-        {\textbf{Post-process}\\[0.1em]
-         {\tiny Prior to hydro model}};
-    \draw[-{Stealth[length=2mm]}, thick, ucdgreen!50]
-        (3.2, 2.25) to[out=-110, in=30] (ml1.north east);
-
-    % === Brace 2: Augment (orange, under Hydro model) ===
-    \draw[decorate, decoration={brace, amplitude=4pt, mirror},
-          thick, vennorange!60]
-        (5.2, 2.55) -- (7.2, 2.55);
-    \node[mlbox, minimum width=2.6cm] (ml2) at (6.2, 0.4)
-        {\textbf{Augment}\\[0.1em]
-         {\tiny LSTMs for rainfall-runoff}};
-    \draw[mlarr] (6.2, 2.25) to[out=-90, in=90] (ml2.north);
-
-    % === Brace 3: Bypass (blue, from Bias correction through Streamflow) ===
-    \draw[decorate, decoration={brace, amplitude=5pt, mirror},
-          thick, vennblue!60]
-        (2.2, 2.15) -- (9.8, 2.15);
-    \node[draw=vennblue!60, thick, rounded corners=3pt,
-          minimum width=2.6cm, minimum height=1.3cm,
-          fill=vennblue!6, align=center, font=\scriptsize] (ml3) at (11.0, 0.4)
-        {\textbf{Bypass}\\[0.1em]
-         {\tiny Forecast $\rightarrow$ streamflow}\\[-0.15em]
-         {\tiny directly via ML}};
-    \draw[-{Stealth[length=2mm]}, thick, vennblue!50]
-        (6.0, 1.85) to[out=-70, in=150] (ml3.north west);
-
-    % === Regime conditioning (bottom bar) ===
-    \node[draw=gray!40, thick, rounded corners=3pt,
-          minimum width=10.5cm, minimum height=1.2cm,
-          fill=gray!6, align=center, font=\scriptsize]
-        (reg) at (6.2, -1.8)
-        {\textbf{Regime conditioning}\\[0.1em]
-         {\tiny Atmospheric state as input to any ML model}};
-
-    \draw[-{Stealth[length=2mm]}, thick, gray!35] (reg.north west) -- (ml1.south);
-    \draw[-{Stealth[length=2mm]}, thick, gray!35] (reg.north) -- (ml2.south);
-    \draw[-{Stealth[length=2mm]}, thick, gray!35] (reg.north east) -- (ml3.south);
-
+    % --- End-use callout ---
+    \begin{tikzpicture}
+        \node[draw=ucdgreen!30, rounded corners=4pt,
+              fill=ucdgreen!4, minimum width=12cm,
+              minimum height=0.8cm, align=center,
+              font=\tiny\itshape, text=gray!80]
+            {Forecast product for farmers: catchment in drought, blocking breaking down weeks 3--4, above-normal transition risk weeks 4--6};
     \end{tikzpicture}
 
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 7: Current progress
+% SLIDE 7: System comparison
 % --------------------------------------------------
-% PURPOSE: EEFH vs SEAS5 comparison. Script explains
-%          the two systems and what has been verified.
+% PURPOSE: EEFH vs SEAS5. Script explains why both
+%          need comparing and what has been verified.
 % --------------------------------------------------
-\begin{frame}{Where Am I On This?}
+\begin{frame}{Which Forecast System?}
 
     \begin{columns}[c, totalwidth=\textwidth]
 
@@ -451,11 +423,11 @@
                  {\small\bfseries\color{ucdgreen!80!black} $\uparrow$ Ensemble sampling}};
 
             % vs
-            \node[font=\small\bfseries, text=gray!50] at (0, 0) {vs};
+            \node[font=\small\bfseries, text=gray!65] at (0, 0) {vs};
 
             % Setup summary
-            \node[font=\tiny, text=gray!60, align=center] at (0, -3.2)
-                {2006--2016 ~\textbar~ 0.3\textdegree{} grid ~\textbar~ t2m, tp, ws10};
+            \node[font=\tiny, text=gray!80, align=center] at (0, -3.2)
+                {Ireland ~\textbar~ 2006--2016 ~\textbar~ t2m, tp, ws10};
 
             \end{tikzpicture}
 
@@ -463,15 +435,27 @@
 
         \begin{column}{0.56\textwidth}
             \centering
-            % === PLOT PLACEHOLDER ===
-            % Replace with \includegraphics when verification
-            % figures are ready.
             \begin{tikzpicture}
-                \node[draw=gray!30, dashed, rounded corners,
-                      minimum width=7.0cm, minimum height=5.5cm,
-                      fill=gray!3, font=\footnotesize\color{gray!50}, align=center]
-                    {Deterministic verification\\[0.3em]
-                     {\tiny Station and spatial results}};
+                \node[font=\footnotesize, text=gray!80, align=center]
+                    at (0, 1.5)
+                    {Verified against};
+
+                \node[draw=ucdgreen!40, thick, rounded corners=3pt,
+                      minimum width=5.5cm, minimum height=0.8cm,
+                      fill=ucdgreen!5, align=center, font=\scriptsize]
+                    (obs1) at (0, 0.5)
+                    {Met \'Eireann station observations};
+
+                \node[draw=vennblue!40, thick, rounded corners=3pt,
+                      minimum width=5.5cm, minimum height=0.8cm,
+                      fill=vennblue!5, align=center, font=\scriptsize]
+                    (obs2) at (0, -0.5)
+                    {ERA5-Land reanalysis};
+
+                \node[font=\scriptsize, text=gray!65, align=center]
+                    at (0, -1.8)
+                    {Deterministic scores: RMSE, bias, RMSS\\[0.2em]
+                     Station and spatial verification};
             \end{tikzpicture}
         \end{column}
 
@@ -482,33 +466,56 @@
 % --------------------------------------------------
 % SLIDE 8: Conclusions
 % --------------------------------------------------
-% PURPOSE: Shown after "Before I conclude, does anyone
-%          have any questions?" and the Q&A. Concise
-%          bullet-point wrap-up.
+% PURPOSE: Shown after Q&A. Three takeaways matching
+%          the script exactly.
 % --------------------------------------------------
-\begin{frame}{Conclusions}
+\begin{frame}{Takeaways}
 
     \vspace{1.5em}
     \begin{tikzpicture}[
         bul/.style={font=\normalsize, text=ucdgreen!90!black,
-                    anchor=west},
+                    anchor=west, text width=13cm},
         num/.style={font=\normalsize\bfseries, text=ucdgreen!70!black,
                     anchor=east, minimum width=0.6cm}
     ]
 
     \node[num] at (0, 0) {1.};
     \node[bul] at (0.15, 0)
-        {Nobody has tested whether S2S forecast skill survives to multi-hazard events};
+        {Drought-to-flood transitions are common, damaging, and unfold over the S2S timescale};
 
     \node[num] at (0, -1.8) {2.};
     \node[bul] at (0.15, -1.8)
-        {Pipeline: met skill $\rightarrow$ impact skill $\rightarrow$ event skill};
+        {The atmospheric patterns that cause them are the same ones that give S2S forecasts their skill};
 
     \node[num] at (0, -3.6) {3.};
     \node[bul] at (0.15, -3.6)
-        {ML across the pipeline to boost event skill};
+        {Nobody has tested whether you can use those regimes to predict drought-to-flood transitions};
 
     \end{tikzpicture}
+
+\end{frame}
+
+% --------------------------------------------------
+% SLIDE 9: References
+% --------------------------------------------------
+\begin{frame}{References}
+
+    \scriptsize
+    \begin{itemize}\setlength{\itemsep}{0.4em}
+
+    \item DeFlorio, M.~J., and Coauthors, 2024: From California's extreme drought to major flooding: Evaluating and synthesizing experimental seasonal and subseasonal forecasts during winter 2022/23. \textit{Bull.\ Amer.\ Meteor.\ Soc.}, \textbf{105}, E84--E104.
+
+    \item G\"otte, J., and M.~I.~Brunner, 2024: Hydrological drought-to-flood transitions across different hydroclimates in the United States. \textit{Water Resour.\ Res.}, \textbf{60}, e2024WR037915.
+
+    \item Mariotti, A., and Coauthors, 2020: Windows of opportunity for skillful forecasts subseasonal to seasonal and beyond. \textit{Bull.\ Amer.\ Meteor.\ Soc.}, \textbf{101}, E608--E625.
+
+    \item Matan\'o, A., W.~R.~Berghuijs, M.~Mazzoleni, M.~C.~de~Ruiter, P.~J.~Ward, and A.~F.~Van~Loon, 2024: Compound and consecutive drought--flood events at a global scale. \textit{Environ.\ Res.\ Lett.}, \textbf{19}, 064048.
+
+    \item Parry, S., D.~Lavers, R.~Wilby, C.~Prudhomme, P.~Wood, C.~Murphy, and P.~O'Connor, 2023: Abrupt drought termination in the British--Irish Isles driven by high atmospheric vapour transport. \textit{Environ.\ Res.\ Lett.}, \textbf{18}, 104050.
+
+    \item Yang, Y., G.~Villarini, and L.~Yang, 2025: Spatiotemporal dynamics of hydrological whiplash events across the contiguous United States. \textit{ESS Open Archive} (preprint).
+
+    \end{itemize}
 
 \end{frame}
 

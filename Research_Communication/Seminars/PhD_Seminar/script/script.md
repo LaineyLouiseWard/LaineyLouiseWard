@@ -1,149 +1,136 @@
-# Maths PhD Seminar — Script
+# Maths PhD Seminar: Script
 
 ## Objective
-Give a 17-minute talk that takes the audience from "why can't we predict weather a few weeks out?" to "here's the pipeline I'm building and where machine learning fits." Audience: PhD students in maths, AI, physics, not weather specialists.
+Give a 17-minute talk that takes the audience from "what happens when drought turns into flood?" to "here's how atmospheric patterns might make that forecastable, and here's the pipeline I'm building to test it." Audience: PhD students in maths, AI, physics, not weather specialists.
 
 ## Core message
-We can forecast temperature and rainfall a few weeks ahead with some skill. Nobody has tested whether that skill survives when the target becomes a drought turning into a flood. My research builds the pipeline to find out, and asks whether machine learning can help at each stage.
+The atmospheric patterns that cause drought-to-flood transitions are partially predictable at S2S lead times. Nobody has tested whether that translates into event-level forecast skill. This PhD builds the pipeline to find out.
 
 ---
 
-### 1. Hook (~2 min)
+### 1. Title (~30s)
 
-Hi, I'm Lainey. Over the next fifteen minutes I'm going to explain why and how I'm looking for an oasis in something called the predictability desert, where and when there's useful skill in S2S forecasts for multi-hazard events like droughts and floods.
+[slide title: Forecasting drought-to-flood transitions at subseasonal timescales]
 
-Quick show of hands. Who here has any idea what the weather's going to be like in three weeks?
+Hi, I'm Lainey, I'm about three months into my PhD research in the Decarb-AI Centre. My research is in subseasonal-to-seasonal weather forecasting. I'm looking at whether we can forecast drought-to-flood transitions at that range, and whether atmospheric regimes and machine learning can help.
 
-[pause]
-
-Yeah, no one. But that time period, about two to six weeks ahead, is where a lot of high-stakes decisions get made. Agriculture, energy, water management. Forecasts of temperature and rainfall exist at that range, but a farmer can't act on those alone when the real question is whether a drought is about to become a flood.
-
-[click]
-
-Picture a farmer in the middle of a long dry spell. The soil has gone really hard. When the rain finally comes,  instead of the water soaking in, it runs off and causes flooding. The flooding is worse because of the drought that came before it. One hazard made another hazard worse. Ideally you'd want to warn that farmer before the rain arrives.
-
-[click]
-
-This is why the S2S timeframe has been given the nickname the predictability desert. I want to find out if there's an oasis in it, pockets of skill in predicting these events.
-
-[~190 words, ~80s]
+[~45 words, ~20s]
 
 ---
 
-### 2. The prediction gap (~2.5 min)
+### 2. What happens when drought turns into flood? (~2.5 min)
 
-[click — Mariotti figure]
+[click — soil mechanism visual]
 
-Why is this window so hard to predict? It really comes down to what's giving you skill in the first place.
+So what even is a drought-to-flood transition? It's where you have a long dry spell — say on agricultural soil. [put hand over dry soil image] This makes the soil hydrophobic so that when a rain event happens, the rain runs right off and you get flooding that's worse than if the drought had never happened.
 
-For short-range weather forecasts, you know what the atmosphere looks like right now. You put that into a model and run it forward. It's an initial conditions problem, and for a few days it works well. But the atmosphere is chaotic, and those initial conditions lose their value quickly.
+A study by Matanó et al. found that a quarter of all floods globally follow or overlap with a drought. And Yang et al. looked at thirteen thousand of these events in US streamflow records and found that transitions take about six weeks on average, with faster cases under a month.
 
-Seasonal forecasts are a completely different game. You're not trying to predict specific weather on a specific day. You're predicting whether the coming season will be wetter or warmer than average, and that's driven by slow-moving things like ocean temperatures. Those are boundary forcings, and they take months to evolve, so they give you something to hold on to.
+So these events are common, they're damaging, and they unfold over a timescale of weeks.
 
-The subseasonal-to-seasonal window, S2S, sits right between these two. The initial conditions have lost most of their usefulness, but the ocean and land surface haven't had enough time to steer the statistics yet. You're between two sources of skill, and neither one is doing much for you. That's why it's a desert.
+On that note, quick show of hands. Who here has any idea what the weather's going to be like in 3-6 weeks?
 
-[click]
+[pause] Are you guessing? Are you hoping?
 
-But here's why it matters. Matano and colleagues looked at over eight thousand catchments globally and found that a quarter of all floods follow or overlap with drought conditions. These connected events aren't rare, and they happen at exactly the timescale where forecasts are weakest. So what does the literature say about predicting them?
+That range is genuinely hard to predict, and because of that you don't hear about it. But it's exactly the range where these transitions play out.
+
+[~165 words, ~70s]
+
+---
+
+### 3. Why is this so hard to forecast? (~2.5 min)
+
+[click — Mariotti figure with regime-transition schematic]
+
+So why is this so hard to forecast? This two-to-six week range is called the subseasonal-to-seasonal window, or S2S. It has a nickname: the predictability desert.
+
+Why? It comes down to where forecast skill comes from. Short-range weather forecasting is an initial condition problem. You know what the atmosphere looks like right now, you put that into a model and run it forward. For a few days, it works well. But the atmosphere is chaotic, so small errors grow, and after about ten days those initial conditions have lost most of their value.
+
+Seasonal forecasting is a completely different kind of problem. It's a boundary condition problem. Skill comes from slow things like sea surface temperatures that take months to evolve. You're not predicting specific weather. You're predicting whether the coming season will be wetter or warmer than average.
+
+The S2S window sits between these two. The initial conditions have lost most of their value, and the ocean hasn't had time to steer the statistics yet. You're between two sources of skill, and neither one is doing much for you.
+
+But skill isn't zero everywhere in this range. When a strong atmospheric pattern is active, like a persistent high-pressure system sitting over a region for weeks, the forecast system has something large-scale and slow-moving to track. These patterns are called weather regimes. But they're not always active, and some are more predictable than others. When no strong regime is in play, you're back in the desert.
+
+So there is a source of skill at S2S timescales, and it comes from large-scale atmospheric patterns. Why does that matter for drought-to-flood transitions?
+
+[~260 words, ~110s]
+
+---
+
+### 4. What causes these transitions? (~2 min)
+
+So what causes these transitions? Earlier I described what happens at ground level. Now the question is: what's happening in the atmosphere to cause that sequence?
+
+[click — regime-transition schematic]
+
+Some of these weather regimes are the physical drivers of drought-to-flood transitions. A persistent blocking system sits over a region and suppresses rainfall for weeks. Soil moisture drops. Then that blocking breaks down, the atmospheric flow shifts, and moist Atlantic air moves in. Heavy rain hits preconditioned dry soil.
+
+There's good evidence for this from two different studies. A study from Maynooth looked at how droughts end across Britain and Ireland, using really long river records. They found that over half of all drought endings were preceded by surges of atmospheric moisture linked to a shift in the large-scale pattern. They suggested that forecasting these patterns might be more useful than forecasting rainfall for predicting when droughts end, but didn't test it.
+
+DeFlorio and colleagues looked at the same kind of sequence in California in 2022-23. Persistent blocking held the drought for months, then a sequence of atmospheric rivers — large plumes of moisture — broke it and caused catastrophic flooding. When they evaluated the S2S forecasts, the system had skill in predicting the atmospheric rivers weeks ahead, because it could track the large-scale pattern that was steering them.
+
+Both of these studies are looking backwards at what happened. Neither tested whether a forecast system could have predicted the transition in advance.
 
 [~250 words, ~110s]
 
 ---
 
-### 3. Three literatures, one gap (~2.5 min)
+### 5. Where's the gap? (~1 min)
 
-[click — Venn diagram]
+[click — research gap slide]
 
-When I started the literature review, I found three separate research communities working around this problem, mostly in isolation.
+So where does this leave us?
 
-First, S2S forecasting. People who build and verify forecasts at this timescale. They've made real progress on predicting individual variables, temperature, rainfall, wind, but they haven't pushed into multi-hazard events.
+We know that weather regimes drive these transitions. And we know that regimes are predictable at S2S timescales. But nobody has tested whether you can actually predict the transitions themselves using a forecast system — and whether knowing the regime helps.
 
-Second, multi-hazard research. People studying what happens when hazards combine or follow each other. Drought then flood, or low wind and low solar hitting the energy grid at the same time. There's a lot of work here, but it's all diagnostic. How often do these events occur, how intense are they, what timescales do they happen at. All from long observational records, not forecasts.
+My research question is: can S2S forecasts, informed by the atmospheric regime, predict drought-to-flood transitions?
 
-Third, weather regimes. Large-scale atmospheric patterns, like blocking, that determine what weather a region gets. There's evidence that forecast skill depends on which regime is active when the forecast starts, and that rapid shifts between regimes can trigger drought-to-flood transitions on the ground. But nobody has used that to predict a transition in a forecast.
-
-[click]
-
-Where each pair of circles overlaps, there's partial work. But the centre, where all three meet, is empty. Can S2S forecasts predict multi-hazard events, and does that skill depend on the atmospheric state? That's the thesis. But before you can predict these events, how do you even detect them?
-
-[~230 words, ~100s]
+[~100 words, ~45s]
 
 ---
 
-### 4. How do you detect these events? (~1.5 min)
+### 6. How do I test this? (~2.5 min)
 
-Before you can predict a drought-to-flood transition, you have to define what counts as one. And there are actually different schools of thought on this.
+[click — pipeline slide]
 
-One approach comes mainly from Chinese hydrology, where monsoon basins see a dry spring followed by a wet summer in the same year. They developed indices that compress the whole swing, how far the variable moved, how fast, into a single number. Purpose-built for that kind of seasonality.
+Here's what that pipeline looks like, and I'll be testing this on Irish catchments.
 
-The other approach, more common in Western hydrology, is simpler. You detect drought episodes and flood episodes independently using standard indicators, then link them if they happen close enough together in time. The parameter that varies most across studies is how wide that linking window is.
+You start with the raw S2S forecast — temperature, precipitation, wind. The first thing I need to do is choose which forecast system to build on. ECMWF runs two systems whose lead times overlap at this range: a subseasonal system and a seasonal system. They differ in how many simulations they run and how often they're updated. So I'm comparing both over Ireland, verified against Met Eireann station observations and a global reanalysis dataset, to decide which one to take forward.
 
-I'm using episode-linking. The assumptions are transparent, and it plugs directly into how forecasts are verified. But the idea from the other tradition, that the swing itself is worth measuring, how far and how fast, that's worth keeping. Once you have the events, you can compute that.
+[click — system comparison slide]
 
-[~170 words, ~75s]
+From the chosen system, you need to translate the forecast into what actually matters on the ground. For drought and flood, that's streamflow — how much water is flowing through a catchment. So the next step is a hydrological model that converts the forecast into streamflow.
 
----
+From streamflow, you detect drought and flood events separately. Then you look for transitions — cases where a drought episode is followed by a flood episode within a certain window.
 
-### 5. Pipeline and research questions (~2 min)
+Once you have that, the key question is: does the skill depend on the atmospheric state? If the system is better at predicting transitions during blocking events than when no strong pattern is active, that tells you when to trust the forecast and when not to. That's regime conditioning — it doesn't change the forecast, it tells you when the forecast is worth listening to.
 
-[click — roadmap]
+Separately, I want to test whether machine learning can improve each stage of this pipeline, especially when it has the regime information as an input.
 
-So that brings me to my two research questions. First: how does prediction skill at S2S lead times compare across forecast variables, impact variables, and multi-hazard events? And second: under what atmospheric conditions does that skill emerge?
+In the Decarb-AI programme we're encouraged to think about innovation and end use of our research. So if the skill is there, I'd hope to work towards a forecast product for farmers. Something like: this catchment is in drought. The regime forecast shows blocking breaking down in weeks 3 to 4. Based on similar historical setups, there's an above-normal chance of a drought-to-flood transition in weeks 4 to 6.
 
-The way I'm addressing this is through a pipeline. You start with the raw forecast, temperature, precipitation, and you verify that against observations. That's meteorological skill, and it's where the literature already has a foothold. Then you translate those forecasts into impact variables, things like streamflow, which is what matters for drought and flood on the ground. That's a second verification step. Then you apply event detection to identify the transitions themselves. And you verify again. Each stage can gain or lose skill, and nobody has measured that chain from forecast to event.
-
-On top of that sit two more layers. Regime conditioning: does skill depend on which atmospheric pattern is active at the time of the forecast? And machine learning: can it add value at any stage?
-
-I'm addressing this across three papers. The first focuses on drought-to-flood transitions. The second will look at renewable energy source droughts, where low wind and low solar coincide. The third is still being shaped through a European research network I'm part of called ANTICIPATE.
-
-[~220 words, ~95s]
+[~290 words, ~125s]
 
 ---
 
-### 6. Where machine learning enters (~3 min)
+### 7. Conclusions
 
-[click]
+Before I conclude — are there any questions?
 
-Where does ML fit in this pipeline? It shows up in three places, and they're quite different problems.
+[take questions]
 
-First, post-processing. S2S forecasts have systematic biases. They might consistently overestimate rainfall in winter, or underestimate temperature variability. Traditional post-processing uses statistical methods to correct these. ML can potentially capture nonlinear bias structures that statistical corrections miss. That sits right at the start of the pipeline, at the bias correction stage.
+[click — takeaway slide]
 
-Second, you can augment or replace the hydrological model. You have a precipitation forecast and you want to turn it into streamflow. Hydrological models have done this for decades with physical equations, water balance, routing, infiltration. But in the last few years, LSTMs have started matching or beating them. Kratzert and colleagues showed this in 2018. It's a sequence-to-sequence problem: you feed in a time series of atmospheric inputs and the model learns to produce streamflow. These models are picking up physical relationships, storage, lag, nonlinear response, from data, without being told the equations.
+Just to remind you of the 3 main takeaways:
 
-Third, you can bypass the hydrological model entirely. Instead of going forecast to hydro model to streamflow, you go straight from forecast fields to streamflow using machine learning. Recent work has shown this can outperform the dynamical models, but it tends to underestimate the severity at the extremes, which is exactly where it matters most for multi-hazard events.
+- Drought-to-flood transitions are common, damaging, and unfold over the S2S timescale.
+- The atmospheric patterns that cause them are the same ones that give S2S forecasts their skill.
+- Nobody has tested whether you can use those regimes to predict drought-to-flood transitions. That's what this PhD does.
+Thanks.
 
-Underneath all three of these sits regime conditioning. The idea is that whichever ML model you use, you provide the atmospheric regime state as an input. There's evidence that post-processing skill varies depending on which regime is active when the forecast starts, and that regime shifts can make transitions predictable at two to three week lead times. And explainable AI matters here too. A forecast that says "transition likely" is not much use if you can't say what's driving the confidence.
-
-[~300 words, ~130s]
-
----
-
-### 7. Current progress (~2 min)
-
-[click — system comparison]
-
-Where am I on this? The first step was choosing which forecast system to build on. ECMWF runs two: a subseasonal system and a seasonal system. The subseasonal one has newer physics and is initialised almost every other day, 183 times a year. The seasonal one has older physics but more than double the ensemble size and a much longer record. One gives you more snapshots in time, the other gives you more members per snapshot.
-
-I've compared both over a common ten-year period on a grid over Ireland, looking at temperature, precipitation, and wind speed. The reference datasets are Met Eireann station observations and ERA5-Land reanalysis.
-
-The deterministic verification is done. Next is probabilistic verification, Brier skill score, CRPSS, which is about to get underway. Getting the deterministic foundations right first matters because everything downstream builds on it.
-
-[~150 words, ~65s]
+[~50 words, ~20s]
 
 ---
 
-### 8. Close (~1 min)
-
-I'll wrap up in a second, but does anyone have any questions first?
-
-[Q&A]
-
-[click — Conclusions slide]
-
-Okay, so, back to our farmer. Could we warn them three weeks out that the drought is about to become a flood? Not yet. But now we know which forecast system to build on, and the next step is translating that forecast through impact variables and into the events themselves. Skill can leak at every step in that chain, but machine learning might recover some of it. That's the bet, and I think it's a good one.
-
-[~75 words, ~30s]
-
----
-
-[Total: ~1595 words of spoken content, ~680s at 140 wpm. With pauses, clicks, and audience interaction: ~17 min.]
+[Total: ~1160 words of spoken content, ~500s at 140 wpm. With pauses, clicks, show of hands, and Q&A: ~15 min.]
