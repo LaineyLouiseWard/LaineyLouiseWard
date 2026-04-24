@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decarb-AI Interview Flashcards</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .progress {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-container {
+    width: 100%;
+    max-width: 540px;
+    perspective: 1000px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .card {
+    width: 100%;
+    position: relative;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+  }
+
+  .card.flipped { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .card-front {
+    background: #006633;
+    color: white;
+  }
+
+  .card-back {
+    background: white;
+    color: #1a1a1a;
+    transform: rotateY(180deg);
+    border: 2px solid #006633;
+  }
+
+  .card-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+
+  .card-front .card-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .card-question {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #006633;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .card-back .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .card-hint {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-top: auto;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 540px;
+  }
+
+  .nav button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: #e8e8e3;
+    color: #333;
+    transition: background 0.15s;
+  }
+
+  .nav button:hover { background: #ddd; }
+
+  .nav button.shuffle {
+    flex: 0.6;
+    background: #006633;
+    color: white;
+  }
+
+  .nav button.shuffle:hover { background: #005528; }
+
+  @media (max-width: 500px) {
+    .card-front .card-text { font-size: 1.05rem; }
+    .card-back .card-text { font-size: 0.85rem; }
+    .card-face { padding: 1.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Decarb-AI Interview Prep</h1>
+<div class="progress" id="progress">1 / 17</div>
+
+<div class="card-container" id="cardContainer">
+  <div class="card" id="card">
+    <div class="card-face card-front">
+      <div class="card-category" id="frontCat"></div>
+      <div class="card-text" id="frontText"></div>
+      <div class="card-hint">tap to flip</div>
+    </div>
+    <div class="card-face card-back">
+      <div class="card-category" id="backCat"></div>
+      <div class="card-question" id="backQuestion"></div>
+      <div class="card-text" id="backText"></div>
+      <div class="card-hint">tap to flip back</div>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <button id="prev">&larr; Prev</button>
+  <button class="shuffle" id="shuffle">Shuffle</button>
+  <button id="next">Next &rarr;</button>
+</div>
+
+<script>
+const cards = [
+  {
+    cat: "Articulate your research",
+    q: "Articulate your research (~30 seconds)",
+    a: "My PhD is looking at predicting droughts and floods but from a multi-hazard perspective. About a quarter of all floods globally are preceded by drought. In these cases, the flooding afterwards can be worse because the ground can't absorb the rain. Sectors like agriculture and reinsurance still treat drought and flood as separate hazards, which means they are underestimating the true risk profile. On top of that, climate change means we will be experiencing these hazards more often and more severely. My research is helping Ireland become more climate resilient, by forecasting the combined risk from different hazards."
+  },
+  {
+    cat: "Innovation / entrepreneurship",
+    q: "What does it actually take to turn an idea into impact?",
+    a: "To turn an idea into impact you need to keep stakeholders and practitioners in consideration from the very start. It requires you to create something someone will actually use, not just something that works in a paper, or research in a vacuum."
+  },
+  {
+    cat: "Innovation / entrepreneurship",
+    q: "When does research become innovation?",
+    a: "Research becomes innovation when it stops answering questions that only matter to researchers, and instead answers questions that matter outside of academia in the operational world. It's when it goes from being theoretical to being practical. Research becomes innovation when the framing changes."
+  },
+  {
+    cat: "Innovation / entrepreneurship",
+    q: "What role should researchers play in entrepreneurship?",
+    a: "Ideally, researchers shouldn't be just passing off their research to someone else in the entrepreneurship pipeline \u2014 they should be in the room from the start. Researchers know what the science can and can't do, and so they can help and push the limits of the product or service you're trying to build."
+  },
+  {
+    cat: "Innovation / entrepreneurship",
+    q: "What makes an idea worth pursuing?",
+    a: "An idea is worth pursuing when there's an overlap between \u201cnobody has done this\u201d and \u201csomebody needs this.\u201d If you know why that gap exists and how to close it, then that idea's worth pursuing."
+  },
+  {
+    cat: "Vision and big thinking",
+    q: "If your research succeeds, what changes in the real world?",
+    a: "If my research succeeds, a farmer could get early warnings 6 weeks out that weather conditions are about to shift from one hazard state to another. A reinsurance company could price the combined risk of droughts and floods properly, instead of treating them as two separate things. Ultimately, Ireland would be more climate resilient, both economically and for the communities that are affected."
+  },
+  {
+    cat: "Vision and big thinking",
+    q: "What future are you personally trying to build?",
+    a: "The future I'm trying to build is one where we move entirely from simple, single-hazard forecasting to having multi-hazard forecasts, delivered in a way that's easy to understand for practitioners and makes a difference to their decision-making."
+  },
+  {
+    cat: "Vision and big thinking",
+    q: "What's something people underestimate about the problem you're working on?",
+    a: "How much the science disagrees with itself. The same phenomenon has five or six different names, and because methodologies differ, their findings can disagree too. We're still trying to agree on best practises and standardised practises moving forward."
+  },
+  {
+    cat: "Vision and big thinking",
+    q: "What would success look like 10 years from now?",
+    a: "Success in ten years would be national meteorological services like Met \u00c9ireann issuing multi-hazard forecasts, and sectors like agriculture and reinsurance having those forecasts personalised for their needs."
+  },
+  {
+    cat: "Punchy one-liners",
+    q: "Innovation is...?",
+    a: "Innovation is about joining the dots nobody's joined yet."
+  },
+  {
+    cat: "Punchy one-liners",
+    q: "The future needs more...?",
+    a: "The future needs more operational multi-hazard forecasts, not just single-hazard ones."
+  },
+  {
+    cat: "Punchy one-liners",
+    q: "One word for your research?",
+    a: "Risk. / Whiplash."
+  },
+  {
+    cat: "Punchy one-liners",
+    q: "Biggest opportunity right now?",
+    a: "The biggest opportunity right now is that we forecast hazards like droughts and floods separately, but not together yet."
+  },
+  {
+    cat: "Punchy one-liners",
+    q: "Biggest risk if we do nothing?",
+    a: "The biggest risk if we do nothing is that hazards get worse with climate change, but our forecasting services won't keep up."
+  }
+];
+
+let idx = 0;
+
+function sizeCard() {
+  const card = document.getElementById("card");
+  const front = document.querySelector(".card-front");
+  const back = document.querySelector(".card-back");
+  // temporarily make both visible and relative to measure
+  front.style.position = "relative";
+  back.style.position = "relative";
+  back.style.transform = "none";
+  const h = Math.max(front.scrollHeight, back.scrollHeight, 300);
+  front.style.position = "";
+  back.style.position = "";
+  back.style.transform = "";
+  card.style.height = h + "px";
+}
+
+function render() {
+  const c = cards[idx];
+  document.getElementById("frontCat").textContent = c.cat;
+  document.getElementById("frontText").textContent = c.q;
+  document.getElementById("backCat").textContent = c.cat;
+  document.getElementById("backQuestion").textContent = c.q;
+  document.getElementById("backText").textContent = c.a;
+  document.getElementById("progress").textContent = `${idx + 1} / ${cards.length}`;
+  document.getElementById("card").classList.remove("flipped");
+  sizeCard();
+}
+
+document.getElementById("cardContainer").addEventListener("click", () => {
+  document.getElementById("card").classList.toggle("flipped");
+});
+
+document.getElementById("prev").addEventListener("click", () => {
+  idx = (idx - 1 + cards.length) % cards.length;
+  render();
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  idx = (idx + 1) % cards.length;
+  render();
+});
+
+document.getElementById("shuffle").addEventListener("click", () => {
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  idx = 0;
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") { idx = (idx + 1) % cards.length; render(); }
+  if (e.key === "ArrowLeft") { idx = (idx - 1 + cards.length) % cards.length; render(); }
+  if (e.key === " ") { e.preventDefault(); document.getElementById("card").classList.toggle("flipped"); }
+});
+
+render();
+window.addEventListener("resize", sizeCard);
+</script>
+</body>
+</html>
