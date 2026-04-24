@@ -56,8 +56,8 @@
     \vspace{2.5cm}
     \begin{center}
         {\LARGE\bfseries\color{ucdgreen!90!black}
-         Forecasting Drought-to-Flood Transitions\\[0.3em]
-         at Subseasonal Timescales}
+         Subseasonal-to-Seasonal Forecasting\\[0.3em]
+         of Drought-to-Flood Transitions}
 
         \vspace{1.5em}
         {\large Lainey Ward}
@@ -79,7 +79,7 @@
 %          explanation and statistics verbally.
 %          Soil.png cropped to remove BBC title/footer.
 % --------------------------------------------------
-\begin{frame}{What Happens When Drought Turns Into Flood?}
+\begin{frame}{What Is a Drought-to-Flood Transition?}
 
     \begin{columns}[c, totalwidth=\textwidth]
 
@@ -99,20 +99,24 @@
             \begin{tikzpicture}
 
                 % 24% stat
+                \onslide<2->{
                 \node[font=\Large\bfseries, text=gapred!80!black]
                     at (0, 1.5) {24\%};
                 \node[font=\tiny, text=gray!80, align=center]
                     at (0, 0.8) {of all floods globally\\follow drought};
                 \node[font=\tiny, text=gray!55]
                     at (0, 0.3) {Matan\'o et al.\ (2024)};
+                }
 
                 % ~6 weeks stat
+                \onslide<3->{
                 \node[font=\Large\bfseries, text=vennblue!80!black]
                     at (0, -1.2) {\raise.17ex\hbox{$\scriptstyle\sim$}6 weeks};
                 \node[font=\tiny, text=gray!80, align=center]
-                    at (0, -1.9) {average transition time\\fastest under a month};
+                    at (0, -1.9) {average transition time};
                 \node[font=\tiny, text=gray!55]
                     at (0, -2.4) {Yang et al.\ (2025)};
+                }
 
             \end{tikzpicture}
         \end{column}
@@ -144,10 +148,12 @@
         % ── Right: Regime composites ──────────────────
         \begin{column}{0.40\textwidth}
             \centering
+            \onslide<2->{
             {\footnotesize\bfseries\color{ucdgreen!80!black} Weather regimes}\\[0.4em]
             \includegraphics[width=0.72\textwidth, keepaspectratio]
                 {weather_regimes_deflorio.jpg}\\[-0.2em]
             {\tiny\color{gray!65} Adapted from DeFlorio et al.\ (2024)}
+            }
         \end{column}
 
     \end{columns}
@@ -184,7 +190,7 @@
     % Stage 2: Breakdown
     \node[stg, draw=gray!60, fill=gray!8,
           right=0.8cm of blk]
-        (brk) {Flow shifts\\Moist air moves in};
+        (brk) {Pattern shifts\\Rain arrives};
     \node[font=\scriptsize\bfseries, text=gray!80!black,
           above=0.05cm of brk.north, anchor=south]
         {Blocking breaks down};
@@ -235,7 +241,7 @@
 %          centre. Script names what exists and
 %          what's missing.
 % --------------------------------------------------
-\begin{frame}{Where Is the Gap?}
+\begin{frame}{Where Does That Leave Us?}
 
     \centering
     \begin{tikzpicture}
@@ -290,27 +296,35 @@
 
     % Pairwise labels
     % S2S x Regimes (upper-left) — KNOWN
+    \onslide<2->{
     \node[align=center, font=\scriptsize, text=ucdgreen!70!black] (g2) at (-5.5,1.2)
          {{\color{ucdgreen!70!black}\ding{51}} Regimes are predictable\\at S2S timescales};
     \draw[-{Stealth[length=2.5mm]}, thick, ucdgreen!50] (-1.1,0.7) -- (g2.east);
+    }
 
     % Regimes x DTF (upper-right) — KNOWN
+    \onslide<3->{
     \node[align=center, font=\scriptsize, text=ucdgreen!70!black] (g3) at (5.5,1.2)
          {{\color{ucdgreen!70!black}\ding{51}} Regimes drive these\\transitions};
     \draw[-{Stealth[length=2.5mm]}, thick, ucdgreen!50] (1.1,0.7) -- (g3.west);
+    }
 
     % S2S x DTF (bottom) — GAP
+    \onslide<4->{
     \node[align=center, font=\scriptsize, text=gapred] (g1) at (0,-3.4)
          {{\color{gapred}\ding{55}} Never tested with\\a forecast system};
     \draw[-{Stealth[length=2.5mm]}, thick, gapred] (0,-1.5) -- (g1.north);
+    }
 
     % Research question — arrow from centre to the right
-    \node[align=left, font=\scriptsize\itshape, text=black,
-          draw=ucdgreen!50, rounded corners=3pt, fill=ucdgreen!6,
+    \onslide<5->{
+    \node[align=left, font=\scriptsize\itshape, text=gray!70!black,
+          draw=gray!50, rounded corners=3pt, fill=gray!6,
           inner sep=5pt] (rq) at (6.0,-1.7)
-         {Can we forecast these\\transitions --- and do\\regimes help?};
-    \draw[-{Stealth[length=2.5mm]}, thick, ucdgreen!60]
+         {Can we forecast these\\transitions --- and does\\the regime tell us when?};
+    \draw[-{Stealth[length=2.5mm]}, thick, gray!50]
         (0.4,-0.2) -- (rq.west);
+    }
 
     \end{tikzpicture}
 
@@ -397,87 +411,14 @@
           align=left, font=\scriptsize, text=gray!25!black,
           inner sep=5pt, anchor=west]
         at ([shift={(0.5cm, 0.4cm)}]farmer.east)
-        {\textit{Blocking breaking down weeks 3--4,}\\
-         \textit{above-normal transition risk weeks 4--6}};
+        {\textit{Catchment in drought.}\\
+         \textit{Blocking breaking down weeks 3--4.}\\
+         \textit{Above-normal transition risk weeks 4--6.}};
 
     \end{tikzpicture}
 
 \end{frame}
 
-% --------------------------------------------------
-% SLIDE 7: System comparison
-% --------------------------------------------------
-% PURPOSE: EEFH vs SEAS5. Script explains why both
-%          need comparing and what has been verified.
-% --------------------------------------------------
-\begin{frame}{Which Forecast System?}
-
-    \begin{columns}[c, totalwidth=\textwidth]
-
-        \begin{column}{0.42\textwidth}
-
-            \centering
-            \begin{tikzpicture}[
-                sysbox/.style={draw=ucdgreen!40, thick, rounded corners=4pt,
-                    minimum width=4.2cm, minimum height=2.2cm,
-                    fill=ucdgreen!4, align=center, font=\footnotesize}
-            ]
-            % EEFH
-            \node[sysbox, fill=vennorange!8, draw=vennorange!60] (eefh) at (0, 1.6)
-                {\textbf{\normalsize Subseasonal (EEFH)}\\[0.4em]
-                 Newer physics\\
-                 183 inits / year\\
-                 11 members\\[0.3em]
-                 {\small\bfseries\color{orange!80!black} $\uparrow$ Temporal sampling}};
-
-            % SEAS5
-            \node[sysbox, fill=ucdgreen!6, draw=ucdgreen!40] (seas) at (0, -1.6)
-                {\textbf{\normalsize Seasonal (SEAS5)}\\[0.4em]
-                 Older physics\\
-                 12 inits / year\\
-                 25 members\\[0.3em]
-                 {\small\bfseries\color{ucdgreen!80!black} $\uparrow$ Ensemble sampling}};
-
-            % vs
-            \node[font=\small\bfseries, text=gray!65] at (0, 0) {vs};
-
-            % Setup summary
-            \node[font=\tiny, text=gray!80, align=center] at (0, -3.2)
-                {Ireland ~\textbar~ 2006--2016 ~\textbar~ t2m, tp, ws10};
-
-            \end{tikzpicture}
-
-        \end{column}
-
-        \begin{column}{0.56\textwidth}
-            \centering
-            \begin{tikzpicture}
-                \node[font=\footnotesize, text=gray!80, align=center]
-                    at (0, 1.5)
-                    {Verified against};
-
-                \node[draw=ucdgreen!40, thick, rounded corners=3pt,
-                      minimum width=5.5cm, minimum height=0.8cm,
-                      fill=ucdgreen!5, align=center, font=\scriptsize]
-                    (obs1) at (0, 0.5)
-                    {Met \'Eireann station observations};
-
-                \node[draw=vennblue!40, thick, rounded corners=3pt,
-                      minimum width=5.5cm, minimum height=0.8cm,
-                      fill=vennblue!5, align=center, font=\scriptsize]
-                    (obs2) at (0, -0.5)
-                    {ERA5-Land reanalysis};
-
-                \node[font=\scriptsize, text=gray!65, align=center]
-                    at (0, -1.8)
-                    {Deterministic scores: RMSE, bias, RMSS\\[0.2em]
-                     Station and spatial verification};
-            \end{tikzpicture}
-        \end{column}
-
-    \end{columns}
-
-\end{frame}
 
 % --------------------------------------------------
 % SLIDE 8: Global map of DTF studies
@@ -488,10 +429,46 @@
 % --------------------------------------------------
 \begin{frame}{How Do We Detect These Events?}
 
-    \centering
-    \vspace{0.3em}
-    \includegraphics[width=0.92\textwidth, height=0.75\textheight, keepaspectratio]
-        {terminology_map.png}
+    \begin{columns}[c, totalwidth=\textwidth]
+
+        % ── Left: Map ────────────────────────────────
+        \begin{column}{0.68\textwidth}
+            \raggedright
+            \includegraphics[width=1.05\textwidth, height=0.80\textheight, keepaspectratio]
+                {terminology_map.png}
+        \end{column}
+
+        % ── Right: Key findings ──────────────────────
+        \begin{column}{0.30\textwidth}
+            \centering
+            \begin{tikzpicture}
+
+                % Terminology
+                \node[font=\normalsize\bfseries, text=vennorange!80!black]
+                    at (0, 2.8) {5+ terms};
+                \node[font=\tiny, text=gray!80, align=center]
+                    at (0, 2.1) {for the same phenomenon\\across different traditions};
+
+                % Opposite trends
+                \node[font=\normalsize\bfseries, text=gapred!80!black]
+                    at (0, 0.5) {Opposite trends};
+                \node[font=\tiny, text=gray!80, align=center]
+                    at (0, -0.2) {rainfall-based vs streamflow-based\\detection over the same period};
+                \node[font=\tiny, text=gray!55]
+                    at (0, -0.7) {Yang et al.\ (2025)};
+
+                % 5 of 8 missed
+                \node[font=\normalsize\bfseries, text=gapred!80!black]
+                    at (0, -2.0) {5 of 8 missed};
+                \node[font=\tiny, text=gray!80, align=center]
+                    at (0, -2.7) {known impactful events\\undetected by standard methods};
+                \node[font=\tiny, text=gray!55]
+                    at (0, -3.2) {Anderson et al.\ (2025)};
+
+            \end{tikzpicture}
+        \end{column}
+
+    \end{columns}
 
 \end{frame}
 
@@ -513,15 +490,15 @@
 
     \node[num] at (0, 0) {1.};
     \node[bul] at (0.15, 0)
-        {Drought-to-flood transitions are common, damaging, and unfold over the S2S timescale};
+        {Drought-to-flood transitions are common, damaging, and play out over the S2S window};
 
     \node[num] at (0, -1.8) {2.};
     \node[bul] at (0.15, -1.8)
-        {The atmospheric patterns that cause them are the same ones that give S2S forecasts their skill};
+        {The regime shifts that drive them are predictable at this range};
 
     \node[num] at (0, -3.6) {3.};
     \node[bul] at (0.15, -3.6)
-        {Nobody has tested whether you can use those regimes to predict drought-to-flood transitions};
+        {Nobody has tried to forecast drought-to-flood transitions. That's what I hope to do};
 
     \end{tikzpicture}
 
