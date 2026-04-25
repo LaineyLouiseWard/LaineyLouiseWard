@@ -17,6 +17,9 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamersize{text margin left=7mm, text margin right=7mm}
 \setbeamertemplate{headline}{}
+\setbeamercolor{upper separation line foot}{bg=white}
+\setbeamercolor{middle separation line foot}{bg=white}
+\setbeamercolor{lower separation line foot}{bg=white}
 \setbeamercolor{author in head/foot}{fg=slideblue!70!black, bg=slideblue!15}
 \setbeamercolor{title in head/foot}{fg=slideblue!70!black, bg=slideblue!15}
 \setbeamercolor{date in head/foot}{fg=slideblue!70!black, bg=slideblue!15}
@@ -61,9 +64,13 @@
         {\footnotesize Decarb-AI Centre, University College Dublin}
     \end{center}
 
-    \vspace{1.0em}
+    \vspace{0.8em}
     \begin{center}
-        \includegraphics[height=1.1cm]{InnovateforIreland.png}
+        \includegraphics[height=0.85cm, trim=0 0 0 5, clip]{ucd.png}%
+        \hspace{2em}%
+        \includegraphics[height=0.85cm]{InnovateforIreland.png}%
+        \hspace{2em}%
+        \includegraphics[height=0.85cm]{AIBBANK.png}
     \end{center}
 
 \end{frame}
@@ -79,7 +86,7 @@
             \centering
             \vspace{1.5em}
             \includegraphics[width=\textwidth, keepaspectratio,
-                trim=0 40 0 100, clip]
+                trim=0 80 0 100, clip]
                 {Soil.png}\\[0.2em]
             {\tiny\color{gray!65} Adapted from BBC Research (2022)}
         \end{column}
@@ -88,26 +95,26 @@
             \centering
             \begin{tikzpicture}
 
-                \node[font=\Large\bfseries, text=statred!80!black]
-                    at (0, 2.8) {\texteuro500M+};
+                \node[font=\large\bfseries, text=slideblue!80!black]
+                    at (0, 2.5) {25\%};
                 \node[font=\tiny, text=gray!80, align=center]
-                    at (0, 2.1) {Irish agricultural losses, 2018\\Beast from the East + summer drought};
+                    at (0, 1.9) {of floods globally\\preceded by drought};
                 \node[font=\tiny, text=gray!55]
-                    at (0, 1.6) {Noone et al.\ (2025)};
+                    at (0, 1.5) {Matan\'o et al.\ (2024)};
 
-                \node[font=\Large\bfseries, text=statred!80!black]
+                \node[font=\large\bfseries, text=statred!80!black]
                     at (0, 0.2) {1.4--8{$\times$}};
                 \node[font=\tiny, text=gray!80, align=center]
-                    at (0, -0.5) {worse impacts when\\drought precedes flood};
+                    at (0, -0.4) {worse than\\isolated events};
                 \node[font=\tiny, text=gray!55]
-                    at (0, -1.0) {Worou \& Messori (2025)};
+                    at (0, -0.8) {Worou \& Messori (2025)};
 
-                \node[font=\Large\bfseries, text=slideblue!80!black]
-                    at (0, -2.3) {25\%};
+                \node[font=\large\bfseries, text=statred!80!black]
+                    at (0, -2.1) {{$\sim$}2{$\times$}};
                 \node[font=\tiny, text=gray!80, align=center]
-                    at (0, -3.0) {of all floods globally\\preceded by drought};
+                    at (0, -2.6) {compound events\\by mid-century};
                 \node[font=\tiny, text=gray!55]
-                    at (0, -3.5) {Matan\'o et al.\ (2024)};
+                    at (0, -3.0) {Steensen et al.\ (2025)};
 
             \end{tikzpicture}
         \end{column}
@@ -136,7 +143,7 @@
 % --------------------------------------------------
 % SLIDE 4: Could we forecast it?
 % --------------------------------------------------
-\begin{frame}{Could We Forecast It?}
+\begin{frame}{Is This Forecastable?}
 
     \centering
     \vspace{0.6em}
@@ -147,34 +154,38 @@
         arr/.style={-{Stealth[length=3mm]}, very thick, gray!40}
     ]
 
-    \node[statbox, draw=slideblue!50, fill=slideblue!5] (b1) at (-5.1, 0) {
+    \node[statbox, draw=slideblue!50, fill=slideblue!5,
+          minimum width=4.2cm] (b1) at (-5.0, 0) {
         {\Large\bfseries\color{statred!80!black} 53\%}\\[0.3em]
-        {\scriptsize\color{gray!80} of drought terminations}\\
+        {\scriptsize\color{gray!80} of drought endings}\\
         {\scriptsize\color{gray!80} via IVT under NAO+}\\[0.3em]
         {\tiny\color{gray!55} Parry et al.\ (2023)}
     };
     \node[font=\scriptsize\bfseries, text=slideblue!70!black,
-          above=0.1cm of b1] {Trigger is identifiable};
+          above=0.1cm of b1] {Trigger is predictable};
 
-    \node[statbox, draw=slideblue!50, fill=slideblue!5] (b2) at (0, 0) {
-        {\Large\bfseries\color{statred!80!black} {$\sim$}2{$\times$}}\\[0.3em]
-        {\scriptsize\color{gray!80} compound preconditions}\\
-        {\scriptsize\color{gray!80} increasing by mid-century}\\[0.3em]
-        {\tiny\color{gray!55} Steensen et al.\ (2025)}
-    };
-    \node[font=\scriptsize\bfseries, text=slideblue!70!black,
-          above=0.1cm of b2] {Preconditions growing};
-    \draw[arr] (b1.east) -- (b2.west);
+    \draw[arr] (b1.east) -- ++(0.5, 0);
 
-    \node[statbox, draw=slideblue!50, fill=slideblue!5] (b3) at (5.1, 0) {
+    \node[statbox, draw=slideblue!50, fill=slideblue!5,
+          minimum width=4.2cm] (b2) at (0, 0) {
         {\Large\bfseries\color{statred!80!black} 1 in 5}\\[0.3em]
-        {\scriptsize\color{gray!80} propagate to hydrology}\\[0.2em]
-        {\scriptsize\bfseries\color{ucdgreen!70!black} {$>$}40\% in Ireland}\\[0.3em]
+        {\scriptsize\color{gray!80} reach the ground}\\[0.2em]
+        {\scriptsize\bfseries\color{ucdgreen!70!black} 2 in 5 in Ireland}\\[0.3em]
         {\tiny\color{gray!55} Brunner et al.\ (2025)}
     };
     \node[font=\scriptsize\bfseries, text=slideblue!70!black,
-          above=0.1cm of b3] {Ireland is where they propagate};
-    \draw[arr] (b2.east) -- (b3.west);
+          above=0.1cm of b2] {Where they translate to ground};
+
+    \draw[arr] (b2.east) -- ++(0.5, 0);
+
+    \node[statbox, draw=statred!50, fill=statred!4,
+          minimum width=4.2cm, dashed] (b3) at (5.0, 0) {
+        {\Huge\bfseries\color{statred!70!black} ?!}\\[0.4em]
+        {\scriptsize\color{statred!70!black} Skill?}\\
+        {\scriptsize\color{statred!70!black} Define transition?}
+    };
+    \node[font=\scriptsize\bfseries, text=statred!70!black,
+          above=0.1cm of b3] {Open questions};
 
     \end{tikzpicture}
 
@@ -183,7 +194,7 @@
 % --------------------------------------------------
 % SLIDE 5: The approach (Pipeline)
 % --------------------------------------------------
-\begin{frame}{The Approach}
+\begin{frame}{What's My Approach?}
 
     \centering
     \vspace{0.8em}
@@ -197,51 +208,61 @@
         arr/.style={-{Stealth[length=3mm]}, very thick, gray!40}
     ]
 
-    % Pipeline boxes
-    \node[pipebox, draw=slideblue!50, fill=slideblue!8] (s1) at (-5.2, 0) {
-        {\Large\color{slideblue!60!black} \faCloud}\\[0.4em]
+    % Pipeline boxes — getting noticeably darker left to right
+    \node[pipebox, draw=slideblue!30, fill=slideblue!4,
+          minimum width=2.2cm] (s1) at (-5.8, 0) {
+        {\Large\color{slideblue!40!black} \faCloud}\\[0.4em]
         {\footnotesize\bfseries ECMWF}\\
         {\footnotesize\bfseries ensemble}
     };
 
-    \draw[arr] (s1.east) -- ++(0.6, 0);
-    \node[pipebox, draw=slideblue!50, fill=slideblue!8] (s2) at (-1.7, 0) {
-        {\Large\color{slideblue!60!black} \faChartLine}\\[0.4em]
+    \draw[arr] (s1.east) -- ++(0.35, 0);
+    \node[pipebox, draw=slideblue!45, fill=slideblue!10,
+          minimum width=2.2cm] (s2) at (-3.0, 0) {
+        {\Large\color{slideblue!55!black} \faTint}\\[0.4em]
+        {\footnotesize\bfseries Hydro}\\
+        {\footnotesize\bfseries model}
+    };
+
+    \draw[arr] (s2.east) -- ++(0.35, 0);
+    \node[pipebox, draw=slideblue!60, fill=slideblue!18,
+          minimum width=2.2cm] (s3) at (-0.2, 0) {
+        {\Large\color{slideblue!70!black} \faChartLine}\\[0.4em]
         {\footnotesize\bfseries Standardised}\\
         {\footnotesize\bfseries index}
     };
 
-    \draw[arr] (s2.east) -- ++(0.6, 0);
-    \node[pipebox, draw=slideblue!50, fill=slideblue!8] (s3) at (1.8, 0) {
-        {\Large\color{slideblue!60!black} \faList}\\[0.4em]
+    \draw[arr] (s3.east) -- ++(0.35, 0);
+    \node[pipebox, draw=slideblue!75, fill=slideblue!25,
+          minimum width=2.2cm] (s4) at (2.6, 0) {
+        {\Large\color{slideblue!85!black} \faList}\\[0.4em]
         {\footnotesize\bfseries Track each}\\
         {\footnotesize\bfseries member}
     };
 
-    \draw[arr] (s3.east) -- ++(0.6, 0);
+    \draw[arr] (s4.east) -- ++(0.35, 0);
     \node[pipebox, draw=statred!40, fill=statred!6,
-          minimum width=3.2cm] (s4) at (5.5, 0) {
+          minimum width=2.6cm] (s5) at (5.5, 0) {
         {\Large\color{statred!60!black} \faRandom}\\[0.4em]
         {\footnotesize\bfseries Transition}\\
-        {\footnotesize\bfseries probability}\\[0.3em]
-        {\large\bfseries\color{statred!80!black} 8/25 = 32\%}
+        {\footnotesize\bfseries probability}\\[0.2em]
+        {\normalsize\bfseries\color{statred!80!black} 8/25 = 32\%}
     };
 
-    % ML box — centred below the gap between boxes 1-2 and 2-3
-    \node[font=\small, text=gray!70, align=center,
-          draw=gray!40, rounded corners=4pt, fill=gray!8,
-          minimum height=0.9cm, minimum width=3.5cm] (ml) at (-1.7, -3.2)
+    % ML box — centred below
+    \node[font=\small, text=gray!80, align=center,
+          draw=gray!50, rounded corners=4pt, fill=gray!8,
+          minimum height=0.9cm, minimum width=3.5cm] (ml) at (-1.6, -3.0)
         {\faRobot\hspace{0.4em} Machine learning?};
 
-    % Arrow 1: ML to midpoint between box 1 and box 2
+    % Arrow 1: ML left side to midpoint between box 1 and box 2 (post-process met)
     \coordinate (mid12) at ($(s1.east)!0.5!(s2.west)$);
-    \draw[-{Stealth[length=2mm]}, thick, gray!50]
-        ([xshift=-0.6cm]ml.north) to[out=120, in=-90] ($(mid12)+(0,-0.1)$);
+    \draw[-{Stealth[length=2mm]}, thick, gray!45]
+        (ml.west) to[out=170, in=-70, looseness=0.8] ($(mid12)+(0,-0.1)$);
 
-    % Arrow 2: ML to midpoint between box 2 and box 3
-    \coordinate (mid23) at ($(s2.east)!0.5!(s3.west)$);
-    \draw[-{Stealth[length=2mm]}, thick, gray!50]
-        ([xshift=0.6cm]ml.north) to[out=60, in=-90] ($(mid23)+(0,-0.1)$);
+    % Arrow 2: ML to hydro model box (replace/augment)
+    \draw[-{Stealth[length=2mm]}, thick, gray!45]
+        (ml.north) to[out=80, in=-80] ([yshift=-0.1cm]s2.south);
 
     \end{tikzpicture}
 
@@ -250,37 +271,65 @@
 % --------------------------------------------------
 % SLIDE 6: Takeaways
 % --------------------------------------------------
-\begin{frame}{What Should You Take Away?}
+\begin{frame}{Takeaways}
 
-    \centering
-    \vspace*{\fill}
+    \begin{columns}[c, totalwidth=\textwidth]
 
-    \begin{tikzpicture}[
-        iconcirc/.style={circle, minimum size=1.2cm, thick, align=center},
-        lbl/.style={font=\large, text=gray!20!black, anchor=west}
-    ]
+        % Left: takeaways
+        \begin{column}{0.68\textwidth}
+            \vspace*{\fill}
+            \centering
+            \begin{tikzpicture}[
+                iconcirc/.style={circle, minimum size=1.3cm, thick, align=center},
+                lbl/.style={font=\normalsize, text=gray!15!black, anchor=west}
+            ]
 
-    % Item 1: Preconditions increasing
-    \node[iconcirc, draw=statred!40, fill=statred!8] (i1) at (-4.5, 1.5)
-        {\large\color{statred!70!black}\faArrowUp};
-    \node[lbl] at (-3.5, 1.5)
-        {Transition preconditions are increasing};
+            \node[iconcirc, draw=statred!50, fill=statred!10] (i1) at (-3.5, 1.8)
+                {\Large\color{statred!70!black}\faArrowUp};
+            \node[lbl] at (-2.4, 1.8)
+                {Transitions cause worse impacts};
 
-    % Item 2: Ireland is where they propagate
-    \node[iconcirc, draw=ucdgreen!40, fill=ucdgreen!8] (i2) at (-4.5, -0.5)
-        {\large\color{ucdgreen!70!black}\faMapPin};
-    \node[lbl] at (-3.5, -0.5)
-        {Ireland is where they propagate};
+            \node[iconcirc, draw=slideblue!60, fill=slideblue!12] (i2) at (-3.5, -0.2)
+                {\Large\color{slideblue!70!black}\faSearch};
+            \node[lbl] at (-2.4, -0.2)
+                {Nobody has forecast them yet};
 
-    % Item 3: Can S2S forecasts detect them?
-    \node[iconcirc, draw=slideblue!50, fill=slideblue!8] (i3) at (-4.5, -2.5)
-        {\large\color{slideblue!70!black}\faSearch};
-    \node[lbl] at (-3.5, -2.5)
-        {Can S2S forecasts detect them?};
+            \node[iconcirc, draw=ucdgreen!50, fill=ucdgreen!10] (i3) at (-3.5, -2.2)
+                {\Large\color{ucdgreen!70!black}\faMapPin};
+            \node[lbl] at (-2.4, -2.2)
+                {Ireland as my testbed};
 
-    \end{tikzpicture}
+            \end{tikzpicture}
+            \vspace*{\fill}
+        \end{column}
 
-    \vspace*{\fill}
+        % Right: QR + contact
+        \begin{column}{0.30\textwidth}
+            \centering
+            \vspace{1.2em}
+            \begin{tikzpicture}
+                % LinkedIn QR + icon
+                \node[inner sep=0pt] (qrli) at (0, -1.0)
+                    {\includegraphics[width=2.2cm]{qrcode_linkedin.png}};
+                \node[anchor=west, font=\large] at ([xshift=0.1cm, yshift=0.6cm]qrli.east)
+                    {\color{slideblue!70!black}\faLinkedin};
+
+                % Equal spacing: 0.8cm gap
+                % Feedback QR + icon
+                \node[inner sep=0pt] (qrfb) at (0, -3.5)
+                    {\includegraphics[width=2.2cm]{qrcode_feedback.png}};
+                \node[anchor=west, font=\large] at ([xshift=0.1cm, yshift=0.6cm]qrfb.east)
+                    {\color{gray!70}\faComment};
+
+                % Name and email — same 0.8cm gap, centred on x=0
+                \node[font=\footnotesize\bfseries, text=slideblue!80!black] at (0, -5.1)
+                    {Lainey Ward};
+                \node[font=\tiny, text=gray!40!black] at (0, -5.5)
+                    {lainey.ward1@ucdconnect.ie};
+            \end{tikzpicture}
+        \end{column}
+
+    \end{columns}
 
 \end{frame}
 
@@ -297,7 +346,7 @@
         Brunner, M.I., Anderson, B., Mu\~noz-Castro, E. (2025). Meteorological and hydrological dry-to-wet transition events are only weakly related over European catchments. \textit{Environ.\ Res.\ Lett.}, 20(8), 084013.\\[0.4em]
         He, X., Sheffield, J. (2020). Lagged compound occurrence of droughts and pluvials globally over the past seven decades. \textit{Geophys.\ Res.\ Lett.}, 47(14), e2020GL087924.\\[0.4em]
         Matan\'o, A. et al.\ (2024). Compound and consecutive drought--flood events at a global scale. \textit{Environ.\ Res.\ Lett.}, 19(6), 064048.\\[0.4em]
-        Noone, C. et al.\ (2025). The Beast from the East and drought of summer 2018: compound event impacts upon Ireland's agricultural sector. \textit{Weather}, 80(2), 56--61.\\[0.4em]
+        Parry, S., Marsh, T., Kendon, M. (2013). 2012: from drought to floods in England and Wales. \textit{Weather}, 68(10), 268--274.\\[0.4em]
         Parry, S. et al.\ (2023). Abrupt drought termination in the British--Irish Isles driven by high atmospheric vapour transport. \textit{Environ.\ Res.\ Lett.}, 18(10), 104050.\\[0.4em]
         Steensen, B.M. et al.\ (2025). Future increase in European compound events where droughts end in heavy precipitation. \textit{npj Clim.\ Atmos.\ Sci.}, 8(1), 267.\\[0.4em]
         Worou, K., Messori, G. (2025). Compounding droughts and floods amplify socio-economic impacts. \textit{Environ.\ Res.\ Lett.}, 20(10), 104024.

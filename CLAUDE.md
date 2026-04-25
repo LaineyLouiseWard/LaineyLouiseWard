@@ -52,3 +52,12 @@ Keep READMEs factual and scannable. No badges walls, no aspirational feature lis
 - Web: Astro, npm
 - Writing: LaTeX, Zotero (with MCP integration)
 - Version control: Git + GitHub
+
+## Zotero / paper lookup
+
+When asked to find, read, or reference a research paper:
+
+1. **Check `~/Documents/zotero-md/` first.** Contains ~390 markdown conversions of Zotero PDFs, named `author-year-title-slug.md` with YAML frontmatter (`title`, `authors`, `year`, `zotero_key`). Glob by author/keyword — reading the markdown is the fastest path.
+2. **If no markdown exists, use Zotero MCP — but switch library first.** The default is "My Library" (personal, ~100 items). Research papers live in the **LaineyResearch** group library. Always run `zotero_switch_library(library_id="6343594", library_type="group")` before searching.
+3. **Don't assume collection structure.** Subcollections change — use `zotero_get_collections` to discover current layout when needed.
+4. **To convert a newly added paper** to markdown: `python ~/Documents/Github/zotero-md-pipeline/convert.py` (Zotero must be closed).
