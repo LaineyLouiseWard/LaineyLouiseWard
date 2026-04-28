@@ -95,26 +95,32 @@
             \centering
             \begin{tikzpicture}
 
+                \onslide<2->{
                 \node[font=\large\bfseries, text=slideblue!80!black]
                     at (0, 2.5) {{$\sim$}25\%};
                 \node[font=\tiny, text=gray!80, align=center]
                     at (0, 1.9) {of floods globally\\preceded by drought};
                 \node[font=\tiny, text=gray!55]
                     at (0, 1.5) {Matan\'o et al.\ (2024)};
+                }
 
+                \onslide<3->{
                 \node[font=\large\bfseries, text=statred!80!black]
                     at (0, 0.2) {up to 8{$\times$}};
                 \node[font=\tiny, text=gray!80, align=center]
-                    at (0, -0.4) {economic \& humanitarian\\impact};
+                    at (0, -0.4) {economic losses \&\\affected populations};
                 \node[font=\tiny, text=gray!55]
                     at (0, -0.8) {Worou \& Messori (2025)};
+                }
 
+                \onslide<4->{
                 \node[font=\large\bfseries, text=statred!80!black]
                     at (0, -2.1) {{$\sim$}2{$\times$}};
                 \node[font=\tiny, text=gray!80, align=center]
-                    at (0, -2.6) {compound events\\by mid-century};
+                    at (0, -2.6) {compound events\\by 2050};
                 \node[font=\tiny, text=gray!55]
                     at (0, -3.0) {Steensen et al.\ (2025)};
+                }
 
             \end{tikzpicture}
         \end{column}
@@ -124,19 +130,14 @@
 \end{frame}
 
 % --------------------------------------------------
-% SLIDE 3: Has anyone tried to forecast this?
+% SLIDE 3: What does the research look like?
 % --------------------------------------------------
-\begin{frame}{Has Anyone Tried to Forecast This?}
+\begin{frame}{What Does the Research Look Like?}
 
     \centering
-    \vspace{0.5em}
-    \includegraphics[width=0.88\textwidth, keepaspectratio]
-        {research_landscape.png}
-
-    \vspace{0.5em}
-    {\footnotesize\color{gray!70}
-     90 papers $\cdot$ 5 traditions \hspace{1em}
-     {\color{statred}\ding{72}} = no forecast of connected drought--flood events}
+    \vspace{-0.3em}
+    \includegraphics[width=\textwidth, keepaspectratio]
+        {tradition_mosaic.png}
 
 \end{frame}
 
@@ -154,6 +155,7 @@
         arr/.style={-{Stealth[length=3mm]}, very thick, gray!40}
     ]
 
+    \onslide<1->{
     \node[statbox, draw=slideblue!50, fill=slideblue!5,
           minimum width=4.2cm] (b1) at (-5.0, 0) {
         {\Large\bfseries\color{statred!80!black} 53\%}\\[0.3em]
@@ -162,20 +164,24 @@
         {\tiny\color{gray!55} Parry et al.\ (2023)}
     };
     \node[font=\scriptsize\bfseries, text=slideblue!70!black,
-          above=0.1cm of b1] {Trigger is predictable};
+          above=0.1cm of b1] {A predictable driver};
+    }
 
+    \onslide<2->{
     \draw[arr] (b1.east) -- ++(0.5, 0);
 
     \node[statbox, draw=slideblue!50, fill=slideblue!5,
           minimum width=4.2cm] (b2) at (0, 0) {
         {\Large\bfseries\color{statred!80!black} 1 in 5}\\[0.3em]
-        {\scriptsize\color{gray!80} reach the ground}\\[0.2em]
+        {\scriptsize\color{gray!80} reach catchment level}\\[0.2em]
         {\scriptsize\bfseries\color{ucdgreen!70!black} {$>$}2 in 5 in similar catchments}\\[0.3em]
         {\tiny\color{gray!55} Brunner et al.\ (2025)}
     };
     \node[font=\scriptsize\bfseries, text=slideblue!70!black,
-          above=0.1cm of b2] {Where they translate to ground};
+          above=0.1cm of b2] {Propagation to catchment level};
+    }
 
+    \onslide<3->{
     \draw[arr] (b2.east) -- ++(0.5, 0);
 
     \node[statbox, draw=statred!50, fill=statred!4,
@@ -186,6 +192,7 @@
     };
     \node[font=\scriptsize\bfseries, text=statred!70!black,
           above=0.1cm of b3] {Open questions};
+    }
 
     \end{tikzpicture}
 
@@ -285,9 +292,9 @@
             ]
 
             \node[iconcirc, draw=statred!50, fill=statred!10] (i1) at (-3.5, 1.8)
-                {\Large\color{statred!70!black}\faArrowUp};
+                {\Large\color{statred!70!black}\faGlobe};
             \node[lbl] at (-2.4, 1.8)
-                {Transitions cause worse impacts};
+                {Same phenomenon, four distinct traditions};
 
             \node[iconcirc, draw=slideblue!60, fill=slideblue!12] (i2) at (-3.5, -0.2)
                 {\Large\color{slideblue!70!black}\faSearch};
@@ -344,7 +351,6 @@
     \begin{tikzpicture}
     \node[font=\scriptsize, text=gray!70, align=left, text width=14cm] at (0, 0) {
         Brunner, M.I., Anderson, B., Mu\~noz-Castro, E. (2025). Meteorological and hydrological dry-to-wet transition events are only weakly related over European catchments. \textit{Environ.\ Res.\ Lett.}, 20(8), 084013.\\[0.4em]
-        He, X., Sheffield, J. (2020). Lagged compound occurrence of droughts and pluvials globally over the past seven decades. \textit{Geophys.\ Res.\ Lett.}, 47(14), e2020GL087924.\\[0.4em]
         Matan\'o, A. et al.\ (2024). Compound and consecutive drought--flood events at a global scale. \textit{Environ.\ Res.\ Lett.}, 19(6), 064048.\\[0.4em]
         Parry, S., Marsh, T., Kendon, M. (2013). 2012: from drought to floods in England and Wales. \textit{Weather}, 68(10), 268--274.\\[0.4em]
         Parry, S. et al.\ (2023). Abrupt drought termination in the British--Irish Isles driven by high atmospheric vapour transport. \textit{Environ.\ Res.\ Lett.}, 18(10), 104050.\\[0.4em]
