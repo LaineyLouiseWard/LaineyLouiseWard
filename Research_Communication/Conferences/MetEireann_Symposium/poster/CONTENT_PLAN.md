@@ -1,169 +1,251 @@
 # Met Eireann Symposium Poster -- Content Plan
 
 ## Audience
-Operational meteorologists and researchers at Met Eireann. They understand NWP, verification metrics, and Irish weather. They'll care about practical forecast skill at S2S timescales and its relevance to Irish hazards.
+Operational meteorologists and researchers at Met Eireann. They understand NWP, verification, and Irish weather intimately. They know the 9 Tier 1 stations by name. They use ECMWF products daily. They'll care about whether S2S forecasts add value for Ireland.
+
+## What draws people to a poster
+1. **A compelling problem** -- not a method, not a dataset
+2. **Visual impact** -- maps of Ireland, a striking diagram, clean figures
+3. **A clear gap** -- "nobody has done X" is magnetic
+4. **Brevity** -- if they can't get the message in 30 seconds from 2m away, they'll walk past
 
 ## Core message (one sentence)
-S2S forecasts carry useful probabilistic skill for temperature over Ireland -- the first link in a chain towards predicting drought-to-flood events weeks to months ahead.
+Nobody has forecast drought-to-flood transitions at S2S timescales -- this work establishes that the atmospheric skill exists over Ireland to begin building towards that goal.
 
 ## Title
-**Towards S2S Drought-to-Flood Prediction over Ireland**
-
-Short, scannable, tells you the destination. The subtitle or Introduction makes clear this poster covers the verification step.
+**Towards Subseasonal-to-Seasonal Drought-to-Flood Prediction**
 
 ## Research questions
 1. Do ECMWF extended-range forecasts carry probabilistic skill for temperature over Ireland at S2S lead times?
 2. Which system (subseasonal or seasonal) is more suitable as a basis for downstream multi-hazard prediction?
 
-These frame the poster. The verification results are *answers to these questions*, not the point in themselves.
+---
 
-## Variable focus
-Temperature only (2m temperature). Strongest skill signal, cleanest story for a poster.
+## Layout
+
+```
++=============================================================+
+|  [UCD]    Title                        [Decarb] [Innovate]  |
+|           Lainey Ward, UCD                                  |
++=============================================================+
+| INTRODUCTION        | DROUGHT-TO-FLOOD CAUSAL CHAIN         |
+| (col 0)             | (cols 1-2)                            |
+|                     | [dft_causal_diagram.pdf]               |
++---------------------+---------------------------------------+
+| DATA                | RESULTS                               |
+| (col 0)             | (cols 1-2)                             |
+|                     | [figures -- see below]                 |
+|                     |                                       |
++---------------------+---------------------------------------+
+| DISCUSSION & FUTURE WORK                         (span=3)   |
++-------------------------------------------------------------+
+| REFERENCES                                       (span=3)   |
++=============================================================+
+```
 
 ---
 
 ## Sections
 
-### 1. Introduction (full width, top)
-**Purpose:** Motivate *why* -- drought-to-flood events, the causal chain, and the gap.
+### 1. Introduction (col 0, top left)
 
-**Content to include:**
-- Ireland is exposed to both drought and Atlantic storm-driven flooding
-- These can occur in sequence: drought modifies catchment state, worsening subsequent flood response
-- Predicting these sequences at S2S lead times (2 weeks to 2 months) would support early action
-- No study has assessed S2S forecast skill over Ireland
-- **State the two research questions clearly**
+**Purpose:** Hook the viewer. State the problem, the gap, and the research questions.
 
-**Figure:** `dft_causal_diagram.pdf` -- Bevacqua-style causal chain. This is the visual anchor of the poster. It shows the physical pathway from atmospheric drivers through drought to flood.
+**What to include:**
+- Open with impact: drought-to-flood transitions produce up to 8x greater socio-economic losses than isolated events (Worou & Messori 2025); ~25% of floods globally are drought-preceded (Matano et al. 2024)
+- The gap: all existing DFT research is retrospective -- nobody has forecast these transitions at any lead time
+- S2S timescales (2 weeks to 2 months) are the natural window for early action, but skill over Ireland has never been assessed
+- **State RQ1 and RQ2 clearly** -- these frame the entire poster
 
-**Approximate length:** 3-4 sentences + research questions + the diagram
+**What NOT to include:**
+- Don't explain what S2S means beyond the parenthetical
+- Don't explain verification methodology here
+- Don't list all five research traditions (save for thesis/paper)
 
----
-
-### 2. Data (left column, small)
-**Purpose:** What goes in. Keep compact -- bullet points.
-
-**Content to include:**
-- Subseasonal: ECMWF EEFH, 11 members, weekly initialisation
-- Seasonal: ECMWF SEAS5, 25 members, monthly initialisation
-- Reference: ERA5-Land reanalysis (gridded)
-- Period: reforecasts, weekly-mean aggregation
-- Variable: 2m temperature
-- Lead times: weeks 2-6
-
-**Figure:** None
-
-**Approximate length:** ~6 bullet points
+**Format:** Short paragraphs or bullet points. ~100-150 words max. Bold the key phrases ("no study has forecast", "first assessment"). Left-aligned.
 
 ---
 
-### 3. Methods (left column, below Data)
-**Purpose:** How verification is done.
+### 2. Drought-to-Flood Causal Chain (cols 1-2, top right)
 
-**Content to include:**
-- Ensemble forecasts verified against ERA5-Land
-- Probabilistic metrics: CRPSS (relative to climatology), BSS (tercile categories), reliability diagrams
-- Fair scoring (Ferro 2014) to account for finite ensemble size
-- Spatial verification across Ireland
+**Purpose:** The visual anchor. Shows *why* atmospheric skill matters -- it's the first link in a physical chain leading to compound impact.
 
-**Figure:** None, unless a small verification schematic would help
+**What to include:**
+- `dft_causal_diagram.pdf` -- the Bevacqua-style causal chain
+  - Blocking/NAO- → Precipitation deficit + High ET → Drought → Modified catchment state → IVT surge / intense precipitation → Flood → Compound drought-flood impact
+  - Colour grammar: Modulator (yellow), Driver (green), Hazard (blue), Precondition (orange), Impact (red)
+  - Evidenced links (solid arrows) vs plausible links (dashed)
+- One-line caption: "Causal chain for British-Irish Isles drought-to-flood transitions (colour grammar after Bevacqua et al. 2021). This work verifies skill at the atmospheric driver level."
 
-**Approximate length:** ~4-5 bullet points
+**Why this figure:**
+- It's yours (from thesis Chapter 2), follows best-practice guidelines
+- It immediately communicates the physical story to Met Eireann staff who understand blocking, NAO, IVT
+- The arrow from "Blocking/NAO-" to "Drought" is exactly what the S2S system needs to predict
+- The dashed "plausible links" are honest about what's not yet established
 
----
-
-### 4. Results (right 2 columns, main area)
-**Purpose:** Answer RQ1 -- does skill exist? This is the visual centrepiece.
-
-**Content to include:**
-- Key finding: positive CRPSS for temperature across Ireland through week 6
-- Skill decays with lead time but remains above climatology
-- Spatial patterns if visible
-- Brief caption per figure -- let the figures speak
-
-**Figures (TBD -- to be created in S2S_AI):**
-- Spatial CRPSS maps for temperature by lead time (week 2-6)
-- Possibly: reliability diagram or BSS maps
-- Aim for 2-3 figures that tell the story without text
-
-**Approximate length:** 2-3 sentences of interpretation + 2-3 figures
+**What NOT to include:**
+- Don't use a BBC news image (you have a better, citable, original diagram)
+- Don't add extra text explaining every box -- the legend does this
 
 ---
 
-### 5. Subseasonal vs Seasonal (full width)
-**Purpose:** Answer RQ2 -- which system to build on?
+### 3. Data (col 0, middle left)
 
-**Content to include:**
-- Both systems show comparable probabilistic skill for temperature
-- Despite different ensemble sizes (11 vs 25) and initialisation frequencies
-- Deterministic skill diverges more than probabilistic
-- Implication: for probabilistic multi-hazard applications, subseasonal system is a viable basis
+**Purpose:** What goes in. Compact. The viewer glances at this, doesn't study it.
 
-**Figure:** `crpss_vs_rmss_comparison.png` (exists)
+**Format:** Bullet points, ~6 lines. No table needed unless space allows naturally.
 
-**Approximate length:** 2-3 sentences + the figure
+**Content:**
+- Subseasonal: ECMWF EEFH, 11 members, weekly init.
+- Seasonal: ECMWF SEAS5, 25 members, monthly init.
+- Reference: ERA5-Land reanalysis (gridded, 0.3° common grid)
+- Variable: 2m temperature (strongest skill signal)
+- Lead times: Weeks 2--6
+- Period: 2006--2016 reforecasts
+- Metrics: CRPSS, BSS (Fair scoring, Ferro 2014)
+- Verification is fully spatial (gridded), not station-based
 
----
-
-### 6. Discussion (bottom left)
-**Purpose:** What this means for Irish forecasting and the multi-hazard goal.
-
-**Content to include:**
-- First evidence that S2S forecasts carry useful signal over Ireland at these lead times
-- Positive skill at weeks 4-6 is encouraging for operational applications
-- This establishes the base level of the verification chain shown in Introduction
-- Next step is to trace whether this skill propagates to impact variables
-
-**Figure:** None
-
-**Approximate length:** 3-4 bullet points
+**Why temperature only:**
+- Cleanest story for a poster; precip and wind can be mentioned in future work
+- Temperature skill is the base -- if there's no atmospheric skill, there's no downstream skill
 
 ---
 
-### 7. Future Work (bottom, next to Discussion)
-**Purpose:** Where this goes -- back to the causal chain.
+### 4. Results (cols 1-2, main area)
 
-**Content to include:**
-- Extend verification to precipitation
-- Trace skill through hydrological impact variables (soil moisture, runoff)
-- Apply ML for drought-to-flood transition probability estimation
-- Connects back to the causal chain: atmospheric skill is step 1
+**Purpose:** The centrepiece. Answer both research questions with figures. Let the figures speak -- minimal text.
 
-**Figure:** Could include a small version of the research landscape diagram here to show the gap being filled
+**This is where viewers will spend most of their time.** Figures must be self-explanatory with clear captions.
 
-**Approximate length:** 3-4 bullet points
+#### Recommended figures (Tier 1 -- must include):
+
+**Figure A: `domain_crpss_eefh_t2m.png`** -- Headline quantitative result
+- Shows Fair CRPSS declining from ~0.42 (Week 2) to ~0.28 (Week 6) with uncertainty band
+- Clean, single-metric, immediately readable
+- Caption: "Domain-mean CRPSS for 2m temperature (Fair CRPS). Shading: 10th--90th percentile across gridpoints. Positive = skilful vs climatology."
+- **Answers RQ1:** Yes, positive skill persists through Week 6.
+
+**Figure B: `spatial_crpss_eefh_t2m.png`** -- Where is the skill?
+- 4 spatial maps (Weeks 2, 3, 5, 6) showing CRPSS over Ireland
+- Strong blues (high skill) in Week 2, fading by Week 6
+- Met Eireann audience loves maps of Ireland
+- Caption: "Spatial CRPSS for EEFH 2m temperature at Weeks 2, 3, 5, 6."
+- **Shows spatial structure** -- are there regional differences?
+
+**Figure C: `crpss_vs_rmss_comparison.png`** -- The system comparison
+- CRPSS (left) and RMSS (right) for EEFH vs SEAS5 across lead weeks
+- Key finding: probabilistic skill comparable between systems; deterministic skill diverges
+- Caption: "CRPSS and RMSS for EEFH (blue) vs SEAS5 (red). Probabilistic skill is comparable; deterministic skill of EEFH degrades faster."
+- **Answers RQ2:** For probabilistic applications, both systems are viable.
+
+#### Optional (Tier 2 -- if space allows):
+
+**Figure D: `spatial_reliability_eefh_t2m.png`** -- Is the ensemble calibrated?
+- Reliability diagrams for below/above-normal terciles
+- Shows forecasts are reasonably calibrated (close to diagonal)
+- Important for operational trust -- but may be too technical for a poster
+
+#### Layout within Results box:
+
+```
++-------------------------------------------+
+| [Figure A: domain CRPSS]  [Figure B: maps]|
+|                                           |
+| Caption A                  Caption B      |
+|                                           |
+| [Figure C: EEFH vs SEAS5 comparison]      |
+|                                           |
+| Caption C                                 |
++-------------------------------------------+
+```
+
+Figures A and B side by side at top (quantitative + spatial), Figure C below spanning the width (the comparison = the novelty).
 
 ---
 
-### 8. References (bottom right, small)
-**Purpose:** Key citations only.
+### 5. Discussion & Future Work (full width)
 
-**Candidates (5-8 max):**
-- Ferro (2014) -- fair CRPS
-- Bevacqua et al. (2021) -- hazard chain colour grammar
-- ECMWF EEFH / SEAS5 system documentation
-- Key S2S verification references
-- Irish hydro-climate references if used
+**Purpose:** What this means, and where it goes next. Connect back to the causal chain.
+
+**Format:** Two columns within the box. Left = Discussion, Right = Future Work. Bullet points.
+
+**Discussion (left side):**
+- First evidence that S2S forecasts carry useful probabilistic signal for temperature over Ireland
+- Positive skill at Weeks 4--6 is encouraging for operational applications
+- This establishes skill at the atmospheric driver level of the causal chain (top of poster)
+- Probabilistic framing more robust than deterministic -- ensemble spread adds value
+
+**Future Work (right side):**
+- Extend to precipitation (next variable in the chain)
+- Trace skill through hydrological impact variables (soil moisture, runoff via hydrological modelling)
+- Define and verify drought-to-flood transition events from ensemble trajectories
+- Explore ML for transition probability estimation
+
+**Key framing:** The future work is not speculative -- it's the research programme. Each bullet maps to a specific gap identified in the thesis (Gaps A-D). The causal chain in the top right is the roadmap.
+
+**Include:** LinkedIn QR code in bottom-right corner of this box with "Connect" label.
+
+---
+
+### 6. References (full width, flat strip)
+
+**Purpose:** Key citations only. Flat format, small text. 5-8 refs max.
+
+**Must include:**
+- Worou & Messori (2025) -- 8x impact amplification (hooks the Introduction)
+- Matano et al. (2024) -- 25% of floods drought-preceded
+- Ferro (2014) -- Fair CRPS methodology
+- Bevacqua et al. (2021) -- causal chain colour grammar
+- Parry et al. (2023) -- Irish drought termination via IVT/NAO+
+- Brunner et al. (2025) -- UK/Ireland flood-during-drought hotspot
+
+**Optional:**
+- Anderson et al. (2025) -- "What is a drought-to-flood transition?"
+- Pechlivanidis et al. (2025) -- hydrological skill amplification
 
 ---
 
 ## Figures summary
 
 - [x] `dft_causal_diagram.pdf` -- causal chain (exists, from thesis)
-- [x] `crpss_vs_rmss_comparison.png` -- subseasonal vs seasonal (exists, from S2S_AI)
-- [ ] Spatial CRPSS maps for temperature, weeks 2-6 (to create in S2S_AI)
-- [ ] Possibly: reliability diagram or BSS for temperature (to create)
-- [ ] LinkedIn QR code with logo (generate at qr-code-generator.com)
-- [ ] Check logo resolution for print (decarb_ai.png, InnovateforIreland.png -- currently below 300 DPI)
+- [x] `crpss_vs_rmss_comparison.png` -- EEFH vs SEAS5 (exists, in poster dir)
+- [x] `qrcode_linkedin.png` -- LinkedIn QR with logo (exists, in poster dir)
+- [ ] Copy `eefh_probabilistic/spatial_crpss_eefh_t2m.png` from S2S_AI
+- [ ] Copy `eefh_probabilistic/domain_crpss_eefh_t2m.png` from S2S_AI
+- [ ] Check logo resolution for print (decarb_ai 830x328, InnovateforIreland 899x240 -- both below 300 DPI at A0)
 
-## Visual best practices
-- 300-800 words total
-- 40-50% visual area
-- 300+ DPI for all images at A0 print size
-- White background, UCD green headers -- good contrast
-- Sans-serif fonts, minimum 24pt body text at A0
-- Left-aligned text (avoid justified)
-- F-pattern reading flow for portrait poster
-- Bold key words in the core message (betterposter principle)
-- QR code with LinkedIn logo as call-to-action (betterposter principle)
-- Every section serves the narrative: "can we predict drought-to-flood events?"
+## What makes this poster compelling
+
+1. **The hook is the problem, not the method.** "8x worse impacts, nobody has forecast these" -- that stops people walking past.
+2. **The causal chain diagram is the visual anchor.** It's colourful, follows best-practice guidelines, tells a physical story that Met Eireann staff intuitively understand, and it's *yours*.
+3. **The maps of Ireland draw the eye.** Spatial CRPSS maps are familiar and satisfying for this audience.
+4. **The gap is clear.** "All DFT research is retrospective" is a one-line novelty statement.
+5. **The research questions give structure.** Two questions, two answers from the figures, clean story arc.
+6. **The future work connects back to the diagram.** The poster tells you where this research is going -- each step in the chain is a future paper.
+7. **Less is more.** One variable, three figures, two research questions. The viewer gets the full story in 3 minutes.
+
+## Figures to create or consider
+
+### For the Results box (2-3 figures):
+1. **Combined CRPSS figure** (TO CREATE): Your plan for a figure showing domain-mean CRPSS at each lead time over the spatial area. This is the centrepiece -- it answers RQ1 directly. If it combines maps + a summary line, it replaces the separate spatial maps and domain-mean line plot.
+2. **EEFH vs SEAS5 comparison** (EXISTS: `crpss_vs_rmss_comparison.png`): Answers RQ2. Could be used as-is or cleaned up for poster. Key message: probabilistic skill comparable, deterministic diverges.
+3. **Optional third figure**: BSS or a single reliability panel if space allows. The existing 12-panel reliability diagram is too busy for a poster -- consider a single Week 3 panel if you want to show calibration.
+
+### For the Data box (optional visual):
+- **Small pipeline schematic** (TO CREATE, optional): A simple horizontal arrow diagram showing the verification chain: ECMWF ensemble → weekly means → probabilistic verification vs ERA5-Land (0.3° grid) → skill scores. Gives the Data box visual weight beyond just bullet points. Could be a simple TikZ figure or hand-drawn. Not essential -- bullet points alone work fine here.
+
+### For the Causal Chain box:
+- `dft_causal_diagram.pdf` (EXISTS) -- no changes needed. This is the visual anchor.
+
+### Dropped:
+- Reliability diagrams (too technical, 12 panels)
+- Deterministic-only figures (RMSE maps -- the probabilistic story is stronger)
+- Station-level box plots (good for paper, too detailed for poster)
+
+## What NOT to do
+- Don't show all three variables (temperature is enough for a poster)
+- Don't include a table (figures are more engaging; data details are bullet points)
+- Don't explain the five research traditions (save for thesis/paper)
+- Don't include deterministic-only figures (the probabilistic story is stronger)
+- Don't add a Methods section -- the metrics are listed in Data, the approach is implicit from the figures
+- Don't overcrowd Results -- three figures maximum
