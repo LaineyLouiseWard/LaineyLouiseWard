@@ -1,0 +1,115 @@
+\documentclass[a0paper,portrait]{baposter}
+
+\usepackage{wrapfig}
+\usepackage{lmodern}
+\usepackage{lipsum,graphicx}
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage[T1]{fontenc}
+
+\selectcolormodel{cmyk}
+
+\graphicspath{{figures/}} % Directory in which figures are stored
+
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{0pt}%
+\setlength{\parskip}{1pt}%
+\setlength{\parsep}{0pt}%
+}
+
+\newenvironment{boenumerate}
+  {\begin{enumerate}\renewcommand\labelenumi{\textbf\theenumi.}}
+  {\end{enumerate}}
+
+
+\begin{document}
+
+\definecolor{UCDgreen}{HTML}{006633}
+\definecolor{UCDborder}{HTML}{B8D4C8}
+
+\begin{poster}
+{
+grid=false,
+headerborder=open,
+colspacing=1em,
+bgColorOne=white,
+bgColorTwo=white,
+borderColor=UCDborder,
+headerColorOne=UCDgreen,
+headerColorTwo=UCDgreen,
+headerFontColor=white,
+boxColorOne=white,
+textborder=rounded,
+eyecatcher=true,
+headerheight=0.11\textheight,
+headershape=rounded,
+headershade=plain,
+headerfont=\Large\textsf,
+linewidth=2pt
+}
+{\includegraphics[height=5.5em]{ucd.png}} % Left logo
+{
+\textsf{Towards Subseasonal-to-Seasonal\\Drought-to-Flood Prediction}
+} % Poster title
+{\sf\vspace{0.2em} Lainey Ward\\
+{\small School of Civil Engineering, University College Dublin, Ireland\\[0.2em]
+Supervisors: Dr~Fiachra O'Loughlin, Prof.~Conor Sweeney}
+}
+{\raisebox{-0.5\height}{%
+  \begin{tabular}{@{}c@{}}
+  \includegraphics[width=13em]{decarb_ai.png}\\[0.4em]%
+  \includegraphics[width=10em]{InnovateforIreland.png}%
+  \end{tabular}%
+}} % Right logos
+
+
+%----------------------------------------------------------------------
+% ROW 1: Introduction (col 0) + Causal Chain (cols 1-2)
+%----------------------------------------------------------------------
+\headerbox{Introduction}{name=introduction,column=0,row=0,span=1}{
+
+\vspace{6cm} %remove this, only added for spacing
+
+}
+
+\headerbox{Drought-to-Flood Causal Chain}{name=causal,column=1,row=0,span=2}{
+
+\vspace{6cm} %remove this, only added for spacing
+
+}
+
+%----------------------------------------------------------------------
+% ROW 2: Data (col 0) + Results (cols 1-2)
+%----------------------------------------------------------------------
+\headerbox{Data}{name=data,column=0,below=introduction,span=1}{
+
+\vspace{14cm} %remove this, only added for spacing
+
+}
+
+\headerbox{Results}{name=results,column=1,below=causal,span=2}{
+
+\vspace{14cm} %remove this, only added for spacing
+
+}
+
+%----------------------------------------------------------------------
+% ROW 3: Discussion & Future Work (full width)
+%----------------------------------------------------------------------
+\headerbox{Discussion \& Future Work}{name=discussion,column=0,span=3,below=data}{
+
+\vspace{3cm} %remove this, only added for spacing
+
+}
+
+%----------------------------------------------------------------------
+% ROW 4: References (full width, flat strip)
+%----------------------------------------------------------------------
+\headerbox{References}{name=references,column=0,span=3,below=discussion,above=bottom}{
+
+\vspace{1.5cm} %remove this, only added for spacing
+
+}
+
+\end{poster}
+
+\end{document}
