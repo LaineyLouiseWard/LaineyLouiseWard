@@ -7,6 +7,7 @@
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{tabularx}
+\usepackage{tikz}
 
 \selectcolormodel{cmyk}
 
@@ -31,6 +32,7 @@
 grid=false,
 headerborder=none,
 colspacing=0.5em,
+margin=2.5cm,
 bgColorOne=white,
 bgColorTwo=white,
 borderColor=UCDgreen,
@@ -40,53 +42,32 @@ headerFontColor=white,
 boxColorOne=boxbg,
 textborder=rounded,
 eyecatcher=false,
-headerheight=0pt,
+headerheight=0.1\textheight,
 headershape=rounded,
 headershade=plain,
 headerfont=\Large\textsf,
-linewidth=1.5pt
+linewidth=1.5pt,
+background=plain
 }
-{} % title
-{} % author
-{}  % logo
-
-
-%----------------------------------------------------------------------
-% CUSTOM HEADER — full-width green bar with left-aligned title, right logos
-%----------------------------------------------------------------------
-\headerbox{}{name=titlebar,column=0,row=0,span=3,
-  headerborder=none,
-  boxColorOne=UCDgreen,textborder=none,borderColor=UCDgreen,linewidth=0pt}{
-
-\vspace{-0.6em}%
-\color{white}
-\hspace{0.8em}%
-\begin{minipage}[t]{0.65\linewidth}
-\vspace{0.2em}%
-{\fontsize{26}{32}\selectfont\sffamily\bfseries
-Towards Subseasonal-to-Seasonal}\\[0.15em]
-{\fontsize{26}{32}\selectfont\sffamily\bfseries
+{} % eyecatcher (disabled)
+{% Title
+\color{white}\sffamily
+{\fontsize{26}{32}\selectfont\bfseries
+Towards Subseasonal-to-Seasonal\\[0.15em]
 Drought-to-Flood Prediction}\\[0.4em]
-{\large\sffamily Lainey Ward$^{1}$, Dr~Fiachra O'Loughlin$^{1}$, Prof.~Conor Sweeney$^{2}$}\\[0.2em]
-{\small\sffamily $^{1}$School of Civil Engineering, $^{2}$School of Mathematics and Statistics, University College Dublin}
-\vspace{0.5em}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.32\linewidth}
-\vspace{0.2em}%
-\raggedleft
-\includegraphics[height=3.8em]{ucd.png}\hspace{0.6em}%
-\includegraphics[height=3.8em]{InnovateforIreland.png}%
-\hspace{0.8em}
-\vspace{0.5em}
-\end{minipage}
-
+{\large Lainey Ward\textsuperscript{1}, Dr~Fiachra O'Loughlin\textsuperscript{1}, Prof.~Conor Sweeney\textsuperscript{2}}\\[0.2em]
+{\small \textsuperscript{1}School of Civil Engineering, \textsuperscript{2}School of Mathematics and Statistics, University College Dublin}
+}
+{} % author (unused, content is in title block)
+{% Right logos — raisebox to top-align with title text
+\raisebox{1.6em}{\includegraphics[height=3.8em]{ucd.png}\hspace{0.6em}%
+\includegraphics[height=3.8em]{InnovateforIreland.png}}\hspace{0.2em}%
 }
 
 %----------------------------------------------------------------------
 % ROW 1 LEFT: 1 — Motivation
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{1}Motivation}{name=motivation,column=0,below=titlebar,span=1}{
+\headerbox{\sectionnum{1}Motivation}{name=motivation,column=0,row=0,span=1}{
 
 Floods and droughts can occur in sequence, with one intensifying the other.
 Globally, approximately 25\% of floods are preceded by drought~[1],
@@ -111,7 +92,7 @@ meteorological variables over Ireland?
 %----------------------------------------------------------------------
 % ROW 1 RIGHT: 2 — Research Programme
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{2}Research Programme}{name=programme,column=1,below=titlebar,span=2}{
+\headerbox{\sectionnum{2}Research Programme}{name=programme,column=1,row=0,span=2}{
 
 \begin{center}
 \includegraphics[width=0.85\linewidth]{verification_cone.pdf}
