@@ -1014,9 +1014,9 @@
     %
     %      % Draw Header%
     %% Green fill behind poster header (added for Met Eireann poster)
-    \fill[headerColorOne] (0pt,\colheight) rectangle (\textwidth,\textheight);%
-    \draw (north west) +(0em,1em+0.5\headerheight) node(image)[anchor=west]   { {\usebox{\baposter@titleimage@left }} };%
-    \draw (north east) +(0em,1em+0.5\headerheight) node(logo) [anchor=east]   { {\usebox{\baposter@titleimage@right}} };%
+    \fill[fill={rgb,255:red,0;green,102;blue,51}, rounded corners=8pt] (0pt,\colheight) rectangle (\textwidth,\textheight);%
+    \draw (north west) +(0.5em,0.43\headerheight) node(image)[anchor=west]   { {\usebox{\baposter@titleimage@left }} };%
+    \draw (north east) +(-0.5em,0.43\headerheight) node(logo) [anchor=east]   { {\usebox{\baposter@titleimage@right}} };%
     %
     \ifbaposter@eyecatcher% Has eye catcher%
       \draw (image.east) node(title)[anchor=west,text width=\baposter@titleimage@textwidth]{%
