@@ -6,12 +6,12 @@ Target: 300-500 words total (excluding table, captions, references).
 
 ## Introduction (~100 words)
 
-Floods and droughts can occur in sequence, with one intensifying the other. Drought hardens the soil and reduces infiltration capacity, amplifying the flood response to subsequent rainfall. Globally, approximately 25% of floods are preceded by drought [1], and socio-economic losses from these compound events can be up to eight times greater than from isolated hazards [2].
+Floods and droughts can occur in sequence, with one intensifying the other. Globally, approximately 25% of floods are preceded by drought [1], and socio-economic losses from these compound events can be up to eight times greater than from isolated hazards [2]. Forecasting these transitions at subseasonal-to-seasonal lead times (2 weeks to 2 months) could support water resource management, agriculture, and disaster preparedness — but no study has attempted it.
 
-Despite growing recognition of this multi-hazard risk, all existing research on drought-to-flood transitions is retrospective. No study has attempted to forecast them at any lead time. This research evaluates whether extended-range forecasts carry useful skill over Ireland at subseasonal-to-seasonal lead times (2 weeks to 2 months) — the first step towards operational transition prediction.
+Predicting drought-to-flood transitions requires verified forecast skill at every level, from meteorological variables through hydrological response to event detection (Figure 1). This work begins at the foundation: does the ECMWF extended-range system carry useful skill for basic meteorological variables over Ireland?
 
-[FIGURE: dft_causal_diagram.pdf — right side of box]
-Figure 1: Causal chain for drought-to-flood transitions over the British-Irish Isles (after Bevacqua et al. [3]).
+[FIGURE: verification_cone.pdf — right side of box]
+Figure 1: Verification levels required for compound drought-to-flood prediction. This work assesses skill at the meteorological base.
 
 ---
 
@@ -46,7 +46,7 @@ Figure 3: CRPSS and RMSS for EEFH and SEAS5. Both systems show comparable probab
 
 This is the first assessment of extended-range forecast skill over Ireland at subseasonal-to-seasonal lead times. Forecasts carry useful skill for 2 m temperature through Week 6, with CRPSS remaining positive across the full domain. Both the subseasonal and seasonal systems offer comparable performance, suggesting either can serve as a basis for downstream applications.
 
-These results establish skill at the atmospheric driver level of the causal chain (Figure 1). Future work will extend verification to precipitation, trace skill through hydrological impact variables, and define drought-to-flood transition events from ensemble forecast trajectories.
+With skill established at the meteorological level (Figure 1, base), future work will move upward: extend verification to precipitation, trace skill through hydrological variables (soil moisture, runoff), and ultimately detect and verify drought-to-flood transition events from ensemble forecast trajectories.
 
 [ICON: qrcode_linkedin.png — bottom right, with "Connect" label]
 
@@ -56,10 +56,7 @@ These results establish skill at the atmospheric driver level of the causal chai
 
 [1] Matano et al. (2024). Nat. Hazards Earth Syst. Sci.
 [2] Worou & Messori (2025). Environ. Res. Lett.
-[3] Bevacqua et al. (2021). Nat. Rev. Earth Environ.
-[4] Ferro (2014). Q. J. R. Meteorol. Soc.
-[5] Parry et al. (2023). J. Hydrometeorol.
-[6] Brunner et al. (2025). Environ. Res. Lett.
+[3] Ferro (2014). Q. J. R. Meteorol. Soc.
 
 ---
 
@@ -69,5 +66,8 @@ These results establish skill at the atmospheric driver level of the causal chai
 - "probabilistic" used only where necessary (captions, not repeated in Discussion)
 - ECMWF, EEFH, SEAS5 introduced only from Data onwards, not in Introduction
 - "subseasonal-to-seasonal" spelled out in Introduction and Discussion; not abbreviated to S2S
-- Figure captions tightened to 1-2 sentences each (matching Boris's density)
+- Figure captions tightened to 1-2 sentences each
+- Cone diagram (Figure 1) replaces causal chain -- frames research programme without overclaiming
+- Future work references cone levels explicitly (meteorological → hydrological → event detection)
+- Bevacqua removed from references (causal chain no longer shown)
 - ~270 words total body text (excluding table, captions, references)

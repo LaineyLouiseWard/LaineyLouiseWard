@@ -1,109 +1,246 @@
-\documentclass[a0paper,portrait]{baposter}
+\documentclass[a0paper,portrait,fontscale=0.285]{baposter}
 
-\usepackage{wrapfig}
 \usepackage{lmodern}
-\usepackage{lipsum,graphicx}
-\usepackage[utf8]{inputenc} %unicode support
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tabularx}
 
 \selectcolormodel{cmyk}
 
-\graphicspath{{figures/}} % Directory in which figures are stored
+\graphicspath{{./}}
 
-\newcommand{\compresslist}{%
-\setlength{\itemsep}{0pt}%
-\setlength{\parskip}{1pt}%
-\setlength{\parsep}{0pt}%
+\newcommand{\sectionnum}[1]{%
+  \raisebox{0pt}[0pt][0pt]{%
+    \makebox[1.4em][c]{%
+      \textcolor{white}{\textsf{\textbf{\Large #1}}}%
+    }%
+  }\hspace{0.3em}%
 }
-
-\newenvironment{boenumerate}
-  {\begin{enumerate}\renewcommand\labelenumi{\textbf\theenumi.}}
-  {\end{enumerate}}
-
 
 \begin{document}
 
 \definecolor{UCDgreen}{HTML}{006633}
 \definecolor{UCDborder}{HTML}{B8D4C8}
+\definecolor{boxbg}{HTML}{FAFAFA}
 
 \begin{poster}
 {
 grid=false,
-headerborder=open,
-colspacing=1em,
+headerborder=none,
+colspacing=0.5em,
 bgColorOne=white,
 bgColorTwo=white,
-borderColor=UCDborder,
+borderColor=UCDgreen,
 headerColorOne=UCDgreen,
 headerColorTwo=UCDgreen,
 headerFontColor=white,
-boxColorOne=white,
+boxColorOne=boxbg,
 textborder=rounded,
-eyecatcher=true,
-headerheight=0.11\textheight,
+eyecatcher=false,
+headerheight=0pt,
 headershape=rounded,
 headershade=plain,
 headerfont=\Large\textsf,
-linewidth=2pt
+linewidth=1.5pt
 }
-{\includegraphics[height=5.5em]{ucd.png}} % Left logo
-{
-\textsf{Towards Subseasonal-to-Seasonal\\Drought-to-Flood Prediction}
-} % Poster title
-{\sf\vspace{0.2em} Lainey Ward\\
-{\small School of Civil Engineering, University College Dublin, Ireland\\[0.2em]
-Supervisors: Dr~Fiachra O'Loughlin, Prof.~Conor Sweeney}
-}
-{\raisebox{-0.5\height}{%
-  \begin{tabular}{@{}c@{}}
-  \includegraphics[width=13em]{decarb_ai.png}\\[0.4em]%
-  \includegraphics[width=10em]{InnovateforIreland.png}%
-  \end{tabular}%
-}} % Right logos
+{} % title
+{} % author
+{}  % logo
 
 
 %----------------------------------------------------------------------
-% ROW 1: Introduction (full width -- text left, causal chain right)
+% CUSTOM HEADER — full-width green bar with left-aligned title, right logos
 %----------------------------------------------------------------------
-\headerbox{Introduction}{name=introduction,column=0,row=0,span=3}{
+\headerbox{}{name=titlebar,column=0,row=0,span=3,
+  headerborder=none,
+  boxColorOne=UCDgreen,textborder=none,borderColor=UCDgreen,linewidth=0pt}{
 
-\vspace{6cm} %remove this, only added for spacing
-
-}
-
-%----------------------------------------------------------------------
-% ROW 2: Data (col 0) + Results (cols 1-2)
-%----------------------------------------------------------------------
-\headerbox{Data}{name=data,column=0,below=introduction,span=1}{
-
-\vspace{14cm} %remove this, only added for spacing
-
-}
-
-\headerbox{Results}{name=results,column=1,below=introduction,span=2}{
-
-\vspace{14cm} %remove this, only added for spacing
+\vspace{-0.6em}%
+\color{white}
+\hspace{0.8em}%
+\begin{minipage}[t]{0.65\linewidth}
+\vspace{0.2em}%
+{\fontsize{26}{32}\selectfont\sffamily\bfseries
+Towards Subseasonal-to-Seasonal}\\[0.15em]
+{\fontsize{26}{32}\selectfont\sffamily\bfseries
+Drought-to-Flood Prediction}\\[0.4em]
+{\large\sffamily Lainey Ward$^{1}$, Dr~Fiachra O'Loughlin$^{1}$, Prof.~Conor Sweeney$^{2}$}\\[0.2em]
+{\small\sffamily $^{1}$School of Civil Engineering, $^{2}$School of Mathematics and Statistics, University College Dublin}
+\vspace{0.5em}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\vspace{0.2em}%
+\raggedleft
+\includegraphics[height=3.8em]{ucd.png}\hspace{0.6em}%
+\includegraphics[height=3.8em]{InnovateforIreland.png}%
+\hspace{0.8em}
+\vspace{0.5em}
+\end{minipage}
 
 }
 
 %----------------------------------------------------------------------
-% ROW 3: Discussion & Future Work (full width)
+% ROW 1 LEFT: 1 — Motivation
 %----------------------------------------------------------------------
-\headerbox{Discussion \& Future Work}{name=discussion,column=0,span=3,below=data}{
+\headerbox{\sectionnum{1}Motivation}{name=motivation,column=0,below=titlebar,span=1}{
 
-\vspace{3cm} %remove this, only added for spacing
+Floods and droughts can occur in sequence, with one intensifying the other.
+Globally, approximately 25\% of floods are preceded by drought~[1],
+and socio-economic losses from these compound events can be up to
+eight times greater than from isolated hazards~[2].
 
+\vspace{0.4em}
+
+Forecasting these transitions at subseasonal-to-seasonal lead times
+(2~weeks to 2~months) could support water resource management, agriculture,
+and disaster preparedness --- but \textbf{no study has attempted it}.
+
+\vspace{0.4em}
+
+Predicting drought-to-flood transitions requires verified forecast skill
+at every level, from meteorological variables through hydrological response
+to event detection (Figure~1). \textbf{This work begins at the foundation:}
+does the ECMWF extended-range system carry useful skill for basic
+meteorological variables over Ireland?
 }
 
 %----------------------------------------------------------------------
-% ROW 4: References (full width, flat strip)
+% ROW 1 RIGHT: 2 — Research Programme
+%----------------------------------------------------------------------
+\headerbox{\sectionnum{2}Research Programme}{name=programme,column=1,below=titlebar,span=2}{
+
+\begin{center}
+\includegraphics[width=0.85\linewidth]{verification_cone.pdf}
+\end{center}
+
+\vspace{-0.3em}
+{\small \textbf{Figure 1:} Verification levels required for compound
+drought-to-flood prediction. This work assesses skill at the meteorological
+base.}
+}
+
+%----------------------------------------------------------------------
+% ROW 2 LEFT: 3 — Data
+%----------------------------------------------------------------------
+\headerbox{\sectionnum{3}Data}{name=data,column=0,below=motivation,span=1}{
+
+\begin{center}
+{\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\toprule
+& \textbf{EEFH} & \textbf{SEAS5} \\
+& \footnotesize(subseasonal) & \footnotesize(seasonal) \\
+\midrule
+System & ECMWF extended-range & ECMWF System~51 \\
+Members & 11 & 25 \\
+Initialisation & Weekly & Monthly \\
+Lead times & Weeks 2--6 & Weeks 2--6 \\
+\bottomrule
+\end{tabularx}
+}
+\end{center}
+
+\vspace{0.3em}
+
+\begin{itemize}[leftmargin=1em, nosep]
+\item \textbf{Reference:} ERA5-Land reanalysis (0.3\textdegree{} grid)
+\item \textbf{Period:} 2006--2016 reforecasts
+\item \textbf{Variable:} 2\,m temperature
+\item \textbf{Metrics:} Fair CRPSS~[3], BSS (tercile categories)
+\item \textbf{Verification:} Spatial and domain-mean
+\end{itemize}
+}
+
+%----------------------------------------------------------------------
+% ROW 2 RIGHT: 4 — Results (large box)
+%----------------------------------------------------------------------
+\headerbox{\sectionnum{4}Results}{name=results,column=1,below=programme,span=2}{
+
+% --- Spatial CRPSS maps ---
+\begin{center}
+\includegraphics[width=\linewidth]{spatial_crpss_eefh_t2m.png}
+\end{center}
+
+\vspace{-0.3em}
+{\small \textbf{Figure 2:} Spatial CRPSS for EEFH 2\,m temperature at Weeks 2--6.
+Skill is positive across all of Ireland through Week~6, with highest values
+at Week~2.}
+
+\vspace{0.8em}
+
+% --- Domain-mean and EEFH vs SEAS5 side by side ---
+\begin{minipage}[t]{0.48\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{domain_crpss_eefh_t2m.png}
+\end{center}
+\vspace{-0.3em}
+{\small \textbf{Figure 3:} Domain-mean Fair CRPS (left) and CRPSS (right)
+for EEFH. Shading: 10th--90th percentile across gridpoints.
+CRPSS remains positive ($\sim$0.25) at Week~6.}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{crpss_vs_rmss_comparison.png}
+\end{center}
+\vspace{-0.3em}
+{\small \textbf{Figure 4:} CRPSS and RMSS for EEFH vs SEAS5.
+Both systems show comparable probabilistic skill.
+Deterministic skill degrades faster, particularly for EEFH.}
+\end{minipage}
+}
+
+%----------------------------------------------------------------------
+% ROW 3: 5 — Discussion & Future Work (full width)
+%----------------------------------------------------------------------
+\headerbox{\sectionnum{5}Discussion \& Future Work}{name=discussion,column=0,span=3,below=data}{
+
+\begin{minipage}[t]{0.62\linewidth}
+\textbf{Discussion}
+
+\begin{itemize}[leftmargin=1em, nosep]
+\item First assessment of extended-range forecast skill over Ireland at
+      subseasonal-to-seasonal lead times
+\item Forecasts carry useful skill for 2\,m temperature through Week~6,
+      with CRPSS remaining positive across the full domain
+\item Both the subseasonal and seasonal systems offer comparable probabilistic
+      performance, suggesting either can serve as a basis for downstream
+      applications
+\item Probabilistic framing more robust than deterministic --- ensemble
+      spread adds value beyond the ensemble mean
+\end{itemize}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.33\linewidth}
+\textbf{Future Work} {\small (Figure~1, levels above)}
+
+\begin{itemize}[leftmargin=1em, nosep]
+\item Extend verification to precipitation
+\item Trace skill through hydrological variables (soil moisture, runoff)
+\item Define and verify drought-to-flood transition events from ensemble
+      forecast trajectories
+\item Explore ML for transition probability estimation
+\end{itemize}
+
+\end{minipage}
+}
+
+%----------------------------------------------------------------------
+% ROW 4: References (flat strip)
 %----------------------------------------------------------------------
 \headerbox{References}{name=references,column=0,span=3,below=discussion,above=bottom}{
 
-\vspace{1.5cm} %remove this, only added for spacing
-
+{\footnotesize
+[1]~Matano et~al.\ (2024). \textit{Nat.\ Hazards Earth Syst.\ Sci.}\quad
+[2]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}\quad
+[3]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}
+}
 }
 
 \end{poster}
-
 \end{document}
