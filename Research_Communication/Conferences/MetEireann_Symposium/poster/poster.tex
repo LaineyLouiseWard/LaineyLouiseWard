@@ -8,6 +8,7 @@
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{tikz}
+\usepackage{fontawesome5}
 
 \selectcolormodel{cmyk}
 
@@ -23,9 +24,10 @@
 
 \begin{document}
 
-\definecolor{UCDgreen}{HTML}{006633}
-\definecolor{UCDborder}{HTML}{B8D4C8}
+\definecolor{posternavy}{HTML}{1B2A4A}
+\definecolor{posterborder}{HTML}{00857C}
 \definecolor{boxbg}{HTML}{FAFAFA}
+\definecolor{coneRed}{HTML}{EF5350}
 
 \begin{poster}
 {
@@ -35,9 +37,9 @@ colspacing=0.7em,
 margin=2.5cm,
 bgColorOne=white,
 bgColorTwo=white,
-borderColor=UCDgreen,
-headerColorOne=UCDgreen,
-headerColorTwo=UCDgreen,
+borderColor=posternavy,
+headerColorOne=posternavy,
+headerColorTwo=posternavy,
 headerFontColor=white,
 boxColorOne=boxbg,
 textborder=rounded,
@@ -46,7 +48,7 @@ headerheight=0.113\textheight,
 headershape=rounded,
 headershade=plain,
 headerfont=\Large\textsf,
-linewidth=1.5pt,
+linewidth=0.8pt,
 background=plain
 }
 {} % eyecatcher (disabled)
@@ -55,72 +57,51 @@ background=plain
 {\fontsize{26}{32}\selectfont\bfseries
 Towards Subseasonal-to-Seasonal\\[0.15em]
 Drought-to-Flood Prediction}\\[0.4em]
-{\large Lainey Ward\textsuperscript{1}, Dr~Fiachra O'Loughlin\textsuperscript{1}, Prof.~Conor Sweeney\textsuperscript{2}}\\[0.2em]
+{\large Lainey Ward\textsuperscript{1}, Fiachra O'Loughlin\textsuperscript{1}, Conor Sweeney\textsuperscript{2}}\\[0.2em]
 {\small \textsuperscript{1}School of Civil Engineering, \textsuperscript{2}School of Mathematics and Statistics, University College Dublin}
 }
 {} % author (unused, content is in title block)
 {% Right logos — raisebox to top-align with title text
-\raisebox{0.8em}{\includegraphics[height=3.8em]{ucd.png}\hspace{0.6em}%
+\raisebox{5.3em}{\includegraphics[height=3.8em]{ucd.png}\hspace{1.2em}%
 \includegraphics[height=3.8em]{InnovateforIreland.png}}\hspace{0.2em}%
 }
 
 %----------------------------------------------------------------------
-% ROW 1 LEFT: 1 — Motivation
+% ROW 1: 1 — Introduction (full width)
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{1}Motivation}{name=motivation,column=0,row=0.012,span=1}{
+\headerbox{\sectionnum{1}Introduction}{name=introduction,column=0,row=0.012,span=3}{
 
-Floods and droughts can occur in sequence, with one intensifying the other.
-Globally, approximately 25\% of floods are preceded by drought~[1],
-and socio-economic losses from these compound events can be up to
-eight times greater than from isolated hazards~[2].
+[Placeholder text --- introduction will go here.]
 
 \vspace{0.4em}
-
-Forecasting these transitions at subseasonal-to-seasonal lead times
-(2~weeks to 2~months) could support water resource management, agriculture,
-and disaster preparedness --- but \textbf{no study has attempted it}.
-
-\vspace{0.4em}
-
-Predicting drought-to-flood transitions requires verified forecast skill
-at every level, from meteorological variables through hydrological response
-to event detection (Figure~1). \textbf{This work begins at the foundation:}
-does the ECMWF extended-range system carry useful skill for basic
-meteorological variables over Ireland?
-}
-
-%----------------------------------------------------------------------
-% ROW 1 RIGHT: 2 — Research Programme
-%----------------------------------------------------------------------
-\headerbox{\sectionnum{2}Research Programme}{name=programme,column=1,row=0.012,span=2}{
 
 \begin{center}
-\includegraphics[width=0.85\linewidth]{verification_cone.pdf}
+\includegraphics[width=0.85\linewidth]{dft_causal_diagram_poster.pdf}\\[-0.8em]
+{\small \textbf{Figure 1:} Causal chain for compound drought-to-flood events.}
 \end{center}
 
-\vspace{-0.3em}
-{\small \textbf{Figure 1:} Verification levels required for compound
-drought-to-flood prediction. This work assesses skill at the meteorological
-base.}
+\vspace{0.2em}
+
+[Placeholder text --- additional introduction will go here.]
 }
 
 %----------------------------------------------------------------------
-% ROW 2 LEFT: 3 — Data
+% ROW 2 LEFT: 2 — Data
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{3}Data}{name=data,column=0,below=motivation,span=1}{
+\headerbox{\sectionnum{3}Data}{name=data,column=2,below=introduction,span=1}{
 
 \begin{center}
 {\small
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{\linewidth}{@{}l X X@{}}
 \toprule
-& \textbf{EEFH} & \textbf{SEAS5} \\
-& \footnotesize(subseasonal) & \footnotesize(seasonal) \\
+& \textbf{Subseasonal} & \textbf{Seasonal} \\
 \midrule
-System & ECMWF extended-range & ECMWF System~51 \\
+System & ENS extended-range & SEAS5 \\
+IFS cycle & CY49R1 (2024) & Cy43r1 (2017) \\
+Init frequency & Every 2 days & Monthly \\
 Members & 11 & 25 \\
-Initialisation & Weekly & Monthly \\
-Lead times & Weeks 2--6 & Weeks 2--6 \\
+Horizon & 46 days & 7 months \\
 \bottomrule
 \end{tabularx}
 }
@@ -129,92 +110,73 @@ Lead times & Weeks 2--6 & Weeks 2--6 \\
 \vspace{0.3em}
 
 \begin{itemize}[leftmargin=1em, nosep]
-\item \textbf{Reference:} ERA5-Land reanalysis (0.3\textdegree{} grid)
-\item \textbf{Period:} 2006--2016 reforecasts
 \item \textbf{Variable:} 2\,m temperature
-\item \textbf{Metrics:} Fair CRPSS~[3], BSS (tercile categories)
-\item \textbf{Verification:} Spatial and domain-mean
+\item \textbf{Reference:} ERA5 (0.25\textdegree{}) + Met \'Eireann stations
+\item \textbf{Verification period:} 2006--2016
 \end{itemize}
 }
 
 %----------------------------------------------------------------------
-% ROW 2 RIGHT: 4 — Results (large box)
+% ROW 2 RIGHT: 3 — Methods
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{4}Results}{name=results,column=1,below=programme,span=2}{
+\headerbox{\sectionnum{2}Methods}{name=methods,column=0,below=introduction,span=2}{
+
+[Placeholder text --- methodology description will go here.]
+
+\vspace{0.4em}
+
+\begin{center}
+\includegraphics[width=0.55\linewidth]{verification_cone.pdf}
+\end{center}
+
+\vspace{-0.8em}
+\begin{center}
+{\small \textbf{Figure 2:} Verification levels for compound drought-to-flood prediction.}
+\end{center}
+
+\vspace{0.4em}
+
+[Placeholder text --- additional methodology details will go here.]
+}
+
+%----------------------------------------------------------------------
+% ROW 3: 4 — Results (full width)
+%----------------------------------------------------------------------
+\headerbox{\sectionnum{4}Results}{name=results,column=0,below=methods,span=3}{
 
 % --- Spatial CRPSS maps ---
 \begin{center}
-\includegraphics[width=\linewidth]{spatial_crpss_eefh_t2m.png}
-\end{center}
-
-\vspace{-0.3em}
-{\small \textbf{Figure 2:} Spatial CRPSS for EEFH 2\,m temperature at Weeks 2--6.
-Skill is positive across all of Ireland through Week~6, with highest values
-at Week~2.}
-
-\vspace{0.8em}
-
-% --- Domain-mean and EEFH vs SEAS5 side by side ---
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{domain_crpss_eefh_t2m.png}
-\end{center}
-\vspace{-0.3em}
-{\small \textbf{Figure 3:} Domain-mean Fair CRPS (left) and CRPSS (right)
-for EEFH. Shading: 10th--90th percentile across gridpoints.
-CRPSS remains positive ($\sim$0.25) at Week~6.}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{crpss_vs_rmss_comparison.png}
-\end{center}
-\vspace{-0.3em}
-{\small \textbf{Figure 4:} CRPSS and RMSS for EEFH vs SEAS5.
-Both systems show comparable probabilistic skill.
-Deterministic skill degrades faster, particularly for EEFH.}
-\end{minipage}
+\includegraphics[width=\linewidth]{spatial_crpss_eefh_t2m.png}\\[-0.8em]
+{\small \textbf{Figure 3:} Spatial CRPSS for EEFH 2\,m temperature, Weeks 2--6.}
+\end{center}%
+\vspace{-0.5em}
 }
 
 %----------------------------------------------------------------------
-% ROW 3: 5 — Discussion & Future Work (full width)
+% ROW 4 LEFT: 5 — Discussion & Future Work
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{5}Discussion \& Future Work}{name=discussion,column=0,span=3,below=data}{
+\headerbox{\sectionnum{5}Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,above=bottom}{
 
-\begin{minipage}[t]{0.62\linewidth}
-\textbf{Discussion}
-
-\begin{itemize}[leftmargin=1em, nosep]
-\item First assessment of extended-range forecast skill over Ireland at
-      subseasonal-to-seasonal lead times
-\item Forecasts carry useful skill for 2\,m temperature through Week~6,
-      with CRPSS remaining positive across the full domain
-\item Both the subseasonal and seasonal systems offer comparable probabilistic
-      performance, suggesting either can serve as a basis for downstream
-      applications
-\item Probabilistic framing more robust than deterministic --- ensemble
-      spread adds value beyond the ensemble mean
-\end{itemize}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.33\linewidth}
-\textbf{Future Work} {\small (Figure~1, levels above)}
-
-\begin{itemize}[leftmargin=1em, nosep]
-\item Extend verification to precipitation
-\item Trace skill through hydrological variables (soil moisture, runoff)
-\item Define and verify drought-to-flood transition events from ensemble
-      forecast trajectories
-\item Explore ML for transition probability estimation
+\begin{itemize}[leftmargin=1em, nosep, label={}]
+\item {\color{green!60!black}\raisebox{-0.15em}{\includegraphics[height=0.9em]{ireland_icon.png}}}\hspace{0.4em} First verification of S2S forecast skill over Ireland
+\item {\color{gray}\faChartLine}\hspace{0.4em} Useful skill for 2\,m temperature through Week~6
+\item {\color{gray}\faBalanceScale}\hspace{0.4em} Probabilistic skill more robust than deterministic
 \end{itemize}
 
-\end{minipage}
+\vspace{0.6em}
+\textbf{Future Work}
+
+\begin{itemize}[leftmargin=1em, nosep, label={}]
+\item {\color{green!60!black}\faCloudRain}\hspace{0.4em} Extend to precipitation, wind, pressure
+\item {\color{coneRed}\faSearch}\hspace{0.4em} Robust compound event detection methods
+\item {\color{gray}\faRobot}\hspace{0.4em} ML to recover skill at longer lead times
+\end{itemize}
 }
 
 %----------------------------------------------------------------------
 % ROW 4: References (flat strip)
 %----------------------------------------------------------------------
-\headerbox{References}{name=references,column=0,span=3,below=discussion,above=bottom}{
+\headerbox{References}{name=references,column=2,span=1,below=results,above=bottom}{
 
 {\footnotesize
 [1]~Matano et~al.\ (2024). \textit{Nat.\ Hazards Earth Syst.\ Sci.}\quad
