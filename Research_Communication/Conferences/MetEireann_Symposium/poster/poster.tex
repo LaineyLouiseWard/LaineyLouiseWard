@@ -8,9 +8,10 @@
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
 \usepackage{fontawesome5}
 
-\selectcolormodel{cmyk}
+%\selectcolormodel{cmyk} % disabled: caused colour shift vs standalone figures (RGB)
 
 \graphicspath{{./}}
 
@@ -28,6 +29,8 @@
 \definecolor{posterborder}{HTML}{00857C}
 \definecolor{boxbg}{HTML}{FAFAFA}
 \definecolor{coneRed}{HTML}{EF5350}
+\definecolor{drivcol}{HTML}{7AB648}
+\definecolor{impcol}{HTML}{C62828}
 
 \begin{poster}
 {
@@ -57,8 +60,8 @@ background=plain
 {\fontsize{26}{32}\selectfont\bfseries
 Towards Subseasonal-to-Seasonal\\[0.15em]
 Drought-to-Flood Prediction}\\[0.4em]
-{\large Lainey Ward\textsuperscript{1}, Fiachra O'Loughlin\textsuperscript{1}, Conor Sweeney\textsuperscript{2}}\\[0.2em]
-{\small \textsuperscript{1}School of Civil Engineering, \textsuperscript{2}School of Mathematics and Statistics, University College Dublin}
+{\large\mdseries \textbf{Lainey Ward}\textsuperscript{1}, Fiachra O'Loughlin\textsuperscript{1}, Conor Sweeney\textsuperscript{2}}\\[0.2em]
+{\small\mdseries \textsuperscript{1}School of Civil Engineering, \textsuperscript{2}School of Mathematics and Statistics, University College Dublin}
 }
 {} % author (unused, content is in title block)
 {% Right logos — raisebox to top-align with title text
@@ -69,41 +72,86 @@ Drought-to-Flood Prediction}\\[0.4em]
 %----------------------------------------------------------------------
 % ROW 1: 1 — Introduction (full width)
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{1}Introduction}{name=introduction,column=0,row=0.012,span=3}{
+\headerbox{Introduction}{name=introduction,column=0,row=0.012,span=3}{
 
-[Placeholder text --- introduction will go here.]
+\noindent
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}
+Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{drought-to-flood transition (DFT)}}. Globally, \textbf{$\sim$25\% of floods are preceded by drought} [2], and socio-economic losses can be up to \textbf{8x greater} than from isolated hazards [3]. Forecasting DFTs at subseasonal-to-seasonal (S2S) lead times could support early action, but 3 research gaps remain\,\,$\longrightarrow$
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.51\linewidth}
+\vspace{0pt}
+\begin{tikzpicture}[
+    gapbox/.style={
+        rectangle, rounded corners=3pt, line width=1.0pt,
+        fill=black!4, minimum height=0.9em, text width=4.8cm,
+        align=center, font=\sffamily, inner xsep=5pt, inner ysep=3pt
+    },
+    goalbox/.style={
+        rectangle, rounded corners=3pt, line width=1.1pt,
+        fill=black!4, minimum height=1.0em, text width=3.8cm,
+        align=center, font=\sffamily\bfseries, inner xsep=5pt, inner ysep=4pt
+    },
+    arrow/.style={
+        -{Stealth[length=6pt, width=5pt]}, line width=1.4pt, color=black!70
+    },
+    thiswork/.style={
+        font=\sffamily\bfseries, text=drivcol!80!black,
+        draw=drivcol!70, fill=drivcol!8, rounded corners=2pt,
+        inner xsep=3pt, inner ysep=1.5pt
+    },
+]
+\node[gapbox, draw=posternavy!70]
+    (gap2) at (-1.5, 0.8)
+    {No catalogue of DFT\\events exists for Ireland};
+\node[thiswork]
+    (marker) at (-1.5, 0)
+    {$\downarrow$\, Current focus};
+\node[gapbox, draw=drivcol!80!black, dashed]
+    (gap1) at (-1.5, -0.8)
+    {S2S forecast skill over\\Ireland has not been assessed};
+\node[goalbox, draw=impcol!80!black, right=3.2cm of marker]
+    (goal)
+    {S2S DFT\\prediction};
+\draw[arrow] (gap2.east) to[out=0, in=180] (goal.west);
+\draw[arrow] (gap1.east) to[out=0, in=180] (goal.west);
+\path (-3.5, 0) -- (-3.5, 0); % extend bounding box left to shift diagram right
+\end{tikzpicture}
+\end{minipage}
 
-\vspace{0.4em}
+\vspace{0.3em}
 
-\begin{center}
-\includegraphics[width=0.85\linewidth]{dft_causal_diagram_poster.pdf}\\[-0.8em]
-{\small \textbf{Figure 1:} Causal chain for compound drought-to-flood events.}
-\end{center}
-
-\vspace{0.2em}
-
-[Placeholder text --- additional introduction will go here.]
+\noindent
+\begin{minipage}[c]{0.82\linewidth}
+\includegraphics[width=\linewidth]{dft_causal_diagram_poster.pdf}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.16\linewidth}
+\raggedright
+{\small \textbf{Figure 1:} Physical pathway for DFT events, after the framework of Bevacqua et~al.\ [1].}
+\end{minipage}
 }
 
 %----------------------------------------------------------------------
 % ROW 2 LEFT: 2 — Data
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{3}Data}{name=data,column=2,below=introduction,span=1}{
+\headerbox{Data}{name=data,column=2,below=introduction,span=1}{
 
 \begin{center}
 {\small
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\begin{tabular}{@{}lll@{}}
 \toprule
 & \textbf{Subseasonal} & \textbf{Seasonal} \\
 \midrule
-System & ENS extended-range & SEAS5 \\
-IFS cycle & CY49R1 (2024) & Cy43r1 (2017) \\
-Init frequency & Every 2 days & Monthly \\
+System & ENS extended & SEAS5 \\
+IFS cycle & CY49R1 (2024) & CY43R1 (2017) \\
+Init.\ freq. & 2-daily & Monthly \\
 Members & 11 & 25 \\
 Horizon & 46 days & 7 months \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 }
 \end{center}
 
@@ -119,30 +167,26 @@ Horizon & 46 days & 7 months \\
 %----------------------------------------------------------------------
 % ROW 2 RIGHT: 3 — Methods
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{2}Methods}{name=methods,column=0,below=introduction,span=2}{
+\headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-[Placeholder text --- methodology description will go here.]
-
-\vspace{0.4em}
-
-\begin{center}
-\includegraphics[width=0.55\linewidth]{verification_cone.pdf}
-\end{center}
-
-\vspace{-0.8em}
-\begin{center}
-{\small \textbf{Figure 2:} Verification levels for compound drought-to-flood prediction.}
-\end{center}
+We evaluate ECMWF extended-range and seasonal reforecasts using probabilistic (Fair CRPSS [4]) and deterministic (ACC) metrics for 2\,m temperature at weekly lead times.
 
 \vspace{0.4em}
 
-[Placeholder text --- additional methodology details will go here.]
+\noindent
+\begin{minipage}[c]{0.72\linewidth}
+\includegraphics[width=\linewidth]{verification_cone.pdf}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.25\linewidth}
+{\raggedright\small \textbf{Figure 2:} DFT prediction requires verified skill at each level. Currently, we are verifying forecast skill for meteorological variables.\par}
+\end{minipage}
 }
 
 %----------------------------------------------------------------------
 % ROW 3: 4 — Results (full width)
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{4}Results}{name=results,column=0,below=methods,span=3}{
+\headerbox{Results}{name=results,column=0,below=methods,span=3}{
 
 % --- Spatial CRPSS maps ---
 \begin{center}
@@ -155,22 +199,25 @@ Horizon & 46 days & 7 months \\
 %----------------------------------------------------------------------
 % ROW 4 LEFT: 5 — Discussion & Future Work
 %----------------------------------------------------------------------
-\headerbox{\sectionnum{5}Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,above=bottom}{
+\headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,above=bottom}{
 
+\noindent
+\begin{minipage}[t]{0.47\linewidth}
 \begin{itemize}[leftmargin=1em, nosep, label={}]
 \item {\color{green!60!black}\raisebox{-0.15em}{\includegraphics[height=0.9em]{ireland_icon.png}}}\hspace{0.4em} First verification of S2S forecast skill over Ireland
 \item {\color{gray}\faChartLine}\hspace{0.4em} Useful skill for 2\,m temperature through Week~6
 \item {\color{gray}\faBalanceScale}\hspace{0.4em} Probabilistic skill more robust than deterministic
 \end{itemize}
-
-\vspace{0.6em}
-\textbf{Future Work}
-
+\end{minipage}%
+\hfill\vrule width 0.4pt\hfill%
+\begin{minipage}[t]{0.47\linewidth}
 \begin{itemize}[leftmargin=1em, nosep, label={}]
 \item {\color{green!60!black}\faCloudRain}\hspace{0.4em} Extend to precipitation, wind, pressure
-\item {\color{coneRed}\faSearch}\hspace{0.4em} Robust compound event detection methods
+\item {\color{coneRed}\faSearch}\hspace{0.4em} Build Irish DFT event catalogue from observations
+\item {\color{gray}\faMapMarkerAlt}\hspace{0.4em} Identify where forecast skill coincides with event occurrence
 \item {\color{gray}\faRobot}\hspace{0.4em} ML to recover skill at longer lead times
 \end{itemize}
+\end{minipage}
 }
 
 %----------------------------------------------------------------------
@@ -179,9 +226,12 @@ Horizon & 46 days & 7 months \\
 \headerbox{References}{name=references,column=2,span=1,below=results,above=bottom}{
 
 {\footnotesize
-[1]~Matano et~al.\ (2024). \textit{Nat.\ Hazards Earth Syst.\ Sci.}\quad
-[2]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}\quad
-[3]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}
+\begin{enumerate}[leftmargin=1.8em, nosep, label={[\arabic*]}]
+\item Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340.
+\item Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048.
+\item Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024.
+\item Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923.
+\end{enumerate}
 }
 }
 
