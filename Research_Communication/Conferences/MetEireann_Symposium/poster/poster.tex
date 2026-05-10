@@ -28,9 +28,9 @@
 \definecolor{posternavy}{HTML}{1B2A4A}
 \definecolor{posterborder}{HTML}{00857C}
 \definecolor{boxbg}{HTML}{FAFAFA}
-\definecolor{coneRed}{HTML}{EF5350}
+\definecolor{coneRed}{HTML}{C62828}
 \definecolor{drivcol}{HTML}{7AB648}
-\definecolor{impcol}{HTML}{C62828}
+\definecolor{impcol}{HTML}{D32F2F}
 
 \begin{poster}
 {
@@ -144,18 +144,17 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{droug
 \begin{tabular}{@{}lll@{}}
 \toprule
 & \textbf{Subseasonal} & \textbf{Seasonal} \\
-\midrule
 System & ENS extended & SEAS5 \\
 IFS cycle & CY49R1 (2024) & CY43R1 (2017) \\
 Init.\ freq. & 2-daily & Monthly \\
 Members & 11 & 25 \\
-Horizon & 46 days & 7 months \\
+Horizon & 6 weeks & 7 months \\
 \bottomrule
 \end{tabular}
 }
 \end{center}
 
-\vspace{0.3em}
+\vspace{-0.2em}
 
 \begin{itemize}[leftmargin=1em, nosep]
 \item \textbf{Variable:} 2\,m temperature
@@ -169,7 +168,7 @@ Horizon & 46 days & 7 months \\
 %----------------------------------------------------------------------
 \headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-We evaluate ECMWF extended-range and seasonal reforecasts using probabilistic (Fair CRPSS [4]) and deterministic (ACC) metrics for 2\,m temperature at weekly lead times.
+We evaluate ECMWF subseasonal and seasonal reforecasts using probabilistic and deterministic metrics, including Fair CRPSS [4] and ACC, for 2\,m temperature at weekly lead times. CRPSS is computed after leave-one-year-out (LOYO) mean bias correction to isolate forecast skill from systematic model error.
 
 \vspace{0.4em}
 
@@ -188,12 +187,16 @@ We evaluate ECMWF extended-range and seasonal reforecasts using probabilistic (F
 %----------------------------------------------------------------------
 \headerbox{Results}{name=results,column=0,below=methods,span=3}{
 
-% --- Spatial CRPSS maps ---
-\begin{center}
-\includegraphics[width=\linewidth]{spatial_crpss_eefh_t2m.png}\\[-0.8em]
-{\small \textbf{Figure 3:} Spatial CRPSS for EEFH 2\,m temperature, Weeks 2--6.}
-\end{center}%
-\vspace{-0.5em}
+\noindent
+\begin{minipage}[t]{0.48\linewidth}
+\includegraphics[width=\linewidth]{spatial_crpss_poster.png}\\[0.3em]
+{\small \textbf{Figure 3:} Fair CRPSS for EEFH 2\,m temperature at Weeks 2, 4, and 6. Skill decays with lead time but remains positive across Ireland through Week~6. Mean warm bias is $\sim$0.6\,\textdegree C (corrected via LOYO).}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\includegraphics[width=\linewidth]{lineplot_skill_poster.png}\\[0.3em]
+{\small \textbf{Figure 4:} Domain-mean ACC and CRPSS vs lead time. DJF shows highest deterministic skill; probabilistic skill is more robust, remaining positive through Week~6 across all seasons.}
+\end{minipage}
 }
 
 %----------------------------------------------------------------------
@@ -201,21 +204,21 @@ We evaluate ECMWF extended-range and seasonal reforecasts using probabilistic (F
 %----------------------------------------------------------------------
 \headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,above=bottom}{
 
-\noindent
 \begin{minipage}[t]{0.47\linewidth}
-\begin{itemize}[leftmargin=1em, nosep, label={}]
+\begin{itemize}[leftmargin=0em, nosep, label={}]
 \item {\color{green!60!black}\raisebox{-0.15em}{\includegraphics[height=0.9em]{ireland_icon.png}}}\hspace{0.4em} First verification of S2S forecast skill over Ireland
-\item {\color{gray}\faChartLine}\hspace{0.4em} Useful skill for 2\,m temperature through Week~6
-\item {\color{gray}\faBalanceScale}\hspace{0.4em} Probabilistic skill more robust than deterministic
+\item {\color{posternavy}\faChartLine}\hspace{0.4em} DJF strongest deterministic skill; JJA fades by Week~4
+\item {\color{posternavy}\faBalanceScale}\hspace{0.4em} Probabilistic skill robust through Week~6 across all seasons
+\item {\color{posternavy}\faThermometerHalf}\hspace{0.4em} Warm bias $\sim$0.6\,\textdegree C, correctable via LOYO calibration
 \end{itemize}
 \end{minipage}%
 \hfill\vrule width 0.4pt\hfill%
 \begin{minipage}[t]{0.47\linewidth}
-\begin{itemize}[leftmargin=1em, nosep, label={}]
+\begin{itemize}[leftmargin=0em, nosep, label={}]
 \item {\color{green!60!black}\faCloudRain}\hspace{0.4em} Extend to precipitation, wind, pressure
-\item {\color{coneRed}\faSearch}\hspace{0.4em} Build Irish DFT event catalogue from observations
-\item {\color{gray}\faMapMarkerAlt}\hspace{0.4em} Identify where forecast skill coincides with event occurrence
-\item {\color{gray}\faRobot}\hspace{0.4em} ML to recover skill at longer lead times
+\item {\color{coneRed}\faSearch}\hspace{0.4em} Build Irish DFT event catalogue; link occurrence to catchment properties
+\item {\color{posternavy}\faMapMarkerAlt}\hspace{0.4em} Overlay skill maps with DFT hotspots to identify predictable regions
+\item {\color{posternavy}\faRobot}\hspace{0.4em} ML to recover skill at longer lead times
 \end{itemize}
 \end{minipage}
 }
@@ -225,7 +228,7 @@ We evaluate ECMWF extended-range and seasonal reforecasts using probabilistic (F
 %----------------------------------------------------------------------
 \headerbox{References}{name=references,column=2,span=1,below=results,above=bottom}{
 
-{\footnotesize
+{\footnotesize\raggedright
 \begin{enumerate}[leftmargin=1.8em, nosep, label={[\arabic*]}]
 \item Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340.
 \item Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048.
