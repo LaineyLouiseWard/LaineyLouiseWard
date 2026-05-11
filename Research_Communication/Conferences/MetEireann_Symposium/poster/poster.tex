@@ -151,7 +151,7 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{droug
 %----------------------------------------------------------------------
 \headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-We verify 2\,m temperature forecasts at \textbf{2--6 week} lead times with two complementary metrics: \textbf{Fair CRPSS} (Continuous Ranked Probability Skill Score) [4], scored against ERA5 climatology, and \textbf{ACC} (Anomaly Correlation Coefficient). Mean bias is removed by leave-one-year-out correction.
+We verify 2\,m temperature forecasts at \textbf{2--6 week} lead times, pooling all reforecast initialisations (2005--2024) per season and lead. Two complementary metrics are used: \textbf{Fair CRPSS} (Continuous Ranked Probability Skill Score) [4], scored against ERA5 climatology, and \textbf{centred ACC} (Anomaly Correlation Coefficient). Mean bias is removed by leave-one-year-out correction.
 
 \vspace{1.2em}
 
@@ -225,7 +225,7 @@ $M$ & number of gridpoints \\
 {\small \textbf{Figure 3:} Spatial ACC and domain-mean CRPSS vs lead time. Dashed line marks ACC\,=\,0.6 (``useful skill''; Hollingsworth et~al.\ [6]). DJF shows highest deterministic skill; probabilistic skill positive through Week~6.}
 \end{minipage}
 
-\vspace{3.0em}
+\vspace{1.5em}
 }
 
 %----------------------------------------------------------------------
@@ -248,20 +248,32 @@ $M$ & number of gridpoints \\
 %----------------------------------------------------------------------
 \headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,bottomaligned=references}{
 
-\begin{minipage}[t]{0.47\linewidth}
-\begin{itemize}[leftmargin=0em, itemsep=1.0em, parsep=0pt, topsep=0pt, label={}]
+\begin{minipage}[t]{0.35\linewidth}
+\raggedright
+\begin{itemize}[leftmargin=0em, itemsep=0.6em, parsep=0pt, topsep=0pt, label={}]
 \item {\color{green!60!black}\raisebox{-0.15em}{\includegraphics[height=0.9em]{ireland_icon.png}}}\hspace{0.4em} First verification of S2S forecast skill over Ireland
 \item {\color{posternavy}\faChartLine}\hspace{0.4em} DJF strongest deterministic skill; JJA fades by Week~4
-\item {\color{posternavy}\faBalanceScale}\hspace{0.4em} Probabilistic skill robust through Week~6 across all seasons
+\item {\color{floodblue}\faBalanceScale}\hspace{0.4em} Probabilistic skill robust through Week~6 across all seasons
 \end{itemize}
 \end{minipage}%
 \hfill\vrule width 0.4pt\hfill%
-\begin{minipage}[t]{0.47\linewidth}
-\begin{itemize}[leftmargin=0em, itemsep=1.0em, parsep=0pt, topsep=0pt, label={}]
-\item {\color{drivcol}\faIcon{exchange-alt}}\hspace{0.4em} Compare with SEAS5 seasonal model to identify skill overlap across timescales
-\item {\color{coneRed}\faSearch}\hspace{0.4em} Build Irish DFT event catalogue; link occurrence to catchment properties
-\item {\color{posternavy}\faMapMarker*}\hspace{0.4em} Overlay skill maps with DFT hotspots to identify predictable regions
-\end{itemize}
+\begin{minipage}[t]{0.59\linewidth}
+\vspace{0.3em}
+\begin{tikzpicture}[
+    arrow/.style={-{Stealth[length=5pt, width=4pt]}, line width=1.2pt, color=black!70},
+]
+\node[text width=3.8cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
+    (item1) at (0, 0.8)
+    {{\color{drivcol}\faIcon{exchange-alt}}\hspace{0.3em} Compare with SEAS5 \mbox{seasonal} forecasts to map skill across the full S2S timescale};
+\node[text width=3.8cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
+    (item2) at (0, -0.8)
+    {{\color{coneRed}\faSearch}\hspace{0.3em} Create DFT event catalogue; link to catchment and soil properties};
+\node[text width=4.5cm, align=center, anchor=west, font=\sffamily\bfseries, inner sep=0pt]
+    (item3) at (4.85, 0)
+    {{\color{posternavy}\faMapMarker*}\hspace{0.2em} Identify predictable \mbox{at-risk} catchments};
+\draw[arrow] (item1.east) to[out=0, in=180] (item3.north west);
+\draw[arrow] (item2.east) to[out=0, in=180] (item3.south west);
+\end{tikzpicture}
 \end{minipage}
 }
 
