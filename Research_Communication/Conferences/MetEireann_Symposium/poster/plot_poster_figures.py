@@ -144,7 +144,7 @@ def plot_lineplot(data):
         col = LINE_COLOURS[season]
         sty = LINE_STYLES[season]
 
-        acc = data.get(f"acc_{season}")
+        acc = data.get(f"sacc_{season}")
         if acc is not None:
             ax_acc.plot(weeks, acc, color=col, label=season,
                         lw=sty["lw"], marker=sty["marker"], ms=sty["ms"],
@@ -156,8 +156,13 @@ def plot_lineplot(data):
                           lw=sty["lw"], marker=sty["marker"], ms=sty["ms"],
                           zorder=sty["zorder"])
 
+    # ACC 0.6 "useful skill" reference line (Hollingsworth et al. 1980)
+    ax_acc.axhline(0.6, color="0.65", ls=":", lw=1.0, zorder=0)
+    ax_acc.annotate("useful skill", xy=(weeks[-1] + 0.25, 0.6),
+                    fontsize=9, color="0.45", va="bottom", ha="right")
+
     for ax, panel_label, ylabel in [
-        (ax_acc, "ACC", "Anomaly Correlation"),
+        (ax_acc, "Spatial ACC", "Anomaly Correlation"),
         (ax_crpss, "CRPSS", "CRPS Skill Score"),
     ]:
         ax.axhline(0, color="0.5", ls="--", lw=0.8, zorder=0)

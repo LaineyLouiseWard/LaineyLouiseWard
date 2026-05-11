@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{tabularx}
@@ -30,7 +31,7 @@
 \definecolor{boxbg}{HTML}{FAFAFA}
 \definecolor{coneRed}{HTML}{C62828}
 \definecolor{drivcol}{HTML}{7AB648}
-\definecolor{impcol}{HTML}{D32F2F}
+\definecolor{impcol}{HTML}{C62828}
 
 \begin{poster}
 {
@@ -73,11 +74,15 @@ Drought-to-Flood Prediction}\\[0.4em]
 % ROW 1: 1 — Introduction (full width)
 %----------------------------------------------------------------------
 \headerbox{Introduction}{name=introduction,column=0,row=0.012,span=3}{
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=north east] at ([xshift=-0.7cm, yshift=-2.5cm]current page.north east)
+    {\includegraphics[height=1.8cm]{qrcode_linkedin.png}};
+\end{tikzpicture}%
 
 \noindent
 \begin{minipage}[t]{0.45\linewidth}
 \vspace{0pt}
-Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{drought-to-flood transition (DFT)}}. Globally, \textbf{$\sim$25\% of floods are preceded by drought} [2], and socio-economic losses can be up to \textbf{8x greater} than from isolated hazards [3]. Forecasting DFTs at subseasonal-to-seasonal (S2S) lead times could support early action, but 3 research gaps remain\,\,$\longrightarrow$
+Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{drought-to-flood transition (DFT)}}. Globally, \textbf{$\sim$25\% of floods are preceded by drought} [2], and socio-economic losses can be up to \textbf{8x greater} than from isolated hazards [3]. Forecasting DFTs at subseasonal-to-seasonal (S2S) lead times could support early action, but 2 research gaps remain\,\,$\longrightarrow$
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.51\linewidth}
@@ -136,31 +141,25 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{droug
 %----------------------------------------------------------------------
 % ROW 2 LEFT: 2 — Data
 %----------------------------------------------------------------------
-\headerbox{Data}{name=data,column=2,below=introduction,span=1}{
+\headerbox{Data}{name=data,column=2,below=introduction,span=1,bottomaligned=methods}{
 
 \begin{center}
 {\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{@{}lll@{}}
-\toprule
-& \textbf{Subseasonal} & \textbf{Seasonal} \\
-System & ENS extended & SEAS5 \\
-IFS cycle & CY49R1 (2024) & CY43R1 (2017) \\
-Init.\ freq. & 2-daily & Monthly \\
-Members & 11 & 25 \\
-Horizon & 6 weeks & 7 months \\
-\bottomrule
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}rl@{}}
+\textbf{System} & ECMWF ENS extended-range \\
+\textbf{IFS cycle} & CY49R1 (2024) \\
+\textbf{Init.\ freq.} & Every 2 days \\
+\textbf{Members} & 11 (1 control + 10 perturbed) \\
+\textbf{Horizon} & Weeks 2--6 \\
+\textbf{Variable} & 2\,m temperature \\
+\textbf{Grid} & 0.28\textdegree{} regular lat-lon (MARS) \\
+\textbf{Reference} & ERA5 + Met \'Eireann stations \\
+\textbf{Reforecasts} & 2005--2024 \\
 \end{tabular}
 }
 \end{center}
 
-\vspace{-0.2em}
-
-\begin{itemize}[leftmargin=1em, nosep]
-\item \textbf{Variable:} 2\,m temperature
-\item \textbf{Reference:} ERA5 (0.25\textdegree{}) + Met \'Eireann stations
-\item \textbf{Verification period:} 2006--2016
-\end{itemize}
 }
 
 %----------------------------------------------------------------------
@@ -168,18 +167,37 @@ Horizon & 6 weeks & 7 months \\
 %----------------------------------------------------------------------
 \headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-We evaluate ECMWF subseasonal and seasonal reforecasts using probabilistic and deterministic metrics, including Fair CRPSS [4] and ACC, for 2\,m temperature at weekly lead times. CRPSS is computed after leave-one-year-out (LOYO) mean bias correction to isolate forecast skill from systematic model error.
+We verify 2\,m temperature forecasts at \textbf{2--6 week} lead time using probabilistic and deterministic metrics: \textbf{Fair CRPSS} (Continuous Ranked Probability Skill Score) [4] and \textbf{ACC} (Anomaly Correlation Coefficient). CRPSS is bias-corrected via leave-one-year-out to isolate skill from systematic error.
 
-\vspace{0.4em}
+\vspace{0.2em}
 
+\newlength{\accboxwidth}
+\setlength{\accboxwidth}{\dimexpr\linewidth-1.0em\relax}% inner text width
 \noindent
-\begin{minipage}[c]{0.72\linewidth}
-\includegraphics[width=\linewidth]{verification_cone.pdf}
+\begin{tikzpicture}
+\node[draw=drivcol!80!black, fill=drivcol!10, rounded corners=6pt, line width=0.8pt,
+      inner sep=0.5em, text width=\accboxwidth] {%
+\begin{minipage}[c]{0.62\accboxwidth}
+$\displaystyle
+\text{ACC} \;=\; \frac{\displaystyle\sum_{m=1}^{M} w_m\,(f'_m - \bar{f}'\,)(o'_m - \bar{o}'\,)}{\left[\displaystyle\sum_{m=1}^{M} w_m\,(f'_m - \bar{f}'\,)^{2}\;\cdot\;\sum_{m=1}^{M} w_m\,(o'_m - \bar{o}'\,)^{2}\right]^{1/2}}
+$
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.25\linewidth}
-{\raggedright\small \textbf{Figure 2:} DFT prediction requires verified skill at each level. Currently, we are verifying forecast skill for meteorological variables.\par}
-\end{minipage}
+\begin{minipage}[c]{0.35\accboxwidth}
+{\footnotesize
+\begin{tabular}{@{}r@{\;=\;}l@{}}
+$f'_m,\; o'_m$ & forecast/observed anomalies \\
+$\bar{f}',\; \bar{o}'$ & area-weighted spatial means \\
+$w_m$ & $\cos\varphi$ (latitude weight) \\
+$M$ & number of gridpoints \\
+\end{tabular}
+
+\vspace{0.3em}
+\hfill{\scriptsize Wilks (2011), Eq.~7.59\; [5]}
+}
+\end{minipage}%
+};
+\end{tikzpicture}
 }
 
 %----------------------------------------------------------------------
@@ -190,35 +208,35 @@ We evaluate ECMWF subseasonal and seasonal reforecasts using probabilistic and d
 \noindent
 \begin{minipage}[t]{0.48\linewidth}
 \includegraphics[width=\linewidth]{spatial_crpss_poster.png}\\[0.3em]
-{\small \textbf{Figure 3:} Fair CRPSS for EEFH 2\,m temperature at Weeks 2, 4, and 6. Skill decays with lead time but remains positive across Ireland through Week~6. Mean warm bias is $\sim$0.6\,\textdegree C (corrected via LOYO).}
+{\small \textbf{Figure 2:} Fair CRPSS for ENS extended 2\,m temperature at Weeks 2, 4, and 6. Skill decays with lead time but remains positive across Ireland through Week~6.}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
 \includegraphics[width=\linewidth]{lineplot_skill_poster.png}\\[0.3em]
-{\small \textbf{Figure 4:} Domain-mean ACC and CRPSS vs lead time. DJF shows highest deterministic skill; probabilistic skill is more robust, remaining positive through Week~6 across all seasons.}
+{\small \textbf{Figure 3:} Spatial ACC and domain-mean CRPSS vs lead time. Dashed line marks ACC\,=\,0.6 (``useful skill''; Hollingsworth et~al.\ [6]). DJF shows highest deterministic skill; probabilistic skill positive through Week~6.}
 \end{minipage}
+
+\vspace{1.2em}
 }
 
 %----------------------------------------------------------------------
 % ROW 4 LEFT: 5 — Discussion & Future Work
 %----------------------------------------------------------------------
-\headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,above=bottom}{
+\headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2}{
 
 \begin{minipage}[t]{0.47\linewidth}
 \begin{itemize}[leftmargin=0em, nosep, label={}]
 \item {\color{green!60!black}\raisebox{-0.15em}{\includegraphics[height=0.9em]{ireland_icon.png}}}\hspace{0.4em} First verification of S2S forecast skill over Ireland
 \item {\color{posternavy}\faChartLine}\hspace{0.4em} DJF strongest deterministic skill; JJA fades by Week~4
 \item {\color{posternavy}\faBalanceScale}\hspace{0.4em} Probabilistic skill robust through Week~6 across all seasons
-\item {\color{posternavy}\faThermometerHalf}\hspace{0.4em} Warm bias $\sim$0.6\,\textdegree C, correctable via LOYO calibration
 \end{itemize}
 \end{minipage}%
 \hfill\vrule width 0.4pt\hfill%
 \begin{minipage}[t]{0.47\linewidth}
 \begin{itemize}[leftmargin=0em, nosep, label={}]
-\item {\color{green!60!black}\faCloudRain}\hspace{0.4em} Extend to precipitation, wind, pressure
+\item {\color{posternavy}\faExchangeAlt}\hspace{0.4em} Compare with SEAS5 seasonal model to identify skill overlap across timescales
 \item {\color{coneRed}\faSearch}\hspace{0.4em} Build Irish DFT event catalogue; link occurrence to catchment properties
-\item {\color{posternavy}\faMapMarkerAlt}\hspace{0.4em} Overlay skill maps with DFT hotspots to identify predictable regions
-\item {\color{posternavy}\faRobot}\hspace{0.4em} ML to recover skill at longer lead times
+\item {\color{posternavy}\faMapMarker*}\hspace{0.4em} Overlay skill maps with DFT hotspots to identify predictable regions
 \end{itemize}
 \end{minipage}
 }
@@ -226,15 +244,15 @@ We evaluate ECMWF subseasonal and seasonal reforecasts using probabilistic and d
 %----------------------------------------------------------------------
 % ROW 4: References (flat strip)
 %----------------------------------------------------------------------
-\headerbox{References}{name=references,column=2,span=1,below=results,above=bottom}{
+\headerbox{References}{name=references,column=2,span=1,below=results,bottomaligned=discussion}{
 
-{\footnotesize\raggedright
-\begin{enumerate}[leftmargin=1.8em, nosep, label={[\arabic*]}]
-\item Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340.
-\item Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048.
-\item Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024.
-\item Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923.
-\end{enumerate}
+{\scriptsize\raggedright
+[1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340,\;
+[2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048,\;
+[3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024,\;
+[4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923,\;
+[5]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed., Eq.~7.59,\;
+[6]~Hollingsworth et~al.\ (1980). \textit{Mon.\ Wea.\ Rev.}, 108, 1736--1773.
 }
 }
 

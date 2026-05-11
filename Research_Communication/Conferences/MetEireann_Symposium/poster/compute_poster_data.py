@@ -23,7 +23,7 @@ sys.path.insert(0, str(S2S_ROOT / "SCRIPTS" / "UTILS"))
 
 from variable_config import LEAD_WEEKS
 from scoring_spatial_native import (
-    gridded_crps, gridded_acc, gridded_bias, subset_by_season,
+    gridded_crps, gridded_acc, gridded_bias, spatial_acc, subset_by_season,
 )
 import xarray as xr
 
@@ -76,21 +76,26 @@ def main():
         n_inits = ds_sub.dims["init"]
         print(f"  {n_inits} initialisations", flush=True)
 
-        acc_vals, crpss_vals = [], []
+        acc_vals, sacc_vals, crpss_vals = [], [], []
         for wk in WEEKS_TO_SCORE:
             print(f"  {wk}...", end=" ", flush=True)
 
             acc_da = gridded_acc(ds_sub, wk, variant="ensmean")
             acc_mean = domain_mean(acc_da, ds_sub) if acc_da is not None else np.nan
 
+            sacc_val = spatial_acc(ds_sub, wk, variant="ensmean")
+            sacc_val = float(sacc_val) if sacc_val is not None else np.nan
+
             crps_result = gridded_crps(ds_sub, wk, bias_correct=True)
             crpss_mean = domain_mean(crps_result["crpss"], ds_sub) if crps_result else np.nan
 
             acc_vals.append(acc_mean)
+            sacc_vals.append(sacc_val)
             crpss_vals.append(crpss_mean)
-            print(f"ACC={acc_mean:.3f}  CRPSS={crpss_mean:.3f}", flush=True)
+            print(f"ACC={acc_mean:.3f}  sACC={sacc_val:.3f}  CRPSS={crpss_mean:.3f}", flush=True)
 
         data[f"acc_{season_label}"] = acc_vals
+        data[f"sacc_{season_label}"] = sacc_vals
         data[f"crpss_{season_label}"] = crpss_vals
 
     # ── Spatial maps (annual, weeks 2/4/6): CRPSS + Bias ──
