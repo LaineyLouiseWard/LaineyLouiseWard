@@ -139,37 +139,13 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{droug
 }
 
 %----------------------------------------------------------------------
-% ROW 2 LEFT: 2 — Data
-%----------------------------------------------------------------------
-\headerbox{Data}{name=data,column=2,below=introduction,span=1,bottomaligned=methods}{
-
-\begin{center}
-{\small
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}rl@{}}
-\textbf{System} & ECMWF ENS extended-range \\
-\textbf{IFS cycle} & CY49R1 (2024) \\
-\textbf{Init.\ freq.} & Every 2 days \\
-\textbf{Members} & 11 (1 control + 10 perturbed) \\
-\textbf{Horizon} & Weeks 2--6 \\
-\textbf{Variable} & 2\,m temperature \\
-\textbf{Grid} & 0.28\textdegree{} regular lat-lon (MARS) \\
-\textbf{Reference} & ERA5 + Met \'Eireann stations \\
-\textbf{Reforecasts} & 2005--2024 \\
-\end{tabular}
-}
-\end{center}
-
-}
-
-%----------------------------------------------------------------------
-% ROW 2 RIGHT: 3 — Methods
+% ROW 2 LEFT: 3 — Methods (defined first so Data can bottomalign to it)
 %----------------------------------------------------------------------
 \headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-We verify 2\,m temperature forecasts at \textbf{2--6 week} lead time using probabilistic and deterministic metrics: \textbf{Fair CRPSS} (Continuous Ranked Probability Skill Score) [4] and \textbf{ACC} (Anomaly Correlation Coefficient). CRPSS is bias-corrected via leave-one-year-out to isolate skill from systematic error.
+We verify 2\,m temperature forecasts at \textbf{2--6 week} lead times with two complementary metrics: \textbf{Fair CRPSS} (Continuous Ranked Probability Skill Score) [4], scored against ERA5 climatology, and \textbf{ACC} (Anomaly Correlation Coefficient). Mean bias is removed by leave-one-year-out correction.
 
-\vspace{0.2em}
+\vspace{0.3em}
 
 \newlength{\accboxwidth}
 \setlength{\accboxwidth}{\dimexpr\linewidth-1.0em\relax}% inner text width
@@ -201,6 +177,30 @@ $M$ & number of gridpoints \\
 }
 
 %----------------------------------------------------------------------
+% ROW 2 RIGHT: 2 — Data
+%----------------------------------------------------------------------
+\headerbox{Data}{name=data,column=2,below=introduction,span=1,bottomaligned=methods}{
+
+\begin{center}
+{\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}rl@{}}
+\textbf{System} & ECMWF ENS extended-range \\
+\textbf{IFS cycle} & CY49R1 (2024) \\
+\textbf{Init.\ freq.} & Every 2 days \\
+\textbf{Members} & 11 (1 control + 10 perturbed) \\
+\textbf{Horizon} & Weeks 2--6 \\
+\textbf{Variable} & 2\,m temperature \\
+\textbf{Grid} & 0.28\textdegree{} regular lat-lon (MARS) \\
+\textbf{Reference} & ERA5 + Met \'Eireann stations \\
+\textbf{Reforecasts} & 2005--2024 \\
+\end{tabular}
+}
+\end{center}
+
+}
+
+%----------------------------------------------------------------------
 % ROW 3: 4 — Results (full width)
 %----------------------------------------------------------------------
 \headerbox{Results}{name=results,column=0,below=methods,span=3}{
@@ -216,13 +216,28 @@ $M$ & number of gridpoints \\
 {\small \textbf{Figure 3:} Spatial ACC and domain-mean CRPSS vs lead time. Dashed line marks ACC\,=\,0.6 (``useful skill''; Hollingsworth et~al.\ [6]). DJF shows highest deterministic skill; probabilistic skill positive through Week~6.}
 \end{minipage}
 
-\vspace{1.2em}
+\vspace{3.0em}
+}
+
+%----------------------------------------------------------------------
+% ROW 4 RIGHT: References (defined first so Discussion can bottomalign to it)
+%----------------------------------------------------------------------
+\headerbox{References}{name=references,column=2,span=1,below=results}{
+
+{\scriptsize\raggedright
+[1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340,\;
+[2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048,\;
+[3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024,\;
+[4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923,\;
+[5]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed., Eq.~7.59,\;
+[6]~Hollingsworth et~al.\ (1980). \textit{Mon.\ Wea.\ Rev.}, 108, 1736--1773.
+}
 }
 
 %----------------------------------------------------------------------
 % ROW 4 LEFT: 5 — Discussion & Future Work
 %----------------------------------------------------------------------
-\headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2}{
+\headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,bottomaligned=references}{
 
 \begin{minipage}[t]{0.47\linewidth}
 \begin{itemize}[leftmargin=0em, nosep, label={}]
@@ -239,21 +254,6 @@ $M$ & number of gridpoints \\
 \item {\color{posternavy}\faMapMarker*}\hspace{0.4em} Overlay skill maps with DFT hotspots to identify predictable regions
 \end{itemize}
 \end{minipage}
-}
-
-%----------------------------------------------------------------------
-% ROW 4: References (flat strip)
-%----------------------------------------------------------------------
-\headerbox{References}{name=references,column=2,span=1,below=results,bottomaligned=discussion}{
-
-{\scriptsize\raggedright
-[1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340,\;
-[2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048,\;
-[3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024,\;
-[4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923,\;
-[5]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed., Eq.~7.59,\;
-[6]~Hollingsworth et~al.\ (1980). \textit{Mon.\ Wea.\ Rev.}, 108, 1736--1773.
-}
 }
 
 \end{poster}
