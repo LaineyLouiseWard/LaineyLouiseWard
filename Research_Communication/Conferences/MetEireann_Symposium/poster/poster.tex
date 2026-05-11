@@ -11,6 +11,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, calc}
 \usepackage{fontawesome5}
+\usepackage{pdfrender}
 
 %\selectcolormodel{cmyk} % disabled: caused colour shift vs standalone figures (RGB)
 
@@ -32,6 +33,13 @@
 \definecolor{coneRed}{HTML}{C62828}
 \definecolor{drivcol}{HTML}{7AB648}
 \definecolor{impcol}{HTML}{C62828}
+\definecolor{droughttan}{HTML}{D4A574}
+\definecolor{floodblue}{HTML}{4A90D9}
+
+% Outlined + filled text: white stroke with coloured fill
+\newcommand{\outlinedtext}[2]{% #1=fill colour, #2=text
+  \textpdfrender{TextRenderingMode=FillStroke,LineWidth=0.4pt,StrokeColor=white,FillColor=#1}{#2}%
+}
 
 \begin{poster}
 {
@@ -60,7 +68,7 @@ background=plain
 \color{white}\sffamily
 {\fontsize{26}{32}\selectfont\bfseries
 Towards Subseasonal-to-Seasonal\\[0.15em]
-Drought-to-Flood Prediction}\\[0.4em]
+\outlinedtext{droughttan}{Drought}\hspace{0.15em}{\color{white}-to-}\hspace{0.15em}\outlinedtext{floodblue}{Flood} Prediction}\\[0.4em]
 {\large\mdseries \textbf{Lainey Ward}\textsuperscript{1}, Fiachra O'Loughlin\textsuperscript{1}, Conor Sweeney\textsuperscript{2}}\\[0.2em]
 {\small\mdseries \textsuperscript{1}School of Civil Engineering, \textsuperscript{2}School of Mathematics and Statistics, University College Dublin}
 }
