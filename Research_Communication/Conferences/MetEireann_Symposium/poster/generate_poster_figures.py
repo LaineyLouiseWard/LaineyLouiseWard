@@ -191,7 +191,7 @@ def _mask_non_ireland(ax, proj):
 
 def figure1_acc_leadtime(data, out_path):
     """ACC vs lead time --- annual, DJF, JJA."""
-    fig, ax = plt.subplots(figsize=(5.5, 2.6))
+    fig, ax = plt.subplots(figsize=(6.0, 3.2))
 
     for label, color in [
         ("Annual", C_ANN),
@@ -228,7 +228,7 @@ def figure1_acc_leadtime(data, out_path):
 
 def figure2_rank_histograms(data, out_path):
     """Rank histograms: raw vs seasonal-LOYO BC, pooled wk2--wk6, land only."""
-    fig, axes = plt.subplots(1, 2, figsize=(4.5, 1.6), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(4.5, 1.9), sharey=True)
 
     for col, (suffix, label, color) in enumerate([
         ("raw", "Raw", "#b0b0b0"),  # lighter grey
@@ -245,18 +245,18 @@ def figure2_rank_histograms(data, out_path):
                    color=color, alpha=0.8, edgecolor="white", linewidth=0.4)
             ax.axhline(uniform / 1e3, color="#555555", ls="--", lw=1.5, alpha=0.7)
 
-        ax.set_xlabel("Rank", fontsize=8)
+        ax.set_xlabel("Rank", fontsize=10)
         if col == 0:
-            ax.set_ylabel("Count ($\\times 10^3$)", fontsize=8)
+            ax.set_ylabel("Count ($\\times 10^3$)", fontsize=10)
         ax.set_yticks([0, 10, 20, 30])
         ax.set_xticks([1, 4, 8, 12])
-        ax.tick_params(axis="both", labelsize=7)
+        ax.tick_params(axis="both", labelsize=9)
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
 
         # Title ON the plot (inside top area)
         ax.text(0.5, 0.95, label, transform=ax.transAxes,
-                fontsize=9, fontweight="bold", ha="center", va="top")
+                fontsize=11, fontweight="bold", ha="center", va="top")
 
     # Warm/cold bias annotations — equal length, pointing at rank 1 and 12
     ax_raw = axes[0]
@@ -268,13 +268,13 @@ def figure2_rank_histograms(data, out_path):
     ax_raw.annotate("", xy=(1.2, y_arr), xytext=(3.2, y_arr),
                     arrowprops=dict(arrowstyle="-|>", color="#b2182b",
                                     lw=1.5, mutation_scale=12))
-    ax_raw.text(3.4, y_arr, "warm", fontsize=7, color="#b2182b",
+    ax_raw.text(3.4, y_arr, "warm", fontsize=8, color="#b2182b",
                 fontstyle="italic", fontweight="bold", va="center", ha="left")
     # Cold: arrow from rank 10 to rank 12
     ax_raw.annotate("", xy=(11.8, y_arr), xytext=(9.8, y_arr),
                     arrowprops=dict(arrowstyle="-|>", color="#2166ac",
                                     lw=1.5, mutation_scale=12))
-    ax_raw.text(9.6, y_arr, "cold", fontsize=7, color="#2166ac",
+    ax_raw.text(9.6, y_arr, "cold", fontsize=8, color="#2166ac",
                 fontstyle="italic", fontweight="bold", va="center", ha="right")
 
     fig.tight_layout()
@@ -297,7 +297,7 @@ def figure3_crpss_maps(data, out_path):
     cmap = cmc.vik_r.resampled(len(levels) - 1)
     norm = BoundaryNorm(levels, cmap.N)
 
-    fig, axes = plt.subplots(1, 3, figsize=(6, 2.8),
+    fig, axes = plt.subplots(1, 3, figsize=(6, 3.4),
                              subplot_kw={"projection": PROJ})
     fig.subplots_adjust(wspace=0.0)
 
@@ -334,11 +334,10 @@ def figure3_crpss_maps(data, out_path):
         cbar_ax = fig.add_axes([cbar_left, plot_bottom - 0.055, cbar_width, 0.03])
         cbar = fig.colorbar(pcm, cax=cbar_ax, orientation="horizontal",
                             extend="both",
-                            ticks=[-0.4, -0.2, -0.1, 0.1, 0.2, 0.4])
+                            ticks=[-0.4, -0.3, -0.2, -0.1, -0.05, 0.05, 0.1, 0.2, 0.3, 0.4])
         cbar.set_label("Fair CRPSS", fontweight="bold", fontsize=10)
         cbar.ax.tick_params(labelsize=8)
-    # No bbox_inches="tight" — use exact layout as set
-    fig.savefig(out_path, dpi=DPI, transparent=True)
+    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", transparent=True)
     plt.close(fig)
     print(f"  Saved: {out_path.name}")
 

@@ -68,7 +68,7 @@ background=plain
 \color{white}\sffamily
 {\fontsize{26}{32}\selectfont\bfseries
 Towards Subseasonal-to-Seasonal\\[0.15em]
-\outlinedtext{droughttan}{Drought}\hspace{0.15em}{\color{white}-to-}\hspace{0.15em}\outlinedtext{floodblue}{Flood} Prediction}\\[0.4em]
+\outlinedtext{impcol!80!black}{Drought}\hspace{0.15em}{\color{white}-to-}\hspace{0.15em}\outlinedtext{floodblue}{Flood} Prediction}\\[0.4em]
 {\large\mdseries \textbf{Lainey Ward}\textsuperscript{1}, Fiachra O'Loughlin\textsuperscript{1}, Conor Sweeney\textsuperscript{2}}\\[0.2em]
 {\small\mdseries \textsuperscript{1}School of Civil Engineering, \textsuperscript{2}School of Mathematics and Statistics, University College Dublin}
 }
@@ -95,7 +95,12 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
 \hfill
 \begin{minipage}[t]{0.51\linewidth}
 \vspace{0pt}
-\begin{tikzpicture}[
+\tikz[remember picture] \coordinate (pillanchor) {};%
+\vspace{2.5cm}% reserve vertical space for the overlay diagram
+\end{minipage}
+
+% --- Research gaps diagram (overlay, does not affect box height) ---
+\begin{tikzpicture}[remember picture, overlay,
     gapbox/.style={
         rectangle, rounded corners=3pt, line width=1.0pt,
         fill=black!4, minimum height=0.9em, text width=4.8cm,
@@ -116,36 +121,36 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
     },
 ]
 \node[gapbox, draw=posternavy!70]
-    (gap2) at (-1.5, 0.8)
+    (gap2) at ([xshift=2.5cm, yshift=-0.05cm]pillanchor)
     {No catalogue of D2F\\events exists for Ireland};
 \node[thiswork]
-    (marker) at (-1.5, 0)
+    (marker) at ([xshift=2.5cm, yshift=-0.9cm]pillanchor)
     {$\downarrow$\, Current focus};
 \node[gapbox, draw=drivcol!80!black, dashed]
-    (gap1) at (-1.5, -0.8)
+    (gap1) at ([xshift=2.5cm, yshift=-2.0cm]pillanchor)
     {Subseasonal-to-seasonal forecast skill over\\Ireland has not been assessed};
 % --- D2F icon: sun + rain conveying drought-to-flood transition ---
 \coordinate (goalanchor) at ([xshift=3.2cm]marker.east);
 \begin{scope}[shift=(goalanchor)]
     % Sun (drought) — left
     \definecolor{suncol}{HTML}{F5C242}
-    \fill[suncol!90] (0.9, 1.1) circle (0.28);
+    \fill[suncol!90] (0.9, 0.8) circle (0.28);
     \foreach \a in {0,45,...,315}{
         \draw[suncol!90, line width=1.0pt, line cap=round]
-            ({0.9+0.38*cos(\a)},{1.1+0.38*sin(\a)}) --
-            ({0.9+0.52*cos(\a)},{1.1+0.52*sin(\a)});
+            ({0.9+0.38*cos(\a)},{0.8+0.38*sin(\a)}) --
+            ({0.9+0.52*cos(\a)},{0.8+0.52*sin(\a)});
     }
     % Transition arrow
     \draw[-{Stealth[length=4pt]}, impcol!80!black, line width=0.9pt]
-        (1.6, 1.1) -- (2.1, 1.1);
+        (1.6, 0.8) -- (2.1, 0.8);
     % Rain cloud (flood) — right, aligned with sun centre
     \definecolor{raincol}{HTML}{1565C0}
-    \fill[black!25] (2.4,1.1) circle (0.18);
-    \fill[black!25] (2.65,1.1) circle (0.22);
-    \fill[black!25] (2.90,1.1) circle (0.16);
-    \fill[black!25] (2.30,1.1) -- (3.00,1.1) -- (3.00,0.95) -- (2.30,0.95) -- cycle;
+    \fill[black!25] (2.4,0.8) circle (0.18);
+    \fill[black!25] (2.65,0.8) circle (0.22);
+    \fill[black!25] (2.90,0.8) circle (0.16);
+    \fill[black!25] (2.30,0.8) -- (3.00,0.8) -- (3.00,0.65) -- (2.30,0.65) -- cycle;
     % Raindrops
-    \foreach \rx/\ry in {2.43/0.55, 2.65/0.60, 2.85/0.52}{
+    \foreach \rx/\ry in {2.43/0.25, 2.65/0.30, 2.85/0.22}{
         \fill[raincol] (\rx,\ry) -- ++(0.04,0.12) -- ++(0.04,-0.12)
             arc[start angle=0, end angle=-180, radius=0.04] -- cycle;
     }
@@ -157,9 +162,7 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
 \node[inner sep=0pt, minimum size=0pt] (goal) at ([xshift=3.2cm, yshift=0cm]marker.east) {};
 \draw[arrow] (gap2.east) to[out=0, in=180] ([xshift=-0.6cm]goal.center);
 \draw[arrow] (gap1.east) to[out=0, in=180] ([xshift=-0.6cm]goal.center);
-\path (-3.5, 0) -- (-3.5, 0); % extend bounding box left to shift diagram right
 \end{tikzpicture}
-\end{minipage}
 
 \vspace{0.3em}
 
@@ -170,7 +173,7 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
 \hfill
 \begin{minipage}[c]{0.16\linewidth}
 \raggedright
-{\small \textbf{Figure 1:} Physical pathway for D2F events, after the framework of Bevacqua et~al.\ [1].}
+{\small \textbf{Fig.\ 1:} Physical pathway for D2F events, after the framework of Bevacqua et~al.\ [1].}
 \end{minipage}
 }
 
@@ -243,31 +246,55 @@ $M$ & number of gridpoints \\
 \headerbox{Results}{name=results,column=0,below=methods,span=3}{
 
 \noindent
-\begin{minipage}[t]{0.48\linewidth}
+\begin{minipage}[t]{0.52\linewidth}
 \vspace{0pt}
-\includegraphics[width=\linewidth]{poster_fig_rankhist.png}\\[-0.3em]
-{\small \textbf{Figure 2:} Rank histograms before/after seasonal LOYO bias correction.}
+\begin{minipage}[c]{0.75\linewidth}
+\includegraphics[width=\linewidth]{poster_fig_rankhist.png}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.24\linewidth}
+\raggedright
+{\small \textbf{Fig.\ 2:} Rank histograms; raw vs seasonal LOYO bias-corrected.}
+\end{minipage}
 
-\vspace{0.3em}
+\vspace{0.2em}
+\tikz[remember picture] \coordinate (fig4anchor) {};%
+\vspace{0.2em}
 
 \noindent
-\begin{minipage}[c]{0.58\linewidth}
+\begin{minipage}[c]{0.75\linewidth}
 \includegraphics[width=\linewidth]{poster_fig_acc.png}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.38\linewidth}
-{\small \textbf{Figure 3:} ACC vs lead time.}
+\begin{minipage}[c]{0.24\linewidth}
+\raggedright
+{\small \textbf{Fig.\ 3:} ACC vs lead time.}
 \end{minipage}
 \end{minipage}%
 \hfill
-\begin{minipage}[t]{0.48\linewidth}
+\begin{minipage}[t]{0.44\linewidth}
 \vspace{0pt}
-\raggedleft
-\includegraphics[width=0.85\linewidth]{poster_fig_crpss.png}\\[0.1em]
-\raggedleft\parbox{0.85\linewidth}{\raggedright\small \textbf{Figure 4:} Fair CRPSS across lead time (bias-corrected).}
+\includegraphics[width=\linewidth]{poster_fig_crpss.png}
 \end{minipage}
 
-\vspace{0.5em}
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=east, text width=3.5cm, align=right, font=\small]
+    at ([xshift=12.3cm, yshift=-0.55cm]fig4anchor)
+    {\textbf{Fig.\ 4:} Fair CRPSS across lead time (bias-corrected).};
+% --- Interpretation box in bottom-right whitespace ---
+\node[anchor=north west, text width=9.5cm, align=left, font=\small,
+      draw=drivcol!70, fill=drivcol!8, rounded corners=4pt,
+      inner xsep=6pt, inner ysep=5pt]
+    at ([xshift=12.0cm, yshift=-2.8cm]fig4anchor)
+    {%
+    \begin{itemize}[leftmargin=1em, itemsep=0.1em, topsep=0em]
+    \item Your interpretation here
+    \item Your interpretation here
+    \item Your interpretation here
+    \end{itemize}
+    };
+\end{tikzpicture}%
+\vspace{0.1em}
 }
 
 %----------------------------------------------------------------------
