@@ -191,7 +191,7 @@ def _mask_non_ireland(ax, proj):
 
 def figure1_acc_leadtime(data, out_path):
     """ACC vs lead time --- annual, DJF, JJA."""
-    fig, ax = plt.subplots(figsize=(4.5, 3.3))
+    fig, ax = plt.subplots(figsize=(5.5, 2.6))
 
     for label, color in [
         ("Annual", C_ANN),
@@ -203,16 +203,17 @@ def figure1_acc_leadtime(data, out_path):
             ax.plot(WEEK_NUMS, vals, "-", color=color,
                     lw=2.5, label=label, zorder=3)
 
-    ax.axhline(0.6, color="#555555", ls="--", lw=1.5, alpha=0.7, zorder=2)
-    ax.text(4.0, 0.62, "useful skill", fontsize=11,
+    ax.axhline(0.6, color="#555555", ls=(0, (8, 4)), lw=1.5, alpha=0.7, zorder=2)
+    ax.text(4.0, 0.62, "useful skill", fontsize=13,
             color="#555555", va="bottom", fontstyle="italic")
     ax.axhline(0, color="grey", ls="-", lw=0.6, alpha=0.4)
 
-    ax.set_xlabel("Week", fontsize=11)
-    ax.set_ylabel("ACC", fontsize=11)
+    ax.set_xlabel("Week", fontsize=13)
+    ax.set_ylabel("ACC", fontsize=13)
     ax.set_xticks(WEEK_NUMS)
     ax.set_ylim(-0.15, 0.75)
-    ax.legend(loc="center right", framealpha=0.9, fontsize=10)
+    ax.tick_params(axis="both", labelsize=12)
+    ax.legend(loc="center right", framealpha=0.9, fontsize=12)
     # No background grid — clean for poster
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -290,9 +291,10 @@ def figure3_crpss_maps(data, out_path):
     lats = data["lats"]
     lons_2d, lats_2d = np.meshgrid(lons, lats)
 
-    levels = [-0.4, -0.3, -0.2, -0.1, -0.05,
+    levels = [-0.5, -0.4, -0.3, -0.2, -0.1, -0.05,
                0.05, 0.1, 0.2, 0.3, 0.4, 0.5]
-    cmap = plt.get_cmap("RdBu", len(levels) - 1)
+    import cmcrameri.cm as cmc
+    cmap = cmc.vik_r.resampled(len(levels) - 1)
     norm = BoundaryNorm(levels, cmap.N)
 
     fig, axes = plt.subplots(1, 3, figsize=(6, 2.8),
@@ -312,32 +314,31 @@ def figure3_crpss_maps(data, out_path):
             dm = data.get(f"crpss_mean_{wk}", 0)
             ax.text(0.03, 0.97, "$\\bar{{x}}$ = {:.2f}".format(dm),
                     transform=ax.transAxes,
-                    fontsize=11, va="top",
-                    bbox=dict(boxstyle="round,pad=0.2", fc="white",
-                              alpha=0.85, edgecolor="none"))
+                    fontsize=11, va="top")
 
         _mask_non_ireland(ax, PROJ)
 
         wk_num = WEEK_NUMS[PLOT_WEEKS.index(wk)]
         ax.set_title(f"Week {wk_num}")
 
-    fig.subplots_adjust(bottom=0.22, top=0.95, wspace=0.0)
+    fig.subplots_adjust(bottom=0.20, top=0.92, wspace=0.0)
 
-    # Horizontal colorbar dynamically centred under the three maps
+    # Horizontal colorbar — use axes position after adjust
     if pcm is not None:
-        # Get the left edge of first axes and right edge of last axes
         pos_left = axes[0].get_position()
         pos_right = axes[-1].get_position()
         cbar_left = pos_left.x0
         cbar_right = pos_right.x0 + pos_right.width
         cbar_width = cbar_right - cbar_left
-        cbar_ax = fig.add_axes([cbar_left, 0.10, cbar_width, 0.04])
+        plot_bottom = pos_left.y0
+        cbar_ax = fig.add_axes([cbar_left, plot_bottom - 0.055, cbar_width, 0.03])
         cbar = fig.colorbar(pcm, cax=cbar_ax, orientation="horizontal",
                             extend="both",
-                            ticks=[-0.4, -0.2, -0.1, 0.0, 0.1, 0.2, 0.4])
+                            ticks=[-0.4, -0.2, -0.1, 0.1, 0.2, 0.4])
         cbar.set_label("Fair CRPSS", fontweight="bold", fontsize=10)
         cbar.ax.tick_params(labelsize=8)
-    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", transparent=True)
+    # No bbox_inches="tight" — use exact layout as set
+    fig.savefig(out_path, dpi=DPI, transparent=True)
     plt.close(fig)
     print(f"  Saved: {out_path.name}")
 
