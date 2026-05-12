@@ -216,65 +216,70 @@ $M$ & number of gridpoints \\
 
 \noindent
 \begin{minipage}[t]{0.48\linewidth}
-\includegraphics[width=\linewidth]{spatial_crpss_poster.png}\\[0.3em]
-{\small \textbf{Figure 2:} Fair CRPSS for ENS extended 2\,m temperature at Weeks 2, 4, and 6. Skill decays with lead time but remains positive across Ireland through Week~6.}
+\vspace{0pt}
+\includegraphics[width=\linewidth]{poster_fig_rankhist.png}\\[-0.3em]
+{\small \textbf{Figure 2:} Rank histograms before/after seasonal LOYO bias correction.}
+
+\vspace{0.3em}
+
+\noindent
+\begin{minipage}[c]{0.58\linewidth}
+\includegraphics[width=\linewidth]{poster_fig_acc.png}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.38\linewidth}
+{\small \textbf{Figure 3:} ACC vs lead time.}
+\end{minipage}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
-\includegraphics[width=\linewidth]{lineplot_skill_poster.png}\\[0.3em]
-{\small \textbf{Figure 3:} Spatial ACC and domain-mean CRPSS vs lead time. Dashed line marks ACC\,=\,0.6 (``useful skill''; Hollingsworth et~al.\ [6]). DJF shows highest deterministic skill; probabilistic skill positive through Week~6.}
+\vspace{0pt}
+\raggedleft
+\includegraphics[width=0.85\linewidth]{poster_fig_crpss.png}\\[0.1em]
+\hfill\parbox{0.92\linewidth}{\raggedright\small \textbf{Figure 4:} Fair CRPSS across lead time (bias-corrected).}
 \end{minipage}
 
 \vspace{1.5em}
 }
 
 %----------------------------------------------------------------------
-% ROW 4 RIGHT: References (defined first so Discussion can bottomalign to it)
+% ROW 4 RIGHT: References
 %----------------------------------------------------------------------
 \headerbox{References}{name=references,column=2,span=1,below=results}{
 
-{\scriptsize\raggedright
-[1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340,\;
-[2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048,\;
-[3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024,\;
-[4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923,\;
-[5]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed., Eq.~7.59,\;
-[6]~Hollingsworth et~al.\ (1980). \textit{Mon.\ Wea.\ Rev.}, 108, 1736--1773.
+{\tiny\raggedright
+[1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340.
+[2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048.
+[3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024.
+[4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923.
+[5]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed., Eq.~7.59.
 }
 }
 
 %----------------------------------------------------------------------
-% ROW 4 LEFT: 5 — Discussion & Future Work
+% ROW 4 LEFT: Future Work
 %----------------------------------------------------------------------
-\headerbox{Discussion \& Future Work}{name=discussion,column=0,below=results,span=2,bottomaligned=references}{
+\headerbox{Future Work}{name=discussion,column=0,below=results,span=2,bottomaligned=references}{
 
-\begin{minipage}[t]{0.35\linewidth}
-\raggedright
-\begin{itemize}[leftmargin=0em, itemsep=0.6em, parsep=0pt, topsep=0pt, label={}]
-\item {\color{green!60!black}\raisebox{-0.15em}{\includegraphics[height=0.9em]{ireland_icon.png}}}\hspace{0.4em} First verification of S2S forecast skill over Ireland
-\item {\color{posternavy}\faChartLine}\hspace{0.4em} DJF strongest deterministic skill; JJA fades by Week~4
-\item {\color{floodblue}\faBalanceScale}\hspace{0.4em} Probabilistic skill robust through Week~6 across all seasons
-\end{itemize}
-\end{minipage}%
-\hfill\vrule width 0.4pt\hfill%
-\begin{minipage}[t]{0.59\linewidth}
-\vspace{0.3em}
+\vspace{-0.2em}
+\begin{center}
 \begin{tikzpicture}[
     arrow/.style={-{Stealth[length=5pt, width=4pt]}, line width=1.2pt, color=black!70},
 ]
-\node[text width=3.8cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
-    (item1) at (0, 0.8)
-    {{\color{drivcol}\faIcon{exchange-alt}}\hspace{0.3em} Compare with SEAS5 \mbox{seasonal} forecasts to map skill across the full S2S timescale};
-\node[text width=3.8cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
-    (item2) at (0, -0.8)
-    {{\color{posternavy}\faSearch}\hspace{0.3em} Create DFT event catalogue; link to catchment and soil properties};
+\node[text width=7.0cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
+    (item1) at (0, 0.6)
+    {{\color{drivcol}\faIcon{exchange-alt}}\hspace{0.3em} Compare with SEAS5 \mbox{seasonal} forecasts\\to map skill across the full S2S timescale};
+\node[text width=7.0cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
+    (item2) at (0, -0.6)
+    {{\color{posternavy}\faSearch}\hspace{0.3em} Create DFT event catalogue for Ireland; link to catchment and soil properties};
 \node[text width=4.5cm, align=center, anchor=west, font=\sffamily\bfseries, inner sep=0pt]
-    (item3) at (4.85, 0)
-    {{\color{impcol}\faMapMarker*}\hspace{0.2em} \textcolor{impcol}{Identify predictable \mbox{at-risk} catchments}};
+    (item3) at (9.0, 0)
+    {{\color{impcol}\faMapMarker*}\hspace{0.2em} \textcolor{impcol}{Identify predictable at-risk catchments}};
 \draw[arrow] (item1.east) to[out=0, in=180] (item3.north west);
 \draw[arrow] (item2.east) to[out=0, in=180] (item3.south west);
 \end{tikzpicture}
-\end{minipage}
+\end{center}
+\vspace{0.5em}
 }
 
 \end{poster}
