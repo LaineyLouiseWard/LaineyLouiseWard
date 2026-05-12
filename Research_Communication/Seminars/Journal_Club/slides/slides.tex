@@ -56,7 +56,7 @@
         \vspace{2.0cm}
 
         {\large\bfseries\color{darkink}
-         Abrupt Drought Termination in the
+         Abrupt \textit{\textcolor{drybrown}{Drought Termination}} in the
          British--Irish Isles Driven by High
          Atmospheric Vapour Transport}
 
@@ -72,10 +72,7 @@
 
     \begin{column}{0.40\textwidth}
         \vspace{0.5cm}
-        \begin{tikzpicture}
-            \fill[drybrown!40] (0,0) rectangle (4.5,3.2);
-            \fill[wetblue!40] (0,3.2) rectangle (4.5,6.4);
-        \end{tikzpicture}
+        \includegraphics[width=4.5cm, height=6.4cm]{drought_bg.png}
     \end{column}
 \end{columns}
 
@@ -97,7 +94,7 @@
     \begin{column}{0.52\textwidth}
 
         {\footnotesize\color{gray} 01}\quad
-        {\normalsize\bfseries\color{darkink} \textcolor{naored}{NAO+} shifts jet stream over Ireland}
+        {\normalsize\bfseries\color{darkink} \textcolor{naored}{NAO+} pushes jet stream south}
 
         \vspace{1.2em}
         \textcolor{gray!30}{\rule{\textwidth}{0.4pt}}
@@ -143,9 +140,13 @@
               minimum width=2.6cm, minimum height=1.7cm,
               fill=wetblue!8] (s3) at (0,3.0) {};
         \node[font=\Large, wetblue] at (0,3.4) {\faCloudRain};
-        \node[font=\bfseries\footnotesize, wetblue] at (0,2.6) {ERA-20C IVT};
+        \node[font=\bfseries\footnotesize, wetblue] at (0,2.6) {IVT (ERA-20C)};
 
-        % Binary series box
+        % Arrows between source boxes
+        \draw[-{Stealth[length=3mm]}, thick, ucdgreen!60] (s1) -- (s2);
+
+        % Sub-slide 2: Binary series box + arrows to it
+        \onslide<2>{
         \node[draw=darkink, thick, rounded corners=8pt,
               minimum width=5.2cm, minimum height=3.6cm,
               fill=darkink!5] (s4) at (8.5,4.4) {};
@@ -169,10 +170,10 @@
              {\bfseries\color{wetblue}1}%
              \texttt{~0~0~0~0}};
 
-        % Arrows
-        \draw[-{Stealth[length=3mm]}, thick, ucdgreen!60] (s1) -- (s2);
+        % Arrows to binary series
         \draw[-{Stealth[length=3mm]}, thick, ucdgreen!60] (s2) -- (s4);
         \draw[-{Stealth[length=3mm]}, thick, wetblue!60] (s3) -- (s4);
+        }
 
     \end{tikzpicture}
 \end{center}
@@ -187,22 +188,27 @@
 
         {\normalsize\bfseries\color{wetblue} 53\%} {\normalsize\bfseries\color{darkink} preceded by high IVT}
 
-        \vspace{1.2em}
-        \textcolor{gray!30}{\rule{\textwidth}{0.4pt}}
-        \vspace{0.3em}
-
-        {\normalsize\bfseries\color{darkink} Most abrupt: \textcolor{naored}{NAO+} + \textcolor{wetblue}{IVT}}
-
+        \onslide<2->{
         \vspace{1.2em}
         \textcolor{gray!30}{\rule{\textwidth}{0.4pt}}
         \vspace{0.3em}
 
         \raisebox{-0.4em}{\includegraphics[height=1.4em,keepaspectratio]{ireland_icon.png}}\;
-        {\normalsize\bfseries\color{darkink} year-round}
+        {\normalsize\bfseries\color{darkink} no seasonality}
+        }
+
+        \onslide<3->{
+        \vspace{1.2em}
+        \textcolor{gray!30}{\rule{\textwidth}{0.4pt}}
+        \vspace{0.3em}
+
+        {\normalsize\bfseries\color{darkink} Most abrupt: \textcolor{naored}{NAO+} \& \textcolor{wetblue}{IVT}}
+        }
 
     \end{column}
 
     \begin{column}{0.60\textwidth}
+        \onslide<3->{
         \begin{center}
             \begin{tikzpicture}
                 \node[inner sep=0pt] (plot) {\includegraphics[width=0.82\textwidth]{fig4c_only.jpg}};
@@ -211,6 +217,7 @@
                     (1.9,1.5) ellipse (1.1cm and 1.3cm);
             \end{tikzpicture}
         \end{center}
+        }
     \end{column}
 \end{columns}
 
@@ -226,19 +233,19 @@
         % Line 1
         \node[font=\footnotesize, gray] at (-4.5,2.0) {01};
         \node[font=\Large\bfseries, darkink, anchor=west] at (-3.8,2.0)
-            {\color{wetblue}\textit{Atmospheric rivers} \color{darkink}break droughts};
+            {\color{wetblue}\textit{Atmospheric rivers} \color{darkink}drive drought termination};
 
         % Line 2
         \draw[gray!30, thick] (-5,1.0) -- (5,1.0);
         \node[font=\footnotesize, gray] at (-4.5,0.0) {02};
         \node[font=\Large\bfseries, darkink, anchor=west] at (-3.8,0.0)
-            {Ireland responds \color{ucdgreen}\textit{year-round}};
+            {\color{ucdgreen}\textit{Abruptness, seasonality, region}};
 
         % Line 3
         \draw[gray!30, thick] (-5,-1.0) -- (5,-1.0);
         \node[font=\footnotesize, gray] at (-4.5,-2.0) {03};
         \node[font=\Large\bfseries, darkink, anchor=west] at (-3.8,-2.0)
-            {Forecasting potential \color{naored}\textit{untested}};
+            {\color{naored}\textit{Untapped potential}};
 
     \end{tikzpicture}
 \end{center}

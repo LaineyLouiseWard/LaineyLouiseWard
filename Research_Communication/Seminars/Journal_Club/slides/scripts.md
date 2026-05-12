@@ -1,14 +1,34 @@
 SLIDE 1: Title
-"This is Parry et al. 2023, Environmental Research Letters. It's about drought termination. Not drought-to-flood transitions, just the return to normal. We understand drought onset fairly well, but what actually ends a drought? I'll go through the hypothesis, how they tested it, and why Ireland is the interesting case."
+"I'm going to present a paper by Parry et al., published in 2023 in Environmental Research Letters. It's called Abrupt Drought Termination in the British-Irish Isles Driven by High Atmospheric Vapour Transport.
+
+As the title says this paper focuses on drought termination, which is much less understood in the literature than drought onset for example. So I'm going to talk about the hypothesis that this paper presents for drought termination, how they test it, and what they find."
 
 SLIDE 2: What's the Hypothesis?
-"Dettinger 2013 found that atmospheric rivers caused up to two thirds of drought terminations in western parts of the US. Parry's team thought the same should apply here. The NAO is the pressure difference between Iceland and the Azores. When it's positive, it promotes the development of atmospheric rivers heading towards the UK and Ireland. These are long, narrow bands of moisture from the subtropics. When they hit the western mountains, uplift concentrates the rainfall. So the chain is: NAO goes positive, atmospheric rivers form, moisture hits the mountains, droughts break."
+"The paper mentions that a paper by Dettinger showed that atmospheric rivers ended about two thirds of droughts in the western USA. And Parry et al. wanted to know if the same mechanism applies to the British-Irish Isles.
+
+The idea is that, that when the North Atlantic Oscillation is positive, which looks like this pattern shown here, you get this low over Iceland and this high over the Azores, well that pushes the jet stream south, and that's what brings these long narrow bands of moisture from the subtropics up over Ireland and the UK. These are called atmospheric rivers. So then they hit mountains along the coast, and you get orographic uplift bringing heavy rainfall. And it's this rainfall that they hypothesise causes droughts to terminate.
+
+In this case termination means that river flows return to normal."
 
 SLIDE 3: How Did They Test It?
-"How did they test it? They used a method called event coincidence analysis. They had simulated river flows for 354 catchments across the UK and Ireland. 110 years of monthly data. From those they picked out drought termination events. That gives you a binary series: did a drought end this month? One or zero. Separately, from reanalysis data, they built an integrated vapour transport series, IVT for short: was vapour transport in the top 25%? Again, one or zero. Then they ask: when you see a termination, was there high IVT in the two months before? Does that happen more often than you'd expect by chance? That's the event coincidence analysis."
+"They used something called event coincidence analysis, on two datasets. 
+
+They had about a century of simulated river flows for a few hundred catchments. From those they use thresholding to pick out drought termination events.
+
+On the bottom, they use integrated vapour transport, or IVT, from ERA-20C reanalysis as a proxy for atmospheric rivers.
+
+Both of these are turned into binary series, which is what you see on the right. A one for when a drought termination or high IVT happens and a zero when it doesn't, at every single time step. So then the question is, when a drought terminates, was there high IVT in the binary series beforehand?"
 
 SLIDE 4: What Did They Find?
-"What did they find? Yes, high IVT does precede drought termination more often than chance. 53% of terminations across the UK and Ireland are preceded by high IVT. It's strongest in the west and in autumn and winter. In Western Scotland, 80% of autumn terminations follow high IVT. Now this plot is from the paper. Each dot is a termination where IVT was in the top 10%. The x-axis is the NAO index, so positive NAO is on the right, in the pink zone. The y-axis is how abrupt the recovery was, so the higher up, the more sudden the drought broke. You can see the most abrupt ones cluster here, in the pink. Strongly positive NAO. But Ireland and the western fringe respond year-round, not just autumn and winter. The soils are wetter and shallower out west, so catchments respond faster to rainfall. When IVT arrives there's less storage to buffer it. The response is immediate."
+"So when they did this coincidence analysis across all drought termination events all catchments in the British-Irish Isles, over half of them were preceded by high IVT. And this connection was strongest in western and southern catchments, particularly in autumn and winter.
+
+But for Ireland, they found that the relationship between high IVT and drought termination doesn't have a seasonality. The paper puts this down to Irish catchments having wetter, shallower soils that respond quickly to rainfall, and being right where the atmospheric river makes its first landfall.
+
+This plot is from the paper. Each dot is a termination event where the associated IVT was in the top ten percent. On the x-axis you have the NAO index, so positive NAO is over on the right in the pink zone. The y-axis is how abrupt the termination was. You can see the most abrupt terminations are associated with strong positive NAO."
 
 SLIDE 5: Conclusion
-"So the paper has three main findings. Atmospheric rivers break droughts across the UK and Ireland. The western fringe, and Ireland in particular, responds year-round. And the gap: IVT and NAO forecasts are more skilful than rainfall forecasts at longer lead times, but nobody has run those forecasts backwards to see if they'd have predicted drought termination. The paper points to the UK Hydrological Outlook as a place to start. That's the open question."
+"So in conclusion, the paper finds that their hypothesis holds. It reinforces what Dettinger found in the western US, and that is that atmospheric rivers, or at least Integrated Vapour Transport, can be a main driver of drought termination.
+
+They also characterised the abruptness, seasonality, and geography of these terminations
+
+And the paper points out that forecasts of NAO and IVT have relatively high skill compared to, say, rainfall at longer lead times. So there's untapped potential to use them for predicting drought termination in real life"
