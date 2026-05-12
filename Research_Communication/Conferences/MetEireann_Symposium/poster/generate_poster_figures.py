@@ -29,12 +29,11 @@ from shapely.ops import unary_union
 import cartopy.io.shapereader as shpreader
 import shapely.geometry as sgeom
 
-# ── Poster-matching font setup (sans-serif, close to lmodern) ────
+# ── Poster-matching font setup (Latin Modern Sans via LaTeX) ──────
 plt.rcParams.update({
-    "text.usetex": False,
+    "text.usetex": True,
     "font.family": "sans-serif",
-    "font.sans-serif": ["DejaVu Sans", "Helvetica", "Arial"],
-    "mathtext.fontset": "dejavusans",
+    "text.latex.preamble": r"\usepackage{lmodern}\renewcommand{\familydefault}{\sfdefault}",
     "axes.labelsize": 10,
     "axes.titlesize": 12,
     "axes.titleweight": "bold",
@@ -181,7 +180,7 @@ def _mask_non_ireland(ax, proj):
 
     geoms = mask_geom.geoms if hasattr(mask_geom, "geoms") else [mask_geom]
     for g in geoms:
-        ax.add_geometries([g], crs=proj, facecolor="white",
+        ax.add_geometries([g], crs=proj, facecolor="#FAFAFA",
                           edgecolor="none", zorder=3)
     # Ireland coastline only (no Scotland/Wales)
     ax.add_geometries([ireland_proj], crs=proj, facecolor="none",
@@ -192,7 +191,7 @@ def _mask_non_ireland(ax, proj):
 
 def figure1_acc_leadtime(data, out_path):
     """ACC vs lead time --- annual, DJF, JJA."""
-    fig, ax = plt.subplots(figsize=(4.5, 3.0))
+    fig, ax = plt.subplots(figsize=(4.5, 3.3))
 
     for label, color in [
         ("Annual", C_ANN),
@@ -204,23 +203,22 @@ def figure1_acc_leadtime(data, out_path):
             ax.plot(WEEK_NUMS, vals, "-", color=color,
                     lw=2.5, label=label, zorder=3)
 
-    ax.axhline(0.6, color=C_SKILL, ls="--", lw=2.0, alpha=0.7, zorder=2)
-    ax.text(4.0, 0.62, "useful skill", fontsize=9,
-            color=C_SKILL, va="bottom", fontstyle="italic")
+    ax.axhline(0.6, color="#555555", ls="--", lw=1.5, alpha=0.7, zorder=2)
+    ax.text(4.0, 0.62, "useful skill", fontsize=11,
+            color="#555555", va="bottom", fontstyle="italic")
     ax.axhline(0, color="grey", ls="-", lw=0.6, alpha=0.4)
 
-    ax.set_xlabel("Week")
-    ax.set_ylabel("ACC")
+    ax.set_xlabel("Week", fontsize=11)
+    ax.set_ylabel("ACC", fontsize=11)
     ax.set_xticks(WEEK_NUMS)
     ax.set_ylim(-0.15, 0.75)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.25),
-              ncol=3, frameon=False, fontsize=8)
+    ax.legend(loc="center right", framealpha=0.9, fontsize=10)
     # No background grid — clean for poster
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
     fig.tight_layout()
-    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", facecolor="white")
+    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", transparent=True)
     plt.close(fig)
     print(f"  Saved: {out_path.name}")
 
@@ -232,8 +230,8 @@ def figure2_rank_histograms(data, out_path):
     fig, axes = plt.subplots(1, 2, figsize=(4.5, 1.6), sharey=True)
 
     for col, (suffix, label, color) in enumerate([
-        ("raw", "Raw", C_RAW),
-        ("bc",  "Bias-corrected", "#7AB648"),  # drivcol green — distinct from blue ACC
+        ("raw", "Raw", "#b0b0b0"),  # lighter grey
+        ("bc",  "Bias-corrected", "#5a9bd5"),  # light blue — distinct from raw grey
     ]):
         ax = axes[col]
         counts = data.get(f"rh_counts_{suffix}")
@@ -244,7 +242,7 @@ def figure2_rank_histograms(data, out_path):
             uniform = n_total / n_ranks
             ax.bar(np.arange(1, n_ranks + 1), counts / 1e3,
                    color=color, alpha=0.8, edgecolor="white", linewidth=0.4)
-            ax.axhline(uniform / 1e3, color="black", ls="--", lw=1.2, alpha=0.5)
+            ax.axhline(uniform / 1e3, color="#555555", ls="--", lw=1.5, alpha=0.7)
 
         ax.set_xlabel("Rank", fontsize=8)
         if col == 0:
@@ -259,25 +257,27 @@ def figure2_rank_histograms(data, out_path):
         ax.text(0.5, 0.95, label, transform=ax.transAxes,
                 fontsize=9, fontweight="bold", ha="center", va="top")
 
-    # Warm/cold bias annotations — symmetric, pointing to rank 1 and 12
+    # Warm/cold bias annotations — equal length, pointing at rank 1 and 12
     ax_raw = axes[0]
     ylim = ax_raw.get_ylim()
     y_arr = ylim[1] * 0.72
-    ax_raw.annotate("warm", xy=(1.0, y_arr), xytext=(4.0, y_arr),
-                    fontsize=7, color="#b2182b", fontstyle="italic",
-                    fontweight="bold", va="center",
+    # Draw arrows separately, then place text next to them
+    from matplotlib.patches import FancyArrowPatch
+    # Warm: arrow from rank 3 to rank 1
+    ax_raw.annotate("", xy=(1.2, y_arr), xytext=(3.2, y_arr),
                     arrowprops=dict(arrowstyle="-|>", color="#b2182b",
-                                    lw=1.5, mutation_scale=12,
-                                    shrinkA=0, shrinkB=2))
-    ax_raw.annotate("cold", xy=(12.0, y_arr), xytext=(9.0, y_arr),
-                    fontsize=7, color="#2166ac", fontstyle="italic",
-                    fontweight="bold", va="center",
+                                    lw=1.5, mutation_scale=12))
+    ax_raw.text(3.4, y_arr, "warm", fontsize=7, color="#b2182b",
+                fontstyle="italic", fontweight="bold", va="center", ha="left")
+    # Cold: arrow from rank 10 to rank 12
+    ax_raw.annotate("", xy=(11.8, y_arr), xytext=(9.8, y_arr),
                     arrowprops=dict(arrowstyle="-|>", color="#2166ac",
-                                    lw=1.5, mutation_scale=12,
-                                    shrinkA=0, shrinkB=2))
+                                    lw=1.5, mutation_scale=12))
+    ax_raw.text(9.6, y_arr, "cold", fontsize=7, color="#2166ac",
+                fontstyle="italic", fontweight="bold", va="center", ha="right")
 
     fig.tight_layout()
-    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", facecolor="white")
+    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", transparent=True)
     plt.close(fig)
     print(f"  Saved: {out_path.name}")
 
@@ -290,11 +290,9 @@ def figure3_crpss_maps(data, out_path):
     lats = data["lats"]
     lons_2d, lats_2d = np.meshgrid(lons, lats)
 
-    import cmcrameri.cm as cmc
     levels = [-0.4, -0.3, -0.2, -0.1, -0.05,
-               0.0,
                0.05, 0.1, 0.2, 0.3, 0.4, 0.5]
-    cmap = cmc.vik_r
+    cmap = plt.get_cmap("RdBu", len(levels) - 1)
     norm = BoundaryNorm(levels, cmap.N)
 
     fig, axes = plt.subplots(1, 3, figsize=(6, 2.8),
@@ -314,7 +312,7 @@ def figure3_crpss_maps(data, out_path):
             dm = data.get(f"crpss_mean_{wk}", 0)
             ax.text(0.03, 0.97, "$\\bar{{x}}$ = {:.2f}".format(dm),
                     transform=ax.transAxes,
-                    fontsize=9, va="top",
+                    fontsize=11, va="top",
                     bbox=dict(boxstyle="round,pad=0.2", fc="white",
                               alpha=0.85, edgecolor="none"))
 
@@ -339,7 +337,7 @@ def figure3_crpss_maps(data, out_path):
                             ticks=[-0.4, -0.2, -0.1, 0.0, 0.1, 0.2, 0.4])
         cbar.set_label("Fair CRPSS", fontweight="bold", fontsize=10)
         cbar.ax.tick_params(labelsize=8)
-    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", facecolor="white")
+    fig.savefig(out_path, dpi=DPI, bbox_inches="tight", transparent=True)
     plt.close(fig)
     print(f"  Saved: {out_path.name}")
 

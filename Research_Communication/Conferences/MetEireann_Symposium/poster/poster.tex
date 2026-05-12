@@ -90,7 +90,7 @@ Towards Subseasonal-to-Seasonal\\[0.15em]
 \noindent
 \begin{minipage}[t]{0.45\linewidth}
 \vspace{0pt}
-Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{drought-to-flood transition (DFT)}}. Globally, \textbf{$\sim$25\% of floods are preceded by drought} [2], and socio-economic losses can be up to \textbf{8x greater} than from isolated hazards [3]. Forecasting DFTs at subseasonal-to-seasonal (S2S) lead times could support early action, but 2 research gaps remain\,\,$\longrightarrow$
+Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!black}{drought-to-flood transition (D2F)}}. Globally, \textbf{$\sim$25\% of floods are preceded by drought} [2], and socio-economic losses can be up to \textbf{8x greater} than from isolated hazards [3]. Forecasting D2Fs at subseasonal-to-seasonal lead times could support early action, but 2 research gaps remain\,\,$\longrightarrow$
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.51\linewidth}
@@ -117,18 +117,46 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{droug
 ]
 \node[gapbox, draw=posternavy!70]
     (gap2) at (-1.5, 0.8)
-    {No catalogue of DFT\\events exists for Ireland};
+    {No catalogue of D2F\\events exists for Ireland};
 \node[thiswork]
     (marker) at (-1.5, 0)
     {$\downarrow$\, Current focus};
 \node[gapbox, draw=drivcol!80!black, dashed]
     (gap1) at (-1.5, -0.8)
-    {S2S forecast skill over\\Ireland has not been assessed};
-\node[goalbox, draw=impcol!80!black, right=3.2cm of marker]
-    (goal)
-    {S2S DFT\\prediction};
-\draw[arrow] (gap2.east) to[out=0, in=180] (goal.west);
-\draw[arrow] (gap1.east) to[out=0, in=180] (goal.west);
+    {Subseasonal-to-seasonal forecast skill over\\Ireland has not been assessed};
+% --- D2F icon: sun + rain conveying drought-to-flood transition ---
+\coordinate (goalanchor) at ([xshift=3.2cm]marker.east);
+\begin{scope}[shift=(goalanchor)]
+    % Sun (drought) — left
+    \definecolor{suncol}{HTML}{F5C242}
+    \fill[suncol!90] (0.9, 1.1) circle (0.28);
+    \foreach \a in {0,45,...,315}{
+        \draw[suncol!90, line width=1.0pt, line cap=round]
+            ({0.9+0.38*cos(\a)},{1.1+0.38*sin(\a)}) --
+            ({0.9+0.52*cos(\a)},{1.1+0.52*sin(\a)});
+    }
+    % Transition arrow
+    \draw[-{Stealth[length=4pt]}, impcol!80!black, line width=0.9pt]
+        (1.6, 1.1) -- (2.1, 1.1);
+    % Rain cloud (flood) — right, aligned with sun centre
+    \definecolor{raincol}{HTML}{1565C0}
+    \fill[black!25] (2.4,1.1) circle (0.18);
+    \fill[black!25] (2.65,1.1) circle (0.22);
+    \fill[black!25] (2.90,1.1) circle (0.16);
+    \fill[black!25] (2.30,1.1) -- (3.00,1.1) -- (3.00,0.95) -- (2.30,0.95) -- cycle;
+    % Raindrops
+    \foreach \rx/\ry in {2.43/0.55, 2.65/0.60, 2.85/0.52}{
+        \fill[raincol] (\rx,\ry) -- ++(0.04,0.12) -- ++(0.04,-0.12)
+            arc[start angle=0, end angle=-180, radius=0.04] -- cycle;
+    }
+    % Label — centred between arrows and right edge
+    \node[font=\sffamily\bfseries, text=impcol!80!black, align=center]
+        at (1.9, -0.25) {Subseasonal-to-seasonal\\D2F prediction};
+\end{scope}
+% anchor node for arrows
+\node[inner sep=0pt, minimum size=0pt] (goal) at ([xshift=3.2cm, yshift=0cm]marker.east) {};
+\draw[arrow] (gap2.east) to[out=0, in=180] ([xshift=-0.6cm]goal.center);
+\draw[arrow] (gap1.east) to[out=0, in=180] ([xshift=-0.6cm]goal.center);
 \path (-3.5, 0) -- (-3.5, 0); % extend bounding box left to shift diagram right
 \end{tikzpicture}
 \end{minipage}
@@ -142,7 +170,7 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol}{droug
 \hfill
 \begin{minipage}[c]{0.16\linewidth}
 \raggedright
-{\small \textbf{Figure 1:} Physical pathway for DFT events, after the framework of Bevacqua et~al.\ [1].}
+{\small \textbf{Figure 1:} Physical pathway for D2F events, after the framework of Bevacqua et~al.\ [1].}
 \end{minipage}
 }
 
@@ -200,7 +228,7 @@ $M$ & number of gridpoints \\
 \textbf{Members} & 11 (1 control + 10 perturbed) \\
 \textbf{Horizon} & Weeks 2--6 \\
 \textbf{Variable} & 2\,m temperature \\
-\textbf{Grid} & 0.28\textdegree{} regular lat-lon (MARS) \\
+\textbf{Grid} & 0.75\textdegree{} regular lat-lon (MARS) \\
 \textbf{Reference} & ERA5 + Met \'Eireann stations \\
 \textbf{Reforecasts} & 2005--2024 \\
 \end{tabular}
@@ -239,7 +267,7 @@ $M$ & number of gridpoints \\
 \hfill\parbox{0.92\linewidth}{\raggedright\small \textbf{Figure 4:} Fair CRPSS across lead time (bias-corrected).}
 \end{minipage}
 
-\vspace{1.5em}
+\vspace{0.5em}
 }
 
 %----------------------------------------------------------------------
@@ -266,20 +294,20 @@ $M$ & number of gridpoints \\
 \begin{tikzpicture}[
     arrow/.style={-{Stealth[length=5pt, width=4pt]}, line width=1.2pt, color=black!70},
 ]
-\node[text width=7.0cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
-    (item1) at (0, 0.6)
-    {{\color{drivcol}\faIcon{exchange-alt}}\hspace{0.3em} Compare with SEAS5 \mbox{seasonal} forecasts\\to map skill across the full S2S timescale};
-\node[text width=7.0cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
-    (item2) at (0, -0.6)
-    {{\color{posternavy}\faSearch}\hspace{0.3em} Create DFT event catalogue for Ireland; link to catchment and soil properties};
+\node[text width=8.5cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
+    (item1) at (-0.5, 0.5)
+    {{\color{drivcol}\faIcon{exchange-alt}}\hspace{0.3em} Compare with SEAS5 seasonal forecasts to map skill\\across the full subseasonal-to-seasonal timescale};
+\node[text width=8.5cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
+    (item2) at (-0.5, -0.5)
+    {{\color{posternavy}\faSearch}\hspace{0.3em} Create D2F event catalogue for Ireland;\\link to catchment and soil properties};
 \node[text width=4.5cm, align=center, anchor=west, font=\sffamily\bfseries, inner sep=0pt]
-    (item3) at (9.0, 0)
-    {{\color{impcol}\faMapMarker*}\hspace{0.2em} \textcolor{impcol}{Identify predictable at-risk catchments}};
+    (item3) at (10.0, 0)
+    {{\color{impcol!80!black}\faMapMarker*}\hspace{0.2em} \textcolor{impcol!80!black}{Identify predictable at-risk catchments}};
 \draw[arrow] (item1.east) to[out=0, in=180] (item3.north west);
 \draw[arrow] (item2.east) to[out=0, in=180] (item3.south west);
 \end{tikzpicture}
 \end{center}
-\vspace{0.5em}
+\vspace{-0.3em}
 }
 
 \end{poster}
