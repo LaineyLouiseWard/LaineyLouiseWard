@@ -27,7 +27,7 @@ But for Ireland, they found that the relationship between high IVT and drought t
 This plot is from the paper. Each dot is a termination event where the associated IVT was in the top ten percent. On the x-axis you have the NAO index, so positive NAO is over on the right in the pink zone. The y-axis is how abrupt the termination was. You can see the most abrupt terminations are associated with strong positive NAO."
 
 SLIDE 5: Conclusion
-"So in conclusion, the paper finds that their hypothesis holds. It reinforces what Dettinger found in the western US, and that is that atmospheric rivers, or at least Integrated Vapour Transport, can be a main driver of drought termination.
+"So in conclusion, the paper finds that their hypothesis hold that atmospheric rivers, or at least Integrated Vapour Transport, can be a main driver of drought termination. It reinforces what Dettinger found in the western US. 
 
 They also characterised the abruptness, seasonality, and geography of these terminations
 
