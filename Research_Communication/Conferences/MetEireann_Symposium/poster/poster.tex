@@ -1,6 +1,7 @@
 \documentclass[a0paper,portrait,fontscale=0.285]{baposter}
 
 \usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -35,6 +36,7 @@
 \definecolor{impcol}{HTML}{C62828}
 \definecolor{droughttan}{HTML}{D4A574}
 \definecolor{floodblue}{HTML}{4A90D9}
+\definecolor{corrblue}{HTML}{5A9BD5}
 
 % Outlined + filled text: white stroke with coloured fill
 \newcommand{\outlinedtext}[2]{% #1=fill colour, #2=text
@@ -128,7 +130,7 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
     {$\downarrow$\, Current focus};
 \node[gapbox, draw=drivcol!80!black, dashed]
     (gap1) at ([xshift=2.5cm, yshift=-2.0cm]pillanchor)
-    {Subseasonal-to-seasonal forecast skill over\\Ireland has not been assessed};
+    {Subseasonal-to-seasonal \textbf{forecast skill} over\\Ireland has \textbf{not been assessed}};
 % --- D2F icon: sun + rain conveying drought-to-flood transition ---
 \coordinate (goalanchor) at ([xshift=3.2cm]marker.east);
 \begin{scope}[shift=(goalanchor)]
@@ -182,38 +184,8 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
 %----------------------------------------------------------------------
 \headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-We verify 2\,m temperature forecasts at \textbf{2--6 week} lead times, pooling all reforecast initialisations (2005--2024) per season and lead. Two complementary metrics are used: \textbf{Fair CRPSS} (Continuous Ranked Probability Skill Score) [4], scored against ERA5 climatology, and \textbf{centred ACC} (Anomaly Correlation Coefficient). Mean bias is removed by leave-one-year-out correction.
-
-\vspace{1.2em}
-
-\newlength{\accboxwidth}
-\setlength{\accboxwidth}{\dimexpr\linewidth-1.0em\relax}% inner text width
-\noindent
-\begin{tikzpicture}
-\node[draw=drivcol!80!black, fill=drivcol!10, rounded corners=6pt, line width=0.8pt,
-      inner sep=0.5em, text width=\accboxwidth] {%
-\begin{minipage}[c]{0.62\accboxwidth}
-$\displaystyle
-\text{ACC} \;=\; \frac{\displaystyle\sum_{m=1}^{M} w_m\,(f'_m - \bar{f}'\,)(o'_m - \bar{o}'\,)}{\left[\displaystyle\sum_{m=1}^{M} w_m\,(f'_m - \bar{f}'\,)^{2}\;\cdot\;\sum_{m=1}^{M} w_m\,(o'_m - \bar{o}'\,)^{2}\right]^{1/2}}
-$
-\end{minipage}%
-\hfill
-\begin{minipage}[c]{0.35\accboxwidth}
-{\footnotesize
-\begin{tabular}{@{}r@{\;=\;}l@{}}
-$f'_m,\; o'_m$ & forecast/observed anomalies \\
-$\bar{f}',\; \bar{o}'$ & area-weighted spatial means \\
-$w_m$ & $\cos\varphi$ (latitude weight) \\
-$M$ & number of gridpoints \\
-\end{tabular}
-
-\vspace{0.3em}
-\hfill{\scriptsize Wilks (2011), Eq.~7.59\; [5]}
-}
-\end{minipage}%
-};
-\end{tikzpicture}
-\vspace{-0.9em}
+As a first step towards D2F prediction, we verify 2\,m temperature forecasts at \textbf{2--6 week} lead times, stratified by season (DJF, JJA) and lead. Mean bias is removed by \textbf{\textcolor{corrblue}{leave-one-year-out}} correction, stratified by season and lead time. We also compare ERA5 against Met~\'Eireann observations to understand our reference's own biases. \textbf{Rank histograms} show whether the ensemble is reliably spread; \textbf{Fair CRPSS} [4] measures probabilistic skill relative to climatology.
+\vspace{0.5em}
 }
 
 %----------------------------------------------------------------------
@@ -221,22 +193,16 @@ $M$ & number of gridpoints \\
 %----------------------------------------------------------------------
 \headerbox{Data}{name=data,column=2,below=introduction,span=1,bottomaligned=methods}{
 
-\begin{center}
-{\small
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}rl@{}}
-\textbf{System} & ECMWF ENS extended-range \\
-\textbf{IFS cycle} & CY49R1 (2024) \\
-\textbf{Init.\ freq.} & Every 2 days \\
-\textbf{Members} & 11 (1 control + 10 perturbed) \\
-\textbf{Horizon} & Weeks 2--6 \\
-\textbf{Variable} & 2\,m temperature \\
-\textbf{Grid} & 0.75\textdegree{} regular lat-lon (MARS) \\
-\textbf{Reference} & ERA5 + Met \'Eireann stations \\
-\textbf{Reforecasts} & 2005--2024 \\
-\end{tabular}
+{\small\sffamily
+\textbf{ECMWF ENS sub-seasonal range} (CY49R1)\\[0.2em]
+11 members \,\textbullet\, init.\ every 2 days \,\textbullet\, weeks 2--6\\[0.2em]
+2\,m temperature \,\textbullet\, 0.75\textdegree{} grid \,\textbullet\, 2006--2016
+
+\vspace{0.3em}
+
+\textbf{Reference data}\\[0.2em]
+ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
 }
-\end{center}
 
 }
 
@@ -248,52 +214,50 @@ $M$ & number of gridpoints \\
 \noindent
 \begin{minipage}[t]{0.52\linewidth}
 \vspace{0pt}
-\begin{minipage}[c]{0.75\linewidth}
-\includegraphics[width=\linewidth]{poster_fig_rankhist.png}
+
+\begin{minipage}[c]{0.70\linewidth}
+\includegraphics[width=\linewidth]{figures/seasonal_cycle_3way.png}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.24\linewidth}
+\begin{minipage}[c]{0.28\linewidth}
 \raggedright
-{\small \textbf{Fig.\ 2:} Rank histograms before and after bias correction.}
+{\small \textbf{Fig.\ 2:} Domain-mean seasonal cycle. ERA5 is cold-biased relative to Met~\'Eireann, especially in JJA. Bias correction aligns the forecast with ERA5 but inherits this cold bias.}
 \end{minipage}
 
-\vspace{0.2em}
-\tikz[remember picture] \coordinate (fig4anchor) {};%
-\vspace{0.2em}
+\vspace{0.4em}
 
 \noindent
-\begin{minipage}[c]{0.75\linewidth}
-\includegraphics[width=\linewidth]{poster_fig_acc.png}
+\begin{minipage}[c]{0.70\linewidth}
+\includegraphics[width=\linewidth]{figures/seasonal_rankhist.png}
 \end{minipage}%
 \hfill
-\begin{minipage}[c]{0.24\linewidth}
+\begin{minipage}[c]{0.28\linewidth}
 \raggedright
-{\small \textbf{Fig.\ 3:} ACC by lead time.}
+{\small \textbf{Fig.\ 3:} Rank histograms (week~6). In JJA, raw forecasts are strongly warm-biased. In DJF, the ensemble is slightly overdispersive. Bias correction improves both, but introduces a slight cold bias from the ERA5 reference.}
 \end{minipage}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.44\linewidth}
 \vspace{0pt}
-\includegraphics[width=\linewidth]{poster_fig_crpss.png}
-\end{minipage}
+\includegraphics[width=\linewidth]{figures/crpss_seasonal_bc.png}
 
-\begin{tikzpicture}[remember picture, overlay]
-\node[anchor=east, text width=3.5cm, align=right, font=\small]
-    at ([xshift=12.3cm, yshift=-0.55cm]fig4anchor)
-    {\textbf{Fig.\ 4:} CRPSS by lead time (bias-corrected).};
-% --- Interpretation box in bottom-right whitespace ---
-\node[anchor=north west, text width=9.5cm, align=left, font=\small,
+{\small \textbf{Fig.\ 4:} Domain-mean Fair CRPSS by lead time and season. Raw JJA skill is near zero; bias correction recovers skill comparable to DJF. After correction, skill is positive to week~6 in both seasons.}
+
+\vspace{1.2em}
+
+\begin{center}
+\begin{tikzpicture}
+\node[text width=0.85\linewidth, align=center, font=\normalsize,
       draw=drivcol!70, fill=drivcol!8, rounded corners=4pt,
-      inner xsep=6pt, inner ysep=5pt]
-    at ([xshift=12.0cm, yshift=-2.8cm]fig4anchor)
-    {%
-    \begin{itemize}[leftmargin=1em, itemsep=0.1em, topsep=0em]
-    \item Your interpretation here
-    \item Your interpretation here
-    \item Your interpretation here
+      inner xsep=8pt, inner ysep=8pt] {%
+    \begin{itemize}[leftmargin=1.2em, itemsep=0.8em, topsep=0.2em, bottomsep=0.2em]
+    \item JJA warm bias is consistent with known IFS limitations in \textbf{soil moisture} and \textbf{vegetation--atmosphere coupling}~[5]
+    \item The forecast \textbf{outperforms the climatological mean} to week~6; \textbf{additional verification metrics} are needed for a complete assessment
     \end{itemize}
     };
-\end{tikzpicture}%
+\end{tikzpicture}
+\end{center}
+\end{minipage}
 \vspace{0.1em}
 }
 
@@ -302,13 +266,14 @@ $M$ & number of gridpoints \\
 %----------------------------------------------------------------------
 \headerbox{References}{name=references,column=2,span=1,below=results}{
 
-{\tiny\raggedright
+{\scriptsize\raggedright
 [1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340.
 [2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048.
 [3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024.
 [4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923.
-[5]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed., Eq.~7.59.
+[5]~Haiden et~al.\ (2018). \textit{ECMWF Newsletter}, 157.
 }
+\vspace{0.2em}
 }
 
 %----------------------------------------------------------------------
@@ -316,25 +281,23 @@ $M$ & number of gridpoints \\
 %----------------------------------------------------------------------
 \headerbox{Future Work}{name=discussion,column=0,below=results,span=2,bottomaligned=references}{
 
-\vspace{-0.2em}
+\vspace{0.15em}
 \begin{center}
 \begin{tikzpicture}[
     arrow/.style={-{Stealth[length=5pt, width=4pt]}, line width=1.2pt, color=black!70},
+    box/.style={text width=3.8cm, align=center, font=\sffamily, inner sep=0pt},
 ]
-\node[text width=8.5cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
-    (item1) at (-0.5, 0.5)
-    {{\color{drivcol}\faIcon{exchange-alt}}\hspace{0.3em} Compare with SEAS5 seasonal forecasts to map skill\\across the full subseasonal-to-seasonal timescale};
-\node[text width=8.5cm, align=left, anchor=west, font=\sffamily, inner sep=0pt]
-    (item2) at (-0.5, -0.5)
-    {{\color{posternavy}\faSearch}\hspace{0.3em} Create D2F event catalogue for Ireland;\\link to catchment and soil properties};
-\node[text width=4.5cm, align=center, anchor=west, font=\sffamily\bfseries, inner sep=0pt]
-    (item3) at (10.0, 0)
-    {{\color{impcol!80!black}\faMapMarker*}\hspace{0.2em} \textcolor{impcol!80!black}{Identify predictable at-risk catchments}};
-\draw[arrow] (item1.east) to[out=0, in=180] (item3.north west);
-\draw[arrow] (item2.east) to[out=0, in=180] (item3.south west);
+\node[box] (item1) at (0, 0)
+    {{\color{drivcol}\faIcon{exchange-alt}}\\[0.3em] Compare with SEAS5\\seasonal forecasts};
+\node[box] (item2) at (5.5, 0)
+    {{\color{posternavy}\faChartBar}\\[0.3em] Assess probabilistic\\verification metrics};
+\node[box] (item3) at (11.0, 0)
+    {{\color{impcol!80!black}\faSlidersH}\\[0.3em] Apply probabilistic\\bias correction};
+\draw[arrow] (item1.east) -- (item2.west);
+\draw[arrow] (item2.east) -- (item3.west);
 \end{tikzpicture}
 \end{center}
-\vspace{-0.3em}
+\vspace{-0.1em}
 }
 
 \end{poster}
