@@ -88,8 +88,8 @@ FC_CLIM_PATH = (_REPO / "DATA" / "PROCESSED" / "SPATIAL_NATIVE" / "EEFH_O320"
 
 # Poster colours
 C_ANN = "#1B2A4A"   # posternavy
-C_DJF = "#4A90D9"   # blue
-C_JJA = "#E8943A"   # orange
+C_DJF = "#5A9BD5"   # blue
+C_JJA = "#C62828"   # dark red
 
 # earthkit map domain (cylindrical / PlateCarree)
 IRELAND_DOMAIN = [-10.8, -5.2, 51.2, 55.7]
@@ -392,27 +392,27 @@ def figure2_acc_leadtime(data, out_path):
     """Spatial (centred) ACC vs lead time — annual, DJF, JJA."""
     fig, ax = plt.subplots(figsize=(6.0, 3.2))
 
-    for label, color, marker in [
-        ("Annual", C_ANN, "o"),
-        ("DJF",    C_DJF, "s"),
-        ("JJA",    C_JJA, "D"),
+    for label, color in [
+        ("Annual", C_ANN),
+        ("DJF",    C_DJF),
+        ("JJA",    C_JJA),
     ]:
         vals = data.get(f"sacc_{label}")
         if vals is not None:
-            ax.plot(WEEK_NUMS, vals, "-", color=color, marker=marker,
-                    ms=7, lw=2.5, label=label, zorder=3)
+            ax.plot(WEEK_NUMS, vals, "-", color=color,
+                    lw=1.8, label=label, zorder=3)
 
-    ax.axhline(0.6, color="#555555", ls=(0, (8, 4)), lw=1.5, alpha=0.7, zorder=2)
-    ax.text(4.0, 0.62, "useful skill", fontsize=13,
+    ax.axhline(0.6, color="#555555", ls=(0, (8, 4)), lw=1.2, alpha=0.7, zorder=2)
+    ax.text(4.0, 0.62, "useful skill", fontsize=11,
             color="#555555", va="bottom", fontstyle="italic")
     ax.axhline(0, color="grey", ls="-", lw=0.6, alpha=0.4)
 
-    ax.set_xlabel("Week", fontsize=13)
-    ax.set_ylabel("Centred ACC", fontsize=13)
+    ax.set_xlabel("Week", fontsize=11)
+    ax.set_ylabel("Centred ACC", fontsize=11)
     ax.set_xticks(WEEK_NUMS)
     ax.set_ylim(-0.15, 0.75)
-    ax.tick_params(axis="both", labelsize=12)
-    ax.legend(loc="center right", framealpha=0.9, fontsize=12)
+    ax.tick_params(axis="both", labelsize=10)
+    ax.legend(loc="center right", frameon=False, fontsize=10)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
@@ -428,24 +428,24 @@ def figure2b_bias_leadtime(data, out_path):
     """Domain-mean anomaly bias vs lead time — annual, DJF, JJA."""
     fig, ax = plt.subplots(figsize=(6.0, 3.2))
 
-    for label, color, marker in [
-        ("Annual", C_ANN, "o"),
-        ("DJF",    C_DJF, "s"),
-        ("JJA",    C_JJA, "D"),
+    for label, color in [
+        ("Annual", C_ANN),
+        ("DJF",    C_DJF),
+        ("JJA",    C_JJA),
     ]:
         vals = data.get(f"bias_{label}")
         if vals is not None:
-            ax.plot(WEEK_NUMS, vals, "-", color=color, marker=marker,
-                    ms=7, lw=2.5, label=label, zorder=3)
+            ax.plot(WEEK_NUMS, vals, "-", color=color,
+                    lw=1.8, label=label, zorder=3)
 
     ax.axhline(0, color="grey", ls="-", lw=0.6, alpha=0.4)
 
-    ax.set_xlabel("Week", fontsize=13)
-    ax.set_ylabel("Bias (\\textdegree C)", fontsize=13)
+    ax.set_xlabel("Week", fontsize=11)
+    ax.set_ylabel("Bias (\\textdegree C)", fontsize=11)
     ax.set_xticks(WEEK_NUMS)
     ax.set_xlim(WEEK_NUMS[0] - 0.3, WEEK_NUMS[-1] + 0.3)
-    ax.tick_params(axis="both", labelsize=12)
-    ax.legend(loc="best", framealpha=0.9, fontsize=12)
+    ax.tick_params(axis="both", labelsize=10)
+    ax.legend(loc="best", frameon=False, fontsize=10)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
@@ -461,26 +461,26 @@ def figure3_crpss_leadtime(data, out_path):
     """Domain-mean CRPSS vs lead time — annual, DJF, JJA (no bias correction)."""
     fig, ax = plt.subplots(figsize=(6.0, 3.2))
 
-    for label, color, marker in [
-        ("Annual", C_ANN, "o"),
-        ("DJF",    C_DJF, "s"),
-        ("JJA",    C_JJA, "D"),
+    for label, color in [
+        ("Annual", C_ANN),
+        ("DJF",    C_DJF),
+        ("JJA",    C_JJA),
     ]:
         vals = data.get(f"crpss_{label}")
         if vals is not None:
-            ax.plot(WEEK_NUMS, vals, "-", color=color, marker=marker,
-                    ms=7, lw=2.5, label=label, zorder=3)
+            ax.plot(WEEK_NUMS, vals, "-", color=color,
+                    lw=1.8, label=label, zorder=3)
 
     ax.axhline(0, color="grey", ls="--", lw=0.8, alpha=0.7, zorder=1)
     ax.text(WEEK_NUMS[-1] + 0.25, 0.01, "climatology", fontsize=9,
             color="#555555", va="bottom", ha="right")
 
-    ax.set_xlabel("Week", fontsize=13)
-    ax.set_ylabel("CRPSS", fontsize=13)
+    ax.set_xlabel("Week", fontsize=11)
+    ax.set_ylabel("CRPSS", fontsize=11)
     ax.set_xticks(WEEK_NUMS)
     ax.set_xlim(WEEK_NUMS[0] - 0.3, WEEK_NUMS[-1] + 0.3)
-    ax.tick_params(axis="both", labelsize=12)
-    ax.legend(loc="upper right", framealpha=0.9, fontsize=12)
+    ax.tick_params(axis="both", labelsize=10)
+    ax.legend(loc="upper right", frameon=False, fontsize=10)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.grid(axis="y", alpha=0.25, lw=0.5)
@@ -507,11 +507,11 @@ def figure4_rank_histogram(data, out_path):
 
     fig, ax = plt.subplots(figsize=(5.0, 2.8))
     ax.bar(np.arange(1, n_ranks + 1), counts / 1e3,
-           color="#E8943A", alpha=0.85, edgecolor="white", linewidth=0.4)
-    ax.axhline(uniform / 1e3, color="#555555", ls="--", lw=1.5, alpha=0.7)
+           color=C_JJA, alpha=0.85, edgecolor=C_JJA, linewidth=0.3)
+    ax.axhline(uniform / 1e3, color="#555555", ls="--", lw=1.2, alpha=0.7)
 
-    ax.set_xlabel("Rank", fontsize=12)
-    ax.set_ylabel("Count ($\\times 10^3$)", fontsize=12)
+    ax.set_xlabel("Rank", fontsize=11)
+    ax.set_ylabel("Count ($\\times 10^3$)", fontsize=11)
     ax.set_xticks([1, 4, 8, 12])
     ax.tick_params(axis="both", labelsize=10)
     ax.spines["top"].set_visible(False)
