@@ -136,9 +136,9 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
 \begin{scope}[shift=(goalanchor)]
     % Sun (drought) — left
     \definecolor{suncol}{HTML}{F5C242}
-    \fill[suncol!90] (0.9, 0.8) circle (0.28);
+    \fill[suncol] (0.9, 0.8) circle (0.28);
     \foreach \a in {0,45,...,315}{
-        \draw[suncol!90, line width=1.0pt, line cap=round]
+        \draw[suncol, line width=1.0pt, line cap=round]
             ({0.9+0.38*cos(\a)},{0.8+0.38*sin(\a)}) --
             ({0.9+0.52*cos(\a)},{0.8+0.52*sin(\a)});
     }
@@ -184,8 +184,7 @@ Floods and droughts can occur in sequence --- a \textbf{\textcolor{impcol!80!bla
 %----------------------------------------------------------------------
 \headerbox{Methods}{name=methods,column=0,below=introduction,span=2}{
 
-As a first step towards D2F prediction, we verify 2\,m temperature forecasts at \textbf{2--6 week} lead times, stratified by season (DJF, JJA) and lead. Mean bias is removed by \textbf{\textcolor{corrblue}{leave-one-year-out}} correction, stratified by season and lead time. We also compare ERA5 against Met~\'Eireann observations to understand our reference's own biases. \textbf{Rank histograms} show whether the ensemble is reliably spread; \textbf{Fair CRPSS} [4] measures probabilistic skill relative to climatology.
-\vspace{0.5em}
+As a first step towards D2F prediction, we verify \textbf{2\,m temperature} forecasts from the ECMWF sub-seasonal ensemble at \textbf{weeks 2--6} over Ireland on the native O320 grid, stratified by season. To remove systematic biases, forecasts and ERA5 observations are each referenced to their own climatology ($\pm$15-day window, 1991--2020); the ERA5 climatology is computed on its N320 grid and bilinearly interpolated to O320. Skill is assessed with \textbf{centred ACC} and \textbf{RMSE}; ensemble calibration with \textbf{rank histograms}~[4].
 }
 
 %----------------------------------------------------------------------
@@ -194,14 +193,14 @@ As a first step towards D2F prediction, we verify 2\,m temperature forecasts at 
 \headerbox{Data}{name=data,column=2,below=introduction,span=1,bottomaligned=methods}{
 
 {\small\sffamily
-\textbf{ECMWF ENS sub-seasonal range} (CY49R1)\\[0.2em]
+\textbf{ECMWF ENS sub-seasonal} (CY49R1)\\[0.2em]
 11 members \,\textbullet\, init.\ every 2 days \,\textbullet\, weeks 2--6\\[0.2em]
-2\,m temperature \,\textbullet\, 0.75\textdegree{} grid \,\textbullet\, 2006--2016
+2\,m temperature \,\textbullet\, O320 grid \,\textbullet\, 2006--2016
 
-\vspace{0.3em}
+\vspace{0.5em}
 
 \textbf{Reference data}\\[0.2em]
-ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
+ERA5 reanalysis \,\textbullet\, Met~\'Eireann observations
 }
 
 }
@@ -221,27 +220,27 @@ ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
 \hfill
 \begin{minipage}[c]{0.28\linewidth}
 \raggedright
-{\small \textbf{Fig.\ 2:} Domain-mean seasonal cycle. ERA5 is cold-biased relative to Met~\'Eireann, especially in JJA. Bias correction aligns the forecast with ERA5 but inherits this cold bias.}
+{\small \textbf{Fig.\ 2:} Domain-mean 2\,m temperature: forecast (weeks 2--6), ERA5, and Met~\'Eireann observations.}
 \end{minipage}
 
 \vspace{0.4em}
 
 \noindent
 \begin{minipage}[c]{0.70\linewidth}
-\includegraphics[width=\linewidth]{figures/seasonal_rankhist.png}
+\includegraphics[width=\linewidth]{poster_fig_acc.png}
 \end{minipage}%
 \hfill
 \begin{minipage}[c]{0.28\linewidth}
 \raggedright
-{\small \textbf{Fig.\ 3:} Rank histograms (week~6). In JJA, raw forecasts are strongly warm-biased. In DJF, the ensemble is slightly overdispersive. Bias correction improves both, but introduces a slight cold bias from the ERA5 reference.}
+{\small \textbf{Fig.\ 3:} (a) Centred ACC and (b) anomaly bias by lead time and season.}
 \end{minipage}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.44\linewidth}
 \vspace{0pt}
-\includegraphics[width=\linewidth]{figures/crpss_seasonal_bc.png}
+\includegraphics[width=\linewidth]{poster_fig_rmse.png}
 
-{\small \textbf{Fig.\ 4:} Domain-mean Fair CRPSS by lead time and season. Raw JJA skill is near zero; bias correction recovers skill comparable to DJF. After correction, skill is positive to week~6 in both seasons.}
+{\small \textbf{Fig.\ 4:} Anomaly RMSE at weeks 2, 4, and 6 over Ireland (O320 grid).}
 
 \vspace{1.2em}
 
@@ -252,7 +251,8 @@ ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
       inner xsep=8pt, inner ysep=8pt] {%
     \begin{itemize}[leftmargin=1.2em, itemsep=0.8em, topsep=0.2em, bottomsep=0.2em]
     \item JJA warm bias is consistent with known IFS limitations in \textbf{soil moisture} and \textbf{vegetation--atmosphere coupling}~[5]
-    \item The forecast \textbf{outperforms the climatological mean} to week~6; \textbf{additional verification metrics} are needed for a complete assessment
+    \item The forecast \textbf{outperforms climatology} to week~6; \textbf{DJF skill exceeds JJA} at early leads
+    % ALT: Positive ACC to week~X confirms \textbf{useful deterministic skill} for temperature prediction over Ireland
     \end{itemize}
     };
 \end{tikzpicture}
@@ -270,8 +270,8 @@ ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
 [1]~Bevacqua et~al.\ (2021). \textit{Earth's Future}, 9, e2021EF002340.
 [2]~Matan\'o et~al.\ (2024). \textit{Environ.\ Res.\ Lett.}, 19, 064048.
 [3]~Worou \& Messori (2025). \textit{Environ.\ Res.\ Lett.}, 20, 104024.
-[4]~Ferro (2014). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 140, 1917--1923.
-[5]~Haiden et~al.\ (2018). \textit{ECMWF Newsletter}, 157.
+[4]~Wilks (2011). \textit{Statistical Methods in the Atmospheric Sciences}, 3rd~ed.
+[5]~Hersbach et~al.\ (2020). \textit{Q.\ J.\ R.\ Meteorol.\ Soc.}, 146, 1999--2049.
 }
 \vspace{0.2em}
 }
@@ -281,7 +281,7 @@ ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
 %----------------------------------------------------------------------
 \headerbox{Future Work}{name=discussion,column=0,below=results,span=2,bottomaligned=references}{
 
-\vspace{0.15em}
+\vspace{1.0em}
 \begin{center}
 \begin{tikzpicture}[
     arrow/.style={-{Stealth[length=5pt, width=4pt]}, line width=1.2pt, color=black!70},
@@ -290,14 +290,14 @@ ERA5 \,\textbullet\, Met~\'Eireann 1\,km gridded obs
 \node[box] (item1) at (0, 0)
     {{\color{drivcol}\faIcon{exchange-alt}}\\[0.3em] Compare with SEAS5\\seasonal forecasts};
 \node[box] (item2) at (5.5, 0)
-    {{\color{posternavy}\faChartBar}\\[0.3em] Assess probabilistic\\verification metrics};
+    {{\color{posternavy}\faChartBar}\\[0.3em] Evaluate probabilistic\\forecast skill};
 \node[box] (item3) at (11.0, 0)
     {{\color{impcol!80!black}\faSlidersH}\\[0.3em] Apply probabilistic\\bias correction};
 \draw[arrow] (item1.east) -- (item2.west);
 \draw[arrow] (item2.east) -- (item3.west);
 \end{tikzpicture}
 \end{center}
-\vspace{-0.1em}
+\vspace{-0.6em}
 }
 
 \end{poster}
