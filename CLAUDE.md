@@ -53,6 +53,10 @@ Keep READMEs factual and scannable. No badges walls, no aspirational feature lis
 - Writing: LaTeX, Zotero (with MCP integration)
 - Version control: Git + GitHub
 
+## Academic Writing
+
+When doing citation/reference checks, be thorough from the start. Actually read what papers study before drawing conclusions. Don't dismiss the need for deep checks — high error rates have been found before.
+
 ## Zotero / paper lookup
 
 When asked to find, read, or reference a research paper:
