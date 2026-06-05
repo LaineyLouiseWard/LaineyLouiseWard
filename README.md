@@ -30,6 +30,7 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 | [ClassImbalance](https://github.com/LaineyLouiseWard/ClassImbalance) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) |
 | [The Ensemble Edit](https://the-ensemble-site.vercel.app) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) |
 | [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) |
+| [Innovate for Ireland — Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea |
 
 ---
 
