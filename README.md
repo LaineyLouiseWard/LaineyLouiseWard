@@ -29,6 +29,7 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 | [S2S_AI](https://github.com/LaineyLouiseWard/S2S_AI) | Verification framework for ECMWF seasonal reforecasts at Irish point locations |
 | [ClassImbalance](https://github.com/LaineyLouiseWard/ClassImbalance) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) |
 | [The Ensemble Edit](https://the-ensemble-site.vercel.app) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) |
+| [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) |
 
 ---
 
