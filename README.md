@@ -24,13 +24,30 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 
 ### Selected projects
 
-| Project | What it does |
-|---------|-------------|
-| [S2S_AI](https://github.com/LaineyLouiseWard/S2S_AI) | Verification framework for ECMWF seasonal reforecasts at Irish point locations |
-| [ClassImbalance](https://github.com/LaineyLouiseWard/ClassImbalance) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) |
-| [The Ensemble Edit](https://the-ensemble-site.vercel.app) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) |
-| [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) |
-| [Innovate for Ireland — Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea |
+| Project | What it does | Activity |
+|---------|--------------|----------|
+| **S2S_AI** | Verification framework for ECMWF seasonal reforecasts at Irish point locations | ![private](https://img.shields.io/badge/private-6e7681?style=flat-square) |
+| [label-quality-ceiling](https://github.com/LaineyLouiseWard/label-quality-ceiling) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/label-quality-ceiling?style=flat-square&color=003D6B) |
+| [The Ensemble Edit](https://the-ensemble-edit.com) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-ensemble-site?style=flat-square&color=003D6B) |
+| [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-indices-of-ireland?style=flat-square&color=003D6B) |
+| [Innovate for Ireland — Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/InnovateforIreland_EcosystemEvent?style=flat-square&color=003D6B) |
+
+---
+
+### Latest from The Ensemble Edit
+
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
+
+→ [Read more on The Ensemble Edit](https://the-ensemble-edit.com/blog)
+
+---
+
+### Activity
+
+[![GitHub streak](https://streak-stats.demolab.com?user=LaineyLouiseWard&hide_border=true&background=0b1622&border=1f2d3d&stroke=1f2d3d&ring=003D6B&fire=FF5D01&currStreakLabel=7fb2e5&sideLabels=7fb2e5&dates=6e7681&sideNums=e6edf5&currStreakNum=e6edf5&excludeDaysLabel=6e7681&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
+
+<sub>Contribution streak across public and private repositories.</sub>
 
 ---
 
@@ -87,5 +104,4 @@ Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). *Water
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lainey-ward)
 [![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0001-2856-8170)
-[![Portfolio](https://img.shields.io/badge/Portfolio-222?style=flat&logo=githubpages&logoColor=white)](https://laineylouiseward.github.io)
-[![The Ensemble Edit](https://img.shields.io/badge/The_Ensemble_Edit-FF5D01?style=flat&logo=astro&logoColor=white)](https://the-ensemble-site.vercel.app)
+[![The Ensemble Edit](https://img.shields.io/badge/The_Ensemble_Edit-FF5D01?style=flat&logo=astro&logoColor=white)](https://the-ensemble-edit.com)

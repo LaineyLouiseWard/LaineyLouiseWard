@@ -1,0 +1,21 @@
+name: Latest blog posts
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull latest posts from The Ensemble Edit
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: "https://the-ensemble-edit.com/rss.xml"
+          max_post_count: 3
+          commit_message: "Update latest blog posts"
