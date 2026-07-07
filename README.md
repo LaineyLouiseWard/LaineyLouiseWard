@@ -43,8 +43,7 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 ### Latest from The Ensemble Edit
 
 <table><tr>
-<!-- BLOG-POST-LIST:START -->
-<!-- BLOG-POST-LIST:END -->
+<!-- BLOG-POST-LIST:START --><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><img src="https://the-ensemble-edit.com/banners/discussion/1.png" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/Discussion-003D6B?style=flat-square" alt="Discussion"/><br/><br/><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><b>For Those Who Are Struggling to Adapt to the Vastness of Research</b></a><br/><sub>Jul 3, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/ai-build-day-the-second-ecosystem-event/"><img src="https://the-ensemble-edit.com/banners/events/1.png" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/Events-003D6B?style=flat-square" alt="Events"/><br/><br/><a href="https://the-ensemble-edit.com/blog/ai-build-day-the-second-ecosystem-event/"><b>Learning to Build with AI &lpar;+ a Sceptical Team&rpar;</b></a><br/><sub>Jul 3, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/creation-of-a-break/"><img src="https://the-ensemble-edit.com/banners/events/1.png" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/Events-003D6B?style=flat-square" alt="Events"/><br/><br/><a href="https://the-ensemble-edit.com/blog/creation-of-a-break/"><b>Creation of a Break</b></a><br/><sub>Jun 17, 2026</sub></td><!-- BLOG-POST-LIST:END -->
 </tr></table>
 
 ---
