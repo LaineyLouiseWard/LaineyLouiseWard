@@ -22,6 +22,12 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 
 ---
 
+### Publications
+
+<a href="https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655"><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/publication.png" width="760" alt="Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study of the Water Absorption Kinetics and of the Role of Nanostructuring. The Journal of Physical Chemistry B, 127(24). Open access at ACS." /></a>
+
+---
+
 ### Selected projects
 
 | Project | What it does | Activity |
@@ -41,8 +47,6 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 - [Learning to Build with AI &lpar;+ a Sceptical Team&rpar;](https://the-ensemble-edit.com/blog/ai-build-day-the-second-ecosystem-event/)
 - [Creation of a Break](https://the-ensemble-edit.com/blog/creation-of-a-break/)
 <!-- BLOG-POST-LIST:END -->
-
-→ [Read more on The Ensemble Edit](https://the-ensemble-edit.com/blog)
 
 ---
 
@@ -94,12 +98,6 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 ![Claude Code](https://img.shields.io/badge/Claude_Code-D4A27F?style=flat&logo=anthropic&logoColor=white)
 ![ChatGPT](https://img.shields.io/badge/ChatGPT-412991?style=flat&logo=openai&logoColor=white)
 ![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000?style=flat&logo=githubcopilot&logoColor=white)
-
----
-
-### Publications
-
-<a href="https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655"><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/publication.png" width="760" alt="Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study of the Water Absorption Kinetics and of the Role of Nanostructuring. The Journal of Physical Chemistry B, 127(24). Open access at ACS." /></a>
 
 ---
 

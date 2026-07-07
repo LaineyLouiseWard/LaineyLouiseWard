@@ -12,7 +12,7 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Pull latest posts from The Ensemble Edit
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
