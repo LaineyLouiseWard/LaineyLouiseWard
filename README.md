@@ -37,6 +37,9 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 ### Latest from The Ensemble Edit
 
 <!-- BLOG-POST-LIST:START -->
+- [For Those Who Are Struggling to Adapt to the Vastness of Research](https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/)
+- [Learning to Build with AI &lpar;+ a Sceptical Team&rpar;](https://the-ensemble-edit.com/blog/ai-build-day-the-second-ecosystem-event/)
+- [Creation of a Break](https://the-ensemble-edit.com/blog/creation-of-a-break/)
 <!-- BLOG-POST-LIST:END -->
 
 → [Read more on The Ensemble Edit](https://the-ensemble-edit.com/blog)
