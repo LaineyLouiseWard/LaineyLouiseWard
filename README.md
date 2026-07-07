@@ -27,10 +27,10 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 | Project | What it does | Activity |
 |---------|--------------|----------|
 | **S2S_AI** | Verification framework for ECMWF seasonal reforecasts at Irish point locations | ![private](https://img.shields.io/badge/private-6e7681?style=flat-square) |
-| [label-quality-ceiling](https://github.com/LaineyLouiseWard/label-quality-ceiling) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/label-quality-ceiling?style=flat-square&color=003D6B) |
-| [The Ensemble Edit](https://the-ensemble-edit.com) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-ensemble-site?style=flat-square&color=003D6B) |
-| [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-indices-of-ireland?style=flat-square&color=003D6B) |
-| [Innovate for Ireland — Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/InnovateforIreland_EcosystemEvent?style=flat-square&color=003D6B) |
+| [label-quality-ceiling](https://github.com/LaineyLouiseWard/label-quality-ceiling) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/label-quality-ceiling?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
+| [The Ensemble Edit](https://the-ensemble-edit.com) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-ensemble-site?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
+| [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-indices-of-ireland?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
+| [Innovate for Ireland — Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/InnovateforIreland_EcosystemEvent?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
 
 ---
 
@@ -97,9 +97,9 @@ Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (Europe
 
 ---
 
-### Publication
+### Publications
 
-Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). *Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study of the Water Absorption Kinetics and of the Role of Nanostructuring.* J. Phys. Chem. B, 127(24). [Open access](https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655)
+<a href="https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655"><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/publication.png" width="760" alt="Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study of the Water Absorption Kinetics and of the Role of Nanostructuring. The Journal of Physical Chemistry B, 127(24). Open access at ACS." /></a>
 
 ---
 
@@ -108,3 +108,11 @@ Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). *Water
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lainey-ward)
 [![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0001-2856-8170)
 [![The Ensemble Edit](https://img.shields.io/badge/The_Ensemble_Edit-FF5D01?style=flat&logo=astro&logoColor=white)](https://the-ensemble-edit.com)
+
+---
+
+### Funded by
+
+<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
+
+<sub>PhD funded through the Innovate for Ireland programme at the UCD Decarb-AI Centre.</sub>
