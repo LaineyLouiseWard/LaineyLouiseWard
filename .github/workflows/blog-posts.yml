@@ -18,4 +18,7 @@ jobs:
         with:
           feed_list: "https://the-ensemble-edit.com/rss.xml"
           max_post_count: 3
+          date_format: "mmm d, yyyy"
+          custom_tags: "coverImage/ee:coverImage/"
+          template: '<td align="center" width="250" valign="top"><a href="$url"><img src="$coverImage" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/$categories-003D6B?style=flat-square" alt="$categories"/><br/><br/><a href="$url"><b>$title</b></a><br/><sub>$date</sub></td>'
           commit_message: "Update latest blog posts"
