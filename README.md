@@ -1,24 +1,12 @@
 ## Lainey Ward
 
-PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie), studying subseasonal-to-seasonal (S2S) predictability of compound weather extremes using machine learning. Funded by [Innovate for Ireland](https://innovateforireland.ie).
+PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, using machine learning for subseasonal-to-seasonal (S2S) prediction of compound weather and climate extremes — how well forecast systems (ECMWF SEAS5) capture drought-to-flood and flood-to-drought transitions over Ireland at 2–8 week lead times, verified against ERA5 and station observations.
 
-Previously an operational aeronautical meteorologist at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction). BSc Physics from UCD.
+Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction); BSc Physics from UCD. Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (CA24144), the European network on subseasonal multi-hazard prediction and early warning.
 
-<a href="https://www.ucd.ie"><img src="https://img.shields.io/badge/University_College_Dublin-003D6B?style=for-the-badge&logoColor=white" alt="University College Dublin" /></a>
-<a href="https://www.met.ie"><img src="https://img.shields.io/badge/Met_Éireann-00A651?style=for-the-badge&logoColor=white" alt="Met Éireann" /></a>
-<a href="https://www.reading.ac.uk"><img src="https://img.shields.io/badge/University_of_Reading-862633?style=for-the-badge&logoColor=white" alt="University of Reading" /></a>
+**Interests:** compound hydroclimatic extremes · teleconnections (MJO, NAO, ENSO) · early warning systems · climate services
 
----
-
-### Research
-
-Investigating how well seasonal forecast systems (ECMWF SEAS5) capture drought-to-flood and flood-to-drought transitions over Ireland at 2-8 week lead times. Building reproducible verification pipelines against ERA5 reanalysis and station observations, with a focus on what's actually predictable and what isn't.
-
-**Methods:** deterministic forecast verification (RMSE, bias, ACC), bootstrap uncertainty, multi-reference validation, xarray-based pipelines
-
-**Interests:** compound hydroclimatic extremes, teleconnections (MJO, NAO, ENSO), early warning systems, climate services
-
-Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (European network on subseasonal multi-hazard prediction).
+<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/affiliations.png" width="560" alt="University College Dublin · Met Éireann · University of Reading · COST Action ANTICIPATE" />
 
 ---
 
