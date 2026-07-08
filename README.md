@@ -1,6 +1,6 @@
 ## Lainey Ward
 
-PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, working on subseasonal-to-seasonal (S2S) prediction of compound hydroclimatic extremes over Ireland. My work verifies how much skill ECMWF's extended-range ensemble holds two to six weeks ahead — scored against ERA5 reanalysis with deterministic and probabilistic metrics (bias, RMSE, ACC, CRPSS, reliability) — as the groundwork for machine-learning post-processing that anticipates drought-to-flood and flood-to-drought transitions.
+PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, working on subseasonal-to-seasonal (S2S) prediction of compound hydroclimatic extremes over Ireland. I do forecast verification: measuring how much skill ECMWF's extended-range ensemble really holds two to six weeks out. It's the groundwork for machine-learning post-processing to predict drought-to-flood and flood-to-drought transitions.
 
 Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction); BSc Physics from UCD. Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (CA24144), the European network on subseasonal multi-hazard prediction and early warning.
 
