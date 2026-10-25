@@ -4,11 +4,13 @@
 
 PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, working on subseasonal-to-seasonal (S2S) prediction of compound hydroclimatic extremes over Ireland. I do forecast verification: measuring how much skill ECMWF's extended-range ensemble has two to six weeks ahead. It's the groundwork for machine-learning post-processing to predict drought-to-flood and flood-to-drought transitions.
 
-Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction); BSc Physics from UCD. Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (CA24144), the European network on subseasonal multi-hazard prediction and early warning.
+Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction); BSc Physics from UCD. Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (CA24144), the European network on subseasonal multi-hazard prediction and early warning. As part of ANTICIPATE, I did a short research visit (a COST STSM) to the University of Strathclyde, working with the UK Met Office on a scoping review of indices for compound weather and climate events.
 
 **Interests:** compound hydroclimatic extremes · forecast verification · early warning systems · climate services
 
 <img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/affiliations.png" width="560" alt="University College Dublin · Met Éireann · University of Reading · COST Action ANTICIPATE" />
+
+<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
 
 ---
 
@@ -31,10 +33,10 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 
 ---
 
-### Latest from The Ensemble Edit
+<a href="https://the-ensemble-edit.com"><img src="https://the-ensemble-edit.com/email/banner.jpg" width="760" alt="The Ensemble Edit: where disciplines converge and ideas diverge" /></a>
 
 <table><tr>
-<!-- BLOG-POST-LIST:START --><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/joy-of-incompetence/"><img src="https://the-ensemble-edit.com/_astro/cover.4yTRfPMV_9OEpP.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/PhD_Tips-003D6B?style=flat-square" alt="PhD_Tips"/><br/><br/><a href="https://the-ensemble-edit.com/blog/joy-of-incompetence/"><b>The joy of one&#39;s own incompetence</b></a><br/><sub>Oct 12, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/babys-first-conference/"><img src="https://the-ensemble-edit.com/_astro/cover.CXTFylWp_1MsVie.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/Events-003D6B?style=flat-square" alt="Events"/><br/><br/><a href="https://the-ensemble-edit.com/blog/babys-first-conference/"><b>Baby&#39;s First Conference!</b></a><br/><sub>Oct 12, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><img src="https://the-ensemble-edit.com/_astro/cover.DM1D80Xu_4QQP5.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://img.shields.io/badge/Discussion-003D6B?style=flat-square" alt="Discussion"/><br/><br/><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><b>For Those Who Are Struggling to Adapt to the Vastness of Research</b></a><br/><sub>Jul 3, 2026</sub></td><!-- BLOG-POST-LIST:END -->
+<!-- BLOG-POST-LIST:START --><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/joy-of-incompetence/"><img src="https://the-ensemble-edit.com/_astro/cover.4yTRfPMV_9OEpP.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/pills/PhD_Tips.svg" height="22" alt="PhD_Tips"/><br/><br/><a href="https://the-ensemble-edit.com/blog/joy-of-incompetence/"><b>The joy of one&#39;s own incompetence</b></a><br/><sub>Oct 12, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/babys-first-conference/"><img src="https://the-ensemble-edit.com/_astro/cover.CXTFylWp_1MsVie.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/pills/Events.svg" height="22" alt="Events"/><br/><br/><a href="https://the-ensemble-edit.com/blog/babys-first-conference/"><b>Baby&#39;s First Conference!</b></a><br/><sub>Oct 12, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><img src="https://the-ensemble-edit.com/_astro/cover.DM1D80Xu_4QQP5.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/pills/Discussion.svg" height="22" alt="Discussion"/><br/><br/><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><b>For Those Who Are Struggling to Adapt to the Vastness of Research</b></a><br/><sub>Jul 3, 2026</sub></td><!-- BLOG-POST-LIST:END -->
 </tr></table>
 
 ---
@@ -95,9 +97,3 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lainey-ward)
 [![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0009-0001-2856-8170)
 [![The Ensemble Edit](https://img.shields.io/badge/The_Ensemble_Edit-FF5D01?style=flat&logo=astro&logoColor=white)](https://the-ensemble-edit.com)
-
----
-
-### Funded by
-
-<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
