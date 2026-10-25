@@ -98,5 +98,3 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 ### Funded by
 
 <img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
-
-<sub>PhD funded through the Innovate for Ireland programme at the UCD Decarb-AI Centre.</sub>
