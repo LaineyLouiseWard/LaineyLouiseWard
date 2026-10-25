@@ -33,9 +33,9 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 
 ---
 
-<a href="https://the-ensemble-edit.com"><img src="https://the-ensemble-edit.com/email/banner.jpg" width="760" alt="The Ensemble Edit: where disciplines converge and ideas diverge" /></a>
-
-<table><tr>
+<table>
+<tr><td colspan="3"><a href="https://the-ensemble-edit.com"><img src="https://the-ensemble-edit.com/email/banner.jpg" width="100%" alt="The Ensemble Edit: where disciplines converge and ideas diverge" /></a></td></tr>
+<tr>
 <!-- BLOG-POST-LIST:START --><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/joy-of-incompetence/"><img src="https://the-ensemble-edit.com/_astro/cover.4yTRfPMV_9OEpP.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/pills/PhD_Tips.svg" height="22" alt="PhD_Tips"/><br/><br/><a href="https://the-ensemble-edit.com/blog/joy-of-incompetence/"><b>The joy of one&#39;s own incompetence</b></a><br/><sub>Oct 12, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/babys-first-conference/"><img src="https://the-ensemble-edit.com/_astro/cover.CXTFylWp_1MsVie.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/pills/Events.svg" height="22" alt="Events"/><br/><br/><a href="https://the-ensemble-edit.com/blog/babys-first-conference/"><b>Baby&#39;s First Conference!</b></a><br/><sub>Oct 12, 2026</sub></td><td align="center" width="250" valign="top"><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><img src="https://the-ensemble-edit.com/_astro/cover.DM1D80Xu_4QQP5.webp" width="240" alt="post cover"/></a><br/><br/><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/pills/Discussion.svg" height="22" alt="Discussion"/><br/><br/><a href="https://the-ensemble-edit.com/blog/for-those-who-are-struggling-to-adapt-to-the-vastness-of-research/"><b>For Those Who Are Struggling to Adapt to the Vastness of Research</b></a><br/><sub>Jul 3, 2026</sub></td><!-- BLOG-POST-LIST:END -->
 </tr></table>
 
