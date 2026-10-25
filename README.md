@@ -1,10 +1,12 @@
 ## Lainey Ward
 
-PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, working on subseasonal-to-seasonal (S2S) prediction of compound hydroclimatic extremes over Ireland. I do forecast verification: measuring how much skill ECMWF's extended-range ensemble really holds two to six weeks out. It's the groundwork for machine-learning post-processing to predict drought-to-flood and flood-to-drought transitions.
+<img align="right" width="300" src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/eowyn.gif" alt="Storm Éowyn over Ireland, 24 January 2025, in Meteosat SEVIRI airmass imagery. © EUMETSAT" />
+
+PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, working on subseasonal-to-seasonal (S2S) prediction of compound hydroclimatic extremes over Ireland. I do forecast verification: measuring how much skill ECMWF's extended-range ensemble has two to six weeks ahead. It's the groundwork for machine-learning post-processing to predict drought-to-flood and flood-to-drought transitions.
 
 Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction); BSc Physics from UCD. Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (CA24144), the European network on subseasonal multi-hazard prediction and early warning.
 
-**Interests:** compound hydroclimatic extremes · teleconnections (MJO, NAO, ENSO) · early warning systems · climate services
+**Interests:** compound hydroclimatic extremes · forecast verification · early warning systems · climate services
 
 <img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/affiliations.png" width="560" alt="University College Dublin · Met Éireann · University of Reading · COST Action ANTICIPATE" />
 
@@ -14,7 +16,7 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 
 <a href="https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01655"><img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/publication.png" width="760" alt="Forero-Martinez, N. C., Cortes-Huerto, R., Ward, L. & Ballone, P. (2023). Water Harvesting by Thermoresponsive Ionic Liquids: A Molecular Dynamics Study of the Water Absorption Kinetics and of the Role of Nanostructuring. The Journal of Physical Chemistry B, 127(24). Open access at ACS." /></a>
 
----
+<!-- Selected projects, hidden for now:
 
 ### Selected projects
 
@@ -24,7 +26,8 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 | [label-quality-ceiling](https://github.com/LaineyLouiseWard/label-quality-ceiling) | Class-imbalanced satellite image segmentation with cross-dataset knowledge transfer (published) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/label-quality-ceiling?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
 | [The Ensemble Edit](https://the-ensemble-edit.com) | PhD student blog I founded on AI and climate (Astro, Tailwind, MDX) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-ensemble-site?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
 | [The Indices of Ireland](https://github.com/LaineyLouiseWard/the-indices-of-ireland) | Interactive map scoring the 26 counties on eight tongue-in-cheek open-data indices (vanilla JS, Leaflet, live on GitHub Pages) | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/the-indices-of-ireland?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
-| [Innovate for Ireland — Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/InnovateforIreland_EcosystemEvent?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
+| [Innovate for Ireland Ecosystem Event](https://github.com/LaineyLouiseWard/InnovateforIreland_EcosystemEvent) | An AI-readiness exercise with the iScholars team: hands-on Claude Code, run with Jonathan McCrea | ![last commit](https://img.shields.io/github/last-commit/LaineyLouiseWard/InnovateforIreland_EcosystemEvent?style=flat-square&logo=git&logoColor=white&label=&color=003D6B) |
+-->
 
 ---
 
@@ -40,11 +43,9 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 
 [![GitHub streak](https://streak-stats.demolab.com?user=LaineyLouiseWard&hide_border=true&background=0b1622&border=1f2d3d&stroke=1f2d3d&ring=003D6B&fire=FF5D01&currStreakLabel=7fb2e5&sideLabels=7fb2e5&dates=6e7681&sideNums=e6edf5&currStreakNum=e6edf5&excludeDaysLabel=6e7681&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
 
-<sub>Contribution streak across public and private repositories.</sub>
-
 ---
 
-### Tools I use regularly
+### Tools
 
 **Research**
 
@@ -54,6 +55,9 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat)
 ![xarray](https://img.shields.io/badge/xarray-E97627?style=flat)
+![Copernicus CDS](https://img.shields.io/badge/Copernicus_CDS-1F5FA8?style=flat)
+![ECMWF MARS](https://img.shields.io/badge/ECMWF_MARS-1F5FA8?style=flat)
+![ecCodes](https://img.shields.io/badge/ecCodes_(GRIB)-1F5FA8?style=flat)
 ![Cartopy](https://img.shields.io/badge/Cartopy-2E86C1?style=flat)
 ![Satpy](https://img.shields.io/badge/Satpy-1B4F72?style=flat)
 ![Rasterio](https://img.shields.io/badge/Rasterio-4B8BBE?style=flat)
@@ -83,7 +87,6 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-D4A27F?style=flat&logo=anthropic&logoColor=white)
 ![ChatGPT](https://img.shields.io/badge/ChatGPT-412991?style=flat&logo=openai&logoColor=white)
-![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000?style=flat&logo=githubcopilot&logoColor=white)
 
 ---
 
