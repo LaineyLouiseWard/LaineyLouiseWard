@@ -2,11 +2,9 @@
 
 <img align="right" width="300" src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/eowyn.gif" alt="Storm Éowyn over Ireland, 24 January 2025, in Meteosat SEVIRI airmass imagery. © EUMETSAT" />
 
-PhD researcher at the [UCD Decarb-AI Centre](https://decarbai.ie) and [Innovate for Ireland](https://innovateforireland.ie) iScholar, working on subseasonal-to-seasonal (S2S) prediction of compound hydroclimatic extremes over Ireland. I do forecast verification: measuring how much skill ECMWF's extended-range ensemble has two to six weeks ahead. It's the groundwork for machine-learning post-processing to predict drought-to-flood and flood-to-drought transitions.
+I'm a PhD researcher at UCD's [Decarb-AI Centre](https://decarbai.ie) and an [Innovate for Ireland](https://innovateforireland.ie) iScholar. I want to know how early we can see a drought turning into a flood, or a flood into a drought. For now that means testing how much skill ECMWF's forecasts have two to six weeks ahead.
 
-Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc in Atmosphere, Ocean and Climate from the University of Reading (Distinction); BSc Physics from UCD. Member of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/) (CA24144), the European network on subseasonal multi-hazard prediction and early warning. As part of ANTICIPATE, I did a short research visit (a COST STSM) to the University of Strathclyde, working with the UK Met Office on a scoping review of indices for compound weather and climate events.
-
-**Interests:** compound hydroclimatic extremes · forecast verification · early warning systems · climate services
+Before the PhD I was a Meteorological Officer at [Met Éireann](https://www.met.ie), after an MSc at the University of Reading. I'm part of [COST Action ANTICIPATE](https://www.cost.eu/actions/CA24144/), and spent a research visit at the University of Strathclyde reviewing compound-event indices.
 
 <img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="University College Dublin · Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
 
