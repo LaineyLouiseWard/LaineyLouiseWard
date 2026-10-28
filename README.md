@@ -8,9 +8,7 @@ Previously a Meteorological Officer at [Met Éireann](https://www.met.ie). MSc i
 
 **Interests:** compound hydroclimatic extremes · forecast verification · early warning systems · climate services
 
-<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/affiliations.png" width="560" alt="University College Dublin · Met Éireann · University of Reading · COST Action ANTICIPATE" />
-
-<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
+<img src="https://raw.githubusercontent.com/LaineyLouiseWard/LaineyLouiseWard/main/assets/funders.png" width="760" alt="University College Dublin · Innovate for Ireland · Taighde Éireann – Research Ireland · Decarb-AI · AIB" />
 
 ---
 
